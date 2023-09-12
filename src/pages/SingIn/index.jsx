@@ -1,7 +1,10 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
 import './App.css';
 
-function App() {
+function SingIn() {
+  const { data } = useContext(MyContext)
+
   return (
     <div className="App">
       <header className="App-header">
