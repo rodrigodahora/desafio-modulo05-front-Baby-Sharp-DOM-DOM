@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
+import '../../index.css';
 import './style.css';
 
 function Login() {
@@ -16,18 +17,20 @@ function Login() {
       <div className='container-input'>
         <h1>Faça seu login!</h1>
 
-        <div className='input-email'>
+        <div className='input-box'>
           <label htmlFor="email">E-mail</label>
           <input type="email" placeholder='Digite seu e-mail' />
+          <span>Este campo deve ser preenchido</span>
         </div>
 
-        <div className='input-password'>
+        <div className='input-box'>
           <label htmlFor="password">Senha</label>
           <input type="password" placeholder='Digite sua senha' />
+          <span>teste</span>
         </div>
 
         <button>Entrar</button>
-        <span>Ainda não possui uma conta? Cadastre-se</span>
+        <p>Ainda não possui uma conta? <a href="/SingIn">Cadastre-se</a></p>
       </div>
     </div>
   );

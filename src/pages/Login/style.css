@@ -36,8 +36,11 @@
   bottom: 640px;
 
   color: #034A2A;
-  font-size: 24px;
   text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .container-input {
@@ -45,28 +48,109 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 960px;
-  height: 100%;
+  width: 355px;
+  height: 335px;
+  margin: 208px 292px 324px 293px;
 }
 
 .container-input h1 {
+  margin-bottom: 32px;
+
+  color: #343447;
+  font-family: Montserrat;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  color: #343447;
+  line-height: 31.2px;
 }
 
-.input-email {
-  margin: 32px 0 20px;
+.input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  align-self: stretch;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+
+.input-box label {
+  color: #344054;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.input-box input {
+  display: flex;
+  padding: 10px 14px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 344px;
+  height: 44px;
+
+  border-radius: 8px;
+  border: 1px solid #D0D5DD;
+  background-color: #fff;
+
+  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+
+  color: #667085;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.container-input span {
+  position: absolute;
+  top: 102%;
+
+  color: #E70000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 .container-input button {
   width: 160px;
-  height: 24px;
+  height: 33px;
+  margin-top: 20px;
+
+  border-radius: 10px;
+  border: none;
 
   background-color: #DA0175;
   color: #F8F8F9;
 
-  border-radius: 10px;
-  border: none;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.container-input p {
+  margin-top: 15px;
+
+  color: #3f3f55;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.container-input p a {
+  color: #DA0175;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  text-decoration-line: underline;
 }
