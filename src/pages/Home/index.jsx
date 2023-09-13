@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import MenuSidebar from '../../components/MenuSidebar';
+import HeaderDash from '../../components/HeaderDash';
 
-function App() {
+import styles from './styles.module.css';
+
+const Home = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <MenuSidebar />
+
+      <div>
+        <HeaderDash />
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default Home;

@@ -1,0 +1,24 @@
+.container {
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+
+  background-color: #F0F0F5;
+
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  padding: 20px 30px;
+
+  color: #343447;
+}
+
+.linkActive {
+  color: #DA0175;
+}
