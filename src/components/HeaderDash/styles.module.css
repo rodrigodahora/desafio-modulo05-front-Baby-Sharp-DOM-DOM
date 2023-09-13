@@ -6,9 +6,27 @@
 
 .container {
   width: 1440px;
-  height: 100vh;
+  height: 112px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  padding: 0 90px;
+  margin: 0 30px;
+
+  border-bottom: 1px solid #ACD9C5;
+}
+
+.container h1 {
+
+}
+
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .profile {
@@ -19,7 +37,26 @@
   height: 48px;
   border-radius: 50%;
   background-color: #DEDEE9;
+  margin-right: 16px;
+
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  color: #0E8750;
 }
+.login strong {
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  color: #0E8750;
+}
+
 .arrow_down {
   width: 24px;
   height: 24px;

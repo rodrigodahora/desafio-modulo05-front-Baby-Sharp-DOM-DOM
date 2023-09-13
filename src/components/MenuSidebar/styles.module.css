@@ -13,24 +13,64 @@ li {
 }
 
 .container {
+  width: 108px;
   height: 100vh;
   
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  gap: 60px;
 
   background-color: #F0F0F5;
-
   /* position: fixed; */
-
 }
 
-.link {
-  display: flex;
-  justify-content: center;
-  padding: 20px 30px;
-
+.container li a {
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   color: #343447;
 }
-.linkActive {
-  color: #DA0175;
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.home div {
+  width: 48px;
+  height: 48px;
+
+  background-image: url(../../assets/home.svg);
+}
+.clients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients div {
+  width: 48px;
+  height: 48px;
+
+  background-image: url(../../assets/cliente_menu.svg);
+}
+
+.charges {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.charges div {
+  width: 48px;
+  height: 48px;
+
+  background-image: url(../../assets/cobranca_menu.svg);
 }
