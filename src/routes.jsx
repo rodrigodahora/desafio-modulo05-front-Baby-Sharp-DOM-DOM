@@ -5,8 +5,8 @@ import {
     Routes
 } from "react-router-dom";
 import { ContextProvider } from "./contexts/MyContext";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
 import SingIn from "./pages/SingIn";
 
 const token = "true";
@@ -32,10 +32,10 @@ export default function MyRoutes() {
 
                 </Route>
                 <Route element={<ProtectedRoutes />}>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/Login" element={<Login />} />
+                    {/* <Route path="/" element={<Login />} />
+                    <Route path="/Login" element={<Login />} /> */}
                     <Route path="/SingIn" element={<SingIn />} />
-                    <Route path="/Home" element={<Home />} />
+                    {/* <Route path="/Home" element={<Home />} /> */}
                 </Route>
             </Routes>
         </ContextProvider>
