@@ -9,7 +9,7 @@ const HeaderDash = () => {
       <div>
         <div className={styles.profile}>LR</div>
         <strong>Lorena</strong>
-        <img src="" alt="" />
+        <div className={styles.arrow_down}></div>
       </div>
     </div>
   );
