@@ -14,11 +14,18 @@
 
 .bgr-image {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   position: relative;
   background-image: url(../../assets/background_login.png);
-  width: 480px;
+  width: 500px;
   height: 900px;
+}
+
+.bgr-filter {
+  width: 482px;
+  height: 882px;
+  background-color: #034a2a1a;
 }
 
 .bgr-image h1 {
@@ -42,9 +49,15 @@
   height: 100%;
 }
 
-.container-input,
-.container-login {
-  display: flex;
+.container-input h1 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  color: #343447;
+}
+
+.input-email {
+  margin: 32px 0 20px;
 }
 
 .container-input button {

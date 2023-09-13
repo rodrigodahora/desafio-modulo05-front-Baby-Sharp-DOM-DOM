@@ -9,7 +9,9 @@ function Login() {
   return (
     <div className='container-login'>
       <div className='bgr-image'>
-        <h1>Gerencie todos os pagamentos da sua empresa em um só lugar.</h1>
+        <div className='bgr-filter'>
+          <h1>Gerencie todos os pagamentos da sua empresa em um só lugar.</h1>
+        </div>
       </div>
       <div className='container-input'>
         <h1>Faça seu login!</h1>
