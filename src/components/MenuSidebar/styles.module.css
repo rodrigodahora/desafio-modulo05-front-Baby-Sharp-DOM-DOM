@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
 .container {
   height: 100vh;
   
@@ -6,9 +20,8 @@
 
   background-color: #F0F0F5;
 
-  /* position: fixed;
-  top: 0;
-  left: 0; */
+  /* position: fixed; */
+
 }
 
 .link {
@@ -18,7 +31,6 @@
 
   color: #343447;
 }
-
 .linkActive {
   color: #DA0175;
 }

@@ -7,7 +7,7 @@ const HeaderDash = () => {
       <h1>Resumo de cobranças</h1>
 
       <div>
-        <img src="" alt="Profile" />
+        <div className={styles.profile}>LR</div>
         <strong>Lorena</strong>
         <img src="" alt="" />
       </div>
