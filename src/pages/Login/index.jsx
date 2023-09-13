@@ -26,7 +26,7 @@ function Login() {
         <div className='input-box'>
           <label htmlFor="password">Senha</label>
           <input type="password" placeholder='Digite sua senha' />
-          <span>teste</span>
+          <span></span>
         </div>
 
         <button>Entrar</button>

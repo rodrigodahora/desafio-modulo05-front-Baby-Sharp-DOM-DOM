@@ -37,7 +37,7 @@
 
   color: #034A2A;
   text-align: center;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -77,7 +77,7 @@
 
 .input-box label {
   color: #344054;
-  font-family: Nunito, sans-serif;
+  font-family: Nunito;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -100,7 +100,7 @@
   box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
 
   color: #667085;
-  font-family: Inter, sans-serif;
+  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -129,7 +129,7 @@
   background-color: #DA0175;
   color: #F8F8F9;
 
-  font-family: Nunito, sans-serif;
+  font-family: Nunito;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
