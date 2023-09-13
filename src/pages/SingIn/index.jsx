@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -18,6 +19,18 @@ function SingIn() {
           Learn React
         </a>
       </header>
+=======
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+import './style.css';
+
+function SingIn() {
+  const { data } = useContext(MyContext)
+
+  return (
+    <div className="App">
+      <h1>teste</h1>
+>>>>>>> 6c96a24f2f45c6163c87c86cb427e0bfaa3b0114
     </div>
   );
 }
