@@ -1,0 +1,154 @@
+.main {
+  width: 100%;
+  padding: 20px 50px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.charges {
+  display: flex;
+  
+  width: 360px;
+  height: 111px;
+  padding: 23px 40px;
+ 
+  border-radius: 30px;
+  background-color: #EEF6F6;
+}
+
+.paid_charges {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ gap: 50px;
+}
+
+.paid_img {
+  width: 33px;
+  height: 37px;
+  background-image: url(../../assets/cobranca_paga.svg);
+}
+
+.paid_value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paid_value h2 {
+  color:  #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.paid_value strong {
+  color: #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.won {
+  display: flex;
+  
+  width: 360px;
+  height: 111px;
+  padding: 23px 40px;
+ 
+  border-radius: 30px;
+  background-color: #FFEFEF;
+}
+
+.won_charges {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ gap: 50px;
+}
+
+.won_img {
+  width: 31px;
+  height: 37px;
+  background-image: url(../../assets/cobranca_vencida.svg);
+}
+
+.won_value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.won_value h2 {
+  color:  #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.won_value strong {
+  color: #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.expected {
+  display: flex;
+  
+  width: 360px;
+  height: 111px;
+  padding: 23px 40px;
+ 
+  border-radius: 30px;
+  background-color: #FCF6DC;
+}
+
+.expected_charges {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ gap: 50px;
+}
+
+.expected_img {
+  width: 31px;
+  height: 37px;
+  background-image: url(../../assets/cobranca_pendente.svg);
+}
+
+.expected_value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expected_value h2 {
+  color:  #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.expected_value strong {
+  color: #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
