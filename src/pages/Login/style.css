@@ -72,6 +72,8 @@
   align-self: stretch;
   margin-bottom: 20px;
   position: relative;
+  width: 344px;
+  height: 70px;
 }
 
 
@@ -90,8 +92,6 @@
   align-items: center;
   gap: 8px;
   align-self: stretch;
-  width: 344px;
-  height: 44px;
 
   border-radius: 8px;
   border: 1px solid #D0D5DD;
@@ -108,7 +108,7 @@
 
 .container-input span {
   position: absolute;
-  top: 102%;
+  top: 105%;
 
   color: #E70000;
   font-family: Inter;
@@ -119,8 +119,11 @@
 }
 
 .container-input button {
+  display: flex;
   width: 160px;
   height: 33px;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
 
   border-radius: 10px;
