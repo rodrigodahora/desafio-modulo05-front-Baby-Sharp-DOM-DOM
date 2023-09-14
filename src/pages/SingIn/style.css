@@ -113,6 +113,7 @@
 .SingIn-right-form-input {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   margin-bottom: 20px;
   gap: 6px;
@@ -120,6 +121,8 @@
 
 .SingIn-right-form button {
   margin: 20px 0 15px;
+
+  cursor: pointer;
 }
 
 .SingIn-right-navigate p {
@@ -153,6 +156,7 @@
 .SingIn-right-form input {
   width: 368px;
   height: 44px;
+  padding-left: 16px;
 
   border-radius: 8px;
   border: 1px solid #D0D5DD;
@@ -169,6 +173,19 @@
   font-weight: 400;
   line-height: 24px;
   /* 150% */
+}
+
+span{
+  display: flex;
+  position: absolute;
+
+  top: 100%;
+  color:  #E70000;
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .SingIn-right-box {

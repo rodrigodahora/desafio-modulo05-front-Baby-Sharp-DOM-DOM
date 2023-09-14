@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
-import { MyContext } from '../../contexts/MyContext';
-import './style.css';
 import { useNavigate } from "react-router-dom";
-import bola0 from "../../assets/bola_undone.svg";
-import bola1 from "../../assets/bola_done.svg";
 import bola2 from "../../assets/bola_check.svg";
 import bola4 from "../../assets/bola_confirmado.svg";
-import lineV from "../../assets/line_v_green.svg";
+import bola1 from "../../assets/bola_done.svg";
+import bola0 from "../../assets/bola_undone.svg";
 import lineHG from "../../assets/line_h_green.svg";
 import lineHW from "../../assets/line_h_white.svg";
+import lineV from "../../assets/line_v_green.svg";
+import { MyContext } from '../../contexts/MyContext';
+import './style.css';
 
 
 
@@ -16,8 +16,15 @@ export default function SingIn() {
   const navigate = useNavigate();
 
   const { data, setData } = useContext(MyContext);
+  const [confPassword, setConfPassword] = useState("");
 
   const [selected, setSelected] = useState(3);
+
+  const [error, setError] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
+  const [errorConfPassword, setErrorConfPassword] = useState("");
 
   function changeCheck(position) {
     if (selected === 3) {
@@ -28,6 +35,12 @@ export default function SingIn() {
     } else if (selected === position) {
       return bola1;
     } else { return bola2 }
+  }
+
+  function handleChange(e) {
+    const key = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [key]: value })
   }
 
 
@@ -61,13 +74,27 @@ export default function SingIn() {
           <h1>Adicione seus dados</h1>
           <div className="SingIn-right-form-input">
             <label htmlFor="name">Nome*</label>
-            <input type="text" name="name" />
+            <input
+              type="text"
+              name="name"
+              value={data.name}
+              placeholder="Digite seu nome"
+              onChange={handleChange}
+            />
+            <span>{errorName}</span>
           </div>
           <div className="SingIn-right-form-input">
             <label htmlFor="email">E-mail*</label>
-            <input type="email" name="email" />
+            <input
+              type="email"
+              name="email"
+              value={data.email}
+              placeholder="Digite seu e-mail"
+              onChange={handleChange}
+            />
+            <span>{errorEmail}</span>
           </div>
-          <button>Continuar</button>
+          <button type="button">Continuar</button>
           <div className="SingIn-right-navigate">
             <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
           </div>
@@ -83,13 +110,25 @@ export default function SingIn() {
           <h1>Adicione seus dados</h1>
           <div className="SingIn-right-form-input">
             <label htmlFor="senha">Senha*</label>
-            <input type="password" name="senha" />
+            <input
+              type="password"
+              name="senha"
+              placeholder="Digite sua senha"
+              onChange={handleChange}
+            />
+            <span>{errorPassword}</span>
           </div>
           <div className="SingIn-right-form-input">
             <label htmlFor="conf-senha">Repita a senha*</label>
-            <input type="password" name="conf-senha" />
+            <input
+              type="password"
+              name="conf-senha"
+              placeholder="Confirme sua senha"
+              onChange={handleChange}
+            />
+            <span>{errorConfPassword}</span>
           </div>
-          <button>Finalizar cadastro</button>
+          <button type="submit">Finalizar cadastro</button>
           <div className="SingIn-right-navigate">
             <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
           </div>
