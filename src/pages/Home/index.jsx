@@ -17,14 +17,7 @@ const Home = () => {
 
         <ListTabs />
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '10px 50px',
-          }}
-        >
-          <ChargesTabs />
+        <div>
           <ChargesTabs />
         </div>
       </div>
