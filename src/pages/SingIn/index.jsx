@@ -9,6 +9,8 @@ import lineHW from "../../assets/line_h_white.svg";
 import lineV from "../../assets/line_v_green.svg";
 import { MyContext } from '../../contexts/MyContext';
 import './style.css';
+import { async } from 'q';
+import api from "../../services/api"
 
 
 
@@ -20,7 +22,7 @@ export default function SingIn() {
 
   const [selected, setSelected] = useState(3);
 
-  const [error, setError] = useState("");
+  const [mainError, setMainError] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorName, setErrorName] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
@@ -40,9 +42,32 @@ export default function SingIn() {
   function handleChange(e) {
     const key = e.target.name;
     const value = e.target.value;
-    setData({ ...data, [key]: value })
+    setData({ ...data, [key]: value });
   }
 
+  async function firstSubmit(e) {
+    e.preventDefault();
+    try {
+      if (!data.nome) {
+        return setErrorName("Informe seu nome")
+      }
+      if (!data.email) {
+        return setErrorEmail("Informe seu email")
+      }
+      const response = await api.post("/teste", data.email)
+    } catch (error) {
+      setMainError(error.response.data.message)
+    }
+  }
+
+  async function finalSubmit(e) {
+    try {
+      const response = await api.post("/teste2", data)
+
+    } catch (error) {
+      setMainError(error.response.data.message)
+    }
+  }
 
   return (
     <div className="SingIn">
@@ -94,7 +119,7 @@ export default function SingIn() {
             />
             <span>{errorEmail}</span>
           </div>
-          <button type="button">Continuar</button>
+          <button type="submit" onClick={firstSubmit}>Continuar</button>
           <div className="SingIn-right-navigate">
             <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
           </div>
