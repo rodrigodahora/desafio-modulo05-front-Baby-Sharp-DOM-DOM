@@ -9,7 +9,6 @@ import lineHW from "../../assets/line_h_white.svg";
 import lineV from "../../assets/line_v_green.svg";
 import { MyContext } from '../../contexts/MyContext';
 import './style.css';
-import { async } from 'q';
 import api from "../../services/api"
 
 
@@ -18,6 +17,7 @@ export default function SingIn() {
   const navigate = useNavigate();
 
   const { data, setData } = useContext(MyContext);
+  const [form, setForm] = useState({ name: "", email: "", senha: "", confSenha: "" })
   const [confPassword, setConfPassword] = useState("");
 
   const [selected, setSelected] = useState(3);
@@ -42,30 +42,31 @@ export default function SingIn() {
   function handleChange(e) {
     const key = e.target.name;
     const value = e.target.value;
-    setData({ ...data, [key]: value });
+    setForm({ ...form, [key]: value });
   }
 
   async function firstSubmit(e) {
     e.preventDefault();
     try {
-      if (!data.nome) {
-        return setErrorName("Informe seu nome")
-      }
-      if (!data.email) {
-        return setErrorEmail("Informe seu email")
-      }
-      const response = await api.post("/teste", data.email)
+      if (!form.name) {
+        return setErrorName("Informe seu nome");
+      } else { setErrorName(""); }
+      const response = await api.post("/verifyEmail", form.email);
+      setSelected(2)
     } catch (error) {
-      setMainError(error.response.data.message)
+      console.log(error);
+      console.log(error);
+      return setMainError(error);
     }
   }
 
   async function finalSubmit(e) {
+    e.preventDefault();
     try {
-      const response = await api.post("/teste2", data)
+      const response = await api.post("/registerUser", form);
 
     } catch (error) {
-      setMainError(error.response.data.message)
+      setMainError(error.response.data.message);
     }
   }
 
@@ -102,7 +103,7 @@ export default function SingIn() {
             <input
               type="text"
               name="name"
-              value={data.name}
+              value={form.name}
               placeholder="Digite seu nome"
               onChange={handleChange}
             />
@@ -113,13 +114,13 @@ export default function SingIn() {
             <input
               type="email"
               name="email"
-              value={data.email}
+              value={form.email}
               placeholder="Digite seu e-mail"
               onChange={handleChange}
             />
             <span>{errorEmail}</span>
           </div>
-          <button type="submit" onClick={firstSubmit}>Continuar</button>
+          <button type="button" onClick={firstSubmit}>Continuar</button>
           <div className="SingIn-right-navigate">
             <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
           </div>
@@ -153,7 +154,7 @@ export default function SingIn() {
             />
             <span>{errorConfPassword}</span>
           </div>
-          <button type="submit">Finalizar cadastro</button>
+          <button type="button">Finalizar cadastro</button>
           <div className="SingIn-right-navigate">
             <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
           </div>
