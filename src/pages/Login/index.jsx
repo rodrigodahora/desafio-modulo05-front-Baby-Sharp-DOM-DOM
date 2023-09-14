@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { MyContext } from '../../contexts/MyContext';
-import api from "../../services/api";
 import '../../index.css';
+import api from "../../services/api";
 import './style.css';
 
 function Login() {
