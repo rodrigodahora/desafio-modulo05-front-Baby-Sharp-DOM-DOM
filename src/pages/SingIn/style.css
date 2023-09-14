@@ -175,12 +175,12 @@
   /* 150% */
 }
 
-span{
+span {
   display: flex;
   position: absolute;
 
   top: 100%;
-  color:  #E70000;
+  color: #E70000;
   font-family: Nunito;
   font-size: 12px;
   font-style: normal;
