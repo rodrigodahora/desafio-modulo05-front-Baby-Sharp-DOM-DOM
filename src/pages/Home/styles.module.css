@@ -1,0 +1,18 @@
+* {
+margin: 0;
+box-sizing: border-box;
+}
+
+.container {
+  width: 1440px;
+  height: 100vh;
+  display: flex;
+
+  background-color: #F8F8F9;
+}
+
+.containerChild {
+  width: 100%;
+  padding: 0px 40px;
+}
+

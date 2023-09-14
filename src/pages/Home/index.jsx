@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import MenuSidebar from '../../components/MenuSidebar';
+import HeaderDash from '../../components/HeaderDash';
+import '../../index.css';
 
-function App() {
+import styles from './styles.module.css';
+import ListTabs from '../../components/ListTabs';
+import ChargesTabs from '../../components/ChargesTabs';
+
+const Home = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={styles.container}>
+      <MenuSidebar />
+
+      <div className={styles.containerChild}>
+        <HeaderDash />
+
+        <ListTabs />
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '10px 50px',
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <ChargesTabs />
+          <ChargesTabs />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default Home;
