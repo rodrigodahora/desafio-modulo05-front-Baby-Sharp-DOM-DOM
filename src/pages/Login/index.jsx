@@ -23,7 +23,8 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await api.post("/login", data.email, data.password);
+      console.log(data.email, data.password);
+      const response = await api.post("/login", [data.email, data.password]);
       navigate("/Home");
     } catch (error) {
       return console.log(error);
@@ -53,10 +54,10 @@ function Login() {
         </div>
 
         <div className='input-box'>
-          <label htmlFor="senha">Senha</label>
+          <label htmlFor="password">Senha</label>
           <input
             type="password"
-            name='senha'
+            name='password'
             placeholder='Digite sua senha'
             onChange={handleChange}
           />
