@@ -52,9 +52,9 @@ export default function SingIn() {
         return setErrorName("Informe seu nome");
       } else { setErrorName(""); }
       const response = await api.post("/verifyEmail", form.email);
+      console.log("chegou");
       setSelected(2)
     } catch (error) {
-      console.log(error);
       console.log(error);
       return setMainError(error);
     }
