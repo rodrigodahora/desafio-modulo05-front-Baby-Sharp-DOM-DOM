@@ -23,7 +23,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await api.post("/login", data.email);
+      const response = await api.post("/login", data.email, data.password);
       navigate("/Home");
     } catch (error) {
       return console.log(error);
