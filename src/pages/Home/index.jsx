@@ -6,26 +6,28 @@ import '../../index.css';
 import styles from './styles.module.css';
 import ListTabs from '../../components/ListTabs';
 import ChargesTabs from '../../components/ChargesTabs';
+import ClientsTabs from '../../components/ClientsTabs';
+
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
 
 const Home = () => {
+  const { setSelected } = useContext(MyContext);
+  setSelected(1);
   return (
     <div className={styles.container}>
+      <HeaderDash />
       <MenuSidebar />
 
       <div className={styles.containerChild}>
-        <HeaderDash />
-
         <ListTabs />
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '10px 50px',
-          }}
-        >
+        <div>
           <ChargesTabs />
-          <ChargesTabs />
+        </div>
+
+        <div>
+          <ClientsTabs />
         </div>
       </div>
     </div>
