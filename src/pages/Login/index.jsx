@@ -23,11 +23,23 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      console.log(data.email, data.password);
-      const response = await api.post("/login", [data.email, data.password]);
+      if (!data.email) {
+        return setErrorEmail('O campo deve ser preenchido!');
+      } else {
+        setErrorEmail("");
+      }
+      if (!data.password) {
+        return setErrorPassword('O campo deve ser preenchido!');
+      } else {
+        setErrorPassword("");
+      }
+
+      const response = await api.post("/login", { email: data.email, password: data.password });
       navigate("/Home");
     } catch (error) {
-      return console.log(error);
+      if (error.response.data.message === "Email ou senha inválido!") {
+        setMainError(error.response.data.message);
+      }
     }
   }
 
@@ -50,7 +62,7 @@ function Login() {
             placeholder='Digite seu e-mail'
             onChange={handleChange}
           />
-          <span>{errorEmail}</span>
+          <span>{!errorEmail ? mainError : errorEmail}</span>
         </div>
 
         <div className='input-box'>
@@ -61,7 +73,7 @@ function Login() {
             placeholder='Digite sua senha'
             onChange={handleChange}
           />
-          <span>{errorPassword}</span>
+          <span>{!errorPassword ? mainError : errorPassword}</span>
         </div>
 
         <button
