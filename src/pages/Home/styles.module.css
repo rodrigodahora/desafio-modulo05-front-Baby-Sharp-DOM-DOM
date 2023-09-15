@@ -4,15 +4,17 @@ box-sizing: border-box;
 }
 
 .container {
-  width: 1440px;
-  height: 100vh;
   display: flex;
+  width: 1440px;
+  height: 1129px;
 
+  
   background-color: #F8F8F9;
 }
 
 .containerChild {
   width: 100%;
-  padding: 0px 40px;
+  
+  padding: 112px 0 0 108px;
 }
 
