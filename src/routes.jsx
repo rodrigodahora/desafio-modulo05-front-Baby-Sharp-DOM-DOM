@@ -3,6 +3,7 @@ import { ContextProvider } from './contexts/MyContext';
 import Home from './pages/Home';
 import Login from "./pages/Login";
 import SingIn from './pages/SingIn';
+import Client from './pages/Client';
 
 const token = 'true';
 
