@@ -10,27 +10,31 @@ import ClientsTabs from '../../components/ClientsTabs';
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
+import ModalEditUser from '../../components/ModalEditUser';
 
 const Home = () => {
   const { setSelected } = useContext(MyContext);
   setSelected(1);
   return (
-    <div className={styles.container}>
-      <HeaderDash />
-      <MenuSidebar />
+    <React.Fragment className={styles.mod}>
+      <ModalEditUser />
+      <div className={styles.container}>
+        <HeaderDash />
+        <MenuSidebar />
 
-      <div className={styles.containerChild}>
-        <ListTabs />
+        <div className={styles.containerChild}>
+          <ListTabs />
 
-        <div>
-          <ChargesTabs />
-        </div>
+          <div>
+            <ChargesTabs />
+          </div>
 
-        <div>
-          <ClientsTabs />
+          <div>
+            <ClientsTabs />
+          </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
