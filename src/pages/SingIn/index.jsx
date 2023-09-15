@@ -17,10 +17,8 @@ export default function SingIn() {
   const navigate = useNavigate();
 
   const { data, setData } = useContext(MyContext);
-  const [form, setForm] = useState({ name: "", email: "", senha: "", confSenha: "" })
-  const [confPassword, setConfPassword] = useState("");
 
-  const [selected, setSelected] = useState(3);
+  const [selected, setSelected] = useState(1);
 
   const [mainError, setMainError] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
@@ -42,31 +40,53 @@ export default function SingIn() {
   function handleChange(e) {
     const key = e.target.name;
     const value = e.target.value;
-    setForm({ ...form, [key]: value });
+    setData({ ...data, [key]: value });
   }
 
   async function firstSubmit(e) {
     e.preventDefault();
     try {
-      if (!form.name) {
-        return setErrorName("Informe seu nome");
+      if (!data.name) {
+        return setErrorName("Informe seu nome!");
       } else { setErrorName(""); }
-      const response = await api.post("/verifyEmail", form.email);
-      console.log("chegou");
-      setSelected(2)
+      const response = await api.post("/emailVerify", { email: data.email });
+      setErrorEmail("");
+      setSelected(2);
     } catch (error) {
-      console.log(error);
-      return setMainError(error);
+      if (error.response) {
+        return setErrorEmail(error.response.data.message);
+      }
     }
   }
 
   async function finalSubmit(e) {
     e.preventDefault();
     try {
-      const response = await api.post("/registerUser", form);
+
+      if (!data.password) {
+        return setErrorPassword("Informe sua senha!")
+      } else { setErrorPassword("") }
+      if (!data.confPassword) {
+        return setErrorConfPassword("Informe novamente sua senha!")
+      } else { setErrorConfPassword("") }
+      if (data.password !== data.confPassword) {
+        return setErrorConfPassword("As senhas não conferem!")
+      } else { setErrorConfPassword("") }
+
+      const response = await api.post("/registerUser", {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        confPassword: data.confPassword
+      });
+
+      setSelected(3);
 
     } catch (error) {
-      setMainError(error.response.data.message);
+      console.log(error)
+      if (error.response) {
+        return setMainError(error.response.data.message);
+      }
     }
   }
 
@@ -74,9 +94,9 @@ export default function SingIn() {
     <div className="SingIn">
       <div className="SingIn-left">
         <div className="SingIn-left-menu-check">
-          <img src={changeCheck(1)} onClick={() => { setSelected((selected >= 1) ? 1 : selected) }} alt="click" />
+          <img src={changeCheck(1)} onClick={() => { setSelected((selected >= 1 && selected !== 3) ? 1 : selected) }} alt="click" />
           <img src={lineV} alt="" />
-          <img src={changeCheck(2)} onClick={() => { setSelected((selected >= 2) ? 2 : selected) }} alt="click" />
+          <img src={changeCheck(2)} onClick={() => { setSelected((selected >= 2 && selected !== 3) ? 2 : selected) }} alt="click" />
           <img src={lineV} alt="" />
           <img src={changeCheck(3)} onClick={() => { setSelected((selected >= 3) ? 3 : selected) }} alt="click" />
         </div>
@@ -103,7 +123,7 @@ export default function SingIn() {
             <input
               type="text"
               name="name"
-              value={form.name}
+              value={data.name}
               placeholder="Digite seu nome"
               onChange={handleChange}
             />
@@ -114,7 +134,7 @@ export default function SingIn() {
             <input
               type="email"
               name="email"
-              value={form.email}
+              value={data.email}
               placeholder="Digite seu e-mail"
               onChange={handleChange}
             />
@@ -138,7 +158,7 @@ export default function SingIn() {
             <label htmlFor="senha">Senha*</label>
             <input
               type="password"
-              name="senha"
+              name="password"
               placeholder="Digite sua senha"
               onChange={handleChange}
             />
@@ -148,13 +168,13 @@ export default function SingIn() {
             <label htmlFor="conf-senha">Repita a senha*</label>
             <input
               type="password"
-              name="conf-senha"
+              name="confPassword"
               placeholder="Confirme sua senha"
               onChange={handleChange}
             />
             <span>{errorConfPassword}</span>
           </div>
-          <button type="button">Finalizar cadastro</button>
+          <button type="button" onClick={finalSubmit}>Finalizar cadastro</button>
           <div className="SingIn-right-navigate">
             <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
           </div>
