@@ -7,6 +7,7 @@ import "./style.css"
 import ClientTabel from '../../components/ClientTabel';
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
+import ClientModal from '../../components/ClientModal';
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
@@ -32,7 +33,9 @@ const Client = () => {
                     <ClientTabel />
                 </div>
             </div>
+            <ClientModal />
         </div>
+
     );
 };
 
