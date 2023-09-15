@@ -3,7 +3,6 @@ import MenuSidebar from '../../components/MenuSidebar';
 import HeaderDash from '../../components/HeaderDash';
 import '../../index.css';
 
-import styles from './styles.module.css';
 import ListTabs from '../../components/ListTabs';
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
@@ -15,19 +14,21 @@ const Client = () => {
     const { setSelected } = useContext(MyContext);
     setSelected(1);
     return (
-        <div className={styles.container}>
+        <div className="Client">
             <HeaderDash />
             <MenuSidebar />
 
-            <div className={styles.containerChild}>
-                <ListTabs />
-
-                <div>
-                    <ChargesTabs />
+            <div className="Client-body">
+                <div className="Client-body-header">
+                    <div>
+                        cliente
+                    </div>
+                    <div>
+                        utilidades
+                    </div>
                 </div>
+                <div className="Client-body-tabel">
 
-                <div>
-                    <ClientsTabs />
                 </div>
             </div>
         </div>

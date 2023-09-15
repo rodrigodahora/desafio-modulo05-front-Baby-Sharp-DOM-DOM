@@ -1,0 +1,15 @@
+.Client {
+    display: flex;
+    box-sizing: border-box;
+
+    width: 1440px;
+    height: 1129px;
+    margin: 0;
+    padding: 0;
+
+    background-color: #F8F8F9;
+}
+
+.Client-body {
+    margin: 143px 108px 45px 206px;
+}
