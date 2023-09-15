@@ -11,5 +11,17 @@
 }
 
 .Client-body {
-    margin: 143px 108px 45px 206px;
+    padding: 143px 108px 45px 206px;
+}
+
+.Client-body-header {
+    background-color: rgb(0, 255, 98);
+
+}
+
+.Client-body-tabel {
+    display: flex;
+    position: relative;
+
+    background-color: aqua;
 }

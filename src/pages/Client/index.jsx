@@ -2,8 +2,9 @@ import React from 'react';
 import MenuSidebar from '../../components/MenuSidebar';
 import HeaderDash from '../../components/HeaderDash';
 import '../../index.css';
+import "./style.css"
 
-import ListTabs from '../../components/ListTabs';
+import ClientTabel from '../../components/ClientTabel';
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
 
@@ -28,7 +29,7 @@ const Client = () => {
                     </div>
                 </div>
                 <div className="Client-body-tabel">
-
+                    <ClientTabel />
                 </div>
             </div>
         </div>
