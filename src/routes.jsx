@@ -29,7 +29,7 @@ export default function MyRoutes() {
           <Route path="/Login" element={<Login />} />
           <Route path="/SingIn" element={<SingIn />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/client" element={<Client />} />
+          <Route path="/Client" element={<Client />} />
         </Route>
       </Routes>
     </ContextProvider>
