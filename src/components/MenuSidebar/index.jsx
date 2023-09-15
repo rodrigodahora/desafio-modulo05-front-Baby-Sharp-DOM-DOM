@@ -6,12 +6,15 @@ import homeSelect from '../../assets/home_select.svg';
 import client from '../../assets/cliente_menu.svg';
 import clientSelect from '../../assets/clientes_selected.svg';
 import charge from '../../assets/cobranca_menu.svg';
-
+import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
+
 const MenuSidebar = () => {
-  const { selected } = useContext(MyContext);
+  const navigate = useNavigate();
+
+  const { selected, setSelected } = useContext(MyContext);
 
   return (
     <ul className={styles.container}>
@@ -19,6 +22,10 @@ const MenuSidebar = () => {
         className={
           selected === 1 ? `${styles.home}  ${styles.selected}` : styles.home
         }
+        onClick={() => {
+          setSelected(1);
+          navigate("/Home");
+        }}
       >
         <div>
           <img src={selected === 1 ? homeSelect : home} alt="Button-home" />
@@ -36,6 +43,10 @@ const MenuSidebar = () => {
             ? `${styles.clients}  ${styles.selected}`
             : styles.clients
         }
+        onClick={() => {
+          setSelected(2);
+          navigate("/Client");
+        }}
       >
         <div>
           <img
@@ -56,6 +67,10 @@ const MenuSidebar = () => {
             ? `${styles.charges}  ${styles.selected}`
             : styles.charges
         }
+        onClick={() => {
+          setSelected(1);
+          navigate("/home");
+        }}
       >
         <div>
           <img src={selected === 3 ? charge : charge} alt="Button-charge" />
