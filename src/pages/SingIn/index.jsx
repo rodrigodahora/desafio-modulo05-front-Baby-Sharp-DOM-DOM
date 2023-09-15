@@ -7,6 +7,8 @@ import bola0 from "../../assets/bola_undone.svg";
 import lineHG from "../../assets/line_h_green.svg";
 import lineHW from "../../assets/line_h_white.svg";
 import lineV from "../../assets/line_v_green.svg";
+import eyeOff from "../../assets/eye_off.svg";
+
 import { MyContext } from '../../contexts/MyContext';
 import './style.css';
 import api from "../../services/api"
@@ -17,6 +19,8 @@ export default function SingIn() {
   const navigate = useNavigate();
 
   const { data, setData } = useContext(MyContext);
+  const [eyePassword, setEyePassword] = useState(false)
+  const [eyeConfPassword, setEyeConfPassword] = useState(false)
 
   const [selected, setSelected] = useState(1);
 
@@ -45,13 +49,18 @@ export default function SingIn() {
 
   async function firstSubmit(e) {
     e.preventDefault();
+
     try {
+
       if (!data.name) {
         return setErrorName("Informe seu nome!");
       } else { setErrorName(""); }
+
       const response = await api.post("/emailVerify", { email: data.email });
+
       setErrorEmail("");
       setSelected(2);
+
     } catch (error) {
       if (error.response) {
         return setErrorEmail(error.response.data.message);
@@ -61,6 +70,7 @@ export default function SingIn() {
 
   async function finalSubmit(e) {
     e.preventDefault();
+
     try {
 
       if (!data.password) {
@@ -157,21 +167,24 @@ export default function SingIn() {
           <div className="SingIn-right-form-input">
             <label htmlFor="senha">Senha*</label>
             <input
-              type="password"
+              type={eyePassword ? "text" : "password"}
               name="password"
               placeholder="Digite sua senha"
               onChange={handleChange}
             />
+            <img src={eyeOff} onClick={() => { setEyePassword(!eyePassword) }} alt="" />
+
             <span>{errorPassword}</span>
           </div>
           <div className="SingIn-right-form-input">
             <label htmlFor="conf-senha">Repita a senha*</label>
             <input
-              type="password"
+              type={eyeConfPassword ? "text" : "password"}
               name="confPassword"
               placeholder="Confirme sua senha"
               onChange={handleChange}
             />
+            <img src={eyeOff} onClick={() => (setEyeConfPassword(!eyeConfPassword))} alt="" />
             <span>{errorConfPassword}</span>
           </div>
           <button type="button" onClick={finalSubmit}>Finalizar cadastro</button>
