@@ -3,6 +3,7 @@ import { ContextProvider } from './contexts/MyContext';
 import Home from './pages/Home';
 import Login from "./pages/Login";
 import SingIn from './pages/SingIn';
+import Client from './pages/Client';
 
 const token = 'true';
 
@@ -28,7 +29,7 @@ export default function MyRoutes() {
           <Route path="/Login" element={<Login />} />
           <Route path="/SingIn" element={<SingIn />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/client" element={<Client />} />
+          <Route path="/Client" element={<Client />} />
         </Route>
       </Routes>
     </ContextProvider>

@@ -2,9 +2,9 @@ import React from 'react';
 import MenuSidebar from '../../components/MenuSidebar';
 import HeaderDash from '../../components/HeaderDash';
 import '../../index.css';
+import "./style.css"
 
-import styles from './styles.module.css';
-import ListTabs from '../../components/ListTabs';
+import ClientTabel from '../../components/ClientTabel';
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
 
@@ -15,19 +15,21 @@ const Client = () => {
     const { setSelected } = useContext(MyContext);
     setSelected(1);
     return (
-        <div className={styles.container}>
+        <div className="Client">
             <HeaderDash />
             <MenuSidebar />
 
-            <div className={styles.containerChild}>
-                <ListTabs />
-
-                <div>
-                    <ChargesTabs />
+            <div className="Client-body">
+                <div className="Client-body-header">
+                    <div>
+                        cliente
+                    </div>
+                    <div>
+                        utilidades
+                    </div>
                 </div>
-
-                <div>
-                    <ClientsTabs />
+                <div className="Client-body-tabel">
+                    <ClientTabel />
                 </div>
             </div>
         </div>
