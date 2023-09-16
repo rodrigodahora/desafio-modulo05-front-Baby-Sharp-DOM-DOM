@@ -66,13 +66,15 @@ input {
   font-weight: 400;
 }
 
+span {}
+
 .title-client-modal {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 7.61px;
+  margin-bottom: 9.5px;
 }
 
 .title-client-modal img {
@@ -161,7 +163,7 @@ input {
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  margin-top: 57px;
+  margin-top: 24px;
 }
 
 .button-cancel {

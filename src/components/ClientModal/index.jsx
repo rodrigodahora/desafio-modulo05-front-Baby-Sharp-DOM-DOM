@@ -23,10 +23,58 @@ const ClientModal = () => {
 
   const [mainError, setMainError] = useState("");
 
+  const [errorName, setErrorName] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorCpf, setErrorCpf] = useState("");
+  const [errorPhone, setErrorPhone] = useState("");
+  const [errorCity, setErrorCity] = useState("");
+  const [errorState, setErrorState] = useState("");
+
   function handleChange(e) {
     const key = e.target.name;
     const value = e.target.value;
     setData({ ...data, [key]: value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!data.name) {
+      setErrorName("Este campo deve ser preenchido");
+    } else {
+      setErrorName("");
+    }
+
+    if (!data.email) {
+      setErrorEmail("Este campo deve ser preenchido");
+    } else {
+      setErrorEmail("");
+    }
+
+    if (!data.cpf) {
+      setErrorCpf("Este campo deve ser preenchido");
+    } else {
+      setErrorCpf("");
+    }
+
+    if (!data.phone) {
+      setErrorPhone("Este campo deve ser preenchido");
+    } else {
+      setErrorPhone("");
+    }
+
+    if (!data.city) {
+      setErrorCity("Este campo deve ser preenchido");
+    } else {
+      setErrorCity("");
+    }
+
+    if (!data.state) {
+      setErrorState("Este campo deve ser preenchido");
+    } else {
+      setErrorState("");
+    }
+
   }
 
   return (
@@ -50,6 +98,7 @@ const ClientModal = () => {
               placeholder="Digite o nome"
               onChange={handleChange}
             />
+            <span>{errorName}</span>
           </div>
 
           <div className="input-modal-box">
@@ -60,6 +109,7 @@ const ClientModal = () => {
               placeholder="Digite o e-mail"
               onChange={handleChange}
             />
+            <span>{errorEmail}</span>
           </div>
 
           <div className="input-modal-box-row">
@@ -71,6 +121,7 @@ const ClientModal = () => {
                 placeholder="Digite o CPF"
                 onChange={handleChange}
               />
+              <span>{errorCpf}</span>
             </div>
 
             <div className="input-modal-box-row-phone">
@@ -81,6 +132,7 @@ const ClientModal = () => {
                 placeholder="Digite o telefone"
                 onChange={handleChange}
               />
+              <span>{errorPhone}</span>
             </div>
           </div>
 
@@ -135,6 +187,7 @@ const ClientModal = () => {
                 placeholder="Digite a cidade"
                 onChange={handleChange}
               />
+              <span>{errorCity}</span>
             </div>
 
             <div className="input-modal-box-row-state">
@@ -146,14 +199,21 @@ const ClientModal = () => {
                 onChange={handleChange}
               />
             </div>
+            <span>{errorState}</span>
           </div>
 
           <div className="client-modal-buttons">
-            <button className="button-cancel">
+            <button
+              type="button"
+              className="button-cancel"
+            >
               Cancelar
             </button>
 
-            <button className="button-apply">
+            <button
+              className="button-apply"
+              onClick={handleSubmit}
+            >
               Aplicar
             </button>
           </div>
