@@ -1,15 +1,13 @@
 import React from 'react';
-import MenuSidebar from '../../components/MenuSidebar';
+import filter from "../../assets/filter.svg";
+import headerCliente from "../../assets/headerCliente.svg";
+import pesquisar from "../../assets/pesquisar.svg";
 import HeaderDash from '../../components/HeaderDash';
+import MenuSidebar from '../../components/MenuSidebar';
 import '../../index.css';
-import "./style.css"
-import headerCliente from "../../assets/headerCliente.svg"
-import filter from "../../assets/filter.svg"
-import pesquisar from "../../assets/pesquisar.svg"
+import "./style.css";
 
 import ClientTabel from '../../components/ClientTabel';
-import ChargesTabs from '../../components/ChargesTabs';
-import ClientsTabs from '../../components/ClientsTabs';
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
