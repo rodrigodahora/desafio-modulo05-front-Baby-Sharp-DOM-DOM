@@ -41,11 +41,12 @@
 
 .Client-body-header div button {
     display: flex;
-    padding: 4px 56px;
     justify-content: center;
     align-items: center;
+
     width: 266px;
     height: 33px;
+    padding: 4px 56px;
     gap: 4px;
 
     border: none;
@@ -63,7 +64,6 @@
 .Client-body-header .Client-box-input {
     display: flex;
     position: relative;
-
 }
 
 .Client-body-header div input {
