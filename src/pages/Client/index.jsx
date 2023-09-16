@@ -14,8 +14,10 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-    const { setSelected } = useContext(MyContext);
+    const { setSelected, addClient, setAddClient } = useContext(MyContext);
+
     setSelected(2);
+
     return (
         <div className="Client">
 
@@ -25,7 +27,7 @@ const Client = () => {
                         <img src={headerCliente} alt="" /> Clientes
                     </div>
                     <div>
-                        <button>+ Adicionar cliente</button>
+                        <button onClick={() => { setAddClient(!addClient) }}>+ Adicionar cliente</button>
                         <img src={filter} alt="" />
                         <div className="Client-box-input">
                             <input
@@ -42,7 +44,7 @@ const Client = () => {
             </div>
             <HeaderDash />
             <MenuSidebar />
-            <ClientModal />
+            {addClient && <ClientModal />}
         </div>
 
     );

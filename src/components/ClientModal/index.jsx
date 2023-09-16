@@ -4,9 +4,13 @@ import "./style.css";
 import api from "../../services/api";
 import closeIcon from "../../assets/close.svg";
 import clientIcon from "../../assets/cliente_menu.svg";
+import { MyContext } from '../../contexts/MyContext';
+
 
 const ClientModal = () => {
   const navigate = useNavigate();
+  const { addClient, setAddClient } = useContext(MyContext);
+
 
   const [data, setData] = useState({
     name: "",
