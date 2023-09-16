@@ -2,15 +2,35 @@ import React, { useState } from 'react';
 import styles from './styles.module.css';
 import close from '../../assets/close.svg';
 import eyeOff from '../../assets/eye_off.svg';
+import ModalCompleted from '../ModalCompleted';
 
-const ModalEditUser = () => {
+const ModalEditUser = ({ setOpenModalUser }) => {
   const [viewPass, setViewPass] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
-  return (
+  const handleSumit = (e) => {
+    e.preventDefault();
+    console.log('Caldas Nuevas!');
+
+    setCompleted(true);
+
+    setTimeout(() => {
+      setOpenModalUser(false);
+    }, 1000);
+  };
+
+  return completed ? (
+    <ModalCompleted />
+  ) : (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form onSubmit={handleSumit} className={styles.form}>
         <header>
-          <img className={styles.img_close} src={close} alt="Close" />
+          <img
+            className={styles.img_close}
+            src={close}
+            alt="Close"
+            onClick={() => setOpenModalUser(false)}
+          />
           <h3>Edite seu cadastro</h3>
         </header>
         <div className={styles.colum}>
@@ -22,6 +42,9 @@ const ModalEditUser = () => {
             type="text"
             placeholder="Digite seu nome"
           />
+          <span className={styles.validation}>
+            Este campo deve ser preenchido
+          </span>
           <label htmlFor="email">E-mail*</label>
           <input
             className={styles.input}
@@ -30,6 +53,9 @@ const ModalEditUser = () => {
             type="text"
             placeholder="Digite seu e-mail"
           />
+          <span className={styles.validation}>
+            Este campo deve ser preenchido
+          </span>
         </div>
         <div className={styles.row}>
           <div className={styles.colum}>
@@ -65,9 +91,13 @@ const ModalEditUser = () => {
             <img
               src={eyeOff}
               alt="View password"
-              onClick={() => viewPass(!viewPass)}
+              onClick={() => setViewPass(!viewPass)}
             />
           </div>
+          <span className={styles.validation}>
+            Este campo deve ser preenchido
+          </span>
+
           <label htmlFor="confirm_password">Confirmar senha*</label>
           <div className={styles.box_input}>
             <input
@@ -78,12 +108,15 @@ const ModalEditUser = () => {
             <img
               src={eyeOff}
               alt="View password"
-              onClick={() => viewPass(!viewPass)}
+              onClick={() => setViewPass(!viewPass)}
             />
           </div>
+          <span className={styles.validation}>
+            Este campo deve ser preenchido
+          </span>
         </div>
         <button className={styles.button} type="submit">
-          Continuar
+          Aplicar
         </button>
       </form>
     </div>

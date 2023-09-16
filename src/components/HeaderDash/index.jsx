@@ -5,9 +5,8 @@ import edit from '../../assets/editar.svg';
 import logout from '../../assets/logout.svg';
 import arrowTop from '../../assets/arrow_top.svg';
 
-const HeaderDash = () => {
+const HeaderDash = ({ setOpenModalUser }) => {
   const [modalUser, setModalUser] = useState(false);
-  const [modalEditUser, setModalEditUser] = useState(false);
 
   return (
     <div className={styles.header_dash}>
@@ -38,7 +37,7 @@ const HeaderDash = () => {
                       alt="Edit"
                       onClick={() => {
                         setModalUser(false);
-                        setModalEditUser(true);
+                        setOpenModalUser(true);
                       }}
                     />
                     <img src={logout} alt="Logout" />
