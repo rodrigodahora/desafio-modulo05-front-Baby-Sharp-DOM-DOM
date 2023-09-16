@@ -1,81 +1,104 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import React from 'react';
+import '../../index.css';
+import "./style.css"
+import cobranca from "../../assets/cobranca.svg"
+import agrupamento from "../../assets/Frame.svg"
 
-function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    carbs: number,
-    protein: number,
-) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function DenseTable() {
-    return (
-        <TableContainer
-            component={Paper}
-            sx={
-                {
-                    minWidth: "1116px",
-                    display: "flex",
-                    flexDirection: 'column',
-                    position: "absolute",
-                    // paddingTop: "143px",
-                    // paddingLeft: "206px"
-                }}
-        >
-            <Table sx={
-                {
-                    // minWidth: "1116px",
-                    // display: "flex",
-                    // flexDirection: 'column',
-                    // position: "absolute",
-                    // paddingTop: "143px",
-                    // paddingLeft: "206px"
-                }
-
-            } size="small" aria-label="a dense table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <TableRow
-                            key={row.name}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell align="right">{row.calories}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </ TableContainer>
-    );
+export default function ClientTabel() {
+	return (
+		<table className="Client-table">
+			<thead className="Client-table-header">
+				<tr >
+					<th className="Client-client"><img src={agrupamento} alt="" />Cliente</th>
+					<th className="Client-cpf">CPF</th>
+					<th className="Client-email">E-mail</th>
+					<th className="Client-phone">Telefone</th>
+					<th className="Client-status">Status</th>
+					<th className="Client-new-charge">Criar Cobrança</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Sara da Silva</td>
+					<td>054 365 255 87</td>
+					<td>sarasilva@cubos.io</td>
+					<td>71 9 9462 8654</td>
+					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Cameron Williamson</td>
+					<td>054 365 255 87</td>
+					<td>cameronw@cubos.io</td>
+					<td>771 9 9962 8658</td>
+					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Savannah Nguyen</td>
+					<td>054 365 255 87</td>
+					<td>snguyen@cubos.io</td>
+					<td>71 9 9762 8658</td>
+					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Darlene Robertson</td>
+					<td>054 365 255 87</td>
+					<td>darlener@cubos.io</td>
+					<td>71 9 9562 8653</td>
+					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Marvin McKinney</td>
+					<td>054 365 255 87</td>
+					<td>marvinm@cubos.io</td>
+					<td>71 9 9462 8658</td>
+					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Sandra dos Santos</td>
+					<td>054 365 255 87</td>
+					<td>sandrasantos@cubos.io</td>
+					<td>71 9 9762 8652</td>
+					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Cameron Williamson</td>
+					<td>054 365 255 87</td>
+					<td>cameronw@cubos.io</td>
+					<td>771 9 9962 8658</td>
+					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Savannah Nguyen</td>
+					<td>054 365 255 87</td>
+					<td>snguyen@cubos.io</td>
+					<td>71 9 9762 8658</td>
+					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Darlene Robertson</td>
+					<td>054 365 255 87</td>
+					<td>darlener@cubos.io</td>
+					<td>71 9 9562 8653</td>
+					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+				<tr>
+					<td>Marvin McKinney</td>
+					<td>054 365 255 87</td>
+					<td>marvinm@cubos.io</td>
+					<td>71 9 9462 8658</td>
+					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
+				</tr>
+			</tbody>
+		</table>
+	)
 }
