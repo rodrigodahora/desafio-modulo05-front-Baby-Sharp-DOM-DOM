@@ -137,7 +137,7 @@ export default function SingIn() {
               placeholder="Digite seu nome"
               onChange={handleChange}
             />
-            <span>{errorName}</span>
+            <span className="SingIn-span">{errorName}</span>
           </div>
           <div className="SingIn-right-form-input">
             <label htmlFor="email">E-mail*</label>
@@ -148,7 +148,7 @@ export default function SingIn() {
               placeholder="Digite seu e-mail"
               onChange={handleChange}
             />
-            <span>{errorEmail}</span>
+            <span className="SingIn-span">{errorEmail}</span>
           </div>
           <button type="button" onClick={firstSubmit}>Continuar</button>
           <div className="SingIn-right-navigate">
@@ -174,7 +174,7 @@ export default function SingIn() {
             />
             <img src={eyeOff} onClick={() => { setEyePassword(!eyePassword) }} alt="" />
 
-            <span>{errorPassword}</span>
+            <span className="SingIn-span">{errorPassword}</span>
           </div>
           <div className="SingIn-right-form-input">
             <label htmlFor="conf-senha">Repita a senha*</label>
@@ -185,7 +185,7 @@ export default function SingIn() {
               onChange={handleChange}
             />
             <img src={eyeOff} onClick={() => (setEyeConfPassword(!eyeConfPassword))} alt="" />
-            <span>{errorConfPassword}</span>
+            <span className="SingIn-span">{errorConfPassword}</span>
           </div>
           <button type="button" onClick={finalSubmit}>Finalizar cadastro</button>
           <div className="SingIn-right-navigate">
