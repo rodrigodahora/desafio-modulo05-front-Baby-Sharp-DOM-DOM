@@ -8,6 +8,7 @@ import '../../index.css';
 import "./style.css";
 
 import ClientTabel from '../../components/ClientTabel';
+import ClientModal from '../../components/ClientModal';
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
@@ -41,7 +42,9 @@ const Client = () => {
             </div>
             <HeaderDash />
             <MenuSidebar />
+            <ClientModal />
         </div>
+
     );
 };
 
