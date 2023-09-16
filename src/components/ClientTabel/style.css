@@ -1,0 +1,114 @@
+table {
+    min-width: 100%;
+    height: 900px;
+}
+
+thead tr {
+    height: 50px;
+    text-align: left;
+}
+
+tbody tr {
+    height: 40px;
+    text-align: left;
+}
+
+th {
+    align-self: flex-start;
+}
+
+td {
+    border-top: 1px solid #EFF0F6;
+
+    color: #747488;
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0.07px;
+}
+
+.Client-client {
+    width: 186px;
+}
+
+.Client-cpf {
+    width: 202px;
+}
+
+.Client-email {
+    width: 199px;
+}
+
+.Client-phone {
+    width: 193px;
+}
+
+.Client-status {
+    width: 161px;
+}
+
+.client-new-charge {
+    width: 127px;
+}
+
+.Client-defaulter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99px;
+    height: 19px;
+
+    border-radius: 8px;
+    background: #FFEFEF;
+
+    color: #971D1D;
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.Client-compliant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99px;
+    height: 19px;
+
+    border-radius: 8px;
+    background: #EEF6F6;
+
+    color: #1FA7AF;
+    font-family: Nunito;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.client-charge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border: none;
+}
+
+.client-charge img {
+    width: 24px;
+    height: 24px;
+}
+
+.client-charge p {
+    color: #DA0175;
+    font-family: Nunito;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

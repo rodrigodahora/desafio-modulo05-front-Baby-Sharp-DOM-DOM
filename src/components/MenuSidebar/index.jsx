@@ -22,16 +22,16 @@ const MenuSidebar = () => {
         className={
           selected === 1 ? `${styles.home}  ${styles.selected}` : styles.home
         }
+        onClick={() => {
+          setSelected(1);
+          navigate("/Home");
+        }}
       >
         <div>
           <img src={selected === 1 ? homeSelect : home} alt="Button-home" />
         </div>
         <a
           className={selected === 1 ? styles.link : styles.no_link}
-          onClick={() => {
-            setSelected(1);
-            navigate("/Home");
-          }}
         >
           Home
         </a>
@@ -42,6 +42,10 @@ const MenuSidebar = () => {
             ? `${styles.clients}  ${styles.selected}`
             : styles.clients
         }
+        onClick={() => {
+          setSelected(2);
+          navigate("/Client");
+        }}
       >
         <div>
           <img
@@ -50,10 +54,6 @@ const MenuSidebar = () => {
           />
         </div>
         <a
-          onClick={() => {
-            setSelected(2);
-            navigate("/Client");
-          }}
           className={selected === 2 ? styles.link : styles.no_link}
         >
           Clientes
@@ -65,16 +65,16 @@ const MenuSidebar = () => {
             ? `${styles.charges}  ${styles.selected}`
             : styles.charges
         }
+        onClick={() => {
+          setSelected(1);
+          navigate("/home");
+        }}
       >
         <div>
           <img src={selected === 3 ? charge : charge} alt="Button-charge" />
         </div>
         <a
           className={selected === 3 ? styles.link : styles.no_link}
-          onClick={() => {
-            setSelected(1);
-            navigate("/home");
-          }}
         >
           Cobranças
         </a>

@@ -11,17 +11,92 @@
 }
 
 .Client-body {
-    padding: 143px 108px 45px 206px;
+    width: 100%;
+    margin: 143px 108px 45px 206px;
 }
 
 .Client-body-header {
-    background-color: rgb(0, 255, 98);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 46px;
+    margin-bottom: 24px;
+}
 
+.Client-body-header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+
+    color: #3F3F55;
+    font-family: Montserrat;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 33.8px */
+}
+
+.Client-body-header div button {
+    display: flex;
+    padding: 4px 56px;
+    justify-content: center;
+    align-items: center;
+    width: 266px;
+    height: 33px;
+    gap: 4px;
+
+    border: none;
+    border-radius: 10px;
+    background: #DA0175;
+
+    color: #F8F8F9;
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Client-body-header .Client-box-input {
+    display: flex;
+    position: relative;
+
+}
+
+.Client-body-header div input {
+    width: 322.193px;
+    height: 45.739px;
+    padding: 7px 8px;
+
+    border-radius: 10px;
+    background: #FFF;
+    border: none;
+    box-shadow: 0 4px 7px 0 #DA01750D;
+
+    color: #747488;
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Client-body-header .Client-box-input img {
+    display: flex;
+    position: absolute;
+    right: 8px;
 }
 
 .Client-body-tabel {
     display: flex;
     position: relative;
 
-    background-color: aqua;
+    width: 100%;
+    padding: 12px 23px;
+
+    border-radius: 30px;
+    background: #FFF;
 }
