@@ -36,7 +36,7 @@ const ClientModal = () => {
     setData({ ...data, [key]: value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!data.name) {
@@ -74,6 +74,8 @@ const ClientModal = () => {
     } else {
       setErrorState("");
     }
+
+    const response = await api.post(/)
 
   }
 
