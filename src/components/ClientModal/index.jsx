@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import api from "../../services/api";
@@ -79,7 +79,7 @@ const ClientModal = () => {
       setErrorState("");
     }
 
-    const response = await api.post(/)
+    // const response = await api.post(/)
 
   }
 
