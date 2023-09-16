@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import "./style.css";
 import api from "../../services/api";
 import closeIcon from "../../assets/close.svg";
@@ -8,9 +7,7 @@ import { MyContext } from '../../contexts/MyContext';
 
 
 const ClientModal = () => {
-  const navigate = useNavigate();
   const { addClient, setAddClient } = useContext(MyContext);
-
 
   const [data, setData] = useState({
     name: "",
@@ -40,54 +37,75 @@ const ClientModal = () => {
     setData({ ...data, [key]: value });
   }
 
+  function clearData() {
+    setData({
+      ...data,
+      name: "",
+      email: "",
+      cpf: "",
+      phone: "",
+      address: "",
+      complement: "",
+      zip_code: "",
+      district: "",
+      city: "",
+      state: ""
+    });
+    setAddClient(!addClient);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
 
     if (!data.name) {
-      setErrorName("Este campo deve ser preenchido");
+      return setErrorName("Este campo deve ser preenchido");
     } else {
       setErrorName("");
     }
 
     if (!data.email) {
-      setErrorEmail("Este campo deve ser preenchido");
+      return setErrorEmail("Este campo deve ser preenchido");
     } else {
       setErrorEmail("");
     }
 
     if (!data.cpf) {
-      setErrorCpf("Este campo deve ser preenchido");
+      return setErrorCpf("Este campo deve ser preenchido");
     } else {
       setErrorCpf("");
     }
 
     if (!data.phone) {
-      setErrorPhone("Este campo deve ser preenchido");
+      return setErrorPhone("Este campo deve ser preenchido");
     } else {
       setErrorPhone("");
     }
 
     if (!data.city) {
-      setErrorCity("Este campo deve ser preenchido");
+      return setErrorCity("Este campo deve ser preenchido");
     } else {
       setErrorCity("");
     }
 
     if (!data.state) {
-      setErrorState("Este campo deve ser preenchido");
+      return setErrorState("Este campo deve ser preenchido");
     } else {
       setErrorState("");
     }
 
-    const response = await api.post(/)
-
+    // const response = await api.post("/registerClient", { ...data });
+    clearData();
   }
 
   return (
     <div className="filter-client-modal">
       <div className="container-client-modal">
         <div className="client-modal-close">
-          <img src={closeIcon} alt="Close Modal" />
+          <img
+            src={closeIcon}
+            alt="Close Modal"
+            onClick={() => { clearData() }}
+          />
         </div>
 
         <form className="client-form">
@@ -212,6 +230,7 @@ const ClientModal = () => {
             <button
               type="button"
               className="button-cancel"
+              onClick={() => { clearData() }}
             >
               Cancelar
             </button>
