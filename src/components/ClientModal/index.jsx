@@ -30,6 +30,7 @@ const ClientModal = () => {
   const [errorPhone, setErrorPhone] = useState("");
   const [errorCity, setErrorCity] = useState("");
   const [errorState, setErrorState] = useState("");
+  //mata os dois de cima
 
   function handleChange(e) {
     const key = e.target.name;
@@ -57,44 +58,57 @@ const ClientModal = () => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (!data.name) {
-      return setErrorName("Este campo deve ser preenchido");
-    } else {
-      setErrorName("");
-    }
+    const token = localStorage.getItem("token");
 
-    if (!data.email) {
-      return setErrorEmail("Este campo deve ser preenchido");
-    } else {
-      setErrorEmail("");
-    }
+    try {
+      if (!data.name) {
+        return setErrorName("Campo obrigatório");
+      } else {
+        setErrorName("");
+      }
 
-    if (!data.cpf) {
-      return setErrorCpf("Este campo deve ser preenchido");
-    } else {
-      setErrorCpf("");
-    }
+      if (!data.email) {
+        return setErrorEmail("Campo obrigatório");
+      } else {
+        setErrorEmail("");
+      }
 
-    if (!data.phone) {
-      return setErrorPhone("Este campo deve ser preenchido");
-    } else {
-      setErrorPhone("");
-    }
+      if (!data.cpf) {
+        return setErrorCpf("Campo obrigatório");
+      } else {
+        setErrorCpf("");
+      }
 
-    if (!data.city) {
-      return setErrorCity("Este campo deve ser preenchido");
-    } else {
-      setErrorCity("");
-    }
+      if (!data.phone) {
+        return setErrorPhone("Campo obrigatório");
+      } else {
+        setErrorPhone("");
+      }
 
-    if (!data.state) {
-      return setErrorState("Este campo deve ser preenchido");
-    } else {
-      setErrorState("");
+      const response = await api.post("/registerClient",
+        {
+          name: data.name,
+          email: data.email,
+          cpf: data.cpf,
+          phone: data.phone,
+          address: data.address,
+          complement: data.complement,
+          zip_code: data.zip_code,
+          district: data.district,
+          city: data.city,
+          state: data.state
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      console.log(response);
+      clearData();
+    } catch (error) {
+      console.log(error);
+      setMainError(error);
     }
-
-    // const response = await api.post("/registerClient", { ...data });
-    clearData();
   }
 
   return (
@@ -122,7 +136,7 @@ const ClientModal = () => {
               placeholder="Digite o nome"
               onChange={handleChange}
             />
-            <span>{errorName}</span>
+            <span className="modal-error-msg">{errorName}</span>
           </div>
 
           <div className="input-modal-box">
@@ -133,7 +147,7 @@ const ClientModal = () => {
               placeholder="Digite o e-mail"
               onChange={handleChange}
             />
-            <span>{errorEmail}</span>
+            <span className="modal-error-msg">{errorEmail}</span>
           </div>
 
           <div className="input-modal-box-row">
@@ -145,7 +159,7 @@ const ClientModal = () => {
                 placeholder="Digite o CPF"
                 onChange={handleChange}
               />
-              <span>{errorCpf}</span>
+              <span className="modal-error-msg">{errorCpf}</span>
             </div>
 
             <div className="input-modal-box-row-phone">
@@ -156,7 +170,7 @@ const ClientModal = () => {
                 placeholder="Digite o telefone"
                 onChange={handleChange}
               />
-              <span>{errorPhone}</span>
+              <span className="modal-error-msg">{errorPhone}</span>
             </div>
           </div>
 
@@ -204,26 +218,26 @@ const ClientModal = () => {
 
           <div className="input-modal-box-row">
             <div className="input-modal-box-row-city">
-              <label htmlFor="city">Cidade*</label>
+              <label htmlFor="city">Cidade</label>
               <input
                 type="text"
                 name="city"
                 placeholder="Digite a cidade"
                 onChange={handleChange}
               />
-              <span>{errorCity}</span>
+              <span className="modal-error-msg">{errorCity}</span>
             </div>
 
             <div className="input-modal-box-row-state">
-              <label htmlFor="state">UF*</label>
+              <label htmlFor="state">UF</label>
               <input
                 type="text"
                 name="state"
                 placeholder="Digite o UF"
                 onChange={handleChange}
               />
+              <span className="modal-error-msg">{errorState}</span>
             </div>
-            <span>{errorState}</span>
           </div>
 
           <div className="client-modal-buttons">
