@@ -7,7 +7,7 @@ const ChargesTabs = () => {
       <div className={styles.container_won}>
         <header className={styles.header}>
           <h3>Cobranças Vencidas</h3>
-          <span className={styles.won_charges}>08</span>
+          <div className={styles.won_charges}>08</div>
         </header>
 
         <table className={styles.table}>
@@ -50,7 +50,7 @@ const ChargesTabs = () => {
       <div className={styles.container_expected}>
         <header className={styles.header}>
           <h3>Cobranças Previstas</h3>
-          <span className={styles.expected_charges}>05</span>
+          <div className={styles.expected_charges}>05</div>
         </header>
 
         <table className={styles.table}>
@@ -93,7 +93,7 @@ const ChargesTabs = () => {
       <div className={styles.container_paid}>
         <header className={styles.header}>
           <h3>Cobranças Pagas</h3>
-          <span className={styles.paid_charges}>10</span>
+          <div className={styles.paid_charges}>10</div>
         </header>
 
         <table className={styles.table}>

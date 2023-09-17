@@ -1,6 +1,6 @@
 .container_clients {
   display: flex;
-  padding: 20px 40px;
+  padding: 20px 80px;
   gap: 32px;
 }
 

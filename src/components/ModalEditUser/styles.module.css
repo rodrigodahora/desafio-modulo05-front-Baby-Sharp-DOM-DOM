@@ -1,0 +1,135 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(2px);
+  background-color: rgba(145, 154, 150, 0.3);
+
+  position: fixed;
+  z-index: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  padding: 20px 50px;
+
+  width: 491px;
+  border-radius: 30px;
+
+  background: #FFFFFF;
+}
+
+.img_close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+}
+
+.form header {
+  padding: 30px 0 15px 0;
+  text-align: center;
+  font-family: Montserrat,sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  color: #343447;
+}
+
+.colum {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.colum label {
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color:  #344054;
+ }
+
+ .validation {
+  position: initial;
+  margin-top: -10px;
+  color:  #E70000;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+ }
+
+.box_input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+}
+
+.box_input input {
+  flex: 1;
+  font-size: 22px;
+
+  outline: none;
+  border: none;
+  border-radius: 0px;
+}
+
+.row {
+  display: flex;
+  
+  gap: 24px;
+}
+
+.row label {
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color:  #344054;
+ }
+
+ .input {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+ }
+
+ .button {
+  
+  width: 160px;
+  margin: 0 110px;
+  padding: 4px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  border-radius: 10px;
+  border: 1px solid #DA0175;
+  background:  #DA0175;
+
+  color: #F8F8F9;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+ }
+
+

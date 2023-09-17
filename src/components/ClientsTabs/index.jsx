@@ -13,7 +13,7 @@ const ClientsTabs = () => {
               <img src={clientDefaulters} alt="Client_Defaulters" />
               <h3>Clientes Inadimplentes</h3>
             </div>
-            <span className={styles.defaulters}>08</span>
+            <div className={styles.defaulters}>08</div>
           </header>
 
           <table className={styles.table}>
@@ -61,7 +61,7 @@ const ClientsTabs = () => {
               <img src={clientInDay} alt="Client_Defaulters" />
               <h3>Clientes em dia</h3>
             </div>
-            <span className={styles.in_day}>08</span>
+            <div className={styles.in_day}>08</div>
           </header>
 
           <table className={styles.table}>

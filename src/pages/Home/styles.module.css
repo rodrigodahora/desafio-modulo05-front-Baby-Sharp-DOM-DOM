@@ -3,6 +3,10 @@ margin: 0;
 box-sizing: border-box;
 }
 
+.mod {
+  position: relative;
+}
+
 .container {
   display: flex;
   width: 1440px;

@@ -1,36 +1,44 @@
-import React from 'react';
-import MenuSidebar from '../../components/MenuSidebar';
+import React, { useState } from 'react';
 import HeaderDash from '../../components/HeaderDash';
+import MenuSidebar from '../../components/MenuSidebar';
 import '../../index.css';
 
-import styles from './styles.module.css';
-import ListTabs from '../../components/ListTabs';
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
+import ListTabs from '../../components/ListTabs';
+import styles from './styles.module.css';
 
 import { useContext } from 'react';
+import ModalEditUser from '../../components/ModalEditUser';
 import { MyContext } from '../../contexts/MyContext';
 
 const Home = () => {
   const { setSelected } = useContext(MyContext);
   setSelected(1);
+
+  const [openModalUser, setOpenModalUser] = useState(false);
+
   return (
-    <div className={styles.container}>
-      <HeaderDash />
-      <MenuSidebar />
+    <React.Fragment className={styles.mod}>
+      {openModalUser && <ModalEditUser setOpenModalUser={setOpenModalUser} />}
 
-      <div className={styles.containerChild}>
-        <ListTabs />
+      <div className={styles.container}>
+        <HeaderDash setOpenModalUser={setOpenModalUser} />
+        <MenuSidebar />
 
-        <div>
-          <ChargesTabs />
-        </div>
+        <div className={styles.containerChild}>
+          <ListTabs />
 
-        <div>
-          <ClientsTabs />
+          <div>
+            <ChargesTabs />
+          </div>
+
+          <div>
+            <ClientsTabs />
+          </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
