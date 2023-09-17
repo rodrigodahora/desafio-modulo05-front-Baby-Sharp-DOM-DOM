@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
-import "./style.css";
+import { useContext } from "react";
 import feedbackSuccess from "../../assets/feedback_success.svg";
-import feedbackSuccessClose from "../../feedback_success_close.svg";
 import { MyContext } from '../../contexts/MyContext';
+import feedbackSuccessClose from "../../assets/feedback_success_close.svg";
+import "./style.css";
 
 
 const ModalFeedback = () => {
-  const { addClient, setAddClient, feedback, setFeedback } = useContext(MyContext);
+  const { setFeedback } = useContext(MyContext);
 
   return (
     <div className="container-feedback">
