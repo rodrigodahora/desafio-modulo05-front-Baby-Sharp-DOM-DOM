@@ -46,7 +46,7 @@ const Client = () => {
             <HeaderDash />
             <MenuSidebar />
             {addClient && <ClientModal />}
-            {!feedback && <ModalFeedback />}
+            {feedback && <ModalFeedback />}
         </div>
 
     );
