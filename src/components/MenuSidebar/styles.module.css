@@ -15,15 +15,19 @@ li {
 .container {
   width: 108px;
   height: 1129px;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  gap: 60px;
+  gap: 72px;
 
   background-color: #F0F0F5;
-  
+
+}
+
+.container li {
+  gap: 4px;
 }
 
 .container li a {
@@ -44,7 +48,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .home div {
@@ -53,6 +57,7 @@ li {
 
   background-image: url(../../assets/home.svg);
 }
+
 .clients {
   display: flex;
   flex-direction: column;
@@ -73,6 +78,7 @@ li {
   justify-content: center;
   align-items: center;
 }
+
 .charges div {
   width: 48px;
   height: 48px;
@@ -88,7 +94,7 @@ li {
 
 .container .selected li a {
 
-  color:  #DA0175;
+  color: #DA0175;
 }
 
 .no_link {
@@ -98,4 +104,3 @@ li {
 .link {
   color: #DA0175;
 }
-

@@ -15,7 +15,7 @@
   display: flex;
   position: relative;
   width: 600px;
-  height: 758px;
+  min-height: 758px;
 
   border-radius: 30px;
   background-color: #fff;
@@ -51,7 +51,7 @@ input {
   align-items: center;
   gap: 8px;
   width: 100%;
-  height: auto;
+  height: 44px;
 
   border-radius: 8px;
   border: 1px solid #d0d5dd;
@@ -66,7 +66,14 @@ input {
   font-weight: 400;
 }
 
-span {}
+.modal-error-msg {
+  color: #E70000;
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
 .title-client-modal {
   display: flex;
@@ -96,7 +103,6 @@ span {}
 .input-modal-box {
   display: flex;
   width: 487px;
-  height: 70px;
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
@@ -115,7 +121,6 @@ span {}
   display: flex;
   flex-direction: column;
   width: 235px;
-  height: 70px;
   gap: 6px;
 }
 
@@ -123,7 +128,6 @@ span {}
   display: flex;
   flex-direction: column;
   width: 224px;
-  height: 70px;
   gap: 6px;
 }
 
@@ -131,7 +135,6 @@ span {}
   display: flex;
   flex-direction: column;
   width: 228px;
-  height: 70px;
   gap: 6px;
 }
 
@@ -139,7 +142,6 @@ span {}
   display: flex;
   flex-direction: column;
   width: 235px;
-  height: 70px;
   gap: 6px;
 }
 
@@ -147,7 +149,6 @@ span {}
   display: flex;
   flex-direction: column;
   width: 303px;
-  height: 70px;
   gap: 6px;
 }
 
@@ -155,7 +156,6 @@ span {}
   display: flex;
   flex-direction: column;
   width: 160px;
-  height: 70px;
   gap: 6px;
 }
 

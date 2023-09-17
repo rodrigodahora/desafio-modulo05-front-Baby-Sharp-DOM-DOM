@@ -20,7 +20,7 @@ th {
 }
 
 tbody tr {
-    height: 56px;
+    height: 55px;
 
     text-align: left;
 }
@@ -41,6 +41,7 @@ td {
     display: flex;
     width: 186px;
     height: 58px;
+    padding-top: 4px;
 }
 
 .client-client img {
