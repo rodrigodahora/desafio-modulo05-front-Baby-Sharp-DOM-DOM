@@ -3,11 +3,14 @@ import styles from './styles.module.css';
 import close from '../../assets/close.svg';
 import eyeOff from '../../assets/eye_off.svg';
 import ModalCompleted from '../ModalCompleted';
+import { MyContext } from '../../contexts/MyContext';
+import { useContext } from 'react';
 
-const ModalEditUser = ({ setOpenModalUser }) => {
+const ModalEditUser = () => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const { setOpenModalUser } = useContext(MyContext);
 
   const handleSumit = (e) => {
     e.preventDefault();
@@ -89,6 +92,7 @@ const ModalEditUser = ({ setOpenModalUser }) => {
               type={viewPass ? 'text' : 'password'}
             />
             <img
+              className={styles.img_pass}
               src={eyeOff}
               alt="View password"
               onClick={() => setViewPass(!viewPass)}
@@ -103,9 +107,10 @@ const ModalEditUser = ({ setOpenModalUser }) => {
             <input
               name="confirm_password"
               id="confirm_password"
-              type={viewPass ? 'text' : 'password'}
+              type={viewConfirPass ? 'text' : 'password'}
             />
             <img
+              className={styles.img_pass}
               src={eyeOff}
               alt="View password"
               onClick={() => setConfirPass(!viewConfirPass)}

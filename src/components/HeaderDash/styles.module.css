@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.mod {
+  position: relative;
+}
 
 .header_dash {
   display: flex;

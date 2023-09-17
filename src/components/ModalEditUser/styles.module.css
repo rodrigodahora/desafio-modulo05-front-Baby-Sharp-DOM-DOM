@@ -84,17 +84,19 @@
 }
 
 .box_input input {
+  margin: -5px 0;
   flex: 1;
   font-size: 22px;
 
   outline: none;
-  border: none;
-  border-radius: 0px;
+  border: transparent;
+  
+
 }
 
 .row {
   display: flex;
-  
+
   gap: 24px;
 }
 
@@ -113,6 +115,9 @@
   border: 1px solid #D0D5DD;
   border-radius: 8px;
  }
+ .img_pass {
+  cursor: pointer;
+ }
 
  .button {
   
@@ -127,7 +132,7 @@
   border: 1px solid #DA0175;
   background:  #DA0175;
   cursor: pointer;
-  
+
   color: #F8F8F9;
   font-family: Nunito, sans-serif;
   font-size: 18px;
