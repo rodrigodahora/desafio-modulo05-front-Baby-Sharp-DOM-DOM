@@ -85,6 +85,8 @@
   width: 24px;
   height: 24px;
   background-image: url(../../assets/arrow_down.svg);
+
+  cursor: pointer;
 }
 
 .child_edit_logout {

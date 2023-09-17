@@ -6,7 +6,6 @@
 
 .container_defaulters {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
 }
@@ -31,7 +30,6 @@
 
 .header div {
   display: flex;
-
   gap: 8px;
 }
 
@@ -78,7 +76,6 @@
 
 .table th,
 .table td {
-  border-bottom: 1px solid #EFF0F6;
   padding: 0 20px;
 }
 
@@ -109,7 +106,7 @@
   justify-content: center;
   align-items: center;
   padding: 15px 20px;
-
+  border-top: 1px solid #EFF0F6;
   background-color: #FFF;
 }
 
