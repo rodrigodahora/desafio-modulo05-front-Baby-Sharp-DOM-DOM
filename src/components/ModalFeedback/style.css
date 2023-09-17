@@ -1,0 +1,25 @@
+.container-feedback {
+  display: flex;
+  width: 330px;
+  position: absolute;
+  padding: 15px 16px;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 10px;
+  background-color: #C3D4FE;
+  box-shadow: 0 4px 42px 0 rgba(0, 0, 0, 0.20);
+}
+
+.feedback-success-image {
+  width: 24px;
+  height: 24px;
+}
+
+.feedback-message-success {
+  color: #243F80;
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}

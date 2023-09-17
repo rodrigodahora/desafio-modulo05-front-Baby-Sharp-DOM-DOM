@@ -7,7 +7,7 @@ import { MyContext } from '../../contexts/MyContext';
 
 
 const ClientModal = () => {
-  const { addClient, setAddClient } = useContext(MyContext);
+  const { addClient, setAddClient, feedback, setFeedback } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: "",

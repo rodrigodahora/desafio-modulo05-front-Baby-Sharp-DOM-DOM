@@ -14,7 +14,7 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-    const { setSelected, addClient, setAddClient } = useContext(MyContext);
+    const { setSelected, addClient, setAddClient, feedback, setFeedback } = useContext(MyContext);
 
     setSelected(2);
 
