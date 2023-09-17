@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
-import "./style.css";
-import api from "../../services/api";
-import closeIcon from "../../assets/close.svg";
 import clientIcon from "../../assets/cliente_menu.svg";
+import closeIcon from "../../assets/close.svg";
 import { MyContext } from '../../contexts/MyContext';
-
+import api from "../../services/api";
+import "./style.css";
 
 const ClientModal = () => {
-  const { addClient, setAddClient, feedback, setFeedback } = useContext(MyContext);
+  const { addClient, setAddClient, setFeedback } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: "",
@@ -103,8 +102,8 @@ const ClientModal = () => {
             Authorization: `Bearer ${token}`
           }
         });
-      console.log(response);
       clearData();
+      setFeedback(true);
     } catch (error) {
       console.log(error);
       setMainError(error);

@@ -2,6 +2,8 @@
   display: flex;
   width: 330px;
   position: absolute;
+  top: 800px;
+  left: 1000px;
   padding: 15px 16px;
   justify-content: space-between;
   align-items: center;
@@ -22,4 +24,9 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+}
+
+.feedback-success-image-close {
+  width: 16px;
+  height: 16px;
 }
