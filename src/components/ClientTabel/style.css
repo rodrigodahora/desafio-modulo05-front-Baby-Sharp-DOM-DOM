@@ -3,17 +3,26 @@ table {
 }
 
 thead tr {
-    height: 50px;
-    text-align: left;
-}
-
-tbody tr {
-    height: 56px;
+    height: 58px;
     text-align: left;
 }
 
 th {
-    align-self: flex-start;
+    align-self: center;
+    color: #3F3F55;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: 0.08px;
+
+}
+
+tbody tr {
+    height: 56px;
+
+    text-align: left;
 }
 
 td {
@@ -28,23 +37,31 @@ td {
     letter-spacing: 0.07px;
 }
 
-.Client-client {
+.client-client {
+    display: flex;
     width: 186px;
+    height: 58px;
 }
 
-.Client-cpf {
+.client-client img {
+    width: 24px;
+    height: 24px;
+    margin-top: 13px;
+}
+
+.client-cpf {
     width: 202px;
 }
 
-.Client-email {
+.client-email {
     width: 199px;
 }
 
-.Client-phone {
+.client-phone {
     width: 193px;
 }
 
-.Client-status {
+.client-status {
     width: 161px;
 }
 
@@ -52,7 +69,7 @@ td {
     width: 127px;
 }
 
-.Client-defaulter {
+.client-defaulter {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +87,7 @@ td {
     line-height: normal;
 }
 
-.Client-compliant {
+.client-compliant {
     display: flex;
     align-items: center;
     justify-content: center;

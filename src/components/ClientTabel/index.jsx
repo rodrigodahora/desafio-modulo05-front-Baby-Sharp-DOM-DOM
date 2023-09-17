@@ -6,15 +6,15 @@ import agrupamento from "../../assets/Frame.svg"
 
 export default function ClientTabel() {
 	return (
-		<table className="Client-table">
-			<thead className="Client-table-header">
+		<table className="client-table">
+			<thead className="client-table-header">
 				<tr >
-					<th className="Client-client"><img src={agrupamento} alt="" />Cliente</th>
-					<th className="Client-cpf">CPF</th>
-					<th className="Client-email">E-mail</th>
-					<th className="Client-phone">Telefone</th>
-					<th className="Client-status">Status</th>
-					<th className="Client-new-charge">Criar Cobrança</th>
+					<th className="client-client"><img src={agrupamento} alt="" />Cliente</th>
+					<th className="client-cpf">CPF</th>
+					<th className="client-email">E-mail</th>
+					<th className="client-phone">Telefone</th>
+					<th className="client-status">Status</th>
+					<th className="client-new-charge">Criar Cobrança</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,7 +23,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>sarasilva@cubos.io</td>
 					<td>71 9 9462 8654</td>
-					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-defaulter">Inadimplente</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -31,7 +31,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>cameronw@cubos.io</td>
 					<td>771 9 9962 8658</td>
-					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-defaulter">Inadimplente</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -39,7 +39,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>snguyen@cubos.io</td>
 					<td>71 9 9762 8658</td>
-					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-defaulter">Inadimplente</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -47,7 +47,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>darlener@cubos.io</td>
 					<td>71 9 9562 8653</td>
-					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-defaulter">Inadimplente</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -55,7 +55,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>marvinm@cubos.io</td>
 					<td>71 9 9462 8658</td>
-					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-defaulter">Inadimplente</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -63,7 +63,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>sandrasantos@cubos.io</td>
 					<td>71 9 9762 8652</td>
-					<td><div className="Client-defaulter">Inadimplente</div></td>
+					<td><div className="client-defaulter">Inadimplente</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -71,7 +71,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>cameronw@cubos.io</td>
 					<td>771 9 9962 8658</td>
-					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-compliant">Em dia</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -79,7 +79,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>snguyen@cubos.io</td>
 					<td>71 9 9762 8658</td>
-					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-compliant">Em dia</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -87,7 +87,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>darlener@cubos.io</td>
 					<td>71 9 9562 8653</td>
-					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-compliant">Em dia</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 				<tr>
@@ -95,7 +95,7 @@ export default function ClientTabel() {
 					<td>054 365 255 87</td>
 					<td>marvinm@cubos.io</td>
 					<td>71 9 9462 8658</td>
-					<td><div className="Client-compliant">Em dia</div></td>
+					<td><div className="client-compliant">Em dia</div></td>
 					<td><div className="client-charge"><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 				</tr>
 			</tbody>
