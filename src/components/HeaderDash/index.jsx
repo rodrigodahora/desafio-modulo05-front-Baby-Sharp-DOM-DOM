@@ -1,17 +1,24 @@
 import React from 'react';
 import { useContext, useState } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './styles.module.css';
 import '../../index.css';
 import edit from '../../assets/editar.svg';
 import logout from '../../assets/logout.svg';
 import arrowTop from '../../assets/arrow_top.svg';
-import { MyContext } from '../../contexts/MyContext';
 import ModalEditUser from '../ModalEditUser';
 
 const HeaderDash = () => {
   const [modalUser, setModalUser] = useState(false);
   const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
+  const navigate = useNavigate();
+
+  function Logout() {
+    localStorage.removeItem('token');
+    navigate('/Login');
+  }
 
   return (
     <React.Fragment className={styles.mod}>
@@ -49,7 +56,7 @@ const HeaderDash = () => {
                           setOpenModalUser(true);
                         }}
                       />
-                      <img src={logout} alt="Logout" />
+                      <img onClick={() => Logout()} src={logout} alt="Logout" />
                     </div>
                   </div>{' '}
                 </>

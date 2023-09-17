@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import styles from './styles.module.css';
+import React, { useContext, useState } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+
 import close from '../../assets/close.svg';
 import eyeOff from '../../assets/eye_off.svg';
 import ModalCompleted from '../ModalCompleted';
-import { MyContext } from '../../contexts/MyContext';
-import { useContext } from 'react';
+import styles from './styles.module.css';
+
+import api from '../../services/api';
 
 const ModalEditUser = () => {
   const [viewPass, setViewPass] = useState(false);
