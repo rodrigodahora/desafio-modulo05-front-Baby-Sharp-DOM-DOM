@@ -7,8 +7,10 @@
 .container-login {
   display: flex;
   flex-direction: row;
+
   width: 1440px;
   height: 900px;
+
   background-color: #F8F8F9;
 }
 
@@ -17,19 +19,23 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background-image: url(../../assets/background_login.png);
+
   width: 500px;
   height: 900px;
+
+  background-image: url(../../assets/background_login.png);
 }
 
 .bgr-filter {
   width: 482px;
   height: 882px;
+
   background-color: #034a2a1a;
 }
 
 .bgr-image h1 {
   position: absolute;
+
   top: 160px;
   left: 48px;
   right: 48px;
@@ -48,6 +54,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   width: 355px;
   height: 335px;
   margin: 208px 292px 324px 293px;
@@ -68,12 +75,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
   align-self: stretch;
-  margin-bottom: 20px;
   position: relative;
+
   width: 344px;
   height: 70px;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
 
@@ -88,15 +96,16 @@
 
 .input-box input {
   display: flex;
-  padding: 10px 14px;
   align-items: center;
-  gap: 8px;
   align-self: stretch;
+
+  gap: 8px;
+  padding: 10px 14px;
 
   border-radius: 8px;
   border: 1px solid #D0D5DD;
-  background-color: #fff;
 
+  background-color: #fff;
   box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
 
   color: #667085;
@@ -108,6 +117,7 @@
 
 .container-input span {
   position: absolute;
+
   top: 105%;
 
   color: #E70000;
@@ -120,15 +130,15 @@
 
 .container-input button {
   display: flex;
-  width: 160px;
-  height: 33px;
   justify-content: center;
   align-items: center;
+
+  width: 160px;
+  height: 33px;
   margin-top: 20px;
 
   border-radius: 10px;
   border: none;
-  cursor: pointer;
 
   background-color: #DA0175;
   color: #F8F8F9;
@@ -137,6 +147,8 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+
+  cursor: pointer;
 }
 
 .container-input p {
@@ -157,5 +169,6 @@
   font-weight: 600;
   line-height: 130%;
   text-decoration-line: underline;
+
   cursor: pointer;
 }

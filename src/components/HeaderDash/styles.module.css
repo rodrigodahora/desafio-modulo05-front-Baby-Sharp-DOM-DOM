@@ -6,27 +6,29 @@
 
 .header_dash {
   display: flex;
-  width: 1440px;
   position: fixed;
+
+  width: 1440px;
+
   background: #F8F8F9;
 }
 
 .container {
-  width: 1440px;
-  height: 112px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  width: 1440px;
+  height: 112px;
   margin: 0 32px 0 150px;
   padding: 0 80px 0 60px;
-  border-bottom: 1px solid #ACD9C5;
 
+  border-bottom: 1px solid #ACD9C5;
 }
 
 .container h1 {
-  color: #343447;
   text-align: center;
+  color: #343447;
   font-family: Montserrat, sans-serif;
   font-size: 26px;
   font-style: normal;
@@ -55,59 +57,67 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  background-color: #DEDEE9;
   margin-right: 16px;
 
+  border-radius: 50%;
+
+  background-color: #DEDEE9;
+
+  color: #0E8750;
   font-family: Nunito, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
-  color: #0E8750;
 }
 
 .login strong {
+  color: #0E8750;
   font-family: Nunito, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
-  color: #0E8750;
 }
 
 .arrow_down {
   position: relative;
+
   width: 24px;
   height: 24px;
+
   background-image: url(../../assets/arrow_down.svg);
 }
 
 .child_edit_logout {
   display: flex;
   align-items: center;
+  position: absolute;
+
   width: 92px;
   height: 51px;
-  position: absolute;
   top: 30px;
   right: -45px;
+
   border-radius: 10px;
+
   background-color: #FFFFFF;
 }
 
 .modal_edit_logout .arrowTop {
   display: flex;
   position: absolute;
+
   top: 23px;
   left: 5px;
 }
 
 .child_edit_logout {
   display: flex;
+
   border-radius: 8px;
 }
 

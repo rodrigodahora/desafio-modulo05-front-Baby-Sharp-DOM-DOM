@@ -1,33 +1,36 @@
 .main {
-  width: 100%;
-  padding: 20px 80px;
-
   display: flex;
   justify-content: space-between;
+
+  width: 100%;
+  padding: 20px 80px;
 }
 
 .charges {
   display: flex;
-  
+
   width: 360px;
   height: 111px;
   padding: 23px 40px;
- 
+
   border-radius: 30px;
+
   background-color: #EEF6F6;
 }
 
 .paid_charges {
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- align-items: center;
- gap: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
 }
 
 .paid_img {
   width: 33px;
   height: 37px;
+
   background-image: url(../../assets/cobranca_paga.svg);
 }
 
@@ -38,7 +41,7 @@
 }
 
 .paid_value h2 {
-  color:  #3F3F55;
+  color: #3F3F55;
   font-family: Montserrat, sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -57,26 +60,28 @@
 
 .won {
   display: flex;
-  
+
   width: 360px;
   height: 111px;
   padding: 23px 40px;
- 
+
   border-radius: 30px;
   background-color: #FFEFEF;
 }
 
 .won_charges {
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- align-items: center;
- gap: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
 }
 
 .won_img {
   width: 31px;
   height: 37px;
+
   background-image: url(../../assets/cobranca_vencida.svg);
 }
 
@@ -87,7 +92,7 @@
 }
 
 .won_value h2 {
-  color:  #3F3F55;
+  color: #3F3F55;
   font-family: Montserrat, sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -106,26 +111,28 @@
 
 .expected {
   display: flex;
-  
+
   width: 360px;
   height: 111px;
   padding: 23px 40px;
- 
+
   border-radius: 30px;
   background-color: #FCF6DC;
 }
 
 .expected_charges {
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- align-items: center;
- gap: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
 }
 
 .expected_img {
   width: 31px;
   height: 37px;
+
   background-image: url(../../assets/cobranca_pendente.svg);
 }
 
@@ -136,7 +143,7 @@
 }
 
 .expected_value h2 {
-  color:  #3F3F55;
+  color: #3F3F55;
   font-family: Montserrat, sans-serif;
   font-size: 18px;
   font-style: normal;
