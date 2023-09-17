@@ -6,11 +6,11 @@ import ModalCompleted from '../ModalCompleted';
 
 const ModalEditUser = ({ setOpenModalUser }) => {
   const [viewPass, setViewPass] = useState(false);
+  const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
 
   const handleSumit = (e) => {
     e.preventDefault();
-    console.log('Caldas Nuevas!');
 
     setCompleted(true);
 
@@ -108,7 +108,7 @@ const ModalEditUser = ({ setOpenModalUser }) => {
             <img
               src={eyeOff}
               alt="View password"
-              onClick={() => setViewPass(!viewPass)}
+              onClick={() => setConfirPass(!viewConfirPass)}
             />
           </div>
           <span className={styles.validation}>
