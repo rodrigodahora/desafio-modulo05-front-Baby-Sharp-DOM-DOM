@@ -1,17 +1,16 @@
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+
   width: 100%;
   max-width: 1440px;
   height: 100vh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   backdrop-filter: blur(2px);
   background-color: rgba(145, 154, 150, 0.3);
-
-  position: fixed;
-  z-index: 1;
 }
 
 .content {
@@ -19,12 +18,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+
   width: 600px;
   height: 460px;
-  position: relative;
   padding: 20px 50px;
 
-  width: 491px;
   border-radius: 30px;
 
   background: #FFFFFF;
@@ -36,15 +35,14 @@
 }
 
 .content h4 {
-
   padding: 24px 0;
+
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 130%;
-  
-  color:  #343447;
 
+  color: #343447;
 }

@@ -14,14 +14,46 @@ const ModalEditUser = () => {
   const [completed, setCompleted] = useState(false);
   const { setOpenModalUser } = useContext(MyContext);
 
-  const handleSumit = (e) => {
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    cpf: '',
+    phone: '',
+    newPassword: '',
+    confNewPassword: '',
+  });
+
+  const handleSumit = async (e) => {
     e.preventDefault();
 
-    setCompleted(true);
+    const token = localStorage.getItem('token');
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
 
-    setTimeout(() => {
-      setOpenModalUser(false);
-    }, 1000);
+    try {
+      const response = await api.put(
+        '/editUser',
+        {
+          name: data.name,
+          email: data.email,
+          cpf: data.cpf,
+          phone: data.phone,
+          newPassword: data.newPassword,
+          confNewPassword: data.confNewPassword,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      setCompleted(true);
+
+      setTimeout(() => {
+        setOpenModalUser(false);
+      }, 1000);
+    } catch (error) {}
   };
 
   return completed ? (

@@ -13,17 +13,16 @@ li {
 }
 
 .container {
-  width: 108px;
-  height: 1129px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
+
+  width: 108px;
+  height: 1129px;
   gap: 72px;
 
   background-color: #F0F0F5;
-
 }
 
 .container li {
@@ -36,11 +35,7 @@ li {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  cursor: pointer;
-}
 
-.container img {
-  cursor: pointer;
 }
 
 .home {
@@ -48,6 +43,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   margin-top: 45px;
 }
 

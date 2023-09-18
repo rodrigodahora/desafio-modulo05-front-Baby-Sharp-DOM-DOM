@@ -4,11 +4,13 @@ table {
 
 thead tr {
     height: 58px;
+
     text-align: left;
 }
 
 th {
     align-self: center;
+
     color: #3F3F55;
     font-family: Nunito;
     font-size: 16px;
@@ -16,7 +18,6 @@ th {
     font-weight: 700;
     line-height: 50px;
     letter-spacing: 0.08px;
-
 }
 
 tbody tr {
@@ -39,6 +40,7 @@ td {
 
 .client-client {
     display: flex;
+
     width: 186px;
     height: 58px;
     padding-top: 4px;
@@ -74,6 +76,7 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 99px;
     height: 19px;
 
@@ -92,6 +95,7 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 99px;
     height: 19px;
 
@@ -111,8 +115,10 @@ td {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     width: 35px;
     height: 35px;
+
     border: none;
 }
 

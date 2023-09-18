@@ -36,6 +36,8 @@ function Login() {
 
       const response = await api.post("/login", { email: data.email, password: data.password });
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("name", response.data.user.name);
+      localStorage.setItem("email", data.email);
       navigate("/Home");
     } catch (error) {
       if (error.response.data.message === "Email ou senha inválido!") {

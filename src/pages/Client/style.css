@@ -20,6 +20,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
     height: 39px;
     margin-bottom: 24px;
 }
@@ -28,6 +29,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
     gap: 16px;
 
     color: #3F3F55;
@@ -51,6 +53,7 @@
 
     border: none;
     border-radius: 10px;
+
     background: #DA0175;
 
     color: #F8F8F9;
@@ -72,8 +75,9 @@
     padding: 7px 8px;
 
     border-radius: 10px;
-    background: #FFF;
     border: none;
+
+    background: #FFF;
     box-shadow: 0 4px 7px 0 #DA01750D;
 
     color: #747488;
@@ -87,6 +91,7 @@
 .Client-body-header .Client-box-input img {
     display: flex;
     position: absolute;
+
     right: 8px;
 }
 
@@ -98,5 +103,6 @@
     padding: 12px 23px;
 
     border-radius: 30px;
+
     background: #FFF;
 }
