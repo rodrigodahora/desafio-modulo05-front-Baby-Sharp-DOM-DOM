@@ -12,19 +12,27 @@ const ModalEditUser = () => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const { setOpenModalUser } = useContext(MyContext);
+  const { setOpenModalUser, isValidEmail } = useContext(MyContext);
 
-  const [errorEmail, setErrorEmail] = useState("");
-
+  const [errorName, setErrorName] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
+  const [errorPassword, setErrorPassword] = useState('');
+  const [errorConfPassword, setErrorConfPassword] = useState('');
 
   const [data, setData] = useState({
     name: '',
     email: '',
     cpf: '',
     phone: '',
-    newPassword: '',
-    confNewPassword: '',
+    password: '',
+    confPassword: '',
   });
+
+  function handleChange(e) {
+    const key = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [key]: value });
+  }
 
   const handleSumit = async (e) => {
     e.preventDefault();
@@ -41,8 +49,8 @@ const ModalEditUser = () => {
           email: data.email,
           cpf: data.cpf,
           phone: data.phone,
-          newPassword: data.newPassword,
-          confNewPassword: data.confNewPassword,
+          password: data.password,
+          confPassword: data.confPassword,
         },
         {
           headers: {
@@ -56,8 +64,64 @@ const ModalEditUser = () => {
       setTimeout(() => {
         setOpenModalUser(false);
       }, 1000);
-    } catch (error) { }
+    } catch (error) {}
   };
+
+  async function applySubmit(e) {
+    e.preventDefault();
+
+    try {
+      if (!data.name) {
+        return setErrorName('Informe seu nome!');
+      } else {
+        setErrorName('');
+      }
+
+      if (!data.email) {
+        return setErrorEmail('Informe seu email!');
+      } else {
+        setErrorEmail('');
+      }
+
+      if (!isValidEmail(data.email)) {
+        return setErrorEmail('Email inválido!');
+      } else {
+        setErrorEmail('');
+      }
+
+      if (!data.password) {
+        return setErrorPassword('Informe sua senha!');
+      } else {
+        setErrorPassword('');
+      }
+      if (!data.password) {
+        return setErrorConfPassword('Informe novamente sua senha!');
+      } else {
+        setErrorConfPassword('');
+      }
+      if (data.password !== data.confPassword) {
+        return setErrorConfPassword('As senhas não conferem!');
+      } else {
+        setErrorConfPassword('');
+      }
+
+      const response = await api.post('/emailVerify', { email: data.email });
+
+      setErrorName('');
+      setErrorEmail('');
+      setErrorPassword('');
+      setErrorConfPassword('');
+      setCompleted(true);
+
+      setTimeout(() => {
+        setCompleted(false);
+      }, 10000);
+    } catch (error) {
+      if (error.response) {
+        return setErrorEmail(error.response.data.message);
+      }
+    }
+  }
 
   return completed ? (
     <ModalCompleted />
@@ -81,10 +145,9 @@ const ModalEditUser = () => {
             id="name"
             type="text"
             placeholder="Digite seu nome"
+            onChange={handleChange}
           />
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{errorName}</span>
           <label htmlFor="email">E-mail*</label>
           <input
             className={styles.input}
@@ -92,10 +155,9 @@ const ModalEditUser = () => {
             id="email"
             type="text"
             placeholder="Digite seu e-mail"
+            onChange={handleChange}
           />
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{errorEmail}</span>
         </div>
         <div className={styles.row}>
           <div className={styles.colum}>
@@ -127,17 +189,17 @@ const ModalEditUser = () => {
               name="password"
               id="password"
               type={viewPass ? 'text' : 'password'}
+              onChange={handleChange}
             />
             <img
               className={styles.img_pass}
               src={eyeOff}
               alt="View password"
               onClick={() => setViewPass(!viewPass)}
+              onChange={handleChange}
             />
           </div>
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{setErrorPassword}</span>
 
           <label htmlFor="confirm_password">Confirmar senha*</label>
           <div className={styles.box_input}>
@@ -153,11 +215,9 @@ const ModalEditUser = () => {
               onClick={() => setConfirPass(!viewConfirPass)}
             />
           </div>
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{setErrorConfPassword}</span>
         </div>
-        <button className={styles.button} type="submit">
+        <button onClick={applySubmit} className={styles.button} type="submit">
           Aplicar
         </button>
       </form>
