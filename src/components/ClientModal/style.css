@@ -1,0 +1,226 @@
+.filter-client-modal {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+
+  width: 1332px;
+  height: 100vh;
+  left: 108px;
+
+  background-color: rgba(145, 154, 150, 0.30);
+  backdrop-filter: blur(2px);
+}
+
+.container-client-modal {
+  display: flex;
+  position: relative;
+
+  width: 600px;
+  min-height: 758px;
+
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.client-modal-close {
+  display: flex;
+  position: absolute;
+
+  width: 32px;
+  height: 30px;
+  top: 24px;
+  right: 24px;
+}
+
+.client-form {
+  display: flex;
+  flex-direction: column;
+
+  margin: 40.61px 56px 40.78px 57px;
+  gap: 8px;
+}
+
+label {
+  color: #3F3f55;
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+input {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 44px;
+  gap: 8px;
+  padding: 10px 14px;
+
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+
+  background-color: #fff;
+
+  color: #9B9BB2;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.modal-error-msg {
+  color: #E70000;
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.title-client-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 16px;
+  margin-bottom: 9.5px;
+}
+
+.title-client-modal img {
+  width: 32px;
+  height: 32px;
+}
+
+.title-client-modal h1 {
+  width: 264px;
+  height: 34px;
+
+  color: #3f3f55;
+  font-family: Montserrat;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.input-modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 487px;
+  gap: 6px;
+}
+
+.input-modal-box-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 24px;
+  width: 487px;
+}
+
+.input-modal-box-row-cpf {
+  display: flex;
+  flex-direction: column;
+
+  width: 235px;
+  gap: 6px;
+}
+
+.input-modal-box-row-phone {
+  display: flex;
+  flex-direction: column;
+
+  width: 224px;
+  gap: 6px;
+}
+
+.input-modal-box-row-zip_code {
+  display: flex;
+  flex-direction: column;
+
+  width: 228px;
+  gap: 6px;
+}
+
+.input-modal-box-row-district {
+  display: flex;
+  flex-direction: column;
+
+  width: 235px;
+  gap: 6px;
+}
+
+.input-modal-box-row-city {
+  display: flex;
+  flex-direction: column;
+
+  width: 303px;
+  gap: 6px;
+}
+
+.input-modal-box-row-state {
+  display: flex;
+  flex-direction: column;
+
+  width: 160px;
+  gap: 6px;
+}
+
+.client-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.button-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 232px;
+  height: 34px;
+
+  border-radius: 10px;
+  border: 1px solid #DEDEE9;
+
+  background-color: #F8F8F9;
+
+  color: #0E8750;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+
+  cursor: pointer;
+}
+
+.button-apply {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 232px;
+  height: 34px;
+
+  border-radius: 10px;
+  border: none;
+
+  background-color: #DA0175;
+
+  color: #F8F8F9;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+
+  cursor: pointer;
+}

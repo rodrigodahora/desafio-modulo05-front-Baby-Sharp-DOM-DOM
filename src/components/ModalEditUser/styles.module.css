@@ -1,0 +1,151 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+
+  backdrop-filter: blur(2px);
+  background-color: rgba(145, 154, 150, 0.3);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  width: 491px;
+  padding: 20px 50px;
+  gap: 30px;
+
+  border-radius: 30px;
+
+  background: #FFFFFF;
+}
+
+.img_close {
+  position: absolute;
+
+  right: 20px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+
+  cursor: pointer;
+}
+
+.form header {
+  padding: 30px 0 15px 0;
+
+  color: #343447;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.colum {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.colum label {
+  color: #344054;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.validation {
+  position: initial;
+
+  margin-top: -10px;
+
+  color: #E70000;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.box_input {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 14px;
+  gap: 8px;
+
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+}
+
+.box_input input {
+  flex: 1;
+
+  margin: -5px 0;
+
+  outline: none;
+  border: transparent;
+
+  font-size: 22px;
+}
+
+.row {
+  display: flex;
+
+  gap: 24px;
+}
+
+.row label {
+  color: #344054;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 14px;
+
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+}
+
+.img_pass {
+  cursor: pointer;
+}
+
+.button {
+  justify-content: center;
+  align-items: center;
+
+  width: 160px;
+  margin: 0 110px;
+  padding: 4px 40px;
+  gap: 4px;
+
+  border-radius: 10px;
+  border: 1px solid #DA0175;
+
+  background: #DA0175;
+
+  color: #F8F8F9;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+
+  cursor: pointer;
+}
