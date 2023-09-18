@@ -6,8 +6,6 @@
 }
 
 .container_defaulters {
-  width: 100%;
-
   display: flex;
   justify-content: space-between;
 
@@ -30,8 +28,9 @@
 
   padding: 15px 20px;
 
-  background-color: #FFF;
   border-bottom: 1px solid #EFF0F6;
+
+  background-color: #FFF;
 }
 
 .header div {
@@ -65,10 +64,12 @@
 
 .in_day {
   margin: 0 0 0 auto;
+  padding: 3px 15px;
+
+  border-radius: 8px;
 
   background-color: #EEF6F6;
-  padding: 3px 15px;
-  border-radius: 8px;
+
   color: #1FA7AF;
   font-family: Montserrat, sans-serif;
   font-size: 16px;
@@ -84,7 +85,6 @@
 
 .table th,
 .table td {
-  border-bottom: 1px solid #EFF0F6;
   padding: 0 20px;
 }
 
@@ -116,7 +116,9 @@
 
   height: 60px;
   padding: 15px 20px;
+
   border-top: 1px solid #EFF0F6;
+
   background-color: #FFF;
 }
 

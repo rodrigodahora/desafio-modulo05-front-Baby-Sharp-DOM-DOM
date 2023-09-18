@@ -38,7 +38,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: 130%;
-    /* 33.8px */
 }
 
 .Client-body-header div button {
@@ -76,9 +75,9 @@
 
     border-radius: 10px;
     border: none;
+    box-shadow: 0 4px 7px 0 #DA01750D;
 
     background: #FFF;
-    box-shadow: 0 4px 7px 0 #DA01750D;
 
     color: #747488;
     font-family: Nunito;

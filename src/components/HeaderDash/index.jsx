@@ -11,14 +11,10 @@ import arrowTop from '../../assets/arrow_top.svg';
 import ModalEditUser from '../ModalEditUser';
 
 const HeaderDash = () => {
-  const [modalUser, setModalUser] = useState(false);
-  const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
   const navigate = useNavigate();
 
-  function Logout() {
-    localStorage.removeItem('token');
-    navigate('/Login');
-  }
+  const [modalUser, setModalUser] = useState(false);
+  const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
 
   return (
     <React.Fragment className={styles.mod}>
@@ -56,7 +52,14 @@ const HeaderDash = () => {
                           setOpenModalUser(true);
                         }}
                       />
-                      <img onClick={() => Logout()} src={logout} alt="Logout" />
+                      <img
+                        src={logout}
+                        onClick={() => {
+                          localStorage.clear();
+                          navigate('/');
+                        }}
+                        alt="Logout"
+                      />
                     </div>
                   </div>{' '}
                 </>

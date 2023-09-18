@@ -1,21 +1,22 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import bola2 from "../../assets/bola_check.svg";
 import bola4 from "../../assets/bola_confirmado.svg";
 import bola1 from "../../assets/bola_done.svg";
 import bola0 from "../../assets/bola_undone.svg";
+import eyeOff from "../../assets/eye_off.svg";
 import lineHG from "../../assets/line_h_green.svg";
 import lineHW from "../../assets/line_h_white.svg";
 import lineV from "../../assets/line_v_green.svg";
-import eyeOff from "../../assets/eye_off.svg";
 
 import { MyContext } from '../../contexts/MyContext';
+import '../../index.css';
+import api from "../../services/api";
 import './style.css';
-import api from "../../services/api"
 
 
 
-export default function SingIn() {
+export default function SingUp() {
   const navigate = useNavigate();
 
   const { data, setData } = useContext(MyContext);
@@ -93,7 +94,6 @@ export default function SingIn() {
       setSelected(3);
 
     } catch (error) {
-      console.log(error)
       if (error.response) {
         return setMainError(error.response.data.message);
       }
@@ -101,16 +101,16 @@ export default function SingIn() {
   }
 
   return (
-    <div className="SingIn">
-      <div className="SingIn-left">
-        <div className="SingIn-left-menu-check">
+    <div className="singUp">
+      <div className="singUp-left">
+        <div className="singUp-left-menu-check">
           <img src={changeCheck(1)} onClick={() => { setSelected((selected >= 1 && selected !== 3) ? 1 : selected) }} alt="click" />
           <img src={lineV} alt="" />
           <img src={changeCheck(2)} onClick={() => { setSelected((selected >= 2 && selected !== 3) ? 2 : selected) }} alt="click" />
           <img src={lineV} alt="" />
           <img src={changeCheck(3)} onClick={() => { setSelected((selected >= 3) ? 3 : selected) }} alt="click" />
         </div>
-        <div className="SingIn-left-menu-text">
+        <div className="singUp-left-menu-text">
           <div>
             <h1>Cadastre-se</h1>
             <h2>Por favor, escolha seu nome e e-mail</h2>
@@ -125,10 +125,10 @@ export default function SingIn() {
           </div>
         </div>
       </div>
-      <div className={selected === 1 ? "SingIn-right" : "hidden"}>
-        <div className="SingIn-right-form">
+      <div className={selected === 1 ? "singUp-right" : "hidden"}>
+        <div className="singUp-right-form">
           <h1>Adicione seus dados</h1>
-          <div className="SingIn-right-form-input">
+          <div className="singUp-right-form-input">
             <label htmlFor="name">Nome*</label>
             <input
               type="text"
@@ -137,9 +137,9 @@ export default function SingIn() {
               placeholder="Digite seu nome"
               onChange={handleChange}
             />
-            <span className="SingIn-span">{errorName}</span>
+            <span className="singUp-span">{errorName}</span>
           </div>
-          <div className="SingIn-right-form-input">
+          <div className="singUp-right-form-input">
             <label htmlFor="email">E-mail*</label>
             <input
               type="email"
@@ -148,23 +148,23 @@ export default function SingIn() {
               placeholder="Digite seu e-mail"
               onChange={handleChange}
             />
-            <span className="SingIn-span">{errorEmail}</span>
+            <span className="singUp-span">{errorEmail}</span>
           </div>
           <button type="button" onClick={firstSubmit}>Continuar</button>
-          <div className="SingIn-right-navigate">
-            <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
+          <div className="singUp-right-navigate">
+            <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="singUp-right-navigate-click"> Login</a></p>
           </div>
         </div>
-        <div className="SingIn-right-row">
+        <div className="singUp-right-row">
           <img src={(selected === 1) ? lineHG : lineHW} alt="click" />
           <img src={(selected === 2) ? lineHG : lineHW} alt="click" />
           <img src={(selected === 3) ? lineHG : lineHW} alt="click" />
         </div>
       </div>
-      <div className={selected === 2 ? "SingIn-right" : "hidden"}>
-        <div className="SingIn-right-form">
+      <div className={selected === 2 ? "singUp-right" : "hidden"}>
+        <div className="singUp-right-form">
           <h1>Adicione seus dados</h1>
-          <div className="SingIn-right-form-input">
+          <div className="singUp-right-form-input">
             <label htmlFor="senha">Senha*</label>
             <input
               type={eyePassword ? "text" : "password"}
@@ -174,9 +174,9 @@ export default function SingIn() {
             />
             <img src={eyeOff} onClick={() => { setEyePassword(!eyePassword) }} alt="" />
 
-            <span className="SingIn-span">{errorPassword}</span>
+            <span className="singUp-span">{errorPassword}</span>
           </div>
-          <div className="SingIn-right-form-input">
+          <div className="singUp-right-form-input">
             <label htmlFor="conf-senha">Repita a senha*</label>
             <input
               type={eyeConfPassword ? "text" : "password"}
@@ -185,26 +185,26 @@ export default function SingIn() {
               onChange={handleChange}
             />
             <img src={eyeOff} onClick={() => (setEyeConfPassword(!eyeConfPassword))} alt="" />
-            <span className="SingIn-span">{errorConfPassword}</span>
+            <span className="singUp-span">{errorConfPassword}</span>
           </div>
           <button type="button" onClick={finalSubmit}>Finalizar cadastro</button>
-          <div className="SingIn-right-navigate">
-            <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="SingIn-right-navigate-click"> Login</a></p>
+          <div className="singUp-right-navigate">
+            <p>Já possui uma conta? Faça seu <a onClick={() => { navigate("/") }} className="singUp-right-navigate-click"> Login</a></p>
           </div>
         </div>
-        <div className="SingIn-right-row">
+        <div className="singUp-right-row">
           <img src={(selected === 1) ? lineHG : lineHW} alt="click" />
           <img src={(selected === 2) ? lineHG : lineHW} alt="click" />
           <img src={(selected === 3) ? lineHG : lineHW} alt="click" />
         </div>
       </div>
-      <div className={selected === 3 ? "SingIn-right" : "hidden"}>
-        <div className="SingIn-right-box">
+      <div className={selected === 3 ? "singUp-right" : "hidden"}>
+        <div className="singUp-right-box">
           <img src={bola4} alt="click" />
           <h1>Cadastro realizado com sucesso!</h1>
         </div>
         <button onClick={() => { navigate("/") }}>Ir para Login</button>
-        <div className="SingIn-right-row">
+        <div className="singUp-right-row">
           <img src={(selected === 1) ? lineHG : lineHW} alt="click" />
           <img src={(selected === 2) ? lineHG : lineHW} alt="click" />
           <img src={(selected === 3) ? lineHG : lineHW} alt="click" />

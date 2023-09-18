@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
-import "./style.css";
-import api from "../../services/api";
-import closeIcon from "../../assets/close.svg";
 import clientIcon from "../../assets/cliente_menu.svg";
+import closeIcon from "../../assets/close.svg";
 import { MyContext } from '../../contexts/MyContext';
-
+import api from "../../services/api";
+import "./style.css";
 
 const ClientModal = () => {
-  const { addClient, setAddClient } = useContext(MyContext);
+  const { addClient, setAddClient, setFeedback } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: "",
@@ -103,11 +102,36 @@ const ClientModal = () => {
             Authorization: `Bearer ${token}`
           }
         });
-      console.log(response);
+
       clearData();
+
+      setTimeout(() => {
+        setFeedback(true);
+      }, 1000);
+
     } catch (error) {
-      console.log(error);
-      setMainError(error);
+      // console.log(error.response.data.message);
+      setMainError(error.response.data.message);
+
+      if (mainError === "Email já cadastrado!") {
+        console.log("Aqui!");
+        setErrorEmail(mainError);
+        return;
+      } else {
+        setErrorEmail("");
+      }
+
+      if (mainError === "CPF já cadastrado!") {
+        return setErrorCpf(mainError);
+      } else {
+        setErrorEmail("");
+      }
+
+      if (mainError === "Telefone já cadastrado!") {
+        return setErrorPhone(mainError);
+      } else {
+        setErrorPhone("");
+      }
     }
   }
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import api from "../../services/api";
@@ -22,6 +23,7 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     try {
       if (!data.email) {
         return setErrorEmail('O campo deve ser preenchido!');
@@ -35,10 +37,13 @@ function Login() {
       }
 
       const response = await api.post("/login", { email: data.email, password: data.password });
+
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("name", response.data.user.name);
       localStorage.setItem("email", data.email);
+
       navigate("/Home");
+
     } catch (error) {
       if (error.response.data.message === "Email ou senha inválido!") {
         setMainError(error.response.data.message);
@@ -47,7 +52,7 @@ function Login() {
   }
 
   return (
-    <div className='container-login'>
+    <div className='Login'>
       <div className='bgr-image'>
         <div className='bgr-filter'>
           <h1>Gerencie todos os pagamentos da sua empresa em um só lugar.</h1>
@@ -85,7 +90,7 @@ function Login() {
         >
           Entrar
         </button>
-        <p>Ainda não possui uma conta? <a onClick={() => { navigate("/SingIn") }}>Cadastre-se</a></p>
+        <p>Ainda não possui uma conta? <a onClick={() => { navigate("/singup") }}>Cadastre-se</a></p>
       </div>
     </div>
   );
