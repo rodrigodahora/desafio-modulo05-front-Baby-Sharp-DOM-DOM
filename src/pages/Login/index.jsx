@@ -85,7 +85,7 @@ function Login() {
         >
           Entrar
         </button>
-        <p>Ainda não possui uma conta? <a onClick={() => { navigate("/SingIn") }}>Cadastre-se</a></p>
+        <p>Ainda não possui uma conta? <a onClick={() => { navigate("/singup") }}>Cadastre-se</a></p>
       </div>
     </div>
   );

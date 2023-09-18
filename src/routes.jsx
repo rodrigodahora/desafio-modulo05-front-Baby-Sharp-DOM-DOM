@@ -2,7 +2,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { ContextProvider } from './contexts/MyContext';
 import Home from './pages/Home';
 import Login from "./pages/Login";
-import SingIn from './pages/SingIn';
+import SingUp from './pages/SingUp';
 import Client from './pages/Client';
 
 function ProtectedRoutes({ redirectTo }) {
@@ -25,7 +25,7 @@ export default function MyRoutes() {
 
           <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/SingIn" element={<SingIn />} />
+          <Route path="/SingUp" element={<SingUp />} />
         </Route>
         <Route element={<ProtectedRoutes redirectTo={"/"} />}>
           <Route path="/Home" element={<Home />} />

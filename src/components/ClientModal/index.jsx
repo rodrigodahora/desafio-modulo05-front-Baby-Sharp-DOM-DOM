@@ -102,8 +102,15 @@ const ClientModal = () => {
             Authorization: `Bearer ${token}`
           }
         });
+
       clearData();
+
       setFeedback(true);
+
+      setTimeout(() => {
+        setFeedback(false);
+      }, 1000);
+
     } catch (error) {
       console.log(error);
       setMainError(error);
