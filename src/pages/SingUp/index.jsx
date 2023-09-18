@@ -19,7 +19,7 @@ import './style.css';
 export default function SingUp() {
   const navigate = useNavigate();
 
-  const { data, setData } = useContext(MyContext);
+  const { data, setData, isValidEmail } = useContext(MyContext);
   const [eyePassword, setEyePassword] = useState(false)
   const [eyeConfPassword, setEyeConfPassword] = useState(false)
 
@@ -56,6 +56,10 @@ export default function SingUp() {
       if (!data.name) {
         return setErrorName("Informe seu nome!");
       } else { setErrorName(""); }
+
+      if (!isValidEmail(data.email)) {
+        return setErrorEmail("Email inválido!");
+      } else { setErrorEmail(""); }
 
       const response = await api.post("/emailVerify", { email: data.email });
 

@@ -14,6 +14,9 @@ const ModalEditUser = () => {
   const [completed, setCompleted] = useState(false);
   const { setOpenModalUser } = useContext(MyContext);
 
+  const [errorEmail, setErrorEmail] = useState("");
+
+
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -53,7 +56,7 @@ const ModalEditUser = () => {
       setTimeout(() => {
         setOpenModalUser(false);
       }, 1000);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   return completed ? (

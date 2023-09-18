@@ -9,6 +9,14 @@ export function ContextProvider(props) {
   const [feedback, setFeedback] = useState(false);
   const [openModalUser, setOpenModalUser] = useState(false);
 
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  // if (!isValidEmail(data.email)) {
+  //   return setErrorEmail("Email inválido!");
+  // } else { setErrorEmail(""); }
+
   return (
     <MyContext.Provider value={{
       data,
@@ -20,7 +28,8 @@ export function ContextProvider(props) {
       feedback,
       setFeedback,
       openModalUser,
-      setOpenModalUser
+      setOpenModalUser,
+      isValidEmail
     }}>
       {props.children}
     </MyContext.Provider>
