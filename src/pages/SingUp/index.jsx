@@ -57,6 +57,10 @@ export default function SingUp() {
         return setErrorName("Informe seu nome!");
       } else { setErrorName(""); }
 
+      if (!data.email) {
+        return setErrorEmail("Informe seu email!");
+      } else { setErrorEmail(""); }
+
       if (!isValidEmail(data.email)) {
         return setErrorEmail("Email inválido!");
       } else { setErrorEmail(""); }

@@ -13,6 +13,10 @@ export function ContextProvider(props) {
     const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
     return emailRegex.test(email);
   }
+  // if (!data.email) {
+  //   return setErrorEmail("Informe seu email!");
+  // } else { setErrorEmail(""); }
+
   // if (!isValidEmail(data.email)) {
   //   return setErrorEmail("Email inválido!");
   // } else { setErrorEmail(""); }
