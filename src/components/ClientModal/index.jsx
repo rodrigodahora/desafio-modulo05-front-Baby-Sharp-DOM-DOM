@@ -105,14 +105,12 @@ const ClientModal = () => {
 
       clearData();
 
-      setFeedback(true);
-
       setTimeout(() => {
-        setFeedback(false);
+        setFeedback(true);
       }, 1000);
 
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       setMainError(error);
     }
   }
