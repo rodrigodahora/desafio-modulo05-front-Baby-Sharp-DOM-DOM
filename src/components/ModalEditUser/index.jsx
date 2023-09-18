@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 import close from '../../assets/close.svg';
@@ -12,28 +12,58 @@ const ModalEditUser = () => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const { setOpenModalUser } = useContext(MyContext);
+  const { setOpenModalUser, isValidEmail } = useContext(MyContext);
 
-  const [errorEmail, setErrorEmail] = useState("");
-
+  const [errorName, setErrorName] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
+  const [errorPassword, setErrorPassword] = useState('');
+  const [errorConfPassword, setErrorConfPassword] = useState('');
 
   const [data, setData] = useState({
-    name: '',
-    email: '',
+    name: localStorage.getItem('name'),
+    email: localStorage.getItem('email'),
     cpf: '',
     phone: '',
-    newPassword: '',
-    confNewPassword: '',
+    password: '',
+    confPassword: '',
   });
 
-  const handleSumit = async (e) => {
+  function handleChange(e) {
+    const key = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [key]: value });
+  }
+
+  async function applySubmit(e) {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
-    const name = localStorage.getItem('name');
-    const email = localStorage.getItem('email');
 
     try {
+      if (!data.name) {
+        return setErrorName('Informe seu nome!');
+      } else {
+        setErrorName('');
+      }
+
+      if (!data.email) {
+        return setErrorEmail('Informe seu email!');
+      } else {
+        setErrorEmail('');
+      }
+
+      if (!isValidEmail(data.email)) {
+        return setErrorEmail('Email inválido!');
+      } else {
+        setErrorEmail('');
+      }
+
+      if (data.password && data.password !== data.confPassword) {
+        return setErrorConfPassword('As senhas não conferem!');
+      } else {
+        setErrorConfPassword('');
+      }
+      console.log(data.email);
       const response = await api.put(
         '/editUser',
         {
@@ -41,8 +71,8 @@ const ModalEditUser = () => {
           email: data.email,
           cpf: data.cpf,
           phone: data.phone,
-          newPassword: data.newPassword,
-          confNewPassword: data.confNewPassword,
+          password: data.password,
+          confPassword: data.confPassword,
         },
         {
           headers: {
@@ -50,20 +80,33 @@ const ModalEditUser = () => {
           },
         },
       );
+      console.log(response);
 
+      setErrorName('');
+      setErrorEmail('');
+      setErrorPassword('');
+      setErrorConfPassword('');
       setCompleted(true);
 
       setTimeout(() => {
+        setCompleted(false);
         setOpenModalUser(false);
-      }, 1000);
-    } catch (error) { }
-  };
+      }, 5000);
+    } catch (error) {
+      if (error.response) {
+        return setErrorEmail(error.response.data.message);
+      }
+    }
+  }
 
   return completed ? (
-    <ModalCompleted />
+    <ModalCompleted
+      setCompleted={setCompleted}
+      setOpenModalUser={setOpenModalUser}
+    />
   ) : (
     <div className={styles.container}>
-      <form onSubmit={handleSumit} className={styles.form}>
+      <form className={styles.form}>
         <header>
           <img
             className={styles.img_close}
@@ -79,23 +122,23 @@ const ModalEditUser = () => {
             className={styles.input}
             name="name"
             id="name"
+            value={data.name}
             type="text"
             placeholder="Digite seu nome"
+            onChange={handleChange}
           />
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{errorName}</span>
           <label htmlFor="email">E-mail*</label>
           <input
             className={styles.input}
             name="email"
             id="email"
+            value={data.email}
             type="text"
             placeholder="Digite seu e-mail"
+            onChange={handleChange}
           />
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{errorEmail}</span>
         </div>
         <div className={styles.row}>
           <div className={styles.colum}>
@@ -106,6 +149,7 @@ const ModalEditUser = () => {
               id="cpf"
               type="number"
               placeholder="Digite seu CPF"
+              onChange={handleChange}
             />
           </div>
 
@@ -113,10 +157,11 @@ const ModalEditUser = () => {
             <label htmlFor="telphone">Telefone</label>
             <input
               className={styles.input}
-              name="telphone"
-              id="telphone"
+              name="phone"
+              id="phone"
               type="number"
               placeholder="Digite seu telefone"
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -127,6 +172,7 @@ const ModalEditUser = () => {
               name="password"
               id="password"
               type={viewPass ? 'text' : 'password'}
+              onChange={handleChange}
             />
             <img
               className={styles.img_pass}
@@ -135,16 +181,15 @@ const ModalEditUser = () => {
               onClick={() => setViewPass(!viewPass)}
             />
           </div>
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{errorPassword}</span>
 
           <label htmlFor="confirm_password">Confirmar senha*</label>
           <div className={styles.box_input}>
             <input
-              name="confirm_password"
-              id="confirm_password"
+              name="confPassword"
+              id="confPassword"
               type={viewConfirPass ? 'text' : 'password'}
+              onChange={handleChange}
             />
             <img
               className={styles.img_pass}
@@ -153,11 +198,9 @@ const ModalEditUser = () => {
               onClick={() => setConfirPass(!viewConfirPass)}
             />
           </div>
-          <span className={styles.validation}>
-            Este campo deve ser preenchido
-          </span>
+          <span className={styles.validation}>{errorConfPassword}</span>
         </div>
-        <button className={styles.button} type="submit">
+        <button onClick={applySubmit} className={styles.button} type="submit">
           Aplicar
         </button>
       </form>
