@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './styles.module.css';
 import '../../index.css';
@@ -10,6 +11,8 @@ import { MyContext } from '../../contexts/MyContext';
 import ModalEditUser from '../ModalEditUser';
 
 const HeaderDash = () => {
+  const navigate = useNavigate();
+
   const [modalUser, setModalUser] = useState(false);
   const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
 
@@ -49,7 +52,7 @@ const HeaderDash = () => {
                           setOpenModalUser(true);
                         }}
                       />
-                      <img src={logout} alt="Logout" />
+                      <img src={logout} onClick={() => { localStorage.clear(); navigate("/") }} alt="Logout" />
                     </div>
                   </div>{' '}
                 </>
