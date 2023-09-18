@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.mod {
+  position: relative;
+}
 
 .header_dash {
   display: flex;
@@ -90,6 +93,8 @@
   height: 24px;
 
   background-image: url(../../assets/arrow_down.svg);
+
+  cursor: pointer;
 }
 
 .child_edit_logout {

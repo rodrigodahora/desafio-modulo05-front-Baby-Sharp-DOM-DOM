@@ -109,28 +109,6 @@
   box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-
-  padding: 15px 20px;
-
-  border-bottom: 1px solid #EFF0F6;
-
-  background-color: #FFF;
-}
-
-.header h3 {
-  flex: 1;
-  text-align: center;
-
-  color: #3F3F55;
-  font-family: Montserrat, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-}
-
 .expected_charges {
   margin: 0 0 0 auto;
   padding: 3px 15px;
@@ -146,40 +124,6 @@
   font-weight: 700;
 }
 
-.table {
-  width: 100%;
-
-  background-color: #FFF;
-}
-
-.table th,
-.table td {
-  padding: 0 20px;
-
-  border-bottom: 1px solid #EFF0F6;
-}
-
-.table th {
-  text-align: start;
-  color: #3F3F55;
-  font-family: Nunito, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 50px;
-  letter-spacing: 0.08px;
-}
-
-.table td {
-  color: #6E6E85;
-  font-family: Nunito, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 0.07px;
-}
-
 .footer {
   display: flex;
   justify-content: center;
@@ -187,7 +131,7 @@
 
   height: 60px;
   padding: 15px 20px;
-
+  border-top: 1px solid #EFF0F6;
   background-color: #FFF;
 }
 
@@ -207,28 +151,6 @@
   box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-
-  padding: 15px 20px;
-
-  border-bottom: 1px solid #EFF0F6;
-
-  background-color: #FFF;
-}
-
-.header h3 {
-  flex: 1;
-
-  text-align: center;
-  color: #3F3F55;
-  font-family: Montserrat, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-}
-
 .paid_charges {
   margin: 0 0 0 auto;
   padding: 3px 15px;
@@ -242,58 +164,4 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-}
-
-.table {
-  width: 100%;
-
-  background-color: #FFF;
-}
-
-.table th,
-.table td {
-  padding: 0 20px;
-
-  border-bottom: 1px solid #EFF0F6;
-}
-
-.table th {
-  text-align: start;
-  color: #3F3F55;
-  font-family: Nunito, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 50px;
-  letter-spacing: 0.08px;
-}
-
-.table td {
-  color: #6E6E85;
-  font-family: Nunito, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 0.07px;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 60px;
-  padding: 15px 20px;
-
-  background-color: #FFF;
-}
-
-.footer a {
-  color: #DA0175;
-  font-family: Nunito, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  text-decoration-line: underline;
 }
