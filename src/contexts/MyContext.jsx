@@ -13,6 +13,17 @@ export function ContextProvider(props) {
     const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
     return emailRegex.test(email);
   }
+
+  function isValidCpf(cpf) {
+    const cpfRegex = /^(?:(?:\d{3}.){2}\d{3}-\d{2}|(\d{11}))$/;
+    return cpfRegex.test(cpf);
+  }
+
+  function isValidPhone(phone) {
+    const phoneRegex = /^[(]?(?:\d{2}[)]?[-. ]?)?\d{5}[-. ]?\d{4}$/;
+    return phoneRegex.test(phone);
+  }
+
   // if (!data.email) {
   //   return setErrorEmail("Informe seu email!");
   // } else { setErrorEmail(""); }
@@ -33,7 +44,9 @@ export function ContextProvider(props) {
       setFeedback,
       openModalUser,
       setOpenModalUser,
-      isValidEmail
+      isValidEmail,
+      isValidCpf,
+      isValidPhone
     }}>
       {props.children}
     </MyContext.Provider>
