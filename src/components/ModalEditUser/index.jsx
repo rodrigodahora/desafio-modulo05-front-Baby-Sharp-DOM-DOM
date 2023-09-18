@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 import close from '../../assets/close.svg';
@@ -20,8 +20,8 @@ const ModalEditUser = () => {
   const [errorConfPassword, setErrorConfPassword] = useState('');
 
   const [data, setData] = useState({
-    name: '',
-    email: '',
+    name: localStorage.getItem('name'),
+    email: localStorage.getItem('email'),
     cpf: '',
     phone: '',
     password: '',
@@ -34,41 +34,10 @@ const ModalEditUser = () => {
     setData({ ...data, [key]: value });
   }
 
-  const handleSumit = async (e) => {
+  async function applySubmit(e) {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
-    const name = localStorage.getItem('name');
-    const email = localStorage.getItem('email');
-
-    try {
-      const response = await api.put(
-        '/editUser',
-        {
-          name: data.name,
-          email: data.email,
-          cpf: data.cpf,
-          phone: data.phone,
-          password: data.password,
-          confPassword: data.confPassword,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-
-      setCompleted(true);
-
-      setTimeout(() => {
-        setOpenModalUser(false);
-      }, 1000);
-    } catch (error) {}
-  };
-
-  async function applySubmit(e) {
-    e.preventDefault();
 
     try {
       if (!data.name) {
@@ -89,23 +58,29 @@ const ModalEditUser = () => {
         setErrorEmail('');
       }
 
-      if (!data.password) {
-        return setErrorPassword('Informe sua senha!');
-      } else {
-        setErrorPassword('');
-      }
-      if (!data.password) {
-        return setErrorConfPassword('Informe novamente sua senha!');
-      } else {
-        setErrorConfPassword('');
-      }
-      if (data.password !== data.confPassword) {
+      if (data.password && data.password !== data.confPassword) {
         return setErrorConfPassword('As senhas não conferem!');
       } else {
         setErrorConfPassword('');
       }
-
-      const response = await api.post('/emailVerify', { email: data.email });
+      console.log(data.email);
+      const response = await api.put(
+        '/editUser',
+        {
+          name: data.name,
+          email: data.email,
+          cpf: data.cpf,
+          phone: data.phone,
+          password: data.password,
+          confPassword: data.confPassword,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      console.log(response);
 
       setErrorName('');
       setErrorEmail('');
@@ -115,7 +90,8 @@ const ModalEditUser = () => {
 
       setTimeout(() => {
         setCompleted(false);
-      }, 10000);
+        setOpenModalUser(false);
+      }, 5000);
     } catch (error) {
       if (error.response) {
         return setErrorEmail(error.response.data.message);
@@ -124,10 +100,13 @@ const ModalEditUser = () => {
   }
 
   return completed ? (
-    <ModalCompleted />
+    <ModalCompleted
+      setCompleted={setCompleted}
+      setOpenModalUser={setOpenModalUser}
+    />
   ) : (
     <div className={styles.container}>
-      <form onSubmit={handleSumit} className={styles.form}>
+      <form className={styles.form}>
         <header>
           <img
             className={styles.img_close}
@@ -143,6 +122,7 @@ const ModalEditUser = () => {
             className={styles.input}
             name="name"
             id="name"
+            value={data.name}
             type="text"
             placeholder="Digite seu nome"
             onChange={handleChange}
@@ -153,6 +133,7 @@ const ModalEditUser = () => {
             className={styles.input}
             name="email"
             id="email"
+            value={data.email}
             type="text"
             placeholder="Digite seu e-mail"
             onChange={handleChange}
@@ -168,6 +149,7 @@ const ModalEditUser = () => {
               id="cpf"
               type="number"
               placeholder="Digite seu CPF"
+              onChange={handleChange}
             />
           </div>
 
@@ -175,10 +157,11 @@ const ModalEditUser = () => {
             <label htmlFor="telphone">Telefone</label>
             <input
               className={styles.input}
-              name="telphone"
-              id="telphone"
+              name="phone"
+              id="phone"
               type="number"
               placeholder="Digite seu telefone"
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -196,17 +179,17 @@ const ModalEditUser = () => {
               src={eyeOff}
               alt="View password"
               onClick={() => setViewPass(!viewPass)}
-              onChange={handleChange}
             />
           </div>
-          <span className={styles.validation}>{setErrorPassword}</span>
+          <span className={styles.validation}>{errorPassword}</span>
 
           <label htmlFor="confirm_password">Confirmar senha*</label>
           <div className={styles.box_input}>
             <input
-              name="confirm_password"
-              id="confirm_password"
+              name="confPassword"
+              id="confPassword"
               type={viewConfirPass ? 'text' : 'password'}
+              onChange={handleChange}
             />
             <img
               className={styles.img_pass}
@@ -215,7 +198,7 @@ const ModalEditUser = () => {
               onClick={() => setConfirPass(!viewConfirPass)}
             />
           </div>
-          <span className={styles.validation}>{setErrorConfPassword}</span>
+          <span className={styles.validation}>{errorConfPassword}</span>
         </div>
         <button onClick={applySubmit} className={styles.button} type="submit">
           Aplicar
