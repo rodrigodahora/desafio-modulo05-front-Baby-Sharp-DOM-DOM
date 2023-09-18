@@ -10,15 +10,17 @@ const ModalFeedback = () => {
 
   return (
     <div className="container-feedback">
-      <img
-        className="feedback-success-image"
-        src={feedbackSuccess}
-        alt="Feedback Success"
-      />
+      <div className="feedback-box">
+        <img
+          className="feedback-success-image"
+          src={feedbackSuccess}
+          alt="Feedback Success"
+        />
 
-      <span className="feedback-message-success">
-        Cadastro concluído com sucesso
-      </span>
+        <span className="feedback-message-success">
+          Cadastro concluído com sucesso
+        </span>
+      </div>
 
       <img
         className="feedback-success-image-close"
