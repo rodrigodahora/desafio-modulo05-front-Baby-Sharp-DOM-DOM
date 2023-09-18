@@ -6,7 +6,7 @@ import api from "../../services/api";
 import "./style.css";
 
 const ClientModal = () => {
-  const { addClient, setAddClient, setFeedback } = useContext(MyContext);
+  const { addClient, setAddClient, setFeedback, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: "",
@@ -27,9 +27,7 @@ const ClientModal = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorCpf, setErrorCpf] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
-  const [errorCity, setErrorCity] = useState("");
   const [errorState, setErrorState] = useState("");
-  //mata os dois de cima
 
   function handleChange(e) {
     const key = e.target.name;
@@ -61,28 +59,36 @@ const ClientModal = () => {
 
     try {
       if (!data.name) {
-        return setErrorName("Campo obrigatório");
-      } else {
-        setErrorName("");
-      }
+        return setErrorName("Informe seu nome!");
+      } else { setErrorName(""); }
 
       if (!data.email) {
-        return setErrorEmail("Campo obrigatório");
-      } else {
-        setErrorEmail("");
-      }
+        return setErrorEmail("Informe seu email!");
+      } else { setErrorEmail(""); }
+
+      if (!isValidEmail(data.email)) {
+        return setErrorEmail("Email inválido!");
+      } else { setErrorEmail(""); }
 
       if (!data.cpf) {
-        return setErrorCpf("Campo obrigatório");
-      } else {
-        setErrorCpf("");
-      }
+        return setErrorCpf("Informe seu CPF!");
+      } else { setErrorCpf(""); }
+
+      if (!isValidCpf(data.cpf)) {
+        return setErrorCpf("CPF inválido!");
+      } else { setErrorCpf("") }
 
       if (!data.phone) {
-        return setErrorPhone("Campo obrigatório");
-      } else {
-        setErrorPhone("");
-      }
+        return setErrorPhone("Informe seu Telefone!");
+      } else { setErrorPhone(""); }
+
+      if (!isValidPhone(data.phone)) {
+        return setErrorPhone("Telefone inválido!");
+      } else { setErrorPhone("") }
+
+      if (data.state && data.state.length !== 2) {
+        return setErrorState("UF inválido!");
+      } else { setErrorState("") }
 
       const response = await api.post("/registerClient",
         {
@@ -110,25 +116,21 @@ const ClientModal = () => {
       }, 1000);
 
     } catch (error) {
-      // console.log(error.response.data.message);
-      setMainError(error.response.data.message);
 
-      if (mainError === "Email já cadastrado!") {
-        console.log("Aqui!");
-        setErrorEmail(mainError);
-        return;
+      if (error.response.data.message === "Email já cadastrado!") {
+        return setErrorEmail(error.response.data.message);
       } else {
         setErrorEmail("");
       }
 
-      if (mainError === "CPF já cadastrado!") {
-        return setErrorCpf(mainError);
+      if (error.response.data.message === "CPF já cadastrado!") {
+        return setErrorCpf(error.response.data.message);
       } else {
         setErrorEmail("");
       }
 
-      if (mainError === "Telefone já cadastrado!") {
-        return setErrorPhone(mainError);
+      if (error.response.data.message === "Telefone já cadastrado!") {
+        return setErrorPhone(error.response.data.message);
       } else {
         setErrorPhone("");
       }
@@ -249,7 +251,7 @@ const ClientModal = () => {
                 placeholder="Digite a cidade"
                 onChange={handleChange}
               />
-              <span className="modal-error-msg">{errorCity}</span>
+              <span className="modal-error-msg"></span>
             </div>
 
             <div className="input-modal-box-row-state">
