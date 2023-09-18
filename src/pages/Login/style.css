@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .container-login {
   display: flex;
   flex-direction: row;
@@ -41,8 +35,8 @@
   right: 48px;
   bottom: 640px;
 
-  color: #034A2A;
   text-align: center;
+  color: #034A2A;
   font-family: Montserrat;
   font-size: 24px;
   font-style: normal;

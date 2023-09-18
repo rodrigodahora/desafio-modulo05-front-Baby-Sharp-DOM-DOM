@@ -21,16 +21,18 @@ export default function MyRoutes() {
   return (
     <ContextProvider>
       <Routes>
-        <Route element={<NotProtectedRoutes />}>
 
+        <Route element={<NotProtectedRoutes />}>
           <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SingUp" element={<SingUp />} />
         </Route>
+
         <Route element={<ProtectedRoutes redirectTo={"/"} />}>
           <Route path="/Home" element={<Home />} />
           <Route path="/Client" element={<Client />} />
         </Route>
+
       </Routes>
     </ContextProvider>
   );

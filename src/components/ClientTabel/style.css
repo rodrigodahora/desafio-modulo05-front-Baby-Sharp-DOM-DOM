@@ -49,6 +49,7 @@ td {
 .client-client img {
     width: 24px;
     height: 24px;
+
     margin-top: 13px;
 }
 
@@ -81,6 +82,7 @@ td {
     height: 19px;
 
     border-radius: 8px;
+
     background: #FFEFEF;
 
     color: #971D1D;
@@ -100,6 +102,7 @@ td {
     height: 19px;
 
     border-radius: 8px;
+
     background: #EEF6F6;
 
     color: #1FA7AF;
@@ -108,7 +111,6 @@ td {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-
 }
 
 .client-charge {

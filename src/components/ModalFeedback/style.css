@@ -1,16 +1,18 @@
 .container-feedback {
   display: flex;
-  width: 330px;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
+
+  width: 330px;
   top: 800px;
   left: 1000px;
   padding: 15px 16px;
-  justify-content: space-between;
-  align-items: center;
 
   border-radius: 10px;
-  background-color: #C3D4FE;
   box-shadow: 0 4px 42px 0 rgba(0, 0, 0, 0.20);
+
+  background-color: #C3D4FE;
 }
 
 .feedback-success-image {

@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import bola2 from "../../assets/bola_check.svg";
 import bola4 from "../../assets/bola_confirmado.svg";
 import bola1 from "../../assets/bola_done.svg";
 import bola0 from "../../assets/bola_undone.svg";
+import eyeOff from "../../assets/eye_off.svg";
 import lineHG from "../../assets/line_h_green.svg";
 import lineHW from "../../assets/line_h_white.svg";
 import lineV from "../../assets/line_v_green.svg";
-import eyeOff from "../../assets/eye_off.svg";
 
 import { MyContext } from '../../contexts/MyContext';
+import '../../index.css';
+import api from "../../services/api";
 import './style.css';
-import api from "../../services/api"
 
 
 
@@ -93,7 +94,6 @@ export default function SingUp() {
       setSelected(3);
 
     } catch (error) {
-      console.log(error)
       if (error.response) {
         return setMainError(error.response.data.message);
       }

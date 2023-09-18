@@ -60,9 +60,9 @@ input {
 
   border-radius: 8px;
   border: 1px solid #d0d5dd;
-  background-color: #fff;
-
   box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+
+  background-color: #fff;
 
   color: #9B9BB2;
   font-family: Nunito;
@@ -191,6 +191,7 @@ input {
 
   border-radius: 10px;
   border: 1px solid #DEDEE9;
+
   background-color: #F8F8F9;
 
   color: #0E8750;
@@ -211,8 +212,9 @@ input {
   height: 34px;
 
   border-radius: 10px;
-  background-color: #DA0175;
   border: none;
+
+  background-color: #DA0175;
 
   color: #F8F8F9;
   font-family: Nunito;

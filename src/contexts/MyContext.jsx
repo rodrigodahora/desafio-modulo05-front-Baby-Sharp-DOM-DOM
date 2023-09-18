@@ -11,7 +11,14 @@ export function ContextProvider(props) {
 
   return (
     <MyContext.Provider value={{
-      data, setData, selected, setSelected, addClient, setAddClient, feedback, setFeedback,
+      data,
+      setData,
+      selected,
+      setSelected,
+      addClient,
+      setAddClient,
+      feedback,
+      setFeedback,
       openModalUser,
       setOpenModalUser
     }}>
