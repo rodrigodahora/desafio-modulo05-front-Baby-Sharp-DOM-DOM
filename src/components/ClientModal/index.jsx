@@ -110,8 +110,28 @@ const ClientModal = () => {
       }, 1000);
 
     } catch (error) {
-      console.log(error.message);
-      setMainError(error);
+      // console.log(error.response.data.message);
+      setMainError(error.response.data.message);
+
+      if (mainError === "Email já cadastrado!") {
+        console.log("Aqui!");
+        setErrorEmail(mainError);
+        return;
+      } else {
+        setErrorEmail("");
+      }
+
+      if (mainError === "CPF já cadastrado!") {
+        return setErrorCpf(mainError);
+      } else {
+        setErrorEmail("");
+      }
+
+      if (mainError === "Telefone já cadastrado!") {
+        return setErrorPhone(mainError);
+      } else {
+        setErrorPhone("");
+      }
     }
   }
 
