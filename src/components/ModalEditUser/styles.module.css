@@ -97,28 +97,6 @@
   right: 14px;
 }
 
-/* .box_input {
-  display: flex;
-  align-items: center;
-
-  padding: 10px 14px;
-  gap: 8px;
-
-  border: 1px solid #D0D5DD;
-  border-radius: 8px;
-}
-
-.box_input input {
-  flex: 1;
-
-  margin: -5px 0;
-
-  outline: none;
-  border: transparent;
-
-  font-size: 22px;
-} */
-
 .row {
   display: flex;
 

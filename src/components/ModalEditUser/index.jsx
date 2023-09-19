@@ -184,11 +184,11 @@ const ModalEditUser = () => {
         </div>
         <div className={styles.colum_validation}>
           <label htmlFor="password">Nova senha*</label>
-          {/* <div className={styles.box_input}> */}
           <input
             name="password"
             id="password"
             type={viewPass ? 'text' : 'password'}
+            placeholder="Digite sua senha"
             onChange={handleChange}
           />
           <img
@@ -197,16 +197,15 @@ const ModalEditUser = () => {
             alt="View password"
             onClick={() => setViewPass(!viewPass)}
           />
-          {/* </div> */}
           <span className={styles.validation}>{errorPassword}</span>
         </div>
         <div className={styles.colum_validation}>
           <label htmlFor="confirm_password">Confirmar senha*</label>
-          {/* <div className={styles.box_input}> */}
           <input
             name="confPassword"
             id="confPassword"
             type={viewConfirPass ? 'text' : 'password'}
+            placeholder="Confirme sua senha"
             onChange={handleChange}
           />
           <img
@@ -215,7 +214,6 @@ const ModalEditUser = () => {
             alt="View password"
             onClick={() => setConfirPass(!viewConfirPass)}
           />
-          {/* </div> */}
           <span className={styles.validation}>{errorConfPassword}</span>
         </div>
         <button onClick={applySubmit} className={styles.button} type="submit">
