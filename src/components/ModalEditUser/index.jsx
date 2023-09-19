@@ -12,7 +12,7 @@ const ModalEditUser = () => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const { setOpenModalUser, isValidEmail } = useContext(MyContext);
+  const { setOpenModalUser, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);
 
   const [errorName, setErrorName] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
@@ -48,16 +48,22 @@ const ModalEditUser = () => {
         setErrorName('');
       }
 
-      if (!data.email) {
-        return setErrorEmail('Informe seu email!');
-      } else {
-        setErrorEmail('');
+      if (data.email) {
+        if (!isValidEmail(data.email)) {
+          return setErrorEmail("Email inválido!");
+        } else { setErrorEmail(""); }
       }
 
-      if (!isValidEmail(data.email)) {
-        return setErrorEmail('Email inválido!');
-      } else {
-        setErrorEmail('');
+      if (data.cpf) {
+        if (!isValidCpf(data.cpf)) {
+          return setErrorCpf("CPF inválido!");
+        } else { setErrorCpf("") }
+      }
+
+      if (data.phone) {
+        if (!isValidPhone(data.phone)) {
+          return setErrorPhone("Telefone inválido!");
+        } else { setErrorPhone("") }
       }
 
       if (data.password && data.password !== data.confPassword) {
@@ -163,7 +169,7 @@ const ModalEditUser = () => {
               className={styles.input}
               name="cpf"
               id="cpf"
-              type="number"
+              type="text"
               placeholder="Digite seu CPF"
               onChange={handleChange}
             />
@@ -176,7 +182,7 @@ const ModalEditUser = () => {
               className={styles.input}
               name="phone"
               id="phone"
-              type="number"
+              type="text"
               placeholder="Digite seu telefone"
               onChange={handleChange}
             />
