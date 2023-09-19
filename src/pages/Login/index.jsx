@@ -25,16 +25,13 @@ function Login() {
     e.preventDefault();
 
     try {
+
       if (!data.email) {
         return setErrorEmail('O campo deve ser preenchido!');
-      } else {
-        setErrorEmail("");
-      }
+      } else { setErrorEmail(""); }
       if (!data.password) {
         return setErrorPassword('O campo deve ser preenchido!');
-      } else {
-        setErrorPassword("");
-      }
+      } else { setErrorPassword(""); }
 
       const response = await api.post("/login", { email: data.email, password: data.password });
 
@@ -45,9 +42,11 @@ function Login() {
       navigate("/Home");
 
     } catch (error) {
+
       if (error.response.data.message === "Email ou senha inválido!") {
         setMainError(error.response.data.message);
       }
+
     }
   }
 

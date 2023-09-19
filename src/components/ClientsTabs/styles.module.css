@@ -35,6 +35,7 @@
 
 .header div {
   display: flex;
+
   gap: 8px;
 }
 
@@ -51,10 +52,12 @@
 
 .defaulters {
   margin: 0 0 0 auto;
+  padding: 3px 15px;
+
+  border-radius: 8px;
 
   background-color: #FFEFEF;
-  padding: 3px 15px;
-  border-radius: 8px;
+
   color: #971D1D;
   font-family: Montserrat, sans-serif;
   font-size: 16px;

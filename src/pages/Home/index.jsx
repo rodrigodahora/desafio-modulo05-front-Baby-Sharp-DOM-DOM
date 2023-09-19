@@ -12,6 +12,7 @@ import styles from './styles.module.css';
 
 const Home = () => {
   const { setSelected } = useContext(MyContext);
+
   setSelected(1);
 
   return (

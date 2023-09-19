@@ -24,14 +24,6 @@ export function ContextProvider(props) {
     return phoneRegex.test(phone);
   }
 
-  // if (!data.email) {
-  //   return setErrorEmail("Informe seu email!");
-  // } else { setErrorEmail(""); }
-
-  // if (!isValidEmail(data.email)) {
-  //   return setErrorEmail("Email inválido!");
-  // } else { setErrorEmail(""); }
-
   return (
     <MyContext.Provider value={{
       data,

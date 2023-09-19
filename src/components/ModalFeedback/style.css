@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   position: absolute;
+
   width: 330px;
   top: 785px;
   left: 1002px;
@@ -16,9 +17,10 @@
 
 .feedback-box {
   display: flex;
+  align-items: center;
+
   width: 271px;
   padding: 0px 8px;
-  align-items: center;
   gap: 8px;
   margin-right: 31px;
 }

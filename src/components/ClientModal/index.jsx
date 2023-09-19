@@ -120,21 +120,15 @@ const ClientModal = () => {
 
       if (error.response.data.message === "Email já cadastrado!") {
         return setErrorEmail(error.response.data.message);
-      } else {
-        setErrorEmail("");
-      }
+      } else { setErrorEmail(""); }
 
       if (error.response.data.message === "CPF já cadastrado!") {
         return setErrorCpf(error.response.data.message);
-      } else {
-        setErrorCpf("");
-      }
+      } else { setErrorCpf(""); }
 
       if (error.response.data.message === "Telefone já cadastrado!") {
         return setErrorPhone(error.response.data.message);
-      } else {
-        setErrorPhone("");
-      }
+      } else { setErrorPhone(""); }
     }
   }
 

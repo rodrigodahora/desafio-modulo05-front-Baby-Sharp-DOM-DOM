@@ -42,11 +42,10 @@ const ModalEditUser = () => {
     const token = localStorage.getItem('token');
 
     try {
+
       if (!data.name) {
         return setErrorName('Informe seu nome!');
-      } else {
-        setErrorName('');
-      }
+      } else { setErrorName(''); }
 
       if (data.email) {
         if (!isValidEmail(data.email)) {
@@ -68,10 +67,8 @@ const ModalEditUser = () => {
 
       if (data.password && data.password !== data.confPassword) {
         return setErrorConfPassword('As senhas não conferem!');
-      } else {
-        setErrorConfPassword('');
-      }
-      console.log(data.email);
+      } else { setErrorConfPassword(''); }
+
       const response = await api.put(
         '/editUser',
         {
@@ -100,24 +97,20 @@ const ModalEditUser = () => {
         setCompleted(false);
         setOpenModalUser(false);
       }, 5000);
+
     } catch (error) {
+
       if (error.response.data.message === "Email já cadastrado!") {
         return setErrorEmail(error.response.data.message);
-      } else {
-        setErrorEmail("");
-      }
+      } else { setErrorEmail(""); }
 
       if (error.response.data.message === "Cpf já Cadastrado!") {
         return setErrorCpf(error.response.data.message);
-      } else {
-        setErrorCpf("");
-      }
+      } else { setErrorCpf(""); }
 
       if (error.response.data.message === "Telefone já cadastrado!") {
         return setErrorPhone(error.response.data.message);
-      } else {
-        setErrorPhone("");
-      }
+      } else { setErrorPhone(""); }
     }
   }
 

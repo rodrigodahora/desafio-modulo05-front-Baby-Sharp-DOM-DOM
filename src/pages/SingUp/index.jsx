@@ -14,8 +14,6 @@ import '../../index.css';
 import api from "../../services/api";
 import './style.css';
 
-
-
 export default function SingUp() {
   const navigate = useNavigate();
 
@@ -32,14 +30,17 @@ export default function SingUp() {
   const [errorConfPassword, setErrorConfPassword] = useState("");
 
   function changeCheck(position) {
+
     if (selected === 3) {
       return bola2;
     }
+
     if (selected < position) {
       return bola0;
     } else if (selected === position) {
       return bola1;
     } else { return bola2 }
+
   }
 
   function handleChange(e) {
@@ -71,9 +72,11 @@ export default function SingUp() {
       setSelected(2);
 
     } catch (error) {
+
       if (error.response) {
         return setErrorEmail(error.response.data.message);
       }
+
     }
   }
 
@@ -85,9 +88,11 @@ export default function SingUp() {
       if (!data.password) {
         return setErrorPassword("Informe sua senha!")
       } else { setErrorPassword("") }
+
       if (!data.confPassword) {
         return setErrorConfPassword("Informe novamente sua senha!")
       } else { setErrorConfPassword("") }
+
       if (data.password !== data.confPassword) {
         return setErrorConfPassword("As senhas não conferem!")
       } else { setErrorConfPassword("") }
@@ -102,9 +107,11 @@ export default function SingUp() {
       setSelected(3);
 
     } catch (error) {
+
       if (error.response) {
         return setMainError(error.response.data.message);
       }
+
     }
   }
 
@@ -221,4 +228,3 @@ export default function SingUp() {
     </div>
   );
 }
-
