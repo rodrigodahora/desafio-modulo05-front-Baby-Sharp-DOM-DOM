@@ -1,6 +1,7 @@
 import styles from './styles.module.css';
 import clientDefaulters from '../../assets/cliente_inadimplente.svg';
 import clientInDay from '../../assets/cliente_em_dia.svg';
+import '../../index.css';
 
 const ClientsTabs = () => {
   return (

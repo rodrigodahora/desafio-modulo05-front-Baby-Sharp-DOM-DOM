@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import clientIcon from "../../assets/cliente_menu.svg";
 import closeIcon from "../../assets/close.svg";
 import { MyContext } from '../../contexts/MyContext';
+import '../../index.css';
 import api from "../../services/api";
 import "./style.css";
+
 
 const ClientModal = () => {
   const { addClient, setAddClient, setFeedback, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);

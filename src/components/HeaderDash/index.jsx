@@ -3,8 +3,8 @@ import { useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { useNavigate } from 'react-router-dom';
 
-import styles from './styles.module.css';
 import '../../index.css';
+import styles from './styles.module.css';
 import edit from '../../assets/editar.svg';
 import logout from '../../assets/logout.svg';
 import arrowTop from '../../assets/arrow_top.svg';

@@ -1,3 +1,4 @@
+import '../../index.css';
 import styles from './styles.module.css';
 
 const ChargesTabs = () => {
