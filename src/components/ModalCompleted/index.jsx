@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './styles.module.css';
 import completed from '../../assets/bola_confirmado.svg';
 

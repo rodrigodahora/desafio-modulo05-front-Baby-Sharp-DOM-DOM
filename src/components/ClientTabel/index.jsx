@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../index.css';
 import "./style.css"
 import cobranca from "../../assets/cobranca.svg"

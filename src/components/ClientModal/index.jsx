@@ -21,8 +21,6 @@ const ClientModal = () => {
     state: ""
   });
 
-  const [mainError, setMainError] = useState("");
-
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorCpf, setErrorCpf] = useState("");
@@ -129,7 +127,7 @@ const ClientModal = () => {
       if (error.response.data.message === "CPF já cadastrado!") {
         return setErrorCpf(error.response.data.message);
       } else {
-        setErrorEmail("");
+        setErrorCpf("");
       }
 
       if (error.response.data.message === "Telefone já cadastrado!") {

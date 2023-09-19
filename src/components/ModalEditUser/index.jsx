@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 import close from '../../assets/close.svg';
@@ -18,6 +18,8 @@ const ModalEditUser = () => {
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
   const [errorConfPassword, setErrorConfPassword] = useState('');
+  const [errorCpf, setErrorCpf] = useState("");
+  const [errorPhone, setErrorPhone] = useState("");
 
   const [data, setData] = useState({
     name: localStorage.getItem('name'),
@@ -93,8 +95,22 @@ const ModalEditUser = () => {
         setOpenModalUser(false);
       }, 5000);
     } catch (error) {
-      if (error.response) {
+      if (error.response.data.message === "Email já cadastrado!") {
         return setErrorEmail(error.response.data.message);
+      } else {
+        setErrorEmail("");
+      }
+
+      if (error.response.data.message === "Cpf já Cadastrado!") {
+        return setErrorCpf(error.response.data.message);
+      } else {
+        setErrorCpf("");
+      }
+
+      if (error.response.data.message === "Telefone já cadastrado!") {
+        return setErrorPhone(error.response.data.message);
+      } else {
+        setErrorPhone("");
       }
     }
   }
@@ -151,6 +167,7 @@ const ModalEditUser = () => {
               placeholder="Digite seu CPF"
               onChange={handleChange}
             />
+            <span className={styles.validation}>{errorCpf}</span>
           </div>
 
           <div className={styles.colum}>
@@ -163,6 +180,7 @@ const ModalEditUser = () => {
               placeholder="Digite seu telefone"
               onChange={handleChange}
             />
+            <span className={styles.validation}>{errorPhone}</span>
           </div>
         </div>
         <div className={styles.colum}>

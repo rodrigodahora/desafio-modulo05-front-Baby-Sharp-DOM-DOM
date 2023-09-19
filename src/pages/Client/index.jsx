@@ -1,4 +1,3 @@
-import React from 'react';
 import filter from "../../assets/filter.svg";
 import headerCliente from "../../assets/headerCliente.svg";
 import pesquisar from "../../assets/pesquisar.svg";

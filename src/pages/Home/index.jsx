@@ -1,4 +1,3 @@
-import React from 'react';
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
