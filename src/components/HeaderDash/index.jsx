@@ -8,13 +8,18 @@ import styles from './styles.module.css';
 import edit from '../../assets/editar.svg';
 import logout from '../../assets/logout.svg';
 import arrowTop from '../../assets/arrow_top.svg';
-import ModalEditUser from '../ModalEditUser';
+import avatar from '../../assets/avatar.svg';
+import ModalEditUser from '../ModalEditUser'
 
 const HeaderDash = () => {
   const navigate = useNavigate();
 
   const [modalUser, setModalUser] = useState(false);
   const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
+
+  const [data, setData] = useState({
+    name: localStorage.getItem("name")
+  });
 
   return (
     <React.Fragment className={styles.mod}>
@@ -26,8 +31,10 @@ const HeaderDash = () => {
           {selected === 3 && <h1>Resumo de cobranças</h1>}
 
           <div className={styles.login}>
-            <div className={styles.profile}>LR</div>
-            <strong>Lorena</strong>
+            <div className={styles.profile}>
+              <img src={avatar} alt="Avatar User" />
+            </div>
+            <strong>{data.name}</strong>
             <div
               className={styles.arrow_down}
               onClick={() => {
