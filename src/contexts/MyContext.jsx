@@ -6,7 +6,7 @@ export function ContextProvider(props) {
   const [data, setData] = useState({ name: "", email: "", password: "", confPassword: "" });
   const [selected, setSelected] = useState(1);
   const [addClient, setAddClient] = useState(false)
-  const [feedback, setFeedback] = useState(false);
+  const [feedback, setFeedback] = useState("");
   const [openModalUser, setOpenModalUser] = useState(false);
 
   function isValidEmail(email) {

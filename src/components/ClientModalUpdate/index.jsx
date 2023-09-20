@@ -112,9 +112,9 @@ const ClientModalUpdate = () => {
       clearData();
 
       setTimeout(() => {
-        setFeedback(true);
+        setFeedback("Edições do cadastro concluídas com sucesso");
         setTimeout(() => {
-          setFeedback(false);
+          setFeedback("");
         }, 5000);
       }, 1000);
 

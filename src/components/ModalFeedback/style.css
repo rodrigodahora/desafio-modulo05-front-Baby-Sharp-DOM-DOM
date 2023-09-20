@@ -4,7 +4,6 @@
   align-items: center;
   position: absolute;
 
-  width: 330px;
   top: calc(100vh - 135px);
   right: 112px;
   padding: 15px 16px;
@@ -19,7 +18,6 @@
   display: flex;
   align-items: center;
 
-  width: 271px;
   padding: 0px 8px;
   gap: 8px;
   margin-right: 31px;

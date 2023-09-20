@@ -112,9 +112,9 @@ const ClientModal = () => {
       clearData();
 
       setTimeout(() => {
-        setFeedback(true);
+        setFeedback("Cadastro concluído com sucesso");
         setTimeout(() => {
-          setFeedback(false);
+          setFeedback("");
         }, 5000);
       }, 1000);
 
