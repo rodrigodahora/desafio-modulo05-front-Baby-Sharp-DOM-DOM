@@ -78,6 +78,7 @@ function Login() {
             type="password"
             name='password'
             placeholder='Digite sua senha'
+            maxLength={10}
             onChange={handleChange}
           />
           <span>{!errorPassword ? mainError : errorPassword}</span>

@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 import api from '../../services/api';
 
-const ModalEditUser = () => {
+const ModalEditUser = ({ setName }) => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
@@ -85,7 +85,10 @@ const ModalEditUser = () => {
           },
         },
       );
-      console.log(response);
+
+      setName(data.name);
+      localStorage.setItem("name", data.name);
+      localStorage.setItem("email", data.email);
 
       setErrorName('');
       setErrorEmail('');

@@ -17,13 +17,13 @@ const HeaderDash = () => {
   const [modalUser, setModalUser] = useState(false);
   const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
 
-  const [data, setData] = useState({
-    name: localStorage.getItem("name")
-  });
+  const [name, setName] = useState(
+    localStorage.getItem("name")
+  );
 
   return (
     <React.Fragment className={styles.mod}>
-      {openModalUser && <ModalEditUser />}
+      {openModalUser && <ModalEditUser setName={setName} />}
       <div className={styles.header_dash}>
         <div className={styles.container}>
           {selected === 1 && <h1>Resumo de cobranças</h1>}
@@ -34,7 +34,7 @@ const HeaderDash = () => {
             <div className={styles.profile}>
               <img src={avatar} alt="Avatar User" />
             </div>
-            <strong>{data.name}</strong>
+            <strong>{name}</strong>
             <div
               className={styles.arrow_down}
               onClick={() => {
