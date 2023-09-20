@@ -5,8 +5,8 @@
   position: absolute;
 
   width: 330px;
-  top: 785px;
-  left: 1002px;
+  top: calc(100vh - 135px);
+  right: 112px;
   padding: 15px 16px;
 
   border-radius: 10px;
