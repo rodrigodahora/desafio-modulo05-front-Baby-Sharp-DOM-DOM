@@ -7,7 +7,7 @@ import api from "../../services/api";
 import "./style.css";
 
 
-const ClientModal = () => {
+const ClientModalUpdate = () => {
   const { addClient, setAddClient, setFeedback, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);
 
   const [data, setData] = useState({
@@ -112,7 +112,7 @@ const ClientModal = () => {
       clearData();
 
       setTimeout(() => {
-        setFeedback("Cadastro concluído com sucesso");
+        setFeedback("Edições do cadastro concluídas com sucesso");
         setTimeout(() => {
           setFeedback("");
         }, 5000);
@@ -136,7 +136,7 @@ const ClientModal = () => {
 
   return (
     <div className="filter-modal">
-      <div className="container-client-modal">
+      <div className="container-client-modal-update">
         <div className="modal-close">
           <img
             src={closeIcon}
@@ -148,7 +148,7 @@ const ClientModal = () => {
         <form className="client-form">
           <div className="title-modal">
             <img src={clientIcon} alt="Client Icon" />
-            <h1>Cadastro do Cliente</h1>
+            <h1>Editar Cliente</h1>
           </div>
 
           <div className="input-modal-box">
@@ -286,4 +286,4 @@ const ClientModal = () => {
   );
 }
 
-export default ClientModal;
+export default ClientModalUpdate;

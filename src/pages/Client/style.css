@@ -1,6 +1,7 @@
 .Client {
     display: flex;
     box-sizing: border-box;
+    position: relative;
 
     min-height: 1100px;
     margin: 0;
