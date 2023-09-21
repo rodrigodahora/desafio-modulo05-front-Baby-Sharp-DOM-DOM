@@ -42,12 +42,8 @@ const MenuSidebar = () => {
             : styles.clients
         }
         onClick={() => {
-<<<<<<< HEAD
           setSelected(4);
-=======
-          setSelected(2);
           setSelectedClient("")
->>>>>>> e49a7a9ef39dd66f29d4552b588ad7a83fbfd990
           navigate("/Client");
         }}
       >

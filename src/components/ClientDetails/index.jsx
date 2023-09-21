@@ -1,8 +1,6 @@
 import clientIcon from "../../assets/cliente_menu.svg";
 import editIcon from "../../assets/icone_edit.svg"
 import plus from "../../assets/add.svg"
-import HeaderDash from '../HeaderDash';
-import MenuSidebar from '../MenuSidebar';
 import "../../index.css";
 import "./style.css";
 
