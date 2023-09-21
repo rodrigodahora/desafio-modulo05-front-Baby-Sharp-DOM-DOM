@@ -5,10 +5,10 @@ import homeSelect from '../../assets/home_select.svg';
 import client from '../../assets/cliente_menu.svg';
 import clientSelect from '../../assets/clientes_selected.svg';
 import charge from '../../assets/cobranca_menu.svg';
-import { useNavigate } from "react-router-dom";
+import chargeSelect from '../../assets/cobranca_select.svg';
+import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
-
 
 const MenuSidebar = () => {
   const navigate = useNavigate();
@@ -23,17 +23,13 @@ const MenuSidebar = () => {
         }
         onClick={() => {
           setSelected(1);
-          navigate("/Home");
+          navigate('/Home');
         }}
       >
         <div>
           <img src={selected === 1 ? homeSelect : home} alt="Button-home" />
         </div>
-        <a
-          className={selected === 1 ? styles.link : styles.no_link}
-        >
-          Home
-        </a>
+        <a className={selected === 1 ? styles.link : styles.no_link}>Home</a>
       </li>
       <li
         className={
@@ -43,7 +39,7 @@ const MenuSidebar = () => {
         }
         onClick={() => {
           setSelected(2);
-          navigate("/Client");
+          navigate('/Client');
         }}
       >
         <div>
@@ -52,9 +48,7 @@ const MenuSidebar = () => {
             alt="Button-client"
           />
         </div>
-        <a
-          className={selected === 2 ? styles.link : styles.no_link}
-        >
+        <a className={selected === 2 ? styles.link : styles.no_link}>
           Clientes
         </a>
       </li>
@@ -65,16 +59,17 @@ const MenuSidebar = () => {
             : styles.charges
         }
         onClick={() => {
-          setSelected(1);
-          navigate("/home");
+          setSelected(3);
+          navigate('/Charges');
         }}
       >
         <div>
-          <img src={selected === 3 ? charge : charge} alt="Button-charge" />
+          <img
+            src={selected === 3 ? chargeSelect : charge}
+            alt="Button-charge"
+          />
         </div>
-        <a
-          className={selected === 3 ? styles.link : styles.no_link}
-        >
+        <a className={selected === 3 ? styles.link : styles.no_link}>
           Cobranças
         </a>
       </li>

@@ -39,38 +39,34 @@ td {
 }
 
 .charges_client {
-  display: flex;
-  
-  width: 186px;
+  width: 135px;
   height: 58px;
-  padding-top: 4px;
 }
 
 .charges_client img {
   width: 24px;
   height: 24px;
-
-  margin-top: 13px;
 }
 
 .charges_id {
-  width: 202px;
-}
-
-.charges_value {
-  width: 199px;
-}
-
-.charges_validity {
-  width: 193px;
-}
-
-.charges_status {
   width: 130px;
 }
 
+.charges_value {
+  width: 120px;
+}
+
+.charges_validity {
+  width: 160px;
+}
+
+.charges_status {
+  width: 120px;
+}
+
 .charges_description {
-  width: 127px;
+  width: 199px;
+  height: 58px;
 }
 
 .charges_button {
@@ -162,11 +158,8 @@ td {
 display: flex;
 align-items: center;
 gap: 20px;
-
 }
 .charges_descri_btn img {
   width: 25px;
   height: 31px;
- 
-  
 }

@@ -9,7 +9,7 @@ import edit from '../../assets/editar.svg';
 import logout from '../../assets/logout.svg';
 import arrowTop from '../../assets/arrow_top.svg';
 import avatar from '../../assets/avatar.svg';
-import ModalEditUser from '../ModalEditUser'
+import ModalEditUser from '../ModalEditUser';
 
 const HeaderDash = () => {
   const navigate = useNavigate();
@@ -17,9 +17,7 @@ const HeaderDash = () => {
   const [modalUser, setModalUser] = useState(false);
   const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
 
-  const [name, setName] = useState(
-    localStorage.getItem("name")
-  );
+  const [name, setName] = useState(localStorage.getItem('name'));
 
   return (
     <React.Fragment className={styles.mod}>
@@ -28,7 +26,7 @@ const HeaderDash = () => {
         <div className={styles.container}>
           {selected === 1 && <h1>Resumo de cobranças</h1>}
           {selected === 2 && <h2>Clientes</h2>}
-          {selected === 3 && <h1>Resumo de cobranças</h1>}
+          {selected === 3 && <h2>Cobranças</h2>}
 
           <div className={styles.login}>
             <div className={styles.profile}>

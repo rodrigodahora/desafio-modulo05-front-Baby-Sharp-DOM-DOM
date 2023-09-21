@@ -4,7 +4,14 @@ import filter from '../../assets/Frame.svg';
 import edit from '../../assets/editar.svg';
 import deleteRed from '../../assets/delete_red.svg';
 
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+
 const ChargesTable = () => {
+  const { setSelected } = useContext(MyContext);
+
+  setSelected(3);
+
   return (
     <table className={styles.container}>
       <thead className={styles.charges_table_header}>
@@ -27,14 +34,14 @@ const ChargesTable = () => {
       <tbody>
         <tr>
           <td>Sara da Silva</td>
-          <td>054 365 255 87</td>
-          <td>sarasilva@cubos.io</td>
-          <td>71 9 9462 8654</td>
+          <td>248563147</td>
+          <td>R$ 500,00</td>
+          <td>26/01/2021</td>
           <td>
             <div className={styles.charges_won}>Vencido</div>
           </td>
           <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
+            <p>lorem ipsum lorem ipsum...</p>
           </td>
           <td className={styles.charges_descri_btn}>
             <div>
@@ -44,15 +51,15 @@ const ChargesTable = () => {
           </td>
         </tr>
         <tr>
-          <td>Sara da Silva</td>
-          <td>054 365 255 87</td>
-          <td>sarasilva@cubos.io</td>
-          <td>71 9 9462 8654</td>
+          <td>Carlos Prado</td>
+          <td>148563148</td>
+          <td>R$ 400,00</td>
+          <td>26/01/2021</td>
           <td>
             <div className={styles.charges_won}>Vencido</div>
           </td>
           <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
+            <p>lorem ipsum lorem ipsum...</p>
           </td>
           <td className={styles.charges_descri_btn}>
             <div>
@@ -62,15 +69,15 @@ const ChargesTable = () => {
           </td>
         </tr>
         <tr>
-          <td>Sara da Silva</td>
-          <td>054 365 255 87</td>
-          <td>sarasilva@cubos.io</td>
-          <td>71 9 9462 8654</td>
+          <td>Lara Brito</td>
+          <td>648563148</td>
+          <td>R$ 300,00</td>
+          <td>26/01/2021</td>
           <td>
             <div className={styles.charges_won}>Vencido</div>
           </td>
           <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
+            <p>lorem ipsum lorem ipsum...</p>
           </td>
           <td className={styles.charges_descri_btn}>
             <div>
@@ -80,15 +87,87 @@ const ChargesTable = () => {
           </td>
         </tr>
         <tr>
-          <td>Sara da Silva</td>
-          <td>054 365 255 87</td>
-          <td>sarasilva@cubos.io</td>
-          <td>71 9 9462 8654</td>
+          <td>Soraia Neves</td>
+          <td>458563145</td>
+          <td>R$ 900,00</td>
+          <td>27/11/2021</td>
           <td>
             <div className={styles.charges_won}>Vencido</div>
           </td>
           <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
+            <p>lorem ipsum lorem ipsum...</p>
+          </td>
+          <td className={styles.charges_descri_btn}>
+            <div>
+              <img src={edit} alt="" />
+              <img src={deleteRed} alt="" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Sara Silva</td>
+          <td>458563145</td>
+          <td>R$ 2000,00</td>
+          <td>27/11/2021</td>
+          <td>
+            <div className={styles.charges_expected}>Pendentes</div>
+          </td>
+          <td className={styles.charges_descri_p}>
+            <p>lorem ipsum lorem ipsum...</p>
+          </td>
+          <td className={styles.charges_descri_btn}>
+            <div>
+              <img src={edit} alt="" />
+              <img src={deleteRed} alt="" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Carlos Prado</td>
+          <td>368563147</td>
+          <td>R$ 700,00</td>
+          <td>27/11/2021</td>
+          <td>
+            <div className={styles.charges_expected}>Pendentes</div>
+          </td>
+          <td className={styles.charges_descri_p}>
+            <p>lorem ipsum lorem ipsum...</p>
+          </td>
+          <td className={styles.charges_descri_btn}>
+            <div>
+              <img src={edit} alt="" />
+              <img src={deleteRed} alt="" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Lara Brito</td>
+          <td>488563147</td>
+          <td>R$ 500,00</td>
+          <td>27/11/2021</td>
+          <td>
+            <div className={styles.charges_expected}>Pendentes</div>
+          </td>
+          <td className={styles.charges_descri_p}>
+            <p>lorem ipsum lorem ipsum...</p>
+          </td>
+          <td className={styles.charges_descri_btn}>
+            <div>
+              <img src={edit} alt="" />
+              <img src={deleteRed} alt="" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Darlene Robertson</td>
+          <td>578563147</td>
+          <td>R$ 300,00</td>
+          <td>22/01/2021</td>
+          <td>
+            <div className={styles.charges_paid}>Paga</div>
+          </td>
+          <td className={styles.charges_descri_p}>
+            <p>lorem ipsum lorem ipsum...</p>
           </td>
           <td className={styles.charges_descri_btn}>
             <div>
@@ -99,69 +178,14 @@ const ChargesTable = () => {
         </tr>
         <tr>
           <td>Cameron Williamson</td>
-          <td>054 365 255 87</td>
-          <td>cameronw@cubos.io</td>
-          <td>771 9 9962 8658</td>
-          <td>
-            <div className={styles.charges_expected}>Pendentes</div>
-          </td>
-          <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
-          </td>
-          <td className={styles.charges_descri_btn}>
-            <div>
-              <img src={edit} alt="" />
-              <img src={deleteRed} alt="" />
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Cameron Williamson</td>
-          <td>054 365 255 87</td>
-          <td>cameronw@cubos.io</td>
-          <td>771 9 9962 8658</td>
-          <td>
-            <div className={styles.charges_expected}>Pendentes</div>
-          </td>
-          <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
-          </td>
-          <td className={styles.charges_descri_btn}>
-            <div>
-              <img src={edit} alt="" />
-              <img src={deleteRed} alt="" />
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Savannah Nguyen</td>
-          <td>054 365 255 87</td>
-          <td>snguyen@cubos.io</td>
-          <td>71 9 9762 8658</td>
+          <td>598563147</td>
+          <td>R$ 1000,00</td>
+          <td>22/01/2021</td>
           <td>
             <div className={styles.charges_paid}>Paga</div>
           </td>
           <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
-          </td>
-          <td className={styles.charges_descri_btn}>
-            <div>
-              <img src={edit} alt="" />
-              <img src={deleteRed} alt="" />
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Savannah Nguyen</td>
-          <td>054 365 255 87</td>
-          <td>snguyen@cubos.io</td>
-          <td>71 9 9762 8658</td>
-          <td>
-            <div className={styles.charges_paid}>Paga</div>
-          </td>
-          <td className={styles.charges_descri_p}>
-            <p>lorem ipsum...</p>
+            <p>lorem ipsum lorem ipsum...</p>
           </td>
           <td className={styles.charges_descri_btn}>
             <div>

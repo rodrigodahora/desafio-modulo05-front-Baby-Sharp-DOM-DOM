@@ -37,8 +37,6 @@ const Charges = () => {
       </div>
       <HeaderDash />
       <MenuSidebar />
-      {/* {addClient && <ClientModal />}
-      {feedback && <ModalFeedback />} */}
     </div>
   );
 };
