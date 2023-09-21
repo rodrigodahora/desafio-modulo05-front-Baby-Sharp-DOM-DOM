@@ -13,7 +13,7 @@ import { MyContext } from '../../contexts/MyContext';
 const MenuSidebar = () => {
   const navigate = useNavigate();
 
-  const { selected, setSelected } = useContext(MyContext);
+  const { selected, setSelected, setSelectedClient } = useContext(MyContext);
 
   return (
     <ul className={styles.container}>
@@ -37,23 +37,28 @@ const MenuSidebar = () => {
       </li>
       <li
         className={
-          selected === 2
+          (selected === 2 || selected === 4)
             ? `${styles.clients}  ${styles.selected}`
             : styles.clients
         }
         onClick={() => {
+<<<<<<< HEAD
           setSelected(4);
+=======
+          setSelected(2);
+          setSelectedClient("")
+>>>>>>> e49a7a9ef39dd66f29d4552b588ad7a83fbfd990
           navigate("/Client");
         }}
       >
         <div>
           <img
-            src={selected === 2 ? clientSelect : client}
+            src={(selected === 2 || selected === 4) ? clientSelect : client}
             alt="Button-client"
           />
         </div>
         <a
-          className={selected === 2 ? styles.link : styles.no_link}
+          className={(selected === 2 || selected === 4) ? styles.link : styles.no_link}
         >
           Clientes
         </a>

@@ -15,42 +15,41 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-    const { selected, setSelected, addClient, setAddClient, feedback } = useContext(MyContext);
+	const { selected, setSelected, addClient, setAddClient, feedback } = useContext(MyContext);
 
-    // setSelected(2);
+	// setSelected(2);
 
-    return (
-        <div className="Client">
+	return (
+		<div className="Client">
+			{selected === 4 ? <ClientDetails /> : <div className="Client-body">
+				<div className="Client-body-header">
+					<div>
+						<img src={headerCliente} alt="" /> Clientes
+					</div>
+					<div>
+						<button onClick={() => { setAddClient(!addClient) }}>+ Adicionar cliente</button>
+						<img src={filter} alt="" />
+						<div className="Client-box-input">
+							<input
+								type="text"
+								placeholder="Pesquisar"
+							/>
+							<img src={pesquisar} alt="" />
+						</div>
+					</div>
+				</div>
+				<div className="Client-body-tabel">
+					<ClientTabel />
+				</div>
+			</div>
+			}
+			<HeaderDash />
+			<MenuSidebar />
+			{addClient && <ClientModal />}
+			{feedback && <ModalFeedback />}
+		</div>
 
-            {selected === 4 ? <ClientDetails /> : <div className="Client-body">
-                <div className="Client-body-header">
-                    <div>
-                        <img src={headerCliente} alt="" /> Clientes
-                    </div>
-                    <div>
-                        <button onClick={() => { setAddClient(!addClient) }}>+ Adicionar cliente</button>
-                        <img src={filter} alt="" />
-                        <div className="Client-box-input">
-                            <input
-                                type="text"
-                                placeholder="Pesquisar"
-                            />
-                            <img src={pesquisar} alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div className="Client-body-tabel">
-                    <ClientTabel />
-                </div>
-            </div>
-            }
-            <HeaderDash />
-            <MenuSidebar />
-            {addClient && <ClientModal />}
-            {feedback && <ModalFeedback />}
-        </div>
-
-    );
+	);
 };
 
 export default Client;

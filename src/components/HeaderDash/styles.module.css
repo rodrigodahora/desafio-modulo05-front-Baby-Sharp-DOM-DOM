@@ -30,6 +30,15 @@
   border-bottom: 1px solid #ACD9C5;
 }
 
+.container .container_colun {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+
+  gap: 6px;
+}
+
+
 .container h1 {
   text-align: center;
   color: #343447;
@@ -44,6 +53,21 @@
   align-self: flex-end;
 
   color: #0E8750;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.container_colun h2 {
+  cursor: pointer;
+}
+
+.container h3 {
+  align-self: flex-end;
+
+  color: #747488;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
