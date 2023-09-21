@@ -5,8 +5,9 @@ export const MyContext = createContext();
 export function ContextProvider(props) {
   const [data, setData] = useState({ name: "", email: "", password: "", confPassword: "" });
   const [selected, setSelected] = useState(1);
-  const [addClient, setAddClient] = useState(false)
-  const [feedback, setFeedback] = useState(false);
+  const [addClient, setAddClient] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const [selectedClient, setSelectedClient] = useState("");
   const [openModalUser, setOpenModalUser] = useState(false);
 
   function isValidEmail(email) {
@@ -38,7 +39,9 @@ export function ContextProvider(props) {
       setOpenModalUser,
       isValidEmail,
       isValidCpf,
-      isValidPhone
+      isValidPhone,
+      selectedClient,
+      setSelectedClient
     }}>
       {props.children}
     </MyContext.Provider>

@@ -15,7 +15,8 @@ const HeaderDash = () => {
   const navigate = useNavigate();
 
   const [modalUser, setModalUser] = useState(false);
-  const { setOpenModalUser, openModalUser, selected } = useContext(MyContext);
+  const { setOpenModalUser, openModalUser, selected, setSelected } =
+    useContext(MyContext);
 
   const [name, setName] = useState(localStorage.getItem('name'));
 
@@ -27,6 +28,19 @@ const HeaderDash = () => {
           {selected === 1 && <h1>Resumo de cobranças</h1>}
           {selected === 2 && <h2>Clientes</h2>}
           {selected === 3 && <h2>Cobranças</h2>}
+          {selected === 4 && (
+            <div className={styles.container_colun}>
+              <h2
+                onClick={() => {
+                  setSelected(2);
+                }}
+              >
+                Clientes
+              </h2>
+              <h3>{'>'}</h3>
+              <h3>Detalhes do cliente</h3>
+            </div>
+          )}
 
           <div className={styles.login}>
             <div className={styles.profile}>
