@@ -135,9 +135,9 @@ const ClientModalUpdate = () => {
   }
 
   return (
-    <div className="filter-client-modal">
+    <div className="filter-modal">
       <div className="container-client-modal-update">
-        <div className="client-modal-close">
+        <div className="modal-close">
           <img
             src={closeIcon}
             alt="Close Modal"
@@ -146,7 +146,7 @@ const ClientModalUpdate = () => {
         </div>
 
         <form className="client-form">
-          <div className="title-client-modal-update">
+          <div className="title-modal">
             <img src={clientIcon} alt="Client Icon" />
             <h1>Editar Cliente</h1>
           </div>
@@ -263,7 +263,7 @@ const ClientModalUpdate = () => {
             </div>
           </div>
 
-          <div className="client-modal-buttons">
+          <div className="modal-buttons">
             <button
               type="button"
               className="button-cancel"

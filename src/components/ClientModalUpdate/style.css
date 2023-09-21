@@ -1,4 +1,4 @@
-.filter-client-modal {
+.filter-modal {
   display: flex;
   position: fixed;
   justify-content: center;
@@ -23,7 +23,7 @@
   background-color: #fff;
 }
 
-.client-modal-close {
+.modal-close {
   display: flex;
   position: absolute;
 
@@ -80,7 +80,7 @@ input {
   line-height: normal;
 }
 
-.title-client-modal-update {
+.title-modal {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -90,12 +90,12 @@ input {
   margin-bottom: 9.5px;
 }
 
-.title-client-modal-update img {
+.title-modal img {
   width: 32px;
   height: 32px;
 }
 
-.title-client-modal-update h1 {
+.title-modal h1 {
   width: 264px;
   height: 34px;
 
@@ -173,7 +173,7 @@ input {
   gap: 6px;
 }
 
-.client-modal-buttons {
+.modal-buttons {
   display: flex;
   justify-content: space-between;
 

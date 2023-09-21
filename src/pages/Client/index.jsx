@@ -8,20 +8,21 @@ import "./style.css";
 
 import ClientTabel from '../../components/ClientTabel';
 import ClientModal from '../../components/ClientModal';
+import ClientDetails from "../../components/ClientDetails";
 import ModalFeedback from '../../components/ModalFeedback';
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-    const { setSelected, addClient, setAddClient, feedback } = useContext(MyContext);
+    const { selected, setSelected, addClient, setAddClient, feedback } = useContext(MyContext);
 
-    setSelected(2);
+    // setSelected(2);
 
     return (
         <div className="Client">
 
-            <div className="Client-body">
+            {selected === 4 ? <ClientDetails /> : <div className="Client-body">
                 <div className="Client-body-header">
                     <div>
                         <img src={headerCliente} alt="" /> Clientes
@@ -42,6 +43,7 @@ const Client = () => {
                     <ClientTabel />
                 </div>
             </div>
+            }
             <HeaderDash />
             <MenuSidebar />
             {addClient && <ClientModal />}
