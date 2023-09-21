@@ -114,7 +114,7 @@ const ClientModal = () => {
       setTimeout(() => {
         setFeedback(true);
         setTimeout(() => {
-          setFeedback(false);
+          setFeedback("");
         }, 5000);
       }, 1000);
 
