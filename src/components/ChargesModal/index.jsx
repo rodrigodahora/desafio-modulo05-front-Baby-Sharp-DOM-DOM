@@ -1,111 +1,138 @@
-import { useContext, useState } from "react";
-import chargesIcon from "../../assets/cobranca_menu.svg";
-import closeIcon from "../../assets/close.svg";
-import checkboxDeselected from "../../assets/checkbox-sphere.svg"
-import checkboxSelected from "../../assets/bola-check.svg"
+import { useContext, useState } from 'react';
+import chargesIcon from '../../assets/cobranca_menu.svg';
+import closeIcon from '../../assets/close.svg';
+import checkboxDeselected from '../../assets/checkbox-sphere.svg';
+import checkboxSelected from '../../assets/bola_check.svg';
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
-import api from "../../services/api";
-import "./style.css";
+// import api from '../../services/api';
+import './style.css';
 
 const ChargesModal = () => {
   const { addClient, setAddClient, setFeedback } = useContext(MyContext);
 
   const [data, setData] = useState({
-    name: "",
-    description: "",
-
+    name: '',
+    description: '',
   });
 
   return (
-    <div className="filter-modal">
-      <div className="container-charges-modal">
-        <div className="modal-close">
+    <div className="container">
+      <form className="charges-modal-form">
+        <header>
           <img
+            className="modal-img-close"
             src={closeIcon}
             alt="Close Modal"
-            onClick={() => { clearData() }}
+            // onClick={() => { clearData() }}
           />
-        </div>
-
-        <form className="charges-form">
           <div className="title-modal">
             <img src={chargesIcon} alt="Charges Icon" />
             <h1>Cadastro de Cobrança</h1>
           </div>
+        </header>
 
-          <div className="input-modal-box">
-            <label htmlFor=""></label>
-            <input
-              type="text"
-            />
-          </div>
-
-          <div className="input-modal-box">
-            <label htmlFor=""></label>
-            <input
-              type="text"
-            />
-          </div>
-
-          <div>
-            <div className="input-modal-box">
-              <label htmlFor=""></label>
+        <div className="charges-form-colum">
+          <label htmlFor="">Nome*</label>
+          <input
+            className="input-small"
+            name="name"
+            id="name"
+            value=""
+            type="text"
+            placeholder="Digite seu nome"
+          />
+          <span className="input-modal-box-validation">
+            Este campo deve ser preenchido
+          </span>
+          <label htmlFor="">Descrição*</label>
+          <input
+            className="input-big"
+            name="name"
+            id="name"
+            value=""
+            type="text"
+            placeholder="Digite a descrição"
+          />
+          <span className="input-modal-box-validation">
+            Este campo deve ser preenchido
+          </span>
+        </div>
+        <div>
+          <div className="charges-form-row">
+            <div className="charges-form-colum">
+              <label htmlFor="">Vencimento*</label>
               <input
+                className="input-small"
+                name="name"
+                id="name"
+                value=""
                 type="text"
+                placeholder="Digite seu nome"
               />
+              <span className="input-modal-box-validation">
+                Este campo deve ser preenchido
+              </span>
             </div>
-
-            <div className="input-modal-box">
-              <label htmlFor=""></label>
+            <div className="charges-form-colum">
+              <label htmlFor="">Valor*</label>
               <input
+                className="input-small"
+                name="name"
+                id="name"
+                value=""
                 type="text"
+                placeholder="Digite seu nome"
               />
+              <span className="input-modal-box-validation">
+                Este campo deve ser preenchido
+              </span>
             </div>
           </div>
+        </div>
 
-          <div>
-            <label>Status*</label>
+        <div className="charges-form-colum">
+          <label>Status*</label>
 
-            <div className="">
-              <img
-                src={checkboxSelected}
-                alt="Checkbox Selected"
+          <div className="charges-won">
+            <img
+              src={checkboxSelected}
+              alt="Checkbox Selected"
               // onClick
-              />
-              <span>Cobrança Paga</span>
-            </div>
+            />
+            <span>Cobrança Paga</span>
+          </div>
 
-            <div>
-              <img
-                src={checkboxDeselected}
-                alt="Checkbox Deselected"
+          <div className="charges-expected">
+            <img
+              src={checkboxDeselected}
+              alt="Checkbox Deselected"
               //onclick
-              />
-              <span>Cobrança Pendente</span>
-            </div>
+            />
+            <span>Cobrança Pendente</span>
           </div>
+        </div>
 
-          <div className="modal-buttons">
-            <button
-              type="button"
-              className="button-cancel"
-              onClick={() => { clearData() }}
-            >
-              Cancelar
-            </button>
+        <div className="modal-buttons">
+          <button
+            className="button-cancel"
+            type="button"
+            // onClick={() => { clearData() }}
+          >
+            Cancelar
+          </button>
 
-            <button
-              className="button-apply"
-              onClick={handleSubmit}
-            >
-              Aplicar
-            </button>
-          </div>
-        </form>
-      </div>
+          <button
+            className="button-apply"
+            type="button"
+            // onClick={handleSubmit}
+          >
+            Aplicar
+          </button>
+        </div>
+      </form>
     </div>
   );
-}
+};
 
 export default ChargesModal;

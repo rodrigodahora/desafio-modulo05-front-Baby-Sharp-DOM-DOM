@@ -66,7 +66,7 @@ export default function ClientTabel() {
 							<td>{client.cpf}</td>
 							<td>{client.email}</td>
 							<td>{client.phone}</td>
-							<td><div className={client.stats ? "client-defaulter" : "client-compliant"}>{client.stats ? "Inadimplente" : "Em dia"}</div></td>
+							<td><div className={client.defaulter ? "client-defaulter" : "client-compliant"}>{client.defaulter ? "Inadimplente" : "Em dia"}</div></td>
 							<td><div className="client-charge pointer" onClick={() => { console.log("cliquei"); }}><img src={cobranca} alt="" /><p>Cobrança</p></div> </td>
 						</tr>
 					)
