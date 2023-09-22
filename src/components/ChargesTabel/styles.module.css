@@ -1,0 +1,165 @@
+table {
+  min-width: 100%;
+}
+
+thead tr {
+  height: 58px;
+
+  text-align: left;
+}
+
+th {
+  align-self: center;
+
+  color: #3F3F55;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 0.08px;
+}
+
+tbody tr {
+  height: 55px;
+
+  text-align: left;
+}
+
+td {
+  border-top: 1px solid #EFF0F6;
+
+  color: #747488;
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.07px;
+}
+
+.charges_client {
+  width: 135px;
+  height: 58px;
+}
+
+.charges_client img {
+  width: 24px;
+  height: 24px;
+}
+
+.charges_id {
+  width: 130px;
+}
+
+.charges_value {
+  width: 120px;
+}
+
+.charges_validity {
+  width: 160px;
+}
+
+.charges_status {
+  width: 120px;
+}
+
+.charges_description {
+  width: 199px;
+  height: 58px;
+}
+
+.charges_button {
+  width: 100px;
+}
+
+.charges_won {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  width: 65px;
+  height: 19px;
+
+  border-radius: 8px;
+
+  background: #FFEFEF;
+
+  color: #971D1D;
+  font-family: Nunito,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.charges_expected {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  width: 85px;
+  height: 19px;
+
+  border-radius: 8px;
+
+  background: #FCF6DC;
+
+  color: #C5A605;
+  font-family: Nunito,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.charges_paid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 19px;
+
+  border-radius: 8px;
+
+  background: #EEF6F6;
+
+  color: #1FA7AF;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.charges_descri_p {
+  display: flex;
+
+  color:  #6E6E85;
+  font-family: Nunito,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; 
+  letter-spacing: 0.07px;
+}
+
+.charges_descri_btn  {
+  justify-content: space-between;
+  width: 100px;
+  text-align: center;
+
+}
+.charges_descri_btn div  {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+.charges_descri_btn img {
+  width: 25px;
+  height: 31px;
+}

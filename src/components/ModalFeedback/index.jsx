@@ -6,7 +6,7 @@ import "./style.css";
 
 
 const ModalFeedback = () => {
-  const { setFeedback } = useContext(MyContext);
+  const { feedback, setFeedback } = useContext(MyContext);
 
   return (
     <div className="container-feedback">
@@ -18,7 +18,7 @@ const ModalFeedback = () => {
         />
 
         <span className="feedback-message-success">
-          Cadastro concluído com sucesso
+          {feedback}
         </span>
       </div>
 

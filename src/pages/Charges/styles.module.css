@@ -1,0 +1,84 @@
+.container{
+  display: flex;
+  box-sizing: border-box;
+
+  width: 1440px;
+  height: 1129px;
+  margin: 0;
+  padding: 0;
+
+  background-color: #F8F8F9;
+}
+
+.charges_body{
+  width: 100%;
+  margin: 143px 108px 45px 206px;
+}
+
+.charges_body_header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 39px;
+  margin-bottom: 24px;
+}
+
+.charges_body_header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 16px;
+
+  color: #3F3F55;
+  font-family: Montserrat;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.charges_box_input {
+  display: flex;
+  position: relative;
+}
+
+.charges_body_header div input {
+  width: 322.193px;
+  height: 45.739px;
+  padding: 7px 8px;
+
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 7px 0 #DA01750D;
+
+  background: #FFF;
+
+  color: #747488;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.charges_box_input img {
+  display: flex;
+  position: absolute;
+
+  right: 8px;
+}
+
+.charges_body_table {
+  display: flex;
+  position: relative;
+
+  width: 100%;
+  padding: 12px 23px;
+
+  border-radius: 30px;
+
+  background: #FFF;
+}
