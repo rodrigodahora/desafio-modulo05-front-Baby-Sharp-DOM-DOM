@@ -8,7 +8,7 @@ export function ContextProvider(props) {
   const [addClient, setAddClient] = useState(false);
   const [updateClient, setUpdateClient] = useState(false);
   const [feedback, setFeedback] = useState("");
-  const [selectedClient, setSelectedClient] = useState("");
+  const [selectedClient, setSelectedClient] = useState();
   const [openModalUser, setOpenModalUser] = useState(false);
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
@@ -32,23 +32,15 @@ export function ContextProvider(props) {
 
   return (
     <MyContext.Provider value={{
-      data,
-      setData,
-      selected,
-      setSelected,
-      addClient,
-      setAddClient,
-      updateClient,
-      setUpdateClient,
-      feedback,
-      setFeedback,
-      openModalUser,
-      setOpenModalUser,
+      data, setData,
+      selected, setSelected,
+      addClient, setAddClient,
+      feedback, setFeedback,
+      openModalUser, setOpenModalUser,
       isValidEmail,
       isValidCpf,
       isValidPhone,
-      selectedClient,
-      setSelectedClient,
+      selectedClient, setSelectedClient,
       paidCharges, setPaidCharges,
       wonsCharges, setWonsCharges,
       expectedCharges, setExpectedCharges

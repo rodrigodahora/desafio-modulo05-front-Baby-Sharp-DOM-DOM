@@ -25,3 +25,43 @@ code {
 .pointer {
   cursor: pointer;
 }
+
+table {
+  min-width: 100%;
+}
+
+thead tr {
+  height: 58px;
+
+  text-align: left;
+}
+
+th {
+  align-self: center;
+
+  color: #3F3F55;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 0.08px;
+}
+
+tbody tr {
+  height: 55px;
+
+  text-align: left;
+}
+
+td {
+  border-top: 1px solid #EFF0F6;
+
+  color: #747488;
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.07px;
+}
