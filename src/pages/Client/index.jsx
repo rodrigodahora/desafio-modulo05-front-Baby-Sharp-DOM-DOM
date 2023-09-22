@@ -7,7 +7,7 @@ import '../../index.css';
 import './style.css';
 
 import ClientTabel from '../../components/ClientTabel';
-// import ClientModal from '../../components/ClientModal';
+import ClientModal from '../../components/ClientModal';
 import ChargesModal from '../../components/ChargesModal';
 import ClientDetails from '../../components/ClientDetails';
 import ModalFeedback from '../../components/ModalFeedback';
@@ -16,8 +16,14 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-  const { selected, setSelected, addClient, setAddClient, feedback } =
-    useContext(MyContext);
+  const {
+    selected,
+    setSelected,
+    addClient,
+    openModalCharges,
+    setAddClient,
+    feedback,
+  } = useContext(MyContext);
 
   setSelected(2);
 
@@ -53,7 +59,8 @@ const Client = () => {
       )}
       <HeaderDash />
       <MenuSidebar />
-      {addClient && <ChargesModal />}
+      {addClient && <ClientModal />}
+      {openModalCharges && <ChargesModal />}
       {feedback && <ModalFeedback />}
     </div>
   );
