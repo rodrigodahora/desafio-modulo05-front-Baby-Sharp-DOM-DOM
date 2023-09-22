@@ -11,7 +11,7 @@ import { MyContext } from '../../contexts/MyContext';
 
 
 export default function ClientTabel() {
-	const { addClient, selectedClient, setSelectedClient
+	const { addClient, setSelected, selectedClient, setSelectedClient
 	} = useContext(MyContext);
 
 	const [dbClients, setDbClients] = useState([]);
@@ -62,7 +62,10 @@ export default function ClientTabel() {
 				{dbClients.map((client) => {
 					return (
 						<tr>
-							<td className="pointer" onClick={() => { setSelectedClient(client.id) }}>{client.name}</td>
+							<td className="pointer" onClick={() => {
+								setSelected(4);
+								setSelectedClient(client.id);
+							}}>{client.name}</td>
 							<td>{client.cpf}</td>
 							<td>{client.email}</td>
 							<td>{client.phone}</td>

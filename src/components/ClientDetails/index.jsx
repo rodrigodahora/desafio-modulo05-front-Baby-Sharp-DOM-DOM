@@ -1,17 +1,80 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import setaOrdem from "../../assets/Frame.svg";
+import plus from "../../assets/add.svg";
 import clientIcon from "../../assets/cliente_menu.svg";
-import edit from "../../assets/editar.svg"
-import editIcon from "../../assets/icone_edit.svg"
-import plus from "../../assets/add.svg"
-import setaOrdem from "../../assets/Frame.svg"
-import deleteIcon from "../../assets/icon_delete.svg"
-
+import edit from "../../assets/editar.svg";
+import deleteIcon from "../../assets/icon_delete.svg";
+import editIcon from "../../assets/icone_edit.svg";
+import { MyContext } from '../../contexts/MyContext';
 import "../../index.css";
+import api from '../../services/api';
 import "./style.css";
 
+
 const ClientDetails = () => {
+  const navigate = useNavigate();
+
+  const { setSelected, selectedClient } = useContext(MyContext);
 
   const [status, setStatus] = useState(true);
+  const [dbClient, setDbClient] = useState([]);
+  const [dbDebts, setDbDebts] = useState([]);
+
+  useEffect(() => {
+    console.log("aqui");
+    console.log(selectedClient);
+  }, [selectedClient])
+
+
+  useEffect(() => { getCharges(); getClient() }, [])
+
+  async function getClient() {
+
+    const token = localStorage.getItem('token');
+
+
+    try {
+      const response = await api.get(
+        `/detailClient/${selectedClient}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      setDbClient(response.data.client[0])
+
+      console.log(response.data.client[0]);
+
+    } catch (error) {
+
+    }
+  }
+
+  async function getCharges() {
+
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await api.get(
+        `/debtsClient/${selectedClient}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      setDbDebts(response.data.debts)
+
+    } catch (error) {
+
+    }
+  }
+
+
 
   return (
     <div className="container-client-detail">
@@ -103,12 +166,15 @@ const ClientDetails = () => {
               </tr>
             </thead>
             <tbody className="table-charges-row">
+
               <tr >
                 <td >248563147</td>
                 <td >26/01/2021</td>
                 <td >R$ 500,00</td>
-                <td ><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
-                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
+                {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Vencida</div></td>}
+                {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Pendente}</div></td>}
+                {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Paga</div></td>}
+                <td className="row-collum-description">lorem ipsum lorem ipsum lorem lorem ips,,,</td>
                 <td className="row-icons">
                   <div>
                     <img src={edit} alt="" />
@@ -117,34 +183,6 @@ const ClientDetails = () => {
                 </td>
               </tr>
 
-              {/* <tr>
-                <td className="row-collum-idcob">458563145</td>
-                <td className="row-collum-date">27/11/2021</td>
-                <td className="row-collum-value">R$ 2000,00</td>
-                <td className="row-collum-status"><div className={status ? "status-Pendente" : ""}>{status ? "Pendente" : "Paga"}</div></td>
-                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
-                <td className="row-icons">
-                  <div>
-                    <img src={edit} alt="" />
-                    <img src={deleteIcon} alt="" />
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="row-collum-idcob">578563147</td>
-                <td className="row-collum-date">22/01/2021</td>
-                <td className="row-collum-value">R$ 300,00</td>
-                <td className="row-collum-status"><div className={status ? "status-Paga" : ""}>{status ? "Paga" : "Vencida"}</div></td>
-                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
-                <td className="row-icons">
-                  <div>
-                    <img src={edit} alt="" />
-                    <img src={deleteIcon} alt="" />
-                  </div>
-                </td>
-                <td></td>
-              </tr> */}
             </tbody>
           </table>
 

@@ -38,7 +38,7 @@ const MenuSidebar = () => {
             : styles.clients
         }
         onClick={() => {
-          setSelected(4);
+          setSelected(2);
           setSelectedClient('');
           navigate('/Client');
         }}
