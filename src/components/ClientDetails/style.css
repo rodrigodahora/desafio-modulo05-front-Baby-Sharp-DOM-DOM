@@ -246,7 +246,7 @@
 
 .client-changes-table-header {
   display: flex;
-  width: 1030px;
+  width: 1070px;
   height: 50px;
   align-items: flex-start;
 }
@@ -275,33 +275,11 @@
   width: 323px;
 }
 
-.client-changes-table .table-charges-row tr {
-  display: flex;
-  width: 1070px;
-  height: 40px;
+.table-charges-row tr {
+  height: 56px;
 }
 
-.client-changes-table .table-charges-row tr .row-collum-idcob {
-  color: #6E6E85;
-  font-family: Nunito;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 0.07px;
-}
-
-.client-changes-table .table-charges-row tr .row-collum-date {
-  color: #6E6E85;
-  font-family: Nunito;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 0.07px;
-}
-
-.client-changes-table .table-charges-row tr .row-collum-value {
+.row-collum-typo td {
   color: #6E6E85;
   font-family: Nunito;
   font-size: 14px;
@@ -312,14 +290,6 @@
 }
 
 .status-Vencida {
-  display: flex;
-
-  padding: 0px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-
-  border-radius: 8px;
   background: #FFEFEF;
 
   color: #971D1D;
@@ -331,12 +301,6 @@
 }
 
 .status-Pendente {
-  display: flex;
-  padding: 0px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-
   border-radius: 8px;
   background: #FCF6DC;
 
@@ -350,12 +314,6 @@
 }
 
 .status-Paga {
-  display: flex;
-  padding: 0px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-
   border-radius: 8px;
   background: #EEF6F6;
 
@@ -365,16 +323,6 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-}
-
-.client-changes-table .table-charges-row tr .row-collum-description {
-  color: #6E6E85;
-  font-family: Nunito;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 0.07px;
 }
 
 .client-changes-table .table-charges-row tr .row-icons div {

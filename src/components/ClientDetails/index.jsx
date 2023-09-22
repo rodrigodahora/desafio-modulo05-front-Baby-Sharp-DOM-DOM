@@ -99,15 +99,15 @@ const ClientDetails = () => {
                 <th className="collum-value">Valor</th>
                 <th className="collum-status">Status</th>
                 <th className="collum-description">Descrição</th>
-                <th className="collum-void"></th>
+                <th className="collum-void">{" "}</th>
               </tr>
             </thead>
             <tbody className="table-charges-row">
               <tr >
-                <td className="row-collum-idcob">248563147</td>
-                <td className="row-collum-date">26/01/2021</td>
-                <td className="row-collum-value">R$ 500,00</td>
-                <td className="row-collum-status"><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
+                <td >248563147</td>
+                <td >26/01/2021</td>
+                <td >R$ 500,00</td>
+                <td ><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
                 <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
                 <td className="row-icons">
                   <div>
@@ -117,7 +117,7 @@ const ClientDetails = () => {
                 </td>
               </tr>
 
-              <tr>
+              {/* <tr>
                 <td className="row-collum-idcob">458563145</td>
                 <td className="row-collum-date">27/11/2021</td>
                 <td className="row-collum-value">R$ 2000,00</td>
@@ -144,7 +144,7 @@ const ClientDetails = () => {
                   </div>
                 </td>
                 <td></td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
 

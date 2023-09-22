@@ -19,7 +19,7 @@ const Client = () => {
   const { selected, setSelected, addClient, setAddClient, feedback } =
     useContext(MyContext);
 
-  setSelected(2);
+  // setSelected(2);
 
   return (
     <div className="Client">
