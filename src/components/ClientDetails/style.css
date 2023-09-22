@@ -1,3 +1,267 @@
-.client_details {
-  width: calc(100vw - 118px);
+.container-client-detail {
+  width: 100%;
+  margin: 143px 108px 45px 206px;
 }
+
+.title-client-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.title-client-detail img {
+  width: 32px;
+  height: 32px;
+}
+
+.title-client-detail h1 {
+  color: #3F3F55;
+  font-family: Montserrat;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.client-detail-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.container-data-client {
+  display: flex;
+  flex-direction: column;
+  width: 1115px;
+  height: 268px;
+  padding: 24px 21px 24px 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+
+  border-radius: 30px;
+  background: #FFF;
+}
+
+.title-data-client-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title-data-client-box h2 {
+  color: #3F3F55;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.title-data-client-box button {
+  display: flex;
+  padding: 4px 60px;
+  justify-content: center;
+  align-items: center;
+
+  width: 251px;
+  height: 35px;
+
+  border-radius: 10px;
+  border: 1px solid var(--cinzas-cinza-6, #DEDEE9);
+  background: var(--cinzas-cinza-8, #F8F8F9);
+
+  color: #0E8750;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  cursor: pointer;
+}
+
+.title-data-client-box button img {
+  width: 18px;
+  height: 18px;
+}
+
+.box-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.box-data-row {
+  display: flex;
+  flex-direction: row;
+  height: 46px;
+}
+
+.collum-email {
+  display: flex;
+  flex-direction: column;
+  width: 268px;
+  gap: 8px;
+}
+
+.collum-phone {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  gap: 8px;
+}
+
+.collum-cpf {
+  display: flex;
+  flex-direction: column;
+  width: 227px;
+  gap: 8px;
+}
+
+.box-cep {
+  display: flex;
+  flex-direction: column;
+  width: 121px;
+  gap: 8px;
+}
+
+.box-city {
+  display: flex;
+  flex-direction: column;
+  width: 147px;
+  margin-left: 93px;
+  gap: 8px;
+}
+
+.box-state {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  gap: 8px;
+}
+
+.collum-email,
+.collum-phone,
+.collum-cpf,
+.box-cep,
+.box-city,
+.box-state,
+.box-data-title {
+  color: var(--cinzas-cinza-2, #3F3F55);
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.collum-email,
+.collum-phone,
+.collum-cpf,
+.box-cep,
+.box-city,
+.box-state,
+.box-data-content {
+  color: #3F3F55;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+
+.container-changes-client {
+  display: flex;
+  width: 1115px;
+  padding: 24px 3px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 30px;
+  background: #FFF;
+}
+
+.title-data-change-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 619px;
+}
+
+.title-data-change-box h2 {
+  color: #3F3F55;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.change-box-btn {
+  display: flex;
+  padding: 4px 56px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  border-radius: 10px;
+  border: none;
+  background: #DA0175;
+
+  color: #F8F8F9;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.change-box-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.client-changes-table {
+  display: flex;
+  width: 1117px;
+  padding: 12px 23px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  background: #FFF;
+}
+
+.client-changes-table-header {
+  display: flex;
+  width: 1030px;
+  align-items: flex-start;
+}
+
+.collum-idcob {}
+
+.collum-data {}
+
+.collum-valeu {}
+
+.collum-status {}
+
+.client-description {}
+
+.status-Vencida {}
+
+.status-Pendente {}
+
+.status-Paga {}
