@@ -9,6 +9,10 @@ export function ContextProvider(props) {
   const [feedback, setFeedback] = useState("");
   const [selectedClient, setSelectedClient] = useState("");
   const [openModalUser, setOpenModalUser] = useState(false);
+  const [paidCharges, setPaidCharges] = useState(0);
+  const [wonsCharges, setWonsCharges] = useState(0);
+  const [expectedCharges, setExpectedCharges] = useState(0);
+
 
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
@@ -41,7 +45,10 @@ export function ContextProvider(props) {
       isValidCpf,
       isValidPhone,
       selectedClient,
-      setSelectedClient
+      setSelectedClient,
+      paidCharges, setPaidCharges,
+      wonsCharges, setWonsCharges,
+      expectedCharges, setExpectedCharges
     }}>
       {props.children}
     </MyContext.Provider>

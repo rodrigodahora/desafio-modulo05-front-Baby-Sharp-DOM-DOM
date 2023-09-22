@@ -2,8 +2,51 @@ import styles from './styles.module.css';
 import clientDefaulters from '../../assets/cliente_inadimplente.svg';
 import clientInDay from '../../assets/cliente_em_dia.svg';
 import '../../index.css';
+import api from '../../services/api';
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
+
 
 const ClientsTabs = () => {
+  const navigate = useNavigate();
+
+  const { setSelected } = useContext(MyContext);
+
+  const [defaulters, setdefaulters] = useState([])
+  const [compliant, setCompliant] = useState([])
+
+
+  useEffect(() => { getCharges() }, [])
+
+  async function getCharges() {
+
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await api.get(
+        "/listClients",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      const defaulters = response.data.clients.filter((client) => client.defaulter);
+      setdefaulters(defaulters);
+      const compliant = response.data.clients.filter((client) => !client.defaulter);
+      setCompliant(compliant);
+
+
+
+    } catch (error) {
+
+    }
+  }
+
   return (
     <div className={styles.container_clients}>
       <div className={styles.container_defaulters}>
@@ -26,30 +69,33 @@ const ClientsTabs = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Cameron Williamson</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{defaulters[0] ? defaulters[0].name : " "}</td>
+                <td>{defaulters[0] ? defaulters[0].id : " "}</td>
+                <td>{defaulters[0] ? defaulters[0].cpf : " "}</td>
               </tr>
               <tr>
-                <td>Savannah Nguyen</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{defaulters[1] ? defaulters[1].name : " "}</td>
+                <td>{defaulters[1] ? defaulters[1].id : " "}</td>
+                <td>{defaulters[1] ? defaulters[1].cpf : " "}</td>
               </tr>
               <tr>
-                <td>Darlene Robertson</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{defaulters[2] ? defaulters[2].name : " "}</td>
+                <td>{defaulters[2] ? defaulters[2].id : " "}</td>
+                <td>{defaulters[2] ? defaulters[2].cpf : " "}</td>
               </tr>
               <tr>
-                <td>Marvin McKinney</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{defaulters[3] ? defaulters[3].name : " "}</td>
+                <td>{defaulters[3] ? defaulters[3].id : " "}</td>
+                <td>{defaulters[3] ? defaulters[3].cpf : " "}</td>
               </tr>
             </tbody>
           </table>
 
           <footer className={styles.footer}>
-            <a href="/">Ver todos</a>
+            <a onClick={() => {
+              setSelected(2);
+              navigate("/Client");
+            }}>Ver todos</a>
           </footer>
         </div>
       </div>
@@ -74,30 +120,33 @@ const ClientsTabs = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Cameron Williamson</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{compliant[0] ? compliant[0].name : " "}</td>
+                <td>{compliant[0] ? compliant[0].id : " "}</td>
+                <td>{compliant[0] ? compliant[0].cpf : " "}</td>
               </tr>
               <tr>
-                <td>Savannah Nguyen</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{compliant[1] ? compliant[1].name : " "}</td>
+                <td>{compliant[1] ? compliant[1].id : " "}</td>
+                <td>{compliant[1] ? compliant[1].cpf : " "}</td>
               </tr>
               <tr>
-                <td>Darlene Robertson</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{compliant[2] ? compliant[2].name : " "}</td>
+                <td>{compliant[2] ? compliant[2].id : " "}</td>
+                <td>{compliant[2] ? compliant[2].cpf : " "}</td>
               </tr>
               <tr>
-                <td>Marvin McKinney</td>
-                <td>223456787</td>
-                <td>041.477.456-56</td>
+                <td>{compliant[3] ? compliant[3].name : " "}</td>
+                <td>{compliant[3] ? compliant[3].id : " "}</td>
+                <td>{compliant[3] ? compliant[3].cpf : " "}</td>
               </tr>
             </tbody>
           </table>
 
           <footer className={styles.footer}>
-            <a href="/">Ver todos</a>
+            <a onClick={() => {
+              setSelected(2);
+              navigate("/Client");
+            }}>Ver todos</a>
           </footer>
         </div>
       </div>

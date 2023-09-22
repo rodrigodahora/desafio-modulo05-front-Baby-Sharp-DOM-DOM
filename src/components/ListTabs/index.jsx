@@ -1,6 +1,11 @@
 import styles from './styles.module.css';
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+
 
 const ListTabs = () => {
+  const { paidCharges, wonsCharges, expectedCharges } = useContext(MyContext);
+
   return (
     <div className={styles.main}>
       <div className={styles.charges}>
@@ -8,7 +13,7 @@ const ListTabs = () => {
           <div className={styles.paid_img}></div>
           <div className={styles.paid_value}>
             <h2>Cobranças Pagas</h2>
-            <strong>R$ 30.000</strong>
+            <strong>{`R$ ${paidCharges.toFixed(2).replace('.', ',')}`}</strong>
           </div>
         </div>
       </div>
@@ -18,7 +23,7 @@ const ListTabs = () => {
           <div className={styles.won_img}></div>
           <div className={styles.won_value}>
             <h2>Cobranças Vencidas</h2>
-            <strong>R$ 7.000</strong>
+            <strong>{`R$ ${(wonsCharges.toFixed(2).replace('.', ','))}`}</strong>
           </div>
         </div>
       </div>
@@ -28,7 +33,7 @@ const ListTabs = () => {
           <div className={styles.expected_img}></div>
           <div className={styles.expected_value}>
             <h2>Cobranças Previstas</h2>
-            <strong>R$ 10.000</strong>
+            <strong>{`R$ ${(expectedCharges.toFixed(2).replace('.', ','))}`}</strong>
           </div>
         </div>
       </div>
