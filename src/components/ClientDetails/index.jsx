@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import clientIcon from "../../assets/cliente_menu.svg";
 import edit from "../../assets/editar.svg"
 import editIcon from "../../assets/icone_edit.svg"
 import plus from "../../assets/add.svg"
 import setaOrdem from "../../assets/Frame.svg"
 import deleteIcon from "../../assets/icon_delete.svg"
+import { MyContext } from '../../contexts/MyContext';
 
 import "../../index.css";
 import "./style.css";
@@ -12,6 +13,8 @@ import "./style.css";
 const ClientDetails = () => {
 
   const [status, setStatus] = useState(true);
+
+  const { updateClient, setUpdateClient } = useContext(MyContext);
 
   return (
     <div className="container-client-detail">
@@ -29,7 +32,10 @@ const ClientDetails = () => {
           <div className="title-data-client-box">
             <h2>Dados do cliente</h2>
             <button>
-              <img src={editIcon} alt="" />
+              <img
+                src={editIcon}
+                alt=""
+              />
               Editar Cliente
             </button>
           </div>

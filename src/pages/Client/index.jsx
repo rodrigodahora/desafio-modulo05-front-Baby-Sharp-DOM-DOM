@@ -7,8 +7,7 @@ import '../../index.css';
 import './style.css';
 
 import ClientTabel from '../../components/ClientTabel';
-// import ClientModal from '../../components/ClientModal';
-import ChargesModal from '../../components/ChargesModal';
+import ClientModalUpdate from '../../components/ClientModalUpdate';
 import ClientDetails from '../../components/ClientDetails';
 import ModalFeedback from '../../components/ModalFeedback';
 
@@ -53,7 +52,7 @@ const Client = () => {
       )}
       <HeaderDash />
       <MenuSidebar />
-      {addClient && <ChargesModal />}
+      {addClient && <ClientModalUpdate />}
       {feedback && <ModalFeedback />}
     </div>
   );

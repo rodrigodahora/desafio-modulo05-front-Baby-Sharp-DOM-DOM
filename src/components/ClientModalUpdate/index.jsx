@@ -8,20 +8,9 @@ import "./style.css";
 
 
 const ClientModalUpdate = () => {
-  const { addClient, setAddClient, setFeedback, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);
+  const { setFeedback, isValidEmail, isValidCpf, isValidPhone, updateClient, setUpdateClient } = useContext(MyContext);
 
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    cpf: "",
-    phone: "",
-    address: "",
-    complement: "",
-    zip_code: "",
-    district: "",
-    city: "",
-    state: ""
-  });
+
 
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
@@ -32,25 +21,24 @@ const ClientModalUpdate = () => {
   function handleChange(e) {
     const key = e.target.name;
     const value = e.target.value;
-    setData({ ...data, [key]: value });
+    // setData({ ...data, [key]: value });
   }
 
-  function clearData() {
-    setData({
-      ...data,
-      name: "",
-      email: "",
-      cpf: "",
-      phone: "",
-      address: "",
-      complement: "",
-      zip_code: "",
-      district: "",
-      city: "",
-      state: ""
-    });
-    setAddClient(!addClient);
-  }
+  // function clearData() {
+  //   setData({
+  //     ...data,
+  //     name: "",
+  //     email: "",
+  //     cpf: "",
+  //     phone: "",
+  //     address: "",
+  //     complement: "",
+  //     zip_code: "",
+  //     district: "",
+  //     city: "",
+  //     state: ""
+  //   });
+  // }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -90,7 +78,7 @@ const ClientModalUpdate = () => {
         return setErrorState("UF inválido!");
       } else { setErrorState("") }
 
-      const response = await api.post("/registerClient",
+      const response = await api.put(`/editClients/${client.id}`,
         {
           name: data.name,
           email: data.email,
@@ -108,8 +96,6 @@ const ClientModalUpdate = () => {
             Authorization: `Bearer ${token}`
           }
         });
-
-      clearData();
 
       setTimeout(() => {
         setFeedback("Edições do cadastro concluídas com sucesso");
@@ -141,7 +127,7 @@ const ClientModalUpdate = () => {
           <img
             src={closeIcon}
             alt="Close Modal"
-            onClick={() => { clearData() }}
+            onClick={() => { setUpdateClient(!updateClient) }}
           />
         </div>
 

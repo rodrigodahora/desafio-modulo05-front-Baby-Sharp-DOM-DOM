@@ -6,6 +6,7 @@ export function ContextProvider(props) {
   const [data, setData] = useState({ name: "", email: "", password: "", confPassword: "" });
   const [selected, setSelected] = useState(1);
   const [addClient, setAddClient] = useState(false);
+  const [updateClient, setUpdateClient] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [selectedClient, setSelectedClient] = useState("");
   const [openModalUser, setOpenModalUser] = useState(false);
@@ -37,6 +38,8 @@ export function ContextProvider(props) {
       setSelected,
       addClient,
       setAddClient,
+      updateClient,
+      setUpdateClient,
       feedback,
       setFeedback,
       openModalUser,
