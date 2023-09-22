@@ -98,37 +98,52 @@ const ClientDetails = () => {
                 <th className="collum-date"><img src={setaOrdem} alt="" />Data de venc.</th>
                 <th className="collum-value">Valor</th>
                 <th className="collum-status">Status</th>
-                <th className="client-description">Descrição</th>
-                <th></th>
+                <th className="collum-description">Descrição</th>
+                <th className="collum-void"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>248563147</td>
-                <td>26/01/2021</td>
-                <td>R$ 500,00</td>
-                <td><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
-                <td>lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
-                <td><img src={edit} alt="" /></td>
-                <td><img src={deleteIcon} alt="" /></td>
+            <tbody className="table-charges-row">
+              <tr >
+                <td className="row-collum-idcob">248563147</td>
+                <td className="row-collum-date">26/01/2021</td>
+                <td className="row-collum-value">R$ 500,00</td>
+                <td className="row-collum-status"><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
+                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
+                <td className="row-icons">
+                  <div>
+                    <img src={edit} alt="" />
+                    <img src={deleteIcon} alt="" />
+                  </div>
+                </td>
               </tr>
+
               <tr>
-                <td>458563145</td>
-                <td>27/11/2021</td>
-                <td>R$ 2000,00</td>
-                <td><div className={status ? "status-Pendente" : ""}>{status ? "Pendente" : "Paga"}</div></td>
-                <td>lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
-                <td><img src={edit} alt="" /></td>
-                <td><img src={deleteIcon} alt="" /></td>
+                <td className="row-collum-idcob">458563145</td>
+                <td className="row-collum-date">27/11/2021</td>
+                <td className="row-collum-value">R$ 2000,00</td>
+                <td className="row-collum-status"><div className={status ? "status-Pendente" : ""}>{status ? "Pendente" : "Paga"}</div></td>
+                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
+                <td className="row-icons">
+                  <div>
+                    <img src={edit} alt="" />
+                    <img src={deleteIcon} alt="" />
+                  </div>
+                </td>
               </tr>
+
               <tr>
-                <td>578563147</td>
-                <td>22/01/2021</td>
-                <td>R$ 300,00</td>
-                <td><div className={status ? "status-Paga" : ""}>{status ? "Paga" : "Vencida"}</div></td>
-                <td>lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
-                <td><img src={edit} alt="" /></td>
-                <td><img src={deleteIcon} alt="" /></td>
+                <td className="row-collum-idcob">578563147</td>
+                <td className="row-collum-date">22/01/2021</td>
+                <td className="row-collum-value">R$ 300,00</td>
+                <td className="row-collum-status"><div className={status ? "status-Paga" : ""}>{status ? "Paga" : "Vencida"}</div></td>
+                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
+                <td className="row-icons">
+                  <div>
+                    <img src={edit} alt="" />
+                    <img src={deleteIcon} alt="" />
+                  </div>
+                </td>
+                <td></td>
               </tr>
             </tbody>
           </table>
