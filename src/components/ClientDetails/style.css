@@ -282,14 +282,6 @@
 }
 
 .client-changes-table .table-charges-row tr .row-collum-idcob {
-  display: flex;
-  width: 135px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  flex-shrink: 0;
-
   color: #6E6E85;
   font-family: Nunito;
   font-size: 14px;
@@ -300,7 +292,6 @@
 }
 
 .client-changes-table .table-charges-row tr .row-collum-date {
-  width: 157px;
   color: #6E6E85;
   font-family: Nunito;
   font-size: 14px;
@@ -311,9 +302,6 @@
 }
 
 .client-changes-table .table-charges-row tr .row-collum-value {
-  display: flex;
-  align-items: flex-start;
-  width: 85px;
   color: #6E6E85;
   font-family: Nunito;
   font-size: 14px;
@@ -321,18 +309,6 @@
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 0.07px;
-}
-
-.client-changes-table .table-charges-row tr .row-collum-status {
-  display: flex;
-  width: 136px;
-  height: 40px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-
 }
 
 .status-Vencida {
@@ -392,7 +368,6 @@
 }
 
 .client-changes-table .table-charges-row tr .row-collum-description {
-  width: 348px;
   color: #6E6E85;
   font-family: Nunito;
   font-size: 14px;
