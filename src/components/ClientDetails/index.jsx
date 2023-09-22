@@ -104,11 +104,11 @@ const ClientDetails = () => {
             </thead>
             <tbody className="table-charges-row">
               <tr >
-                <td >248563147</td>
-                <td >26/01/2021</td>
-                <td >R$ 500,00</td>
-                <td ><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
-                <td className="row-collum-description">lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
+                <td>248563147</td>
+                <td>26/01/2021</td>
+                <td>R$ 500,00</td>
+                <td><div className={status ? "status-Vencida" : ""}>{status ? "Vencida" : "Paga"}</div></td>
+                <td>lorem ipsum lorem ipsum lorem ipsuipsum lorem ips,,,</td>
                 <td className="row-icons">
                   <div>
                     <img src={edit} alt="" />
