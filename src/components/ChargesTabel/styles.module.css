@@ -87,7 +87,7 @@ td {
   background: #FFEFEF;
 
   color: #971D1D;
-  font-family: Nunito,sans-serif;
+  font-family: Nunito, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -108,7 +108,7 @@ td {
   background: #FCF6DC;
 
   color: #C5A605;
-  font-family: Nunito,sans-serif;
+  font-family: Nunito, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -139,26 +139,28 @@ td {
 .charges_descri_p {
   display: flex;
 
-  color:  #6E6E85;
-  font-family: Nunito,sans-serif;
+  color: #6E6E85;
+  font-family: Nunito, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 40px; 
+  line-height: 40px;
   letter-spacing: 0.07px;
 }
 
-.charges_descri_btn  {
+.charges_descri_btn {
   justify-content: space-between;
   width: 100px;
   text-align: center;
 
 }
-.charges_descri_btn div  {
-display: flex;
-align-items: center;
-gap: 20px;
+
+.charges_descri_btn div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
+
 .charges_descri_btn img {
   width: 25px;
   height: 31px;
