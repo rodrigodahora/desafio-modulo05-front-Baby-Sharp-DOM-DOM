@@ -3,7 +3,7 @@
     box-sizing: border-box;
     position: relative;
 
-    min-height: 1100px;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 

@@ -101,7 +101,7 @@ const ChargesModal = () => {
           />
           <div className="title-modal">
             <img src={chargesIcon} alt="Charges Icon" />
-            <h1>Cadastro de Cobrança</h1>
+            <h6>Cadastro de Cobrança</h6>
           </div>
         </header>
 

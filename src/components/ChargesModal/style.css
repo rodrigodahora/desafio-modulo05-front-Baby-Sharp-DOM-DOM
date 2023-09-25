@@ -15,7 +15,6 @@
 
 .charges-modal-form {
   display: flex;
-
   flex-direction: column;
   position: relative;
 
@@ -30,7 +29,6 @@
 
 .charges-modal-form header {
   display: flex;
-
   align-items: center;
   position: relative;
 
@@ -67,10 +65,8 @@
   height: 35px;
 }
 
-.title-modal h1 {
+.title-modal h6 {
   display: flex;
-
-  width: 100%;
 
   color: #3F3F55;
   font-family: Montserrat, sans-serif;

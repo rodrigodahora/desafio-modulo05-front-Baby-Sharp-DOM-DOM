@@ -41,21 +41,6 @@ const ClientModalUpdate = () => {
     setData({ ...data, [key]: value });
   };
 
-  function clearData() {
-    setData({
-      ...data,
-      name: "",
-      email: "",
-      cpf: "",
-      phone: "",
-      address: "",
-      complement: "",
-      zip_code: "",
-      district: "",
-      city: "",
-      state: ""
-    });
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -95,7 +80,7 @@ const ClientModalUpdate = () => {
         return setErrorState("UF inválido!");
       } else { setErrorState("") }
 
-      const response = await api.put(`/editClients/${selectedClient.id}`,
+      const response = await api.put(`/editClients/${selectedClient}`,
         {
           name: data.name,
           email: data.email,
@@ -142,13 +127,26 @@ const ClientModalUpdate = () => {
         return setErrorEmail(error.response.data.message);
       } else { setErrorEmail(""); }
 
+      if (error.response.data.message === "Email já cadastrado por outro cliente!") {
+        return setErrorEmail(error.response.data.message);
+      } else { setErrorEmail(""); }
+
       if (error.response.data.message === "CPF já cadastrado!") {
+        return setErrorCpf(error.response.data.message);
+      } else { setErrorCpf(""); }
+
+      if (error.response.data.message === "CPF já cadastrado por outro cliente!") {
         return setErrorCpf(error.response.data.message);
       } else { setErrorCpf(""); }
 
       if (error.response.data.message === "Telefone já cadastrado!") {
         return setErrorPhone(error.response.data.message);
       } else { setErrorPhone(""); }
+
+      if (error.response.data.message === "Telefone já cadastrado por outro cliente!") {
+        return setErrorPhone(error.response.data.message);
+      } else { setErrorPhone(""); }
+
     }
   }
 
@@ -305,7 +303,7 @@ const ClientModalUpdate = () => {
             <button
               type="button"
               className="button-cancel pointer"
-              onClick={() => { clearData() }}
+              onClick={() => { setUpdateClient("") }}
             >
               Cancelar
             </button>
