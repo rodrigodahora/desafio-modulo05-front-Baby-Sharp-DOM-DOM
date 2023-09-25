@@ -8,6 +8,7 @@ import './style.css';
 
 import ClientTabel from '../../components/ClientTabel';
 import ClientModalUpdate from '../../components/ClientModalUpdate';
+import ClientModal from '../../components/ClientModal';
 import ClientDetails from '../../components/ClientDetails';
 import ModalFeedback from '../../components/ModalFeedback';
 
@@ -15,7 +16,7 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-  const { selected, setSelected, addClient, setAddClient, feedback } =
+  const { selected, setSelected, addClient, setAddClient, feedback, updateClient } =
     useContext(MyContext);
 
   // setSelected(2);
@@ -52,7 +53,8 @@ const Client = () => {
       )}
       <HeaderDash />
       <MenuSidebar />
-      {addClient && <ClientModalUpdate />}
+      {addClient && <ClientModal />}
+      {updateClient && <ClientModalUpdate />}
       {feedback && <ModalFeedback />}
     </div>
   );
