@@ -8,49 +8,25 @@ import "./style.css";
 
 
 const ClientModalUpdate = () => {
-  const { setFeedback, isValidEmail, isValidCpf, isValidPhone, updateClient, setUpdateClient, selectedClient } = useContext(MyContext);
-
-  const [dbClient, setDbClient] = useState([]);
-
-  async function getClient() {
-
-    const token = localStorage.getItem('token');
-
-    try {
-      const response = await api.get(
-        `/detailClient/${selectedClient}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-
-      setDbClient(response.data.client[0]);
-
-    } catch (error) {
-
-    }
-  }
-
-  useEffect(() => { getClient() }, []);
-
-  useEffect(() => {
-    console.log("aqui");
-    console.log(selectedClient);
-  }, [selectedClient]);
+  const { setFeedback,
+    isValidEmail,
+    isValidCpf,
+    isValidPhone,
+    updateClient, setUpdateClient,
+    selectedClient,
+    dbClient, setDbClient } = useContext(MyContext);
 
   const [data, setData] = useState({
-    name: "",
-    email: "",
-    cpf: "",
-    phone: "",
-    address: "",
-    complement: "",
-    zip_code: "",
-    district: "",
-    city: "",
-    state: ""
+    name: dbClient.name,
+    email: dbClient.email,
+    cpf: dbClient.cpf,
+    phone: dbClient.phone,
+    address: dbClient.address,
+    complement: dbClient.complement,
+    zip_code: dbClient.zip_code,
+    district: dbClient.district,
+    city: dbClient.city,
+    state: dbClient.state
   });
 
   const [errorName, setErrorName] = useState("");
@@ -120,7 +96,7 @@ const ClientModalUpdate = () => {
         return setErrorState("UF inválido!");
       } else { setErrorState("") }
 
-      const response = await api.put(`/editClients/${dbClient.id}`,
+      const response = await api.put(`/editClients/${selectedClient.id}`,
         {
           name: data.name,
           email: data.email,
@@ -139,6 +115,19 @@ const ClientModalUpdate = () => {
           }
         });
 
+      setDbClient({
+        ...dbClient,
+        name: data.name,
+        email: data.email,
+        cpf: data.cpf,
+        phone: data.phone,
+        address: data.address,
+        complement: data.complement,
+        zip_code: data.zip_code,
+        district: data.district,
+        city: data.city,
+        state: data.state
+      })
       setUpdateClient(!updateClient);
 
       setTimeout(() => {

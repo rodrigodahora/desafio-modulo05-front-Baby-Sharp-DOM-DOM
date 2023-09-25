@@ -20,6 +20,8 @@ const Client = () => {
   const { selected, setSelected, addClient, setAddClient, feedback, openModalCharges, updateClient } =
     useContext(MyContext);
 
+  // setSelected(2)
+
   return (
     <div className="Client">
       {selected === 4 ? (

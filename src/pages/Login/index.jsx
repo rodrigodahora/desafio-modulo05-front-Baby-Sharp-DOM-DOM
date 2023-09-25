@@ -42,7 +42,7 @@ function Login() {
       navigate("/Home");
 
     } catch (error) {
-
+      console.log(error);
       if (error.response.data.message === "Email ou senha inválido!") {
         setMainError(error.response.data.message);
       }

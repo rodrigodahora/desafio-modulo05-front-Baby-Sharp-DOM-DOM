@@ -12,10 +12,10 @@ import "./style.css";
 
 
 const ClientDetails = () => {
-  const { setSelected, selectedClient, updateClient, setUpdateClient } = useContext(MyContext);
+  const { setSelected, selectedClient, updateClient, setUpdateClient, dbClient, setDbClient } = useContext(MyContext);
 
   const [status, setStatus] = useState(true);
-  const [dbClient, setDbClient] = useState([]);
+  // const [dbClient, setDbClient] = useState([]);
   const [dbDebts, setDbDebts] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const ClientDetails = () => {
       console.log(response.data.client[0]);
 
     } catch (error) {
-
+      console.log(error);
     }
   }
 

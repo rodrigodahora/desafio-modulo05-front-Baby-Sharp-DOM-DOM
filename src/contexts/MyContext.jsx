@@ -14,8 +14,9 @@ export function ContextProvider(props) {
   const [updateClient, setUpdateClient] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [selectedClient, setSelectedClient] = useState("");
+  const [dbClient, setDbClient] = useState([]);
   const [openModalUser, setOpenModalUser] = useState(false);
-  const [openModalCharges, setOpenModalCharges] = useState(false);
+  const [openModalCharges, setOpenModalCharges] = useState("");
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
   const [expectedCharges, setExpectedCharges] = useState(0);
@@ -47,9 +48,11 @@ export function ContextProvider(props) {
       isValidCpf,
       isValidPhone,
       selectedClient, setSelectedClient,
+      dbClient, setDbClient,
       paidCharges, setPaidCharges,
       wonsCharges, setWonsCharges,
-      expectedCharges, setExpectedCharges
+      expectedCharges, setExpectedCharges,
+      openModalCharges, setOpenModalCharges
     }}>
       {props.children}
     </MyContext.Provider>

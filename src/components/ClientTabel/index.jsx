@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 export default function ClientTabel() {
-  const { setOpenModalCharges, addClient, selectedClient, setSelectedClient } =
+  const { setOpenModalCharges, addClient, selectedClient, setSelected, setSelectedClient } =
     useContext(MyContext);
 
   const [dbClients, setDbClients] = useState([]);
@@ -58,6 +58,7 @@ export default function ClientTabel() {
                 className="pointer"
                 onClick={() => {
                   setSelectedClient(client.id);
+                  setSelected(4);
                 }}
               >
                 {client.name}
@@ -78,7 +79,7 @@ export default function ClientTabel() {
                 <div
                   className="client-charge pointer"
                   onClick={() => {
-                    setOpenModalCharges(true);
+                    setOpenModalCharges(client.id);
                   }}
                 >
                   <img src={cobranca} alt="" />
