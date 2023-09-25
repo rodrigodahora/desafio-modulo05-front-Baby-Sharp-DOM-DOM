@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import clientIcon from "../../assets/cliente_menu.svg";
 import closeIcon from "../../assets/close.svg";
 import { MyContext } from '../../contexts/MyContext';
@@ -8,9 +8,50 @@ import "./style.css";
 
 
 const ClientModalUpdate = () => {
-  const { setFeedback, isValidEmail, isValidCpf, isValidPhone, updateClient, setUpdateClient } = useContext(MyContext);
+  const { setFeedback, isValidEmail, isValidCpf, isValidPhone, updateClient, setUpdateClient, selectedClient } = useContext(MyContext);
 
+  const [dbClient, setDbClient] = useState([]);
 
+  async function getClient() {
+
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await api.get(
+        `/detailClient/${selectedClient}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      setDbClient(response.data.client[0]);
+
+    } catch (error) {
+
+    }
+  }
+
+  useEffect(() => { getClient() }, []);
+
+  useEffect(() => {
+    console.log("aqui");
+    console.log(selectedClient);
+  }, [selectedClient]);
+
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    cpf: "",
+    phone: "",
+    address: "",
+    complement: "",
+    zip_code: "",
+    district: "",
+    city: "",
+    state: ""
+  });
 
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
@@ -19,26 +60,27 @@ const ClientModalUpdate = () => {
   const [errorState, setErrorState] = useState("");
 
   function handleChange(e) {
+    console.log("entrou aqui");
     const key = e.target.name;
     const value = e.target.value;
-    // setData({ ...data, [key]: value });
-  }
+    setData({ ...data, [key]: value });
+  };
 
-  // function clearData() {
-  //   setData({
-  //     ...data,
-  //     name: "",
-  //     email: "",
-  //     cpf: "",
-  //     phone: "",
-  //     address: "",
-  //     complement: "",
-  //     zip_code: "",
-  //     district: "",
-  //     city: "",
-  //     state: ""
-  //   });
-  // }
+  function clearData() {
+    setData({
+      ...data,
+      name: "",
+      email: "",
+      cpf: "",
+      phone: "",
+      address: "",
+      complement: "",
+      zip_code: "",
+      district: "",
+      city: "",
+      state: ""
+    });
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -78,7 +120,7 @@ const ClientModalUpdate = () => {
         return setErrorState("UF inválido!");
       } else { setErrorState("") }
 
-      const response = await api.put(`/editClients/${client.id}`,
+      const response = await api.put(`/editClients/${dbClient.id}`,
         {
           name: data.name,
           email: data.email,
@@ -96,6 +138,8 @@ const ClientModalUpdate = () => {
             Authorization: `Bearer ${token}`
           }
         });
+
+      setUpdateClient(!updateClient);
 
       setTimeout(() => {
         setFeedback("Edições do cadastro concluídas com sucesso");
@@ -142,7 +186,9 @@ const ClientModalUpdate = () => {
             <input
               type="text"
               name="name"
-              placeholder="Digite o nome"
+              id="name"
+              value={data.name}
+              placeholder="Digite seu nome"
               onChange={handleChange}
             />
             <span className="modal-error-msg">{errorName}</span>
@@ -153,7 +199,9 @@ const ClientModalUpdate = () => {
             <input
               type="email"
               name="email"
-              placeholder="Digite o e-mail"
+              id="email"
+              value={data.email}
+              placeholder="Digite seu e-mail"
               onChange={handleChange}
             />
             <span className="modal-error-msg">{errorEmail}</span>
@@ -165,7 +213,9 @@ const ClientModalUpdate = () => {
               <input
                 type="text"
                 name="cpf"
-                placeholder="Digite o CPF"
+                id="cpf"
+                value={data.cpf}
+                placeholder="Digite seu CPF"
                 onChange={handleChange}
               />
               <span className="modal-error-msg">{errorCpf}</span>
@@ -176,7 +226,9 @@ const ClientModalUpdate = () => {
               <input
                 type="text"
                 name="phone"
-                placeholder="Digite o telefone"
+                id="phone"
+                value={data.phone}
+                placeholder="Digite seu telefone"
                 onChange={handleChange}
               />
               <span className="modal-error-msg">{errorPhone}</span>
@@ -188,7 +240,9 @@ const ClientModalUpdate = () => {
             <input
               type="text"
               name="address"
-              placeholder="Digite o endereço"
+              id="address"
+              value={data.address}
+              placeholder="Digite seu endereço"
               onChange={handleChange}
             />
           </div>
@@ -198,7 +252,9 @@ const ClientModalUpdate = () => {
             <input
               type="text"
               name="complement"
-              placeholder="Digite o complemento"
+              id="complement"
+              value={data.complement}
+              placeholder="Digite seu complemento"
               onChange={handleChange}
             />
           </div>
@@ -209,7 +265,9 @@ const ClientModalUpdate = () => {
               <input
                 type="text"
                 name="zip_code"
-                placeholder="Digite o CEP"
+                id="zip_code"
+                value={data.zip_code}
+                placeholder="Digite seu CEP"
                 onChange={handleChange}
               />
             </div>
@@ -219,7 +277,9 @@ const ClientModalUpdate = () => {
               <input
                 type="text"
                 name="district"
-                placeholder="Digite o bairro"
+                id="district"
+                value={data.district}
+                placeholder="Digite seu bairro"
                 onChange={handleChange}
               />
             </div>
@@ -231,7 +291,9 @@ const ClientModalUpdate = () => {
               <input
                 type="text"
                 name="city"
-                placeholder="Digite a cidade"
+                id="city"
+                value={data.city}
+                placeholder="Digite sua cidade"
                 onChange={handleChange}
               />
               <span className="modal-error-msg"></span>
@@ -242,7 +304,9 @@ const ClientModalUpdate = () => {
               <input
                 type="text"
                 name="state"
-                placeholder="Digite o UF"
+                id="state"
+                value={data.state}
+                placeholder="Digite seu UF"
                 onChange={handleChange}
               />
               <span className="modal-error-msg">{errorState}</span>

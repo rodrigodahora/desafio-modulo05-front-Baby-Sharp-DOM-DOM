@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import setaOrdem from "../../assets/Frame.svg";
 import plus from "../../assets/add.svg";
 import clientIcon from "../../assets/cliente_menu.svg";
@@ -13,9 +12,7 @@ import "./style.css";
 
 
 const ClientDetails = () => {
-  const navigate = useNavigate();
-
-  const { setSelected, selectedClient } = useContext(MyContext);
+  const { setSelected, selectedClient, updateClient, setUpdateClient } = useContext(MyContext);
 
   const [status, setStatus] = useState(true);
   const [dbClient, setDbClient] = useState([]);
@@ -74,15 +71,13 @@ const ClientDetails = () => {
     }
   }
 
-  const { updateClient, setUpdateClient } = useContext(MyContext);
-
   return (
     <div className="container-client-detail">
 
       <div className="title-client-detail">
         <img src={clientIcon} alt="Client Icon" />
         <h1>
-          Sara Lage Silva
+          {dbClient.name}
         </h1>
       </div>
 
@@ -91,7 +86,7 @@ const ClientDetails = () => {
         <div className="container-data-client">
           <div className="title-data-client-box">
             <h2>Dados do cliente</h2>
-            <button>
+            <button onClick={() => { setUpdateClient(!updateClient) }}>
               <img
                 src={editIcon}
                 alt=""
@@ -104,42 +99,42 @@ const ClientDetails = () => {
             <div className="box-data-row">
               <div className="collum-email">
                 <h3 className="box-data-title">E-mail</h3>
-                <h4 className="box-data-content">sarasilva@gmail.com</h4>
+                <h4 className="box-data-content">{dbClient.email}</h4>
               </div>
               <div className="collum-phone">
                 <h3 className="box-data-title">Telefone</h3>
-                <h4 className="box-data-content">71 9 9462 8654</h4>
+                <h4 className="box-data-content">{dbClient.phone}</h4>
               </div>
               <div className="collum-cpf">
                 <h3 className="box-data-title">CPF</h3>
-                <h4 className="box-data-content">054 365 255 87</h4>
+                <h4 className="box-data-content">{dbClient.cpf}</h4>
               </div>
             </div>
 
             <div className="box-data-row">
               <div className="collum-email">
                 <h3 className="box-data-title">Endereço</h3>
-                <h4 className="box-data-content">Rua das Cornélias; nº 512</h4>
+                <h4 className="box-data-content">{dbClient.address}</h4>
               </div>
               <div className="collum-phone">
                 <h3 className="box-data-title">Bairro</h3>
-                <h4 className="box-data-content">Oliveiras</h4>
+                <h4 className="box-data-content">{dbClient.district}</h4>
               </div>
               <div className="collum-cpf">
                 <h3 className="box-data-title">Complemento</h3>
-                <h4 className="box-data-content">Ap: 502</h4>
+                <h4 className="box-data-content">{dbClient.complement}</h4>
               </div>
               <div className="box-cep">
                 <h3 className="box-data-title">CEP</h3>
-                <h4 className="box-data-content">031 654 524 04</h4>
+                <h4 className="box-data-content">{dbClient.zip_code}</h4>
               </div>
               <div className="box-city">
                 <h3 className="box-data-title">Cidade</h3>
-                <h4 className="box-data-content">Salvador</h4>
+                <h4 className="box-data-content">{dbClient.city}</h4>
               </div>
               <div className="box-state">
                 <h3 className="box-data-title">UF</h3>
-                <h4 className="box-data-content">BA</h4>
+                <h4 className="box-data-content">{dbClient.state}</h4>
               </div>
             </div>
           </div>
@@ -169,22 +164,26 @@ const ClientDetails = () => {
               </tr>
             </thead>
             <tbody className="table-charges-row">
-
-              <tr >
-                <td >248563147</td>
-                <td >26/01/2021</td>
-                <td >R$ 500,00</td>
-                {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Vencida</div></td>}
-                {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Pendente}</div></td>}
-                {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Paga</div></td>}
-                <td className="row-collum-description">lorem ipsum lorem ipsum lorem lorem ips,,,</td>
-                <td className="row-icons">
-                  <div>
-                    <img src={edit} alt="" />
-                    <img src={deleteIcon} alt="" />
-                  </div>
-                </td>
-              </tr>
+              {dbDebts.map((e) => {
+                const date = new Date(e.expiration);
+                return (
+                  <tr >
+                    <td >{e.id}</td>
+                    <td >{date.toLocaleDateString("pt-br")}</td>
+                    <td >{`R$ ${Number(e.values).toFixed(2).replace(".", ",")}`}</td>
+                    {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Vencida</div></td>}
+                    {e.status === "Pendente" && <td className="row-collum-status"><div className="status-expected" >Pendente</div></td>}
+                    {e.status === "Paga" && <td className="row-collum-status"><div className="status-paid" >Paga</div></td>}
+                    <td className="row-collum-description">{e.description}</td>
+                    <td className="row-icons">
+                      <div>
+                        <img src={edit} alt="" />
+                        <img src={deleteIcon} alt="" />
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
 
             </tbody>
           </table>

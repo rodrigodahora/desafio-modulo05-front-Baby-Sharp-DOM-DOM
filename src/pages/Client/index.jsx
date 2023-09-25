@@ -17,16 +17,8 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const Client = () => {
-  const {
-    selected,
-    setSelected,
-    addClient,
-    openModalCharges,
-    setAddClient,
-    feedback,
-  } = useContext(MyContext);
-
-  // setSelected(2);
+  const { selected, setSelected, addClient, setAddClient, feedback, openModalCharges, updateClient } =
+    useContext(MyContext);
 
   return (
     <div className="Client">
@@ -60,9 +52,9 @@ const Client = () => {
       )}
       <HeaderDash />
       <MenuSidebar />
-      {/* {addClient && <ClientModalUpdate />} */}
-      {addClient && <ClientModal />}
       {openModalCharges && <ChargesModal />}
+      {addClient && <ClientModal />}
+      {updateClient && <ClientModalUpdate />}
       {feedback && <ModalFeedback />}
     </div>
   );

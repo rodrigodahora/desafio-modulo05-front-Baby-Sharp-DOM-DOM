@@ -40,6 +40,7 @@ export function ContextProvider(props) {
       data, setData,
       selected, setSelected,
       addClient, setAddClient,
+      updateClient, setUpdateClient,
       feedback, setFeedback,
       openModalUser, setOpenModalUser,
       isValidEmail,
