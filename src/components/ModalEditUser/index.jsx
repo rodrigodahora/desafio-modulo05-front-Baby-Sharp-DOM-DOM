@@ -12,14 +12,15 @@ const ModalEditUser = ({ setName }) => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const { setOpenModalUser, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);
+  const { setOpenModalUser, isValidEmail, isValidCpf, isValidPhone } =
+    useContext(MyContext);
 
   const [errorName, setErrorName] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
   const [errorConfPassword, setErrorConfPassword] = useState('');
-  const [errorCpf, setErrorCpf] = useState("");
-  const [errorPhone, setErrorPhone] = useState("");
+  const [errorCpf, setErrorCpf] = useState('');
+  const [errorPhone, setErrorPhone] = useState('');
 
   const [data, setData] = useState({
     name: localStorage.getItem('name'),
@@ -42,32 +43,41 @@ const ModalEditUser = ({ setName }) => {
     const token = localStorage.getItem('token');
 
     try {
-
       if (!data.name) {
         return setErrorName('Informe seu nome!');
-      } else { setErrorName(''); }
+      } else {
+        setErrorName('');
+      }
 
       if (data.email) {
         if (!isValidEmail(data.email)) {
-          return setErrorEmail("Email inválido!");
-        } else { setErrorEmail(""); }
+          return setErrorEmail('Email inválido!');
+        } else {
+          setErrorEmail('');
+        }
       }
 
       if (data.cpf) {
         if (!isValidCpf(data.cpf)) {
-          return setErrorCpf("CPF inválido!");
-        } else { setErrorCpf("") }
+          return setErrorCpf('CPF inválido!');
+        } else {
+          setErrorCpf('');
+        }
       }
 
       if (data.phone) {
         if (!isValidPhone(data.phone)) {
-          return setErrorPhone("Telefone inválido!");
-        } else { setErrorPhone("") }
+          return setErrorPhone('Telefone inválido!');
+        } else {
+          setErrorPhone('');
+        }
       }
 
       if (data.password && data.password !== data.confPassword) {
         return setErrorConfPassword('As senhas não conferem!');
-      } else { setErrorConfPassword(''); }
+      } else {
+        setErrorConfPassword('');
+      }
 
       const response = await api.put(
         '/editUser',
@@ -87,8 +97,8 @@ const ModalEditUser = ({ setName }) => {
       );
 
       setName(data.name);
-      localStorage.setItem("name", data.name);
-      localStorage.setItem("email", data.email);
+      localStorage.setItem('name', data.name);
+      localStorage.setItem('email', data.email);
 
       setErrorName('');
       setErrorEmail('');
@@ -100,20 +110,24 @@ const ModalEditUser = ({ setName }) => {
         setCompleted(false);
         setOpenModalUser(false);
       }, 5000);
-
     } catch (error) {
-
-      if (error.response.data.message === "Email já cadastrado!") {
+      if (error.response.data.message === 'Email já cadastrado!') {
         return setErrorEmail(error.response.data.message);
-      } else { setErrorEmail(""); }
+      } else {
+        setErrorEmail('');
+      }
 
-      if (error.response.data.message === "Cpf já Cadastrado!") {
+      if (error.response.data.message === 'Cpf já Cadastrado!') {
         return setErrorCpf(error.response.data.message);
-      } else { setErrorCpf(""); }
+      } else {
+        setErrorCpf('');
+      }
 
-      if (error.response.data.message === "Telefone já cadastrado!") {
+      if (error.response.data.message === 'Telefone já cadastrado!') {
         return setErrorPhone(error.response.data.message);
-      } else { setErrorPhone(""); }
+      } else {
+        setErrorPhone('');
+      }
     }
   }
 
@@ -222,8 +236,8 @@ const ModalEditUser = ({ setName }) => {
         <button onClick={applySubmit} className={styles.button} type="submit">
           Aplicar
         </button>
-      </form >
-    </div >
+      </form>
+    </div>
   );
 };
 

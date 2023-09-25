@@ -3,17 +3,22 @@ import { createContext, useState } from 'react';
 export const MyContext = createContext();
 
 export function ContextProvider(props) {
-  const [data, setData] = useState({ name: "", email: "", password: "", confPassword: "" });
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confPassword: '',
+  });
   const [selected, setSelected] = useState(1);
   const [addClient, setAddClient] = useState(false);
   const [updateClient, setUpdateClient] = useState(false);
   const [feedback, setFeedback] = useState("");
-  const [selectedClient, setSelectedClient] = useState();
+  const [selectedClient, setSelectedClient] = useState("");
   const [openModalUser, setOpenModalUser] = useState(false);
+  const [openModalCharges, setOpenModalCharges] = useState(false);
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
   const [expectedCharges, setExpectedCharges] = useState(0);
-
 
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
@@ -47,5 +52,5 @@ export function ContextProvider(props) {
     }}>
       {props.children}
     </MyContext.Provider>
-  )
+  );
 }

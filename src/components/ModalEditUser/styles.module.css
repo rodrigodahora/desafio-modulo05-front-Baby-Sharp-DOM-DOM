@@ -90,6 +90,14 @@
   gap: 10px;
 }
 
+.colum_validation input {
+  width: 100%;
+  padding: 16px 14px;
+
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+}
+
 .colum_validation img {
   position: absolute;
 

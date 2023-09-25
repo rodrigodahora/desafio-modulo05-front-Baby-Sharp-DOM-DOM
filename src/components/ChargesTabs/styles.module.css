@@ -5,33 +5,35 @@
   padding: 0px 80px;
 }
 
-.container_won {
+.container_paid {
+  width: 360px;
   overflow: hidden;
 
   border-radius: 30px;
   box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
 }
 
-.header {
-  display: flex;
-  align-items: center;
+.paid_charges {
+  margin: 0 0 0 auto;
+  padding: 3px 15px;
 
-  padding: 15px 20px;
+  border-radius: 8px;
 
-  border-bottom: 1px solid #EFF0F6;
+  background-color: #EEF6F6;
 
-  background-color: #FFF;
+  color: #1FA7AF;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
 }
 
-.header h3 {
-  flex: 1;
+.container_won {
+  width: 360px;
+  overflow: hidden;
 
-  text-align: center;
-  color: #3F3F55;
-  font-family: Montserrat, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
 }
 
 .won_charges {
@@ -47,6 +49,49 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
+}
+
+.container_expected {
+  width: 360px;
+  overflow: hidden;
+
+  border-radius: 30px;
+  box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
+}
+
+.expected_charges {
+  margin: 0 0 0 auto;
+  padding: 3px 15px;
+
+  border-radius: 8px;
+
+  background-color: #FCF6DC;
+
+  color: #C5A605;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  padding: 15px 20px;
+  border-bottom: 1px solid #EFF0F6;
+  background-color: #FFF;
+}
+
+.header h3 {
+  flex: 1;
+
+  text-align: left;
+  color: #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .table {
@@ -100,28 +145,6 @@
   text-decoration-line: underline;
 }
 
-.container_expected {
-  overflow: hidden;
-
-  border-radius: 30px;
-  box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
-}
-
-.expected_charges {
-  margin: 0 0 0 auto;
-  padding: 3px 15px;
-
-  border-radius: 8px;
-
-  background-color: #FCF6DC;
-
-  color: #C5A605;
-  font-family: Montserrat, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-}
-
 .footer {
   display: flex;
   justify-content: center;
@@ -142,26 +165,4 @@
   font-style: normal;
   font-weight: 400;
   text-decoration-line: underline;
-}
-
-.container_paid {
-  overflow: hidden;
-
-  border-radius: 30px;
-  box-shadow: 0px 4px 5px 0px rgba(172, 217, 197, 0.25);
-}
-
-.paid_charges {
-  margin: 0 0 0 auto;
-  padding: 3px 15px;
-
-  border-radius: 8px;
-
-  background-color: #EEF6F6;
-
-  color: #1FA7AF;
-  font-family: Montserrat, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
 }
