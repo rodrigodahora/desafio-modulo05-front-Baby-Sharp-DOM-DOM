@@ -2,7 +2,6 @@ import React from 'react';
 import { useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { useNavigate } from 'react-router-dom';
-
 import '../../index.css';
 import styles from './styles.module.css';
 import edit from '../../assets/editar.svg';
@@ -15,8 +14,9 @@ const HeaderDash = () => {
   const navigate = useNavigate();
 
   const [modalUser, setModalUser] = useState(false);
-  const { setOpenModalUser, openModalUser, selected, setSelected } =
-    useContext(MyContext);
+  const {
+    setOpenModalUser, openModalUser,
+    selected, setSelected } = useContext(MyContext);
 
   const [name, setName] = useState(localStorage.getItem('name'));
 

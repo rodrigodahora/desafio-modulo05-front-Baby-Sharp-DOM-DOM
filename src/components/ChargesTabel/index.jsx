@@ -11,6 +11,7 @@ import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
   const { setSelected } = useContext(MyContext);
+
   const [dbCharges, setDbCharges] = useState([]);
 
   setSelected(3);
@@ -37,13 +38,10 @@ const ChargesTable = () => {
 
       setDbCharges(response.data.debts)
 
-      console.log(response.data.debts);
-
     } catch (error) {
 
     }
   }
-
 
   return (
     <table className={styles.container}>
@@ -67,7 +65,7 @@ const ChargesTable = () => {
       <tbody>
         {dbCharges.map((e) => {
           const date = new Date(e.expiration)
-          const cName = `styles.charges_${e.status}`;
+
           return (
             <tr>
               <td>{e.client}</td>

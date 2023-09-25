@@ -1,25 +1,24 @@
-import '../../index.css';
-import './style.css';
-import cobranca from '../../assets/cobranca.svg';
+import { useContext, useEffect, useState } from 'react';
 import agrupamento from '../../assets/Frame.svg';
-import { useEffect, useState } from 'react';
-import api from '../../services/api';
-import { useContext } from 'react';
+import cobranca from '../../assets/cobranca.svg';
 import { MyContext } from '../../contexts/MyContext';
+import '../../index.css';
+import api from '../../services/api';
+import './style.css';
 
 export default function ClientTabel() {
-  const { setOpenModalCharges, addClient, selectedClient, setSelected, setSelectedClient } =
+  const { setOpenModalCharges,
+    addClient,
+    selectedClient, setSelectedClient,
+    setSelected,
+    dbClient, setDbClient } =
     useContext(MyContext);
 
   const [dbClients, setDbClients] = useState([]);
-  useEffect(() => {
-    getClients();
-    console.log(dbClients);
-  }, [addClient]);
 
   useEffect(() => {
-    console.log(selectedClient);
-  }, [selectedClient]);
+    getClients();
+  }, [addClient]);
 
   async function getClients() {
     const token = localStorage.getItem('token');
@@ -32,7 +31,10 @@ export default function ClientTabel() {
       });
 
       setDbClients(response.data.clients);
-    } catch (error) { }
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -80,6 +82,8 @@ export default function ClientTabel() {
                   className="client-charge pointer"
                   onClick={() => {
                     setOpenModalCharges(client.id);
+                    setSelectedClient(client.id)
+                    setDbClient({ ...dbClient, name: client.name })
                   }}
                 >
                   <img src={cobranca} alt="" />

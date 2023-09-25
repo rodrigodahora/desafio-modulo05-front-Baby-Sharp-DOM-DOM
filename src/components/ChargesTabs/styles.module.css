@@ -80,6 +80,7 @@
 
   padding: 15px 20px;
   border-bottom: 1px solid #EFF0F6;
+
   background-color: #FFF;
 }
 
@@ -127,10 +128,11 @@
 }
 
 .footer {
-  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: 60px;
   padding: 15px 20px;
 
   background-color: #FFF;

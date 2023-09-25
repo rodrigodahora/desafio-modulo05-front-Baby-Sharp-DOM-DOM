@@ -141,8 +141,6 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-
-  cursor: pointer;
 }
 
 .container-input p {
@@ -163,6 +161,4 @@
   font-weight: 600;
   line-height: 130%;
   text-decoration-line: underline;
-
-  cursor: pointer;
 }

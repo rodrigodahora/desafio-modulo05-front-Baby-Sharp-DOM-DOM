@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import api from "../../services/api";
@@ -29,6 +28,7 @@ function Login() {
       if (!data.email) {
         return setErrorEmail('O campo deve ser preenchido!');
       } else { setErrorEmail(""); }
+
       if (!data.password) {
         return setErrorPassword('O campo deve ser preenchido!');
       } else { setErrorPassword(""); }
@@ -42,11 +42,9 @@ function Login() {
       navigate("/Home");
 
     } catch (error) {
-      console.log(error);
       if (error.response.data.message === "Email ou senha inválido!") {
         setMainError(error.response.data.message);
       }
-
     }
   }
 
@@ -85,12 +83,13 @@ function Login() {
         </div>
 
         <button
+          className="pointer"
           type='submit'
           onClick={handleSubmit}
         >
           Entrar
         </button>
-        <p>Ainda não possui uma conta? <a onClick={() => { navigate("/singup") }}>Cadastre-se</a></p>
+        <p>Ainda não possui uma conta? <a className="pointer" onClick={() => { navigate("/singup") }}>Cadastre-se</a></p>
       </div>
     </div>
   );

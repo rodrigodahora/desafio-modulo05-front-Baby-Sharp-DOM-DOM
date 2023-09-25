@@ -1,17 +1,15 @@
+import { useContext } from 'react';
 import headarCharges from '../../assets/cobranca_menu.svg';
-import search from '../../assets/pesquisar.svg';
 import filter from '../../assets/filter.svg';
-
+import search from '../../assets/pesquisar.svg';
+import ChargesTable from '../../components/ChargesTabel';
 import HeaderDash from '../../components/HeaderDash';
 import MenuSidebar from '../../components/MenuSidebar';
-
+import { MyContext } from '../../contexts/MyContext';
 import styles from './styles.module.css';
 
-import { useContext } from 'react';
-import { MyContext } from '../../contexts/MyContext';
-import ChargesTable from '../../components/ChargesTabel';
-
 const Charges = () => {
+
   const { setSelected } = useContext(MyContext);
 
   setSelected(3);

@@ -1,28 +1,28 @@
-import { useContext, useState } from 'react';
-import { MyContext } from '../../contexts/MyContext';
+import { useContext, useState } from "react";
+import { MyContext } from "../../contexts/MyContext";
 
-import chargesIcon from '../../assets/cobranca_menu.svg';
-import closeIcon from '../../assets/close.svg';
-import checkboxDeselected from '../../assets/checkbox-sphere.svg';
-import checkboxSelected from '../../assets/bola_check.svg';
-import '../../index.css';
-import api from '../../services/api';
-import './style.css';
+import chargesIcon from "../../assets/cobranca_menu.svg";
+import closeIcon from "../../assets/close.svg";
+import checkboxDeselected from "../../assets/checkbox-sphere.svg";
+import checkboxSelected from "../../assets/bola_check.svg";
+import "../../index.css";
+import api from "../../services/api";
+import "./style.css";
 
 const ChargesModal = () => {
-  const [errorName, setErrorName] = useState('');
-  const [errorDescription, setErrorDescription] = useState('');
-  const [errorValidity, setErrorValidity] = useState('');
-  const [errorValue, setErrorValue] = useState('');
-
-  const { setOpenModalCharges, openModalCharges, selectedClient } =
+  const { setOpenModalCharges, selectedClient, dbClient, setFeedback } =
     useContext(MyContext);
 
+  const [errorName, setErrorName] = useState("");
+  const [errorDescription, setErrorDescription] = useState("");
+  const [errorValidity, setErrorValidity] = useState("");
+  const [errorValue, setErrorValue] = useState("");
+
   const [data, setData] = useState({
-    name: '',
-    description: '',
-    validity: '',
-    value: '',
+    description: "",
+    expiration: "",
+    values: "",
+    status: "Paga"
   });
 
   function handleChange(e) {
@@ -34,40 +34,34 @@ const ChargesModal = () => {
   async function applySubmit(e) {
     e.preventDefault();
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     try {
-      if (!data.name) {
-        return setErrorName('Este campo deve ser preechido!');
-      } else {
-        setErrorName();
-      }
 
       if (!data.description) {
-        return setErrorDescription('Este campo deve ser preechido!');
+        return setErrorDescription("Este campo deve ser preechido!");
       } else {
         setErrorDescription();
       }
 
-      if (!data.validity) {
-        return setErrorValidity('Este campo deve ser preechido!');
+      if (!data.expiration) {
+        return setErrorValidity("Este campo deve ser preechido!");
       } else {
         setErrorValidity();
       }
 
-      if (!data.value) {
-        return setErrorValue('Este campo deve ser preechido!');
+      if (!data.values) {
+        return setErrorValue("Este campo deve ser preechido!");
       } else {
         setErrorValue();
       }
-
       const response = await api.post(
-        `/registerDebit/${selectedClient}`,
+        `/registerDebt/${selectedClient}`,
         {
-          name: data.name,
           description: data.description,
-          validity: data.validity,
-          value: data.value,
+          expiration: data.expiration,
+          values: data.values,
+          status: data.status
         },
         {
           headers: {
@@ -76,11 +70,21 @@ const ChargesModal = () => {
         },
       );
 
-      setErrorName('');
-      setErrorDescription('');
-      setErrorValidity('');
-      setErrorValue('');
-    } catch (error) {}
+      setErrorName("");
+      setErrorDescription("");
+      setErrorValidity("");
+      setErrorValue("");
+      setOpenModalCharges("")
+
+      setTimeout(() => {
+        setFeedback("Cobrança Cadastrada com sucesso!");
+        setTimeout(() => {
+          setFeedback("");
+        }, 5000);
+      }, 1000);
+
+
+    } catch (error) { }
   }
 
   return (
@@ -92,7 +96,7 @@ const ChargesModal = () => {
             src={closeIcon}
             alt="Close Modal"
             onClick={() => {
-              setOpenModalCharges(!openModalCharges);
+              setOpenModalCharges("");
             }}
           />
           <div className="title-modal">
@@ -107,10 +111,9 @@ const ChargesModal = () => {
             className="input-small"
             name="name"
             id="name"
-            value={data.name}
+            value={dbClient.name}
             type="text"
             placeholder="Digite seu nome"
-            onChange={handleChange}
           />
           <span className="input-modal-box-validation">{errorName}</span>
           <label htmlFor="">Descrição*</label>
@@ -132,9 +135,9 @@ const ChargesModal = () => {
               <label htmlFor="">Vencimento*</label>
               <input
                 className="input-small"
-                name="validity"
-                id="validity"
-                value={data.validity}
+                name="expiration"
+                id="expiration"
+                value={data.expiration}
                 type="text"
                 placeholder="Digite seu nome"
                 onChange={handleChange}
@@ -147,9 +150,9 @@ const ChargesModal = () => {
               <label htmlFor="">Valor*</label>
               <input
                 className="input-small"
-                name="value"
-                id="value"
-                value={data.value}
+                name="values"
+                id="values"
+                value={data.values}
                 type="text"
                 placeholder="Digite seu nome"
                 onChange={handleChange}
@@ -164,18 +167,18 @@ const ChargesModal = () => {
 
           <div className="charges-won">
             <img
-              src={checkboxSelected}
+              src={data.status === "Paga" ? checkboxSelected : checkboxDeselected}
               alt="Checkbox Selected"
-              // onClick
+              onClick={(() => { setData({ ...data, status: "Paga" }) })}
             />
             <span>Cobrança Paga</span>
           </div>
 
           <div className="charges-expected">
             <img
-              src={checkboxDeselected}
+              src={data.status === "Pendente" ? checkboxSelected : checkboxDeselected}
               alt="Checkbox Deselected"
-              //onclick
+              onClick={(() => { setData({ ...data, status: "Pendente" }) })}
             />
             <span>Cobrança Pendente</span>
           </div>
@@ -185,7 +188,7 @@ const ChargesModal = () => {
           <button
             className="button-cancel"
             type="button"
-            // onClick={() => { clearData() }}
+            onClick={() => { setOpenModalCharges("") }}
           >
             Cancelar
           </button>

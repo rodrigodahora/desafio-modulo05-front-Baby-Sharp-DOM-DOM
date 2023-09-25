@@ -15,7 +15,7 @@
 
 .charges-modal-form {
   display: flex;
-  
+
   flex-direction: column;
   position: relative;
 
@@ -30,10 +30,10 @@
 
 .charges-modal-form header {
   display: flex;
-  
+
   align-items: center;
   position: relative;
-  
+
   padding-top: 30px;
 
   color: #343447;
@@ -57,6 +57,7 @@
 
 .title-modal {
   display: flex;
+
   width: 100%;
   gap: 16px;
 }
@@ -68,7 +69,9 @@
 
 .title-modal h1 {
   display: flex;
+
   width: 100%;
+
   color: #3F3F55;
   font-family: Montserrat, sans-serif;
   font-size: 26px;
@@ -121,6 +124,7 @@
 
   border: 1px solid #D0D5DD;
   border-radius: 8px;
+
   background-color: #FFF;
 
   color: #9B9BB2;
@@ -138,6 +142,7 @@
 
   border: 1px solid #D0D5DD;
   border-radius: 8px;
+
   background-color: #FFF;
 
   color: #9B9BB2;
@@ -148,10 +153,10 @@
   line-height: 24px
 }
 
-.charges-form-row{
+.charges-form-row {
   display: flex;
   justify-content: space-between;
-  
+
 }
 
 .charges-form-row label {
@@ -169,47 +174,58 @@
 
 .charges-won {
   display: flex;
+  align-items: center;
+
   width: 100%;
   padding: 10px 16px;
-  align-items: center;
   gap: 8px;
 
   border-radius: 10px;
+
   background-color: #F0F0F5;
 }
 
 .charges-won span {
-  color:  #3F3F55;
+  color: #3F3F55;
   font-family: Nunito, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px 
+  line-height: 24px
 }
 
 .charges-expected {
   display: flex;
-  width: 100%;
-  padding: 15px 16px;
   align-items: center;
+
+  width: 100%;
+  padding: 10px 16px;
   gap: 8px;
 
   border-radius: 10px;
+
   background-color: #F0F0F5;
 }
 
 .charges-expected span {
-  color:  #3F3F55;
+  color: #3F3F55;
   font-family: Nunito, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px 
+  line-height: 24px
+}
+
+.charges-won img,
+.charges-expected img {
+  width: 24px;
+  height: 24px;
 }
 
 .modal-buttons {
   display: flex;
   justify-content: space-between;
+
   margin: 85px 0 20px 0px;
 }
 
@@ -218,8 +234,9 @@
   padding: 4px 81px;
 
   border-radius: 8px;
-  border: 1px solid  #DEDEE9;
-  background:  #F8F8F9;
+  border: 1px solid #DEDEE9;
+
+  background: #F8F8F9;
 }
 
 .button-cancel {
@@ -227,8 +244,9 @@
   padding: 4px 81px;
 
   border-radius: 8px;
-  border: 1px solid  #DEDEE9;
-  background:  #F8F8F9;
+  border: 1px solid #DEDEE9;
+
+  background: #F8F8F9;
 
   color: #0E8750;
   font-family: Nunito, sans-serif;
@@ -243,8 +261,9 @@
   padding: 4px 81px;
 
   border-radius: 8px;
-  border: 1px solid  #DEDEE9;
-  background:  #DA0175;
+  border: 1px solid #DEDEE9;
+
+  background: #DA0175;
 
   color: #F8F8F9;
   font-family: Nunito, sans-serif;

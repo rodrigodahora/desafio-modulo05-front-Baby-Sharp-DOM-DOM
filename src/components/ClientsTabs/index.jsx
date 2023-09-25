@@ -8,8 +8,6 @@ import { MyContext } from '../../contexts/MyContext';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-
-
 const ClientsTabs = () => {
   const navigate = useNavigate();
 
@@ -40,10 +38,8 @@ const ClientsTabs = () => {
       const compliant = response.data.clients.filter((client) => !client.defaulter);
       setCompliant(compliant);
 
-
-
     } catch (error) {
-
+      console.log(error);
     }
   }
 

@@ -199,8 +199,6 @@ input {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-
-  cursor: pointer;
 }
 
 .button-apply {
@@ -221,6 +219,4 @@ input {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-
-  cursor: pointer;
 }

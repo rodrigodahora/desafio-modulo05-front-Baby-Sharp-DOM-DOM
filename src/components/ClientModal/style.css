@@ -20,6 +20,7 @@
   min-height: 758px;
 
   border-radius: 30px;
+
   background-color: #fff;
 }
 
@@ -199,8 +200,6 @@ input {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-
-  cursor: pointer;
 }
 
 .button-apply {
@@ -221,6 +220,4 @@ input {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-
-  cursor: pointer;
 }

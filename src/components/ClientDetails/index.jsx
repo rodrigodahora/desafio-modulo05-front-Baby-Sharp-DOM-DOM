@@ -12,24 +12,21 @@ import "./style.css";
 
 
 const ClientDetails = () => {
-  const { setSelected, selectedClient, updateClient, setUpdateClient, dbClient, setDbClient } = useContext(MyContext);
+  const {
+    selectedClient,
+    updateClient, setUpdateClient,
+    dbClient, setDbClient,
+    setOpenModalCharges,
+    feedback } = useContext(MyContext);
 
-  const [status, setStatus] = useState(true);
-  // const [dbClient, setDbClient] = useState([]);
   const [dbDebts, setDbDebts] = useState([]);
 
-  useEffect(() => {
-    console.log("aqui");
-    console.log(selectedClient);
-  }, [selectedClient])
-
-
-  useEffect(() => { getCharges(); getClient() }, [])
+  useEffect(() => { getClient() }, [])
+  useEffect(() => { getCharges() }, [feedback])
 
   async function getClient() {
 
     const token = localStorage.getItem('token');
-
 
     try {
       const response = await api.get(
@@ -42,8 +39,6 @@ const ClientDetails = () => {
       );
 
       setDbClient(response.data.client[0])
-
-      console.log(response.data.client[0]);
 
     } catch (error) {
       console.log(error);
@@ -67,7 +62,7 @@ const ClientDetails = () => {
       setDbDebts(response.data.debts)
 
     } catch (error) {
-
+      console.log(error);
     }
   }
 
@@ -86,7 +81,7 @@ const ClientDetails = () => {
         <div className="container-data-client">
           <div className="title-data-client-box">
             <h2>Dados do cliente</h2>
-            <button onClick={() => { setUpdateClient(!updateClient) }}>
+            <button className="pointer" onClick={() => { setUpdateClient(!updateClient) }}>
               <img
                 src={editIcon}
                 alt=""
@@ -146,7 +141,7 @@ const ClientDetails = () => {
 
           <div className="title-data-change-box">
             <h2>Cobrança do Cliente</h2>
-            <button className="change-box-btn">
+            <button onClick={() => { setOpenModalCharges(selectedClient) }} className="change-box-btn">
               <img src={plus} alt="" />
               Nova cobrança
             </button>

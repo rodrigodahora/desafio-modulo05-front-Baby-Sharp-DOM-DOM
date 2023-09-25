@@ -45,39 +45,33 @@ const ModalEditUser = ({ setName }) => {
     try {
       if (!data.name) {
         return setErrorName('Informe seu nome!');
-      } else {
-        setErrorName('');
-      }
+      } else { setErrorName(''); }
 
       if (data.email) {
         if (!isValidEmail(data.email)) {
           return setErrorEmail('Email inválido!');
-        } else {
-          setErrorEmail('');
-        }
+        } else { setErrorEmail(''); }
       }
 
       if (data.cpf) {
         if (!isValidCpf(data.cpf)) {
           return setErrorCpf('CPF inválido!');
-        } else {
-          setErrorCpf('');
-        }
+        } else { setErrorCpf(''); }
       }
 
       if (data.phone) {
         if (!isValidPhone(data.phone)) {
           return setErrorPhone('Telefone inválido!');
-        } else {
-          setErrorPhone('');
-        }
+        } else { setErrorPhone(''); }
       }
+
+      if (data.password && data.password.length < 6) {
+        return setErrorPassword("Senha deve conter no minimo 6 caracteres!")
+      } else { setErrorPassword("") }
 
       if (data.password && data.password !== data.confPassword) {
         return setErrorConfPassword('As senhas não conferem!');
-      } else {
-        setErrorConfPassword('');
-      }
+      } else { setErrorConfPassword(''); }
 
       const response = await api.put(
         '/editUser',
@@ -110,24 +104,19 @@ const ModalEditUser = ({ setName }) => {
         setCompleted(false);
         setOpenModalUser(false);
       }, 5000);
+
     } catch (error) {
       if (error.response.data.message === 'Email já cadastrado!') {
         return setErrorEmail(error.response.data.message);
-      } else {
-        setErrorEmail('');
-      }
+      } else { setErrorEmail(''); }
 
       if (error.response.data.message === 'Cpf já Cadastrado!') {
         return setErrorCpf(error.response.data.message);
-      } else {
-        setErrorCpf('');
-      }
+      } else { setErrorCpf(''); }
 
       if (error.response.data.message === 'Telefone já cadastrado!') {
         return setErrorPhone(error.response.data.message);
-      } else {
-        setErrorPhone('');
-      }
+      } else { setErrorPhone(''); }
     }
   }
 

@@ -8,7 +8,11 @@ import "./style.css";
 
 
 const ClientModal = () => {
-  const { addClient, setAddClient, setFeedback, isValidEmail, isValidCpf, isValidPhone } = useContext(MyContext);
+  const { addClient, setAddClient,
+    setFeedback,
+    isValidEmail,
+    isValidCpf,
+    isValidPhone } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: "",
@@ -131,6 +135,7 @@ const ClientModal = () => {
       if (error.response.data.message === "Telefone já cadastrado!") {
         return setErrorPhone(error.response.data.message);
       } else { setErrorPhone(""); }
+
     }
   }
 
@@ -266,14 +271,14 @@ const ClientModal = () => {
           <div className="modal-buttons">
             <button
               type="button"
-              className="button-cancel"
+              className="button-cancel pointer"
               onClick={() => { clearData() }}
             >
               Cancelar
             </button>
 
             <button
-              className="button-apply"
+              className="button-apply pointer"
               onClick={handleSubmit}
             >
               Aplicar

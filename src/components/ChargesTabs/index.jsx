@@ -10,19 +10,12 @@ const ChargesTabs = () => {
   const navigate = useNavigate();
 
   const {
-    addClient,
-    selectedClient,
-    setSelectedClient,
-    paidCharges,
     setPaidCharges,
-    wonsCharges,
     setWonsCharges,
-    expectedCharges,
     setExpectedCharges,
     setSelected,
   } = useContext(MyContext);
 
-  const [dbCharges, setDbCharges] = useState([]);
   const [dbWon, setDbWon] = useState([]);
   const [dbPaid, setDbPaid] = useState([]);
   const [dbExpected, setDbExpected] = useState([]);
@@ -35,6 +28,7 @@ const ChargesTabs = () => {
     const token = localStorage.getItem('token');
 
     try {
+
       const response = await api.get('/listDebts', {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,16 +38,18 @@ const ChargesTabs = () => {
       const paid = response.data.debts.filter(
         (charge) => charge.status === 'Paga',
       );
+
       const wons = response.data.debts.filter(
         (charge) => charge.status === 'Vencida',
       );
+
       const expected = response.data.debts.filter(
         (charge) => charge.status === 'Pendente',
       );
+
       setDbPaid(paid);
       setDbWon(wons);
       setDbExpected(expected);
-      setDbCharges(response.data.debts);
 
       const paidN = paid.map((e) => Number(e.values)).reduce((a, b) => a + b);
       setPaidCharges(paidN);
@@ -63,7 +59,7 @@ const ChargesTabs = () => {
         .map((e) => Number(e.values))
         .reduce((a, b) => a + b);
       setExpectedCharges(expectedN);
-    } catch (error) {}
+    } catch (error) { }
   }
 
   return (
@@ -86,22 +82,22 @@ const ChargesTabs = () => {
             <tr>
               <td>{dbPaid[0] ? dbPaid[0].client : ' '}</td>
               <td>{dbPaid[0] ? dbPaid[0].id : ' '}</td>
-              <td>{dbPaid[0] ? dbPaid[0].values : ' '}</td>
+              <td>{dbPaid[0] ? `R$ ${Number(dbPaid[0].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbPaid[1] ? dbPaid[1].client : ' '}</td>
               <td>{dbPaid[1] ? dbPaid[1].id : ' '}</td>
-              <td>{dbPaid[1] ? dbPaid[1].values : ' '}</td>
+              <td>{dbPaid[1] ? `R$ ${Number(dbPaid[1].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbPaid[2] ? dbPaid[2].client : ' '}</td>
               <td>{dbPaid[2] ? dbPaid[2].id : ' '}</td>
-              <td>{dbPaid[2] ? dbPaid[2].values : ' '}</td>
+              <td>{dbPaid[2] ? `R$ ${Number(dbPaid[2].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbPaid[3] ? dbPaid[3].client : ' '}</td>
               <td>{dbPaid[3] ? dbPaid[3].id : ' '}</td>
-              <td>{dbPaid[3] ? dbPaid[3].values : ' '}</td>
+              <td>{dbPaid[3] ? `R$ ${Number(dbPaid[3].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
           </tbody>
         </table>
@@ -136,22 +132,23 @@ const ChargesTabs = () => {
             <tr>
               <td>{dbWon[0] ? dbWon[0].client : ' '}</td>
               <td>{dbWon[0] ? dbWon[0].id : ' '}</td>
-              <td>{dbWon[0] ? dbWon[0].values : ' '}</td>
+              <td>{dbWon[0] ? `R$ ${Number(dbWon[0].values).toFixed(2).replace('.', ',')}` : ' '}</td>
+
             </tr>
             <tr>
               <td>{dbWon[1] ? dbWon[1].client : ' '}</td>
               <td>{dbWon[1] ? dbWon[1].id : ' '}</td>
-              <td>{dbWon[1] ? dbWon[1].values : ' '}</td>
+              <td>{dbWon[1] ? `R$ ${Number(dbWon[1].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbWon[2] ? dbWon[2].client : ' '}</td>
               <td>{dbWon[2] ? dbWon[2].id : ' '}</td>
-              <td>{dbWon[2] ? dbWon[2].values : ' '}</td>
+              <td>{dbWon[2] ? `R$ ${Number(dbWon[2].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbWon[3] ? dbWon[3].client : ' '}</td>
               <td>{dbWon[3] ? dbWon[3].id : ' '}</td>
-              <td>{dbWon[3] ? dbWon[3].values : ' '}</td>
+              <td>{dbWon[3] ? `R$ ${Number(dbWon[3].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
           </tbody>
         </table>
@@ -186,22 +183,22 @@ const ChargesTabs = () => {
             <tr>
               <td>{dbExpected[0] ? dbExpected[0].client : ' '}</td>
               <td>{dbExpected[0] ? dbExpected[0].id : ' '}</td>
-              <td>{dbExpected[0] ? dbExpected[0].values : ' '}</td>
+              <td>{dbExpected[0] ? `R$ ${Number(dbExpected[0].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbExpected[1] ? dbExpected[1].client : ' '}</td>
               <td>{dbExpected[1] ? dbExpected[1].id : ' '}</td>
-              <td>{dbExpected[1] ? dbExpected[1].values : ' '}</td>
+              <td>{dbExpected[1] ? `R$ ${Number(dbExpected[1].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbExpected[2] ? dbExpected[2].client : ' '}</td>
               <td>{dbExpected[2] ? dbExpected[2].id : ' '}</td>
-              <td>{dbExpected[2] ? dbExpected[2].values : ' '}</td>
+              <td>{dbExpected[2] ? `R$ ${Number(dbExpected[2].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
             <tr>
               <td>{dbExpected[3] ? dbExpected[3].client : ' '}</td>
               <td>{dbExpected[3] ? dbExpected[3].id : ' '}</td>
-              <td>{dbExpected[3] ? dbExpected[3].values : ' '}</td>
+              <td>{dbExpected[3] ? `R$ ${Number(dbExpected[3].values).toFixed(2).replace('.', ',')}` : ' '}</td>
             </tr>
           </tbody>
         </table>

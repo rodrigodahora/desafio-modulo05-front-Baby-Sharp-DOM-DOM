@@ -36,7 +36,6 @@ const ClientModalUpdate = () => {
   const [errorState, setErrorState] = useState("");
 
   function handleChange(e) {
-    console.log("entrou aqui");
     const key = e.target.name;
     const value = e.target.value;
     setData({ ...data, [key]: value });
@@ -305,14 +304,14 @@ const ClientModalUpdate = () => {
           <div className="modal-buttons">
             <button
               type="button"
-              className="button-cancel"
+              className="button-cancel pointer"
               onClick={() => { clearData() }}
             >
               Cancelar
             </button>
 
             <button
-              className="button-apply"
+              className="button-apply pointer"
               onClick={handleSubmit}
             >
               Aplicar

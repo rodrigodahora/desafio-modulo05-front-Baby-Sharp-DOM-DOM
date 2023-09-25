@@ -1,5 +1,5 @@
-import styles from './styles.module.css';
 import '../../index.css';
+import styles from './styles.module.css';
 import home from '../../assets/home.svg';
 import homeSelect from '../../assets/home_select.svg';
 import client from '../../assets/cliente_menu.svg';
@@ -13,7 +13,9 @@ import { MyContext } from '../../contexts/MyContext';
 const MenuSidebar = () => {
   const navigate = useNavigate();
 
-  const { selected, setSelected, setSelectedClient } = useContext(MyContext);
+  const {
+    selected, setSelected,
+    setSelectedClient } = useContext(MyContext);
 
   return (
     <ul className={styles.container}>

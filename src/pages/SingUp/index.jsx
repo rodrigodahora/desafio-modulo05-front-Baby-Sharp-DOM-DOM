@@ -8,7 +8,6 @@ import eyeOff from "../../assets/eye_off.svg";
 import lineHG from "../../assets/line_h_green.svg";
 import lineHW from "../../assets/line_h_white.svg";
 import lineV from "../../assets/line_v_green.svg";
-
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import api from "../../services/api";
@@ -87,6 +86,10 @@ export default function SingUp() {
 
       if (!data.password) {
         return setErrorPassword("Informe sua senha!")
+      } else { setErrorPassword("") }
+
+      if (data.password.length < 6) {
+        return setErrorPassword("Senha deve conter no minimo 6 caracteres!")
       } else { setErrorPassword("") }
 
       if (!data.confPassword) {

@@ -1,13 +1,11 @@
 import { useContext } from 'react';
-import { MyContext } from '../../contexts/MyContext';
-
-import HeaderDash from '../../components/HeaderDash';
-import MenuSidebar from '../../components/MenuSidebar';
-import '../../index.css';
-
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
+import HeaderDash from '../../components/HeaderDash';
 import ListTabs from '../../components/ListTabs';
+import MenuSidebar from '../../components/MenuSidebar';
+import { MyContext } from '../../contexts/MyContext';
+import '../../index.css';
 import styles from './styles.module.css';
 
 const Home = () => {

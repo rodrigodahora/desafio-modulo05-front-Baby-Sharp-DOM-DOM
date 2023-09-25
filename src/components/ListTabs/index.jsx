@@ -4,7 +4,10 @@ import { MyContext } from '../../contexts/MyContext';
 
 
 const ListTabs = () => {
-  const { paidCharges, wonsCharges, expectedCharges } = useContext(MyContext);
+  const {
+    paidCharges,
+    wonsCharges,
+    expectedCharges } = useContext(MyContext);
 
   return (
     <div className={styles.main}>

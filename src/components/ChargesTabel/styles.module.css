@@ -150,14 +150,16 @@ td {
 
 .charges_descri_btn {
   justify-content: space-between;
-  width: 100px;
-  text-align: center;
 
+  width: 100px;
+
+  text-align: center;
 }
 
 .charges_descri_btn div {
   display: flex;
   align-items: center;
+
   gap: 20px;
 }
 

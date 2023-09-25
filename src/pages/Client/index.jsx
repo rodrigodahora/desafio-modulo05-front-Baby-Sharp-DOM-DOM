@@ -1,26 +1,27 @@
+import { useContext } from 'react';
 import filter from '../../assets/filter.svg';
 import headerCliente from '../../assets/headerCliente.svg';
 import pesquisar from '../../assets/pesquisar.svg';
+import ChargesModal from '../../components/ChargesModal';
+import ClientDetails from '../../components/ClientDetails';
+import ClientModal from '../../components/ClientModal';
+import ClientModalUpdate from '../../components/ClientModalUpdate';
+import ClientTabel from '../../components/ClientTabel';
 import HeaderDash from '../../components/HeaderDash';
 import MenuSidebar from '../../components/MenuSidebar';
+import ModalFeedback from '../../components/ModalFeedback';
+import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import './style.css';
 
-import ClientTabel from '../../components/ClientTabel';
-import ClientModalUpdate from '../../components/ClientModalUpdate';
-import ClientModal from '../../components/ClientModal';
-import ChargesModal from '../../components/ChargesModal';
-import ClientDetails from '../../components/ClientDetails';
-import ModalFeedback from '../../components/ModalFeedback';
-
-import { useContext } from 'react';
-import { MyContext } from '../../contexts/MyContext';
-
 const Client = () => {
-  const { selected, setSelected, addClient, setAddClient, feedback, openModalCharges, updateClient } =
+  const {
+    addClient, setAddClient,
+    selected,
+    feedback,
+    openModalCharges,
+    updateClient } =
     useContext(MyContext);
-
-  // setSelected(2)
 
   return (
     <div className="Client">

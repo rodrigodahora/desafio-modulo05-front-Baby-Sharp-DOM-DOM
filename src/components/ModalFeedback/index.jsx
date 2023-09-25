@@ -4,7 +4,6 @@ import { MyContext } from '../../contexts/MyContext';
 import feedbackSuccessClose from "../../assets/feedback_success_close.svg";
 import "./style.css";
 
-
 const ModalFeedback = () => {
   const { feedback, setFeedback } = useContext(MyContext);
 
