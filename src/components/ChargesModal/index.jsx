@@ -188,14 +188,14 @@ const ChargesModal = () => {
 
         <div className="modal-buttons">
           <button
-            className="button-cancel"
+            className="button-cancel pointer"
             type="button"
             onClick={() => { setOpenModalCharges("") }}
           >
             Cancelar
           </button>
 
-          <button className="button-apply" type="button" onClick={applySubmit}>
+          <button className="button-apply pointer" type="button" onClick={applySubmit}>
             Aplicar
           </button>
         </div>
