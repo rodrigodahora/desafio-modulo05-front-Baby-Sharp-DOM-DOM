@@ -78,6 +78,11 @@ function Login() {
             placeholder='Digite sua senha'
             maxLength={10}
             onChange={handleChange}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubmit(e);
+              }
+            }}
           />
           <span>{!errorPassword ? mainError : errorPassword}</span>
         </div>
