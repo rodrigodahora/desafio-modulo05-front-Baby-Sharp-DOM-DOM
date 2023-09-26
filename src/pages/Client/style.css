@@ -68,6 +68,10 @@
     position: relative;
 }
 
+.Client-add-button{
+    cursor: pointer;
+}
+
 .Client-body-header div input {
     width: 322.193px;
     height: 45.739px;

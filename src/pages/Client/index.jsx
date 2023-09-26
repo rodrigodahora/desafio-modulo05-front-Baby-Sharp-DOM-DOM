@@ -34,7 +34,7 @@ const Client = () => {
               <img src={headerCliente} alt="" /> Clientes
             </div>
             <div>
-              <button
+              <button className='Client-add-button'
                 onClick={() => {
                   setAddClient(!addClient);
                 }}

@@ -139,7 +139,7 @@ const ChargesModal = () => {
                 id="expiration"
                 value={data.expiration}
                 type="text"
-                placeholder="Digite seu nome"
+                placeholder="Digite o vencimento"
                 onChange={handleChange}
               />
               <span className="input-modal-box-validation">
@@ -154,7 +154,7 @@ const ChargesModal = () => {
                 id="values"
                 value={data.values}
                 type="text"
-                placeholder="Digite seu nome"
+                placeholder="Digite o valor"
                 onChange={handleChange}
               />
               <span className="input-modal-box-validation">{errorValue}</span>
@@ -169,6 +169,7 @@ const ChargesModal = () => {
             <img
               src={data.status === "Paga" ? checkboxSelected : checkboxDeselected}
               alt="Checkbox Selected"
+              className="Checkbox-pointer"
               onClick={(() => { setData({ ...data, status: "Paga" }) })}
             />
             <span>Cobrança Paga</span>
@@ -178,6 +179,7 @@ const ChargesModal = () => {
             <img
               src={data.status === "Pendente" ? checkboxSelected : checkboxDeselected}
               alt="Checkbox Deselected"
+              className="Checkbox-pointer"
               onClick={(() => { setData({ ...data, status: "Pendente" }) })}
             />
             <span>Cobrança Pendente</span>
