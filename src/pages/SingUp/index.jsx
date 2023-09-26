@@ -89,7 +89,11 @@ export default function SingUp() {
       } else { setErrorPassword("") }
 
       if (data.password.length < 6) {
-        return setErrorPassword("Senha deve conter no minimo 6 caracteres!")
+        return setErrorPassword("Senha deve conter no mínimo 6 caracteres!")
+      } else { setErrorPassword("") }
+
+      if (data.password.length > 11) {
+        return setErrorPassword("Senha deve conter no máximo 11 caracteres!")
       } else { setErrorPassword("") }
 
       if (!data.confPassword) {
