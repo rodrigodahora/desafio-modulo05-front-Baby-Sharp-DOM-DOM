@@ -76,7 +76,6 @@ function Login() {
             type="password"
             name='password'
             placeholder='Digite sua senha'
-            maxLength={10}
             onChange={handleChange}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
