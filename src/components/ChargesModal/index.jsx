@@ -169,7 +169,7 @@ const ChargesModal = () => {
             <img
               src={data.status === "Paga" ? checkboxSelected : checkboxDeselected}
               alt="Checkbox Selected"
-              className="Checkbox-pointer"
+              className="pointer"
               onClick={(() => { setData({ ...data, status: "Paga" }) })}
             />
             <span>Cobrança Paga</span>
@@ -179,7 +179,7 @@ const ChargesModal = () => {
             <img
               src={data.status === "Pendente" ? checkboxSelected : checkboxDeselected}
               alt="Checkbox Deselected"
-              className="Checkbox-pointer"
+              className="pointer"
               onClick={(() => { setData({ ...data, status: "Pendente" }) })}
             />
             <span>Cobrança Pendente</span>
