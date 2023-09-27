@@ -10,37 +10,41 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
-  const { setSelected } = useContext(MyContext);
+  const { setSelected, openDetailCharModal, setOpenDetailCharModal } =
+    useContext(MyContext);
 
   const [dbCharges, setDbCharges] = useState([]);
 
   setSelected(3);
 
   useEffect(() => {
-    getCharges()
-  }, [])
-
+    getCharges();
+  }, []);
 
   async function getCharges() {
-
     const token = localStorage.getItem('token');
 
     try {
-
-      const response = await api.get(
-        "/listDebts",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await api.get('/listDebts', {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
-      setDbCharges(response.data.debts)
+      setDbCharges(response.data.debts);
+    } catch (error) {}
+  }
 
-    } catch (error) {
-
-    }
+  function handleClick() {
+    setOpenDetailCharModal({
+      ...openDetailCharModal,
+      name: dbCharges.client,
+      description: dbCharges.description,
+      date: dbCharges.status,
+      values: dbCharges.values,
+      id: dbCharges.id,
+      status: dbCharges.status,
+    });
   }
 
   return (
@@ -64,27 +68,34 @@ const ChargesTable = () => {
       </thead>
       <tbody>
         {dbCharges.map((e) => {
-          const date = new Date(e.expiration)
+          const date = new Date(e.expiration);
 
           return (
             <tr>
-              <td>{e.client}</td>
-              <td>{e.id}</td>
-              <td>{`R$ ${Number(e.values).toFixed(2).replace('.', ',')}`}</td>
-              <td>{date.toLocaleDateString('pt-BR')}</td>
-              {e.status === "Vencida" && <td>
-                <div className={styles.charges_won}>Vencida</div>
+              <td onClick={handleClick()}>{e.client}</td>
+              <td onClick={handleClick()}>{e.id}</td>
+              <td onClick={handleClick()}>{`R$ ${Number(e.values)
+                .toFixed(2)
+                .replace('.', ',')}`}</td>
+              <td onClick={handleClick()}>
+                {date.toLocaleDateString('pt-BR')}
               </td>
-              }
-              {e.status === "Pendente" && <td>
-                <div className={styles.charges_expected}>Pendentes</div>
-              </td>
-              }
-              {e.status === "Paga" && <td>
-                <div className={styles.charges_paid}>Paga</div>
-              </td>
-              }
-              <td className={styles.charges_descri_p}>
+              {e.status === 'Vencida' && (
+                <td onClick={handleClick()}>
+                  <div className={styles.charges_won}>Vencida</div>
+                </td>
+              )}
+              {e.status === 'Pendente' && (
+                <td onClick={handleClick()}>
+                  <div className={styles.charges_expected}>Pendentes</div>
+                </td>
+              )}
+              {e.status === 'Paga' && (
+                <td onClick={handleClick()}>
+                  <div className={styles.charges_paid}>Paga</div>
+                </td>
+              )}
+              <td onClick={handleClick()} className={styles.charges_descri_p}>
                 <p>{e.description}</p>
               </td>
               <td className={styles.charges_descri_btn}>
@@ -94,7 +105,7 @@ const ChargesTable = () => {
                 </div>
               </td>
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
