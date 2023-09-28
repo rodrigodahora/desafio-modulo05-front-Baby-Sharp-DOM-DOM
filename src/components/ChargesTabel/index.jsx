@@ -5,34 +5,41 @@ import edit from '../../assets/editar.svg';
 import deleteRed from '../../assets/delete_red.svg';
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
-import "../../index.css";
+import '../../index.css';
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
-  const { setSelected, setFeedback, setOpenModalDeleteChanges, setOpenDetailCharModal, setOpenModalDetail, dbCharges, setDbCharges, } = useContext(MyContext);
+  const {
+    setSelected,
+    setFeedback,
+    setOpenModalDeleteChanges,
+    setOpenDetailCharModal,
+    setOpenModalDetail,
+    setOpenModalEdit,
+  } = useContext(MyContext);
 
   // const [dbCharges, setDbCharges] = useState([]);
 
   setSelected(3);
 
-  // useEffect(() => {
-  //   getCharges();
-  // }, []);
+  // // useEffect(() => {
+  // //   getCharges();
+  // // }, []);
 
-  // async function getCharges() {
-  //   const token = localStorage.getItem('token');
+  // // async function getCharges() {
+  // //   const token = localStorage.getItem('token');
 
-  //   try {
-  //     const response = await api.get('/listDebts', {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
+  // //   try {
+  // //     const response = await api.get('/listDebts', {
+  // //       headers: {
+  // //         Authorization: `Bearer ${token}`,
+  // //       },
+  // //     });
 
   //     setDbCharges(response.data.debts);
-  //   } catch (error) { }
+  //   } catch (error) {}
   // }
 
   function handleClick(client) {
@@ -99,17 +106,21 @@ const ChargesTable = () => {
               </td>
               <td className={styles.charges_descri_btn}>
                 <div>
-                  <img src={edit} alt="" />
+                  <img
+                    src={edit}
+                    alt=""
+                    onClick={() => setOpenModalEdit(true)}
+                  />
                   <img
                     src={deleteRed}
-                    className='pointer'
+                    className="pointer"
                     alt=""
                     onClick={() => {
-                      if (e.status === "Paga" || e.status === "Vencida") {
+                      if (e.status === 'Paga' || e.status === 'Vencida') {
                         setTimeout(() => {
-                          setFeedback("Esta cobrança não pode ser excluída!");
+                          setFeedback('Esta cobrança não pode ser excluída!');
                           setTimeout(() => {
-                            setFeedback("");
+                            setFeedback('');
                           }, 5000);
                         }, 1000);
                       } else {
