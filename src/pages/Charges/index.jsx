@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import headarCharges from '../../assets/cobranca_menu.svg';
 import filter from '../../assets/filter.svg';
 import search from '../../assets/pesquisar.svg';
@@ -10,13 +10,14 @@ import styles from './styles.module.css';
 import DetailChargesModal from '../../components/DetailChargesModal';
 
 const Charges = () => {
-  const { setSelected, openDetailCharModal, setOpenDetailCharModal } =
-    useContext(MyContext);
+  const { setSelected, openModalDetail } = useContext(MyContext);
 
   setSelected(3);
 
   return (
     <div className={styles.container}>
+      <HeaderDash />
+      <MenuSidebar />
       <div className={styles.charges_body}>
         <div className={styles.charges_body_header}>
           <div>
@@ -34,9 +35,8 @@ const Charges = () => {
           <ChargesTable />
         </div>
       </div>
-      <HeaderDash />
-      <MenuSidebar />
-      {openDetailCharModal && <DetailChargesModal />}
+
+      {openModalDetail && <DetailChargesModal />}
     </div>
   );
 };

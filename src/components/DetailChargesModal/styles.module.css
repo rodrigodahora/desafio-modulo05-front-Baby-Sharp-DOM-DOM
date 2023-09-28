@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   
   width: 100%;
   max-width: 1440px;
@@ -161,5 +161,65 @@
 }
 
 
+.charges_won {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 
+  width: 85px;
+  height: 19px;
 
+  border-radius: 8px;
+
+  background: #FFEFEF;
+
+  color: #971D1D;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.charges_expected {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  width: 85px;
+  height: 19px;
+
+  border-radius: 8px;
+
+  background: #FCF6DC;
+
+  color: #C5A605;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.charges_paid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  width: 85px;
+  height: 19px;
+
+  border-radius: 8px;
+
+  background: #EEF6F6;
+
+  color: #1FA7AF;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

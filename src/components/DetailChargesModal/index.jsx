@@ -5,7 +5,7 @@ import charges from '../../assets/cobranca_menu.svg';
 import { MyContext } from '../../contexts/MyContext';
 
 const DetailChargesModal = () => {
-  const { openDetailCharModal, setOpenDetailCharModal } = useContext(MyContext);
+  const { openDetailCharModal, setOpenModalDetail } = useContext(MyContext);
   return (
     <div className={styles.container}>
       <form className={styles.form_detail}>
@@ -14,7 +14,7 @@ const DetailChargesModal = () => {
             className={styles.img_close}
             src={close}
             alt="Close icon"
-            onClick={() => setOpenDetailCharModal(!openDetailCharModal)}
+            onClick={() => setOpenModalDetail(false)}
           />
           <div className={styles.title_detail}>
             <img src={charges} alt="Charges Detail" />
@@ -23,7 +23,7 @@ const DetailChargesModal = () => {
         </header>
         <div className={styles.detail_from_colum}>
           <span>Nome</span>
-          <p>{openDetailCharModal.name}</p>
+          <p>{openDetailCharModal.client}</p>
           <span> Descrição</span>
           <p className={styles.detail_from_colum_desc}>
             {openDetailCharModal.description}
@@ -33,7 +33,11 @@ const DetailChargesModal = () => {
         <div className={styles.detail_from_row}>
           <div className={styles.detail_from_colum_1}>
             <span>Vencimento</span>
-            <p>{openDetailCharModal.date}</p>
+            <p>
+              {new Intl.DateTimeFormat('pt-BR').format(
+                new Date(openDetailCharModal.expiration),
+              )}
+            </p>
           </div>
           <div className={styles.detail_from_colum_1}>
             <span>Valor</span>
@@ -49,7 +53,15 @@ const DetailChargesModal = () => {
           </div>
           <div className={styles.detail_from_colum_1}>
             <span>Status</span>
-            <div className={styles.detail_status}>
+            <div
+              className={
+                openDetailCharModal.status === 'Paga'
+                  ? styles.charges_paid
+                  : openDetailCharModal.status === 'Pendente'
+                  ? styles.charges_expected
+                  : styles.charges_won
+              }
+            >
               {openDetailCharModal.status}
             </div>
           </div>

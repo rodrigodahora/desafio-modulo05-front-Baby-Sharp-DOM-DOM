@@ -10,7 +10,7 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
-  const { setSelected, openDetailCharModal, setOpenDetailCharModal } =
+  const { setSelected, setOpenDetailCharModal, setOpenModalDetail } =
     useContext(MyContext);
 
   const [dbCharges, setDbCharges] = useState([]);
@@ -35,16 +35,12 @@ const ChargesTable = () => {
     } catch (error) {}
   }
 
-  function handleClick() {
+  function handleClick(client) {
     setOpenDetailCharModal({
-      ...openDetailCharModal,
-      name: dbCharges.client,
-      description: dbCharges.description,
-      date: dbCharges.status,
-      values: dbCharges.values,
-      id: dbCharges.id,
-      status: dbCharges.status,
+      ...client,
     });
+
+    setOpenModalDetail(true);
   }
 
   return (
@@ -68,34 +64,32 @@ const ChargesTable = () => {
       </thead>
       <tbody>
         {dbCharges.map((e) => {
-          const date = new Date(e.expiration);
-
           return (
-            <tr>
-              <td onClick={handleClick()}>{e.client}</td>
-              <td onClick={handleClick()}>{e.id}</td>
-              <td onClick={handleClick()}>{`R$ ${Number(e.values)
-                .toFixed(2)
-                .replace('.', ',')}`}</td>
-              <td onClick={handleClick()}>
-                {date.toLocaleDateString('pt-BR')}
+            <tr key={e.id} onClick={() => handleClick(e)}>
+              <td>{e.client}</td>
+              <td>{e.id}</td>
+              <td>{`R$ ${Number(e.values).toFixed(2).replace('.', ',')}`}</td>
+              <td>
+                {new Intl.DateTimeFormat('pt-BR').format(
+                  new Date(e.expiration),
+                )}
               </td>
               {e.status === 'Vencida' && (
-                <td onClick={handleClick()}>
+                <td>
                   <div className={styles.charges_won}>Vencida</div>
                 </td>
               )}
               {e.status === 'Pendente' && (
-                <td onClick={handleClick()}>
+                <td>
                   <div className={styles.charges_expected}>Pendentes</div>
                 </td>
               )}
               {e.status === 'Paga' && (
-                <td onClick={handleClick()}>
+                <td>
                   <div className={styles.charges_paid}>Paga</div>
                 </td>
               )}
-              <td onClick={handleClick()} className={styles.charges_descri_p}>
+              <td className={styles.charges_descri_p}>
                 <p>{e.description}</p>
               </td>
               <td className={styles.charges_descri_btn}>

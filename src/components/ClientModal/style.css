@@ -3,10 +3,11 @@
   position: fixed;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 
-  width: 1332px;
+  width: 100%;
+  max-width: 1440px;
   height: 100vh;
-  left: 108px;
 
   background-color: rgba(145, 154, 150, 0.30);
   backdrop-filter: blur(2px);

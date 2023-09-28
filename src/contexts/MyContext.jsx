@@ -16,7 +16,8 @@ export function ContextProvider(props) {
   const [selectedClient, setSelectedClient] = useState('');
   const [dbClient, setDbClient] = useState([]);
   const [openModalUser, setOpenModalUser] = useState(false);
-  const [openDetailCharModal, setOpenDetailCharModal] = useState([]);
+  const [openModalDetail, setOpenModalDetail] = useState(false);
+  const [openDetailCharModal, setOpenDetailCharModal] = useState({});
   const [openModalCharges, setOpenModalCharges] = useState('');
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
@@ -69,6 +70,8 @@ export function ContextProvider(props) {
         setOpenModalCharges,
         openDetailCharModal,
         setOpenDetailCharModal,
+        openModalDetail,
+        setOpenModalDetail,
       }}
     >
       {props.children}
