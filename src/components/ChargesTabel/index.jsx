@@ -65,37 +65,42 @@ const ChargesTable = () => {
       <tbody>
         {dbCharges.map((e) => {
           return (
-            <tr key={e.id} onClick={() => handleClick(e)}>
-              <td>{e.client}</td>
-              <td>{e.id}</td>
-              <td>{`R$ ${Number(e.values).toFixed(2).replace('.', ',')}`}</td>
-              <td>
+            <tr>
+              <td onClick={() => handleClick(e)}>{e.client}</td>
+              <td onClick={() => handleClick(e)}>{e.id}</td>
+              <td onClick={() => handleClick(e)}>{`R$ ${Number(e.values)
+                .toFixed(2)
+                .replace('.', ',')}`}</td>
+              <td onClick={() => handleClick(e)}>
                 {new Intl.DateTimeFormat('pt-BR').format(
                   new Date(e.expiration),
                 )}
               </td>
               {e.status === 'Vencida' && (
-                <td>
+                <td onClick={() => handleClick(e)}>
                   <div className={styles.charges_won}>Vencida</div>
                 </td>
               )}
               {e.status === 'Pendente' && (
-                <td>
+                <td onClick={() => handleClick(e)}>
                   <div className={styles.charges_expected}>Pendentes</div>
                 </td>
               )}
               {e.status === 'Paga' && (
-                <td>
+                <td onClick={() => handleClick(e)}>
                   <div className={styles.charges_paid}>Paga</div>
                 </td>
               )}
-              <td className={styles.charges_descri_p}>
+              <td
+                onClick={() => handleClick(e)}
+                className={styles.charges_descri_p}
+              >
                 <p>{e.description}</p>
               </td>
               <td className={styles.charges_descri_btn}>
                 <div>
-                  <img src={edit} alt="" />
-                  <img src={deleteRed} alt="" />
+                  <img src={edit} alt="Edit" />
+                  <img src={deleteRed} alt="Delete" />
                 </div>
               </td>
             </tr>
