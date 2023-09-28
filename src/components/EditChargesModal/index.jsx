@@ -8,14 +8,27 @@ import { useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const EditChargesModal = () => {
-  const { setOpenModalEdit } = useContext(MyContext);
+  const { setOpenModalEdit, change } = useContext(MyContext);
+
+  const [errorName, setErrorName] = useState("");
+  const [errorDescription, setErrorDescription] = useState("");
+  const [errorValidity, setErrorValidity] = useState("");
+  const [errorValue, setErrorValue] = useState("");
 
   const [data, setData] = useState({
-    description: '',
-    expiration: '',
-    values: '',
-    status: 'Paga',
+    description: "",
+    expiration: "",
+    values: "",
+    status: "Paga"
   });
+
+  function handleChange(e) {
+    const key = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [key]: value });
+  }
+
+
 
   return (
     <div className={styles.container}>
@@ -54,7 +67,7 @@ const EditChargesModal = () => {
             type="text"
             placeholder="Digite a descrição"
             maxLength={45}
-            // onChange={handleChange}
+          // onChange={handleChange}
           />
           <span className={styles.input_modal_box_validation}></span>
         </div>
@@ -69,7 +82,7 @@ const EditChargesModal = () => {
                 // value={data.expiration}
                 type="text"
                 placeholder="Digite o vencimento"
-                // onChange={handleChange}
+              // onChange={handleChange}
               />
               <span className={styles.input_modal_box_validation}></span>
             </div>
@@ -82,7 +95,7 @@ const EditChargesModal = () => {
                 // value={data.values}
                 type="text"
                 placeholder="Digite o valor"
-                // onChange={handleChange}
+              // onChange={handleChange}
               />
               <span className={styles.input_modal_box_validation}></span>
             </div>
@@ -96,7 +109,7 @@ const EditChargesModal = () => {
             <img
               src={checkboxSelected}
               alt=""
-              // onClick={(() => { setData({ ...data, status: "Paga" }) })}
+              onClick={(() => { setData({ ...data, status: "Paga" }) })}
             />
             <span>Cobrança Paga</span>
           </div>
@@ -105,7 +118,7 @@ const EditChargesModal = () => {
             <img
               src={checkboxDeselected}
               alt=""
-              // onClick={(() => { setData({ ...data, status: "Pendente" }) })}
+              onClick={(() => { setData({ ...data, status: "Pendente" }) })}
             />
             <span>Cobrança Pendente</span>
           </div>
@@ -115,7 +128,7 @@ const EditChargesModal = () => {
           <button
             className={styles.button_cancel}
             type="button"
-            // onClick={() => { setOpenModalCharges("") }}
+          // onClick={() => { setOpenModalCharges("") }}
           >
             Cancelar
           </button>
@@ -123,7 +136,7 @@ const EditChargesModal = () => {
           <button
             className={styles.button_apply}
             type="button"
-            // onClick={applySubmit}
+          // onClick={applySubmit}
           >
             Aplicar
           </button>

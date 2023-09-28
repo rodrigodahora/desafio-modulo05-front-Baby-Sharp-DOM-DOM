@@ -1,10 +1,7 @@
-import React from 'react';
 import styles from './styles.module.css';
 import filter from '../../assets/Frame.svg';
 import edit from '../../assets/editar.svg';
 import deleteRed from '../../assets/delete_red.svg';
-import { useEffect, useState } from 'react';
-import api from '../../services/api';
 import '../../index.css';
 
 import { useContext } from 'react';
@@ -18,6 +15,7 @@ const ChargesTable = () => {
     setOpenDetailCharModal,
     setOpenModalDetail,
     setOpenModalEdit,
+    dbCharges,
   } = useContext(MyContext);
 
   // const [dbCharges, setDbCharges] = useState([]);
