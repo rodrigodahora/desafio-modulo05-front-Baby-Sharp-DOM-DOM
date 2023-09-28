@@ -17,7 +17,8 @@ import ModalDeleteCharges from '../../components/ModalDeleteCharges';
 
 const Client = () => {
   const {
-    addClient, setAddClient,
+    addClient,
+    setAddClient,
     selected,
     feedback,
     openModalCharges,
@@ -27,6 +28,8 @@ const Client = () => {
 
   return (
     <div className="Client">
+      <HeaderDash />
+      <MenuSidebar />
       {selected === 4 ? (
         <ClientDetails />
       ) : (
@@ -36,7 +39,8 @@ const Client = () => {
               <img src={headerCliente} alt="" /> Clientes
             </div>
             <div>
-              <button className='Client-add-button'
+              <button
+                className="Client-add-button"
                 onClick={() => {
                   setAddClient(!addClient);
                 }}
@@ -55,8 +59,6 @@ const Client = () => {
           </div>
         </div>
       )}
-      <HeaderDash />
-      <MenuSidebar />
       {openModalCharges && <ChargesModal />}
       {addClient && <ClientModal />}
       {updateClient && <ClientModalUpdate />}

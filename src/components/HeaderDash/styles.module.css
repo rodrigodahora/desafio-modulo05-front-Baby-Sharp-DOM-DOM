@@ -15,6 +15,7 @@
   width: 1440px;
 
   background: #F8F8F9;
+  z-index: 1;
 }
 
 .container {

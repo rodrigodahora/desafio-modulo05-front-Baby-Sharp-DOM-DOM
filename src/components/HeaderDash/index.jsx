@@ -14,14 +14,13 @@ const HeaderDash = () => {
   const navigate = useNavigate();
 
   const [modalUser, setModalUser] = useState(false);
-  const {
-    setOpenModalUser, openModalUser,
-    selected, setSelected } = useContext(MyContext);
+  const { setOpenModalUser, openModalUser, selected, setSelected } =
+    useContext(MyContext);
 
   const [name, setName] = useState(localStorage.getItem('name'));
 
   return (
-    <React.Fragment className={styles.mod}>
+    <div className={styles.mod}>
       {openModalUser && <ModalEditUser setName={setName} />}
       <div className={styles.header_dash}>
         <div className={styles.container}>
@@ -87,7 +86,7 @@ const HeaderDash = () => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

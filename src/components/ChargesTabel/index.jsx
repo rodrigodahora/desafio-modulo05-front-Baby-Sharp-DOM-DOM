@@ -11,37 +11,36 @@ import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
-  const { setSelected, setFeedback, setOpenModalDeleteChanges } = useContext(MyContext);
+  const { setSelected, setFeedback, setOpenModalDeleteChanges, setOpenDetailCharModal, setOpenModalDetail } = useContext(MyContext);
 
   const [dbCharges, setDbCharges] = useState([]);
 
   setSelected(3);
 
   useEffect(() => {
-    getCharges()
-  }, [])
-
+    getCharges();
+  }, []);
 
   async function getCharges() {
-
     const token = localStorage.getItem('token');
 
     try {
-
-      const response = await api.get(
-        "/listDebts",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await api.get('/listDebts', {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
-      setDbCharges(response.data.debts)
+      setDbCharges(response.data.debts);
+    } catch (error) { }
+  }
 
-    } catch (error) {
+  function handleClick(client) {
+    setOpenDetailCharModal({
+      ...client,
+    });
 
-    }
+    setOpenModalDetail(true);
   }
 
   return (
@@ -65,27 +64,37 @@ const ChargesTable = () => {
       </thead>
       <tbody>
         {dbCharges.map((e) => {
-          const date = new Date(e.expiration)
-
           return (
             <tr>
-              <td>{e.client}</td>
-              <td>{e.id}</td>
-              <td>{`R$ ${Number(e.values).toFixed(2).replace('.', ',')}`}</td>
-              <td>{date.toLocaleDateString('pt-BR')}</td>
-              {e.status === "Vencida" && <td>
-                <div className={styles.charges_won}>Vencida</div>
+              <td onClick={() => handleClick(e)}>{e.client}</td>
+              <td onClick={() => handleClick(e)}>{e.id}</td>
+              <td onClick={() => handleClick(e)}>{`R$ ${Number(e.values)
+                .toFixed(2)
+                .replace('.', ',')}`}</td>
+              <td onClick={() => handleClick(e)}>
+                {new Intl.DateTimeFormat('pt-BR').format(
+                  new Date(e.expiration),
+                )}
               </td>
-              }
-              {e.status === "Pendente" && <td>
-                <div className={styles.charges_expected}>Pendentes</div>
-              </td>
-              }
-              {e.status === "Paga" && <td>
-                <div className={styles.charges_paid}>Paga</div>
-              </td>
-              }
-              <td className={styles.charges_descri_p}>
+              {e.status === 'Vencida' && (
+                <td onClick={() => handleClick(e)}>
+                  <div className={styles.charges_won}>Vencida</div>
+                </td>
+              )}
+              {e.status === 'Pendente' && (
+                <td onClick={() => handleClick(e)}>
+                  <div className={styles.charges_expected}>Pendentes</div>
+                </td>
+              )}
+              {e.status === 'Paga' && (
+                <td onClick={() => handleClick(e)}>
+                  <div className={styles.charges_paid}>Paga</div>
+                </td>
+              )}
+              <td
+                onClick={() => handleClick(e)}
+                className={styles.charges_descri_p}
+              >
                 <p>{e.description}</p>
               </td>
               <td className={styles.charges_descri_btn}>
@@ -111,7 +120,7 @@ const ChargesTable = () => {
                 </div>
               </td>
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>

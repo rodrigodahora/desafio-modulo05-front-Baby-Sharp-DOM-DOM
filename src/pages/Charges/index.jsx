@@ -9,14 +9,18 @@ import { MyContext } from '../../contexts/MyContext';
 import styles from './styles.module.css';
 import ModalDeleteCharges from '../../components/ModalDeleteCharges';
 import ModalFeedback from '../../components/ModalFeedback';
+import DetailChargesModal from '../../components/DetailChargesModal';
 
 const Charges = () => {
-  const { setSelected, openModalDeleteCharges, feedback } = useContext(MyContext);
+  const { setSelected, openModalDeleteCharges, feedback, openModalDetail } = useContext(MyContext);
+
 
   setSelected(3);
 
   return (
     <div className={styles.container}>
+      <HeaderDash />
+      <MenuSidebar />
       <div className={styles.charges_body}>
         <div className={styles.charges_body_header}>
           <div>
@@ -38,6 +42,8 @@ const Charges = () => {
       <MenuSidebar />
       {openModalDeleteCharges && <ModalDeleteCharges />}
       {feedback && <ModalFeedback />}
+
+      {openModalDetail && <DetailChargesModal />}
     </div>
   );
 };

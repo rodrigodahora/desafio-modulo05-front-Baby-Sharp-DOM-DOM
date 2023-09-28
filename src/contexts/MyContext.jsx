@@ -12,12 +12,14 @@ export function ContextProvider(props) {
   const [selected, setSelected] = useState(1);
   const [addClient, setAddClient] = useState(false);
   const [updateClient, setUpdateClient] = useState(false);
-  const [feedback, setFeedback] = useState("");
-  const [selectedClient, setSelectedClient] = useState("");
+  const [feedback, setFeedback] = useState('');
+  const [selectedClient, setSelectedClient] = useState('');
   const [dbClient, setDbClient] = useState([]);
   const [openModalUser, setOpenModalUser] = useState(false);
   const [openModalDeleteCharges, setOpenModalDeleteChanges] = useState("");
   const [openModalCharges, setOpenModalCharges] = useState("");
+  const [openModalDetail, setOpenModalDetail] = useState(false);
+  const [openDetailCharModal, setOpenDetailCharModal] = useState({});
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
   const [expectedCharges, setExpectedCharges] = useState(0);
@@ -55,6 +57,8 @@ export function ContextProvider(props) {
       expectedCharges, setExpectedCharges,
       openModalCharges, setOpenModalCharges,
       openModalDeleteCharges, setOpenModalDeleteChanges,
+      openModalDetail, setOpenModalDetail,
+      openDetailCharModal, setOpenDetailCharModal,
     }}>
       {props.children}
     </MyContext.Provider>

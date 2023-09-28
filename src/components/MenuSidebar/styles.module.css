@@ -17,6 +17,7 @@ li {
   gap: 72px;
 
   background-color: #F0F0F5;
+  z-index: 2;
 }
 
 .container li {
