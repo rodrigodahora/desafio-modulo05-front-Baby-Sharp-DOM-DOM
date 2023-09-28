@@ -1,0 +1,262 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+
+  backdrop-filter: blur(2px);
+  background-color: rgba(145, 154, 150, 0.3);
+}
+
+.charges_modal_edit {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  width: 600px;
+  padding: 20px 50px;
+  gap: 30px;
+
+  border-radius: 30px;
+
+  background: #FFFFFF;
+}
+
+.charges_modal_edit header {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  padding-top: 30px;
+
+  color: #343447;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.modal_img_close {
+  position: absolute;
+
+  top: 0;
+  right: -32px;
+  width: 32px;
+  height: 32px;
+
+  cursor: pointer;
+}
+
+.title_modal {
+  display: flex;
+
+  width: 100%;
+  gap: 16px;
+}
+
+.title_modal img {
+  width: 35px;
+  height: 35px;
+}
+
+.title_modal h6 {
+  display: flex;
+
+  color: #3F3F55;
+  font-family: Montserrat, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.charges_form_colum {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.charges_form_colum label {
+  color: #344054;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.charges_form_colum label {
+  color: #344054;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.input_modal_box_validation {
+  position: initial;
+
+  margin-top: -10px;
+
+  color: #E70000;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.input_small {
+  width: 100%;
+  padding: 16px 14px;
+
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+
+  background-color: #FFF;
+
+  color: #9B9BB2;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px
+}
+
+.input_big {
+  width: 100%;
+  height: 88px;
+  padding: 16px 14px;
+
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+
+  background-color: #FFF;
+
+  color: #9B9BB2;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px
+}
+
+.charges_form_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.charges_form_row label {
+  color: #344054;
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.charges_form_row input {
+  width: 235px;
+}
+
+.charges_won {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 10px 16px;
+  gap: 8px;
+
+  border-radius: 10px;
+
+  background-color: #F0F0F5;
+}
+
+.charges_won  span {
+  color: #3F3F55;
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px
+}
+
+.charges_expected {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 10px 16px;
+  gap: 8px;
+
+  border-radius: 10px;
+
+  background-color: #F0F0F5;
+}
+
+.charges_expected span {
+  color: #3F3F55;
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px
+}
+
+.charges_won img,
+.charges_expected img {
+  width: 24px;
+  height: 24px;
+
+  cursor: pointer;
+}
+
+.modal_buttons {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 85px 0 20px 0px;
+}
+
+.button_cancel {
+  width: 232px;
+  padding: 4px 81px;
+
+  border-radius: 8px;
+  border: 1px solid #DEDEE9;
+
+  background: #F8F8F9;
+
+  color: #0E8750;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.button_apply {
+  width: 232px;
+  padding: 4px 81px;
+
+  border-radius: 8px;
+  border: 1px solid #DEDEE9;
+
+  background: #DA0175;
+
+  color: #F8F8F9;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+

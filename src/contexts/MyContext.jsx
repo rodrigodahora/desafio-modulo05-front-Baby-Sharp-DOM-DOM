@@ -16,9 +16,11 @@ export function ContextProvider(props) {
   const [selectedClient, setSelectedClient] = useState('');
   const [dbClient, setDbClient] = useState([]);
   const [openModalUser, setOpenModalUser] = useState(false);
-  const [openModalDeleteCharges, setOpenModalDeleteChanges] = useState("");
-  const [openModalCharges, setOpenModalCharges] = useState("");
+  const [openModalDeleteCharges, setOpenModalDeleteChanges] = useState('');
+  const [openModalCharges, setOpenModalCharges] = useState('');
   const [openModalDetail, setOpenModalDetail] = useState(false);
+  const [openModalEdit, setOpenModalEdit] = useState(false);
+  const [openEditCharges, setOpenEditCharges] = useState({});
   const [openDetailCharModal, setOpenDetailCharModal] = useState({});
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
@@ -40,26 +42,47 @@ export function ContextProvider(props) {
   }
 
   return (
-    <MyContext.Provider value={{
-      data, setData,
-      selected, setSelected,
-      addClient, setAddClient,
-      updateClient, setUpdateClient,
-      feedback, setFeedback,
-      openModalUser, setOpenModalUser,
-      isValidEmail,
-      isValidCpf,
-      isValidPhone,
-      selectedClient, setSelectedClient,
-      dbClient, setDbClient,
-      paidCharges, setPaidCharges,
-      wonsCharges, setWonsCharges,
-      expectedCharges, setExpectedCharges,
-      openModalCharges, setOpenModalCharges,
-      openModalDeleteCharges, setOpenModalDeleteChanges,
-      openModalDetail, setOpenModalDetail,
-      openDetailCharModal, setOpenDetailCharModal,
-    }}>
+    <MyContext.Provider
+      value={{
+        data,
+        setData,
+        selected,
+        setSelected,
+        addClient,
+        setAddClient,
+        updateClient,
+        setUpdateClient,
+        feedback,
+        setFeedback,
+        openModalUser,
+        setOpenModalUser,
+        isValidEmail,
+        isValidCpf,
+        isValidPhone,
+        selectedClient,
+        setSelectedClient,
+        dbClient,
+        setDbClient,
+        paidCharges,
+        setPaidCharges,
+        wonsCharges,
+        setWonsCharges,
+        expectedCharges,
+        setExpectedCharges,
+        openModalCharges,
+        setOpenModalCharges,
+        openModalDeleteCharges,
+        setOpenModalDeleteChanges,
+        openModalDetail,
+        setOpenModalDetail,
+        openDetailCharModal,
+        setOpenDetailCharModal,
+        openModalEdit,
+        setOpenModalEdit,
+        openEditCharges,
+        setOpenEditCharges,
+      }}
+    >
       {props.children}
     </MyContext.Provider>
   );
