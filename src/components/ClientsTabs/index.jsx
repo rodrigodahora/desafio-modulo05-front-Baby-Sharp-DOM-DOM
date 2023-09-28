@@ -11,37 +11,7 @@ import { useNavigate } from "react-router-dom";
 const ClientsTabs = () => {
   const navigate = useNavigate();
 
-  const { setSelected } = useContext(MyContext);
-
-  const [defaulters, setdefaulters] = useState([])
-  const [compliant, setCompliant] = useState([])
-
-
-  useEffect(() => { getCharges() }, [])
-
-  async function getCharges() {
-
-    const token = localStorage.getItem('token');
-
-    try {
-      const response = await api.get(
-        "/listClients",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-
-      const defaulters = response.data.clients.filter((client) => client.defaulter);
-      setdefaulters(defaulters);
-      const compliant = response.data.clients.filter((client) => !client.defaulter);
-      setCompliant(compliant);
-
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const { setSelected, dbAllClient, setDbAllClient, defaulters, setdefaulters, compliant, setCompliant } = useContext(MyContext);
 
   return (
     <div className={styles.container_clients}>

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import ChargesTabs from '../../components/ChargesTabs';
 import ClientsTabs from '../../components/ClientsTabs';
 import HeaderDash from '../../components/HeaderDash';
@@ -7,11 +7,26 @@ import MenuSidebar from '../../components/MenuSidebar';
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import styles from './styles.module.css';
+import api from '../../services/api';
+
 
 const Home = () => {
-  const { setSelected } = useContext(MyContext);
+  const { setSelected,
+    dbWon, setDbWon,
+    dbPaid, setDbPaid,
+    dbExpected, setDbExpected,
+    dbCharges, setDbCharges,
+    dbAllClient, setDbAllClient,
+    defaulters, setdefaulters,
+    compliant, setCompliant,
+    paidCharges, setPaidCharges,
+    wonsCharges, setWonsCharges,
+    expectedCharges, setExpectedCharges,
+    feedback, setFeedback,
+  } = useContext(MyContext);
 
   setSelected(1);
+
 
   return (
     <div className={styles.container}>

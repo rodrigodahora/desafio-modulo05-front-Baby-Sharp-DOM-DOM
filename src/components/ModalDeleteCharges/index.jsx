@@ -6,7 +6,7 @@ import { MyContext } from "../../contexts/MyContext";
 import api from '../../services/api';
 
 function ModalDeleteCharges() {
-  const { openModalDeleteCharges, setOpenModalDeleteChanges, setFeedback } = useContext(MyContext);
+  const { openModalDeleteCharges, setOpenModalDeleteChanges, setFeedback, attChDb, setAttChDb } = useContext(MyContext);
 
   async function deleteSelectChange() {
 
@@ -24,6 +24,7 @@ function ModalDeleteCharges() {
 
       setTimeout(() => {
         setFeedback("Cobrança excluída com sucesso!");
+        setAttChDb(!attChDb)
         setTimeout(() => {
           setFeedback("");
         }, 5000);

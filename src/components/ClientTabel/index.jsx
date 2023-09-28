@@ -11,31 +11,32 @@ export default function ClientTabel() {
     addClient,
     selectedClient, setSelectedClient,
     setSelected,
-    dbClient, setDbClient } =
+    dbClient, setDbClient,
+    dbAllClient, setDbAllClient, } =
     useContext(MyContext);
 
-  const [dbClients, setDbClients] = useState([]);
+  // const [dbClients, setDbClients] = useState([]);
 
-  useEffect(() => {
-    getClients();
-  }, [addClient]);
+  // useEffect(() => {
+  //   getClients();
+  // }, [addClient]);
 
-  async function getClients() {
-    const token = localStorage.getItem('token');
+  // async function getClients() {
+  //   const token = localStorage.getItem('token');
 
-    try {
-      const response = await api.get('/listClients', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+  //   try {
+  //     const response = await api.get('/listClients', {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
 
-      setDbClients(response.data.clients);
+  //     setDbClients(response.data.clients);
 
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   return (
     <table className="client-table">
@@ -53,7 +54,7 @@ export default function ClientTabel() {
         </tr>
       </thead>
       <tbody>
-        {dbClients.map((client) => {
+        {dbAllClient.map((client) => {
           return (
             <tr>
               <td

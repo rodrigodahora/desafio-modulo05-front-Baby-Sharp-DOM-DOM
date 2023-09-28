@@ -10,57 +10,10 @@ const ChargesTabs = () => {
   const navigate = useNavigate();
 
   const {
-    setPaidCharges,
-    setWonsCharges,
-    setExpectedCharges,
     setSelected,
-  } = useContext(MyContext);
-
-  const [dbWon, setDbWon] = useState([]);
-  const [dbPaid, setDbPaid] = useState([]);
-  const [dbExpected, setDbExpected] = useState([]);
-
-  useEffect(() => {
-    getCharges();
-  }, []);
-
-  async function getCharges() {
-    const token = localStorage.getItem('token');
-
-    try {
-
-      const response = await api.get('/listDebts', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const paid = response.data.debts.filter(
-        (charge) => charge.status === 'Paga',
-      );
-
-      const wons = response.data.debts.filter(
-        (charge) => charge.status === 'Vencida',
-      );
-
-      const expected = response.data.debts.filter(
-        (charge) => charge.status === 'Pendente',
-      );
-
-      setDbPaid(paid);
-      setDbWon(wons);
-      setDbExpected(expected);
-
-      const paidN = paid.map((e) => Number(e.values)).reduce((a, b) => a + b);
-      setPaidCharges(paidN);
-      const wonsN = wons.map((e) => Number(e.values)).reduce((a, b) => a + b);
-      setWonsCharges(wonsN);
-      const expectedN = expected
-        .map((e) => Number(e.values))
-        .reduce((a, b) => a + b);
-      setExpectedCharges(expectedN);
-    } catch (error) { }
-  }
+    dbWon,
+    dbPaid,
+    dbExpected, } = useContext(MyContext);
 
   return (
     <div className={styles.container}>

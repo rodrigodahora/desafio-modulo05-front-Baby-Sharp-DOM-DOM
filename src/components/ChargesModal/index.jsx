@@ -10,7 +10,7 @@ import api from "../../services/api";
 import "./style.css";
 
 const ChargesModal = () => {
-  const { setOpenModalCharges, selectedClient, dbClient, setFeedback } =
+  const { setOpenModalCharges, selectedClient, dbClient, setFeedback, attChDb, setAttChDb } =
     useContext(MyContext);
 
   const [errorName, setErrorName] = useState("");
@@ -78,6 +78,7 @@ const ChargesModal = () => {
 
       setTimeout(() => {
         setFeedback("Cobrança Cadastrada com sucesso!");
+        setAttChDb(!attChDb)
         setTimeout(() => {
           setFeedback("");
         }, 5000);

@@ -12,7 +12,9 @@ const ClientModal = () => {
     setFeedback,
     isValidEmail,
     isValidCpf,
-    isValidPhone } = useContext(MyContext);
+    isValidPhone,
+    attClDb, setAttClDb,
+  } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: "",
@@ -117,6 +119,7 @@ const ClientModal = () => {
 
       setTimeout(() => {
         setFeedback("Cadastro concluído com sucesso");
+        setAttClDb(!attClDb)
         setTimeout(() => {
           setFeedback("");
         }, 5000);
