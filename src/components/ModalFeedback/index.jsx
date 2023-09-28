@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import feedbackSuccess from "../../assets/feedback_success.svg";
+import feedbackError from "../../assets/feedback_error.svg";
 import { MyContext } from '../../contexts/MyContext';
 import feedbackSuccessClose from "../../assets/feedback_success_close.svg";
 import "./style.css";
@@ -8,15 +9,15 @@ const ModalFeedback = () => {
   const { feedback, setFeedback } = useContext(MyContext);
 
   return (
-    <div className="container-feedback">
+    <div className={feedback === "Esta cobrança não pode ser excluída!" ? "container-feedback-red" : "container-feedback-blue"}>
       <div className="feedback-box">
         <img
-          className="feedback-success-image"
-          src={feedbackSuccess}
+          className="feedback-image"
+          src={feedback === "Esta cobrança não pode ser excluída!" ? feedbackError : feedbackSuccess}
           alt="Feedback Success"
         />
 
-        <span className="feedback-message-success">
+        <span className={feedback === "Esta cobrança não pode ser excluída!" ? "feedback-message-error" : "feedback-message-success"}>
           {feedback}
         </span>
       </div>

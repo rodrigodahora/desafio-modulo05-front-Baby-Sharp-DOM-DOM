@@ -1,0 +1,94 @@
+.filter-modal-delete-charges {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+
+  width: 1332px;
+  height: 100vh;
+  left: 108px;
+
+  background-color: rgba(145, 154, 150, 0.30);
+  backdrop-filter: blur(2px);
+}
+
+.modal-delete-charges-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  width: 600px;
+  height: 400px;
+  padding: 64px 80px 95px 81px;
+
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.modal-delete-charges-container .warning-charges-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 160px;
+}
+
+.modal-delete-charges-container h4 {
+  margin: 13px 0 26px 0;
+
+  color: #CC7800;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.modal-delete-charges-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-delete-charges-buttons-no {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 24px;
+
+  border-radius: 4px;
+  border: none;
+  background-color: #F2D6D0;
+
+  color: #AE1100;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.modal-delete-charges-buttons-yes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 24px;
+
+  border-radius: 4px;
+  border: none;
+  background-color: #ACD9C5;
+
+  color: #034A2A;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -13,6 +13,7 @@ import ModalFeedback from '../../components/ModalFeedback';
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import './style.css';
+import ModalDeleteCharges from '../../components/ModalDeleteCharges';
 
 const Client = () => {
   const {
@@ -20,7 +21,8 @@ const Client = () => {
     selected,
     feedback,
     openModalCharges,
-    updateClient } =
+    updateClient,
+    openModalDeleteCharges, } =
     useContext(MyContext);
 
   return (
@@ -59,6 +61,7 @@ const Client = () => {
       {addClient && <ClientModal />}
       {updateClient && <ClientModalUpdate />}
       {feedback && <ModalFeedback />}
+      {openModalDeleteCharges && <ModalDeleteCharges />}
     </div>
   );
 };

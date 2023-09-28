@@ -7,10 +7,11 @@ import HeaderDash from '../../components/HeaderDash';
 import MenuSidebar from '../../components/MenuSidebar';
 import { MyContext } from '../../contexts/MyContext';
 import styles from './styles.module.css';
+import ModalDeleteCharges from '../../components/ModalDeleteCharges';
+import ModalFeedback from '../../components/ModalFeedback';
 
 const Charges = () => {
-
-  const { setSelected } = useContext(MyContext);
+  const { setSelected, openModalDeleteCharges, feedback } = useContext(MyContext);
 
   setSelected(3);
 
@@ -35,6 +36,8 @@ const Charges = () => {
       </div>
       <HeaderDash />
       <MenuSidebar />
+      {openModalDeleteCharges && <ModalDeleteCharges />}
+      {feedback && <ModalFeedback />}
     </div>
   );
 };

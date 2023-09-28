@@ -5,12 +5,13 @@ import edit from '../../assets/editar.svg';
 import deleteRed from '../../assets/delete_red.svg';
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
+import "../../index.css";
 
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
-  const { setSelected } = useContext(MyContext);
+  const { setSelected, setFeedback, setOpenModalDeleteChanges } = useContext(MyContext);
 
   const [dbCharges, setDbCharges] = useState([]);
 
@@ -90,7 +91,23 @@ const ChargesTable = () => {
               <td className={styles.charges_descri_btn}>
                 <div>
                   <img src={edit} alt="" />
-                  <img src={deleteRed} alt="" />
+                  <img
+                    src={deleteRed}
+                    className='pointer'
+                    alt=""
+                    onClick={() => {
+                      if (e.status === "Paga" || e.status === "Vencida") {
+                        setTimeout(() => {
+                          setFeedback("Esta cobrança não pode ser excluída!");
+                          setTimeout(() => {
+                            setFeedback("");
+                          }, 5000);
+                        }, 1000);
+                      } else {
+                        setOpenModalDeleteChanges(e.id);
+                      }
+                    }}
+                  />
                 </div>
               </td>
             </tr>

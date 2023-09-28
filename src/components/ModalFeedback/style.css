@@ -1,4 +1,4 @@
-.container-feedback {
+.container-feedback-blue {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +14,22 @@
   background-color: #C3D4FE;
 }
 
+.container-feedback-red {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+
+  top: calc(100vh - 135px);
+  right: 112px;
+  padding: 15px 16px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 42px 0 rgba(0, 0, 0, 0.20);
+
+  background-color: #F2D6D0;
+}
+
 .feedback-box {
   display: flex;
   align-items: center;
@@ -23,13 +39,21 @@
   margin-right: 31px;
 }
 
-.feedback-success-image {
+.feedback-image {
   width: 24px;
   height: 24px;
 }
 
 .feedback-message-success {
   color: #243F80;
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.feedback-message-error {
+  color: #AE1100;
   font-family: Nunito;
   font-size: 14px;
   font-style: normal;

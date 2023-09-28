@@ -17,7 +17,8 @@ const ClientDetails = () => {
     updateClient, setUpdateClient,
     dbClient, setDbClient,
     setOpenModalCharges,
-    feedback } = useContext(MyContext);
+    feedback, setFeedback,
+    setOpenModalDeleteChanges } = useContext(MyContext);
 
   const [dbDebts, setDbDebts] = useState([]);
 
@@ -173,7 +174,23 @@ const ClientDetails = () => {
                     <td className="row-icons">
                       <div>
                         <img src={edit} alt="" />
-                        <img src={deleteIcon} alt="" />
+                        <img
+                          src={deleteIcon}
+                          alt=""
+                          className='pointer'
+                          onClick={() => {
+                            if (e.status === "Paga" || e.status === "Vencida") {
+                              setTimeout(() => {
+                                setFeedback("Esta cobrança não pode ser excluída!");
+                                setTimeout(() => {
+                                  setFeedback("");
+                                }, 5000);
+                              }, 1000);
+                            } else {
+                              setOpenModalDeleteChanges(e.id);
+                            }
+                          }}
+                        />
                       </div>
                     </td>
                   </tr>
@@ -181,6 +198,7 @@ const ClientDetails = () => {
               })}
 
             </tbody>
+
           </table>
 
         </div>
@@ -188,7 +206,6 @@ const ClientDetails = () => {
       </div>
 
     </div>
-
   );
 }
 

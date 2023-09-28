@@ -3,7 +3,7 @@
   flex-direction: row;
 
   max-width: 1440px;
-  height: 900px;
+  min-height: 100vh;
 
   background-color: #F8F8F9;
 }
@@ -15,14 +15,15 @@
   position: relative;
 
   width: 500px;
-  height: 900px;
 
   background-image: url(../../assets/background_login.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgr-filter {
   width: 482px;
-  height: 882px;
+  height: calc(100vh - 18px);
 
   background-color: #034a2a1a;
 }
