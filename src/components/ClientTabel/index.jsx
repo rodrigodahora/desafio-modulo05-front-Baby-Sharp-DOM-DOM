@@ -15,35 +15,26 @@ export default function ClientTabel() {
     dbAllClient, setDbAllClient, } =
     useContext(MyContext);
 
-  // const [dbClients, setDbClients] = useState([]);
+  const [dbFilClient, setDbFilClients] = useState();
+  const [fil, setFil] = useState(false);
 
-  // useEffect(() => {
-  //   getClients();
-  // }, [addClient]);
 
-  // async function getClients() {
-  //   const token = localStorage.getItem('token');
-
-  //   try {
-  //     const response = await api.get('/listClients', {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-
-  //     setDbClients(response.data.clients);
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  useEffect(() => {
+    if (fil) {
+      let FilClients = dbAllClient.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0)
+      );
+      setDbFilClients(FilClients)
+    }
+  }, [fil]);
 
   return (
     <table className="client-table">
       <thead className="client-table-header">
         <tr>
           <th className="client-client">
-            <img src={agrupamento} alt="" />
+            <img src={agrupamento} onClick={() => {
+              setFil(!fil)
+            }} alt="" />
             Cliente
           </th>
           <th className="client-cpf">CPF</th>
@@ -54,7 +45,7 @@ export default function ClientTabel() {
         </tr>
       </thead>
       <tbody>
-        {dbAllClient.map((client) => {
+        {(dbFilClient ? dbFilClient : dbAllClient).map((client) => {
           return (
             <tr>
               <td

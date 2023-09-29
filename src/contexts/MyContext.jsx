@@ -1,10 +1,13 @@
 import { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 
 export const MyContext = createContext();
 
 export function ContextProvider(props) {
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -20,6 +23,7 @@ export function ContextProvider(props) {
   const [dbAllClient, setDbAllClient] = useState([]);
   const [defaulters, setdefaulters] = useState([])
   const [compliant, setCompliant] = useState([])
+
 
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
@@ -95,7 +99,9 @@ export function ContextProvider(props) {
         .map((e) => Number(e.values))
         .reduce((a, b) => a + b);
       setExpectedCharges(expectedN);
-    } catch (error) { }
+    } catch (error) {
+
+    }
   }
 
   async function getAllClients() {
@@ -119,7 +125,10 @@ export function ContextProvider(props) {
       setDbAllClient(response.data.clients)
 
     } catch (error) {
-      console.log(error);
+      if (error.response.data.message === "Não autorizado!") {
+        localStorage.clear();
+        navigate("/");
+      }
     }
   }
 

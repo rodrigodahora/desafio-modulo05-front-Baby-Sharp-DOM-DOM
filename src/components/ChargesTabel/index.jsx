@@ -4,7 +4,7 @@ import edit from '../../assets/editar.svg';
 import deleteRed from '../../assets/delete_red.svg';
 import '../../index.css';
 
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
@@ -18,7 +18,26 @@ const ChargesTable = () => {
     dbCharges,
   } = useContext(MyContext);
 
-  // const [dbCharges, setDbCharges] = useState([]);
+  const [dbFilCharges, setDbFilCharges,] = useState();
+  const [dbFilId, setDbFilId,] = useState();
+  const [filC, setFilC] = useState(false);
+  const [filId, setFilId] = useState(false);
+
+
+  useEffect(() => {
+    if (filC) {
+      let filCharges = dbCharges.sort((a, b) => (a.client.toLowerCase() > b.client.toLowerCase()) ? 1 : ((b.client.toLowerCase() > a.client.toLowerCase()) ? -1 : 0)
+      );
+      setDbFilId(filCharges);
+      setDbFilCharges(filCharges);
+    }
+    if (filId) {
+      let filCharges = dbCharges.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)
+      );
+      setDbFilCharges("");
+      setDbFilId(filCharges);
+    }
+  }, [filC, filId]);
 
   setSelected(3);
 
@@ -53,11 +72,17 @@ const ChargesTable = () => {
       <thead className={styles.charges_table_header}>
         <tr>
           <th className={styles.charges_client}>
-            <img src={filter} alt="" />
+            <img src={filter} alt="" onClick={() => {
+              setFilC(true);
+              setFilId(false);
+            }} />
             Cliente
           </th>
           <th className={styles.charges_id}>
-            <img src={filter} alt="" />
+            <img src={filter} alt="" onClick={() => {
+              setFilId(true);
+              setFilC(false);
+            }} />
             ID Cob.
           </th>
           <th className={styles.charges_value}>Valor</th>
@@ -68,7 +93,7 @@ const ChargesTable = () => {
         </tr>
       </thead>
       <tbody>
-        {dbCharges.map((e) => {
+        {(dbFilCharges ? dbFilCharges : (dbFilId ? dbFilId : dbCharges)).map((e) => {
           return (
             <tr>
               <td onClick={() => handleClick(e)}>{e.client}</td>
