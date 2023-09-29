@@ -16,9 +16,11 @@ const ClientDetails = () => {
     selectedClient,
     updateClient, setUpdateClient,
     dbClient, setDbClient,
-    setOpenModalCharges,
     feedback, setFeedback,
-    setOpenModalDeleteChanges } = useContext(MyContext);
+    setOpenModalCharges,
+    setOpenModalDeleteChanges,
+    setCharge,
+  } = useContext(MyContext);
 
   const [dbDebts, setDbDebts] = useState([]);
 
@@ -165,7 +167,7 @@ const ClientDetails = () => {
                 return (
                   <tr >
                     <td >{e.id}</td>
-                    <td >{date.toLocaleDateString("pt-br")}</td>
+                    <td >{e.expiration}</td>
                     <td >{`R$ ${Number(e.values).toFixed(2).replace(".", ",")}`}</td>
                     {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Vencida</div></td>}
                     {e.status === "Pendente" && <td className="row-collum-status"><div className="status-expected" >Pendente</div></td>}
@@ -173,7 +175,23 @@ const ClientDetails = () => {
                     <td className="row-collum-description">{e.description}</td>
                     <td className="row-icons">
                       <div>
-                        <img src={edit} alt="" />
+                        <img
+                          src={edit}
+                          className="pointer"
+                          alt=""
+                          onClick={() => {
+                            if (e.status === "Paga") {
+                              setTimeout(() => {
+                                setFeedback("Não é possível atualizar cobranças com status Paga!");
+                                setTimeout(() => {
+                                  setFeedback("");
+                                }, 5000);
+                              }, 1000);
+                            } else {
+                              setCharge(e);
+                            }
+                          }}
+                        />
                         <img
                           src={deleteIcon}
                           alt=""

@@ -14,6 +14,7 @@ import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import './style.css';
 import ModalDeleteCharges from '../../components/ModalDeleteCharges';
+import EditChargesModal from '../../components/EditChargesModal';
 
 const Client = () => {
   const {
@@ -22,8 +23,9 @@ const Client = () => {
     selected,
     feedback,
     openModalCharges,
+    openModalDeleteCharges,
     updateClient,
-    openModalDeleteCharges, } =
+    charge, } =
     useContext(MyContext);
 
   return (
@@ -55,6 +57,7 @@ const Client = () => {
             </div>
           </div>
           <div className="Client-body-tabel">
+            {/* variavel === Paga ? TabelaPaga : ( variavel === Pendente ? TabelaPendente : ( variavel === Vencida ? TabelaVencida : ClientTabel))  */}
             <ClientTabel />
           </div>
         </div>
@@ -64,6 +67,7 @@ const Client = () => {
       {updateClient && <ClientModalUpdate />}
       {feedback && <ModalFeedback />}
       {openModalDeleteCharges && <ModalDeleteCharges />}
+      {charge && <EditChargesModal />}
     </div>
   );
 };

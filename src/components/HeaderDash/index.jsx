@@ -32,6 +32,7 @@ const HeaderDash = () => {
               <h2
                 onClick={() => {
                   setSelected(2);
+                  // setVariavel("");
                 }}
               >
                 Clientes

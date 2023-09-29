@@ -59,6 +59,7 @@ const ChargesTabs = () => {
           <a
             onClick={() => {
               setSelected(3);
+              // setVariavel("Paga");
               navigate('/Charges');
             }}
           >

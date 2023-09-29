@@ -41,7 +41,6 @@ const ClientModalUpdate = () => {
     setData({ ...data, [key]: value });
   };
 
-
   async function handleSubmit(e) {
     e.preventDefault();
 

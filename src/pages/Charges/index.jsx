@@ -18,7 +18,7 @@ const Charges = () => {
     openModalDeleteCharges,
     feedback,
     openModalDetail,
-    openModalEdit,
+    charge,
   } = useContext(MyContext);
 
   setSelected(3);
@@ -47,7 +47,7 @@ const Charges = () => {
       {openModalDeleteCharges && <ModalDeleteCharges />}
       {feedback && <ModalFeedback />}
       {openModalDetail && <DetailChargesModal />}
-      {openModalEdit && <EditChargesModal />}
+      {charge && <EditChargesModal />}
     </div>
   );
 };

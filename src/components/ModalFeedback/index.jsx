@@ -9,15 +9,15 @@ const ModalFeedback = () => {
   const { feedback, setFeedback } = useContext(MyContext);
 
   return (
-    <div className={feedback === "Esta cobrança não pode ser excluída!" ? "container-feedback-red" : "container-feedback-blue"}>
+    <div className={feedback === "Esta cobrança não pode ser excluída!" || feedback === "Não é possível atualizar cobranças com status Paga!" ? "container-feedback-red" : "container-feedback-blue"}>
       <div className="feedback-box">
         <img
           className="feedback-image"
-          src={feedback === "Esta cobrança não pode ser excluída!" ? feedbackError : feedbackSuccess}
+          src={feedback === "Esta cobrança não pode ser excluída!" || feedback === "Não é possível atualizar cobranças com status Paga!" ? feedbackError : feedbackSuccess}
           alt="Feedback Success"
         />
 
-        <span className={feedback === "Esta cobrança não pode ser excluída!" ? "feedback-message-error" : "feedback-message-success"}>
+        <span className={feedback === "Esta cobrança não pode ser excluída!" || feedback === "Não é possível atualizar cobranças com status Paga!" ? "feedback-message-error" : "feedback-message-success"}>
           {feedback}
         </span>
       </div>

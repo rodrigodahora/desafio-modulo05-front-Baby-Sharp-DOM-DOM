@@ -33,7 +33,7 @@ export function ContextProvider(props) {
   const [attChDb, setAttChDb] = useState(false)
   const [addClient, setAddClient] = useState(false);
 
-  const [charge, setCharge] = useState([]);
+  const [charge, setCharge] = useState("");
   const [dbClient, setDbClient] = useState([]);
   const [selectedClient, setSelectedClient] = useState('');
 
