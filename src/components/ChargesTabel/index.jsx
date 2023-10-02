@@ -28,7 +28,7 @@ const ChargesTable = () => {
     if (filC) {
       let filCharges = dbCharges.sort((a, b) => (a.client.toLowerCase() > b.client.toLowerCase()) ? 1 : ((b.client.toLowerCase() > a.client.toLowerCase()) ? -1 : 0)
       );
-      setDbFilId(filCharges);
+      setDbFilId("");
       setDbFilCharges(filCharges);
     }
     if (filId) {
@@ -40,24 +40,6 @@ const ChargesTable = () => {
   }, [filC, filId]);
 
   setSelected(3);
-
-  // // useEffect(() => {
-  // //   getCharges();
-  // // }, []);
-
-  // // async function getCharges() {
-  // //   const token = localStorage.getItem('token');
-
-  // //   try {
-  // //     const response = await api.get('/listDebts', {
-  // //       headers: {
-  // //         Authorization: `Bearer ${token}`,
-  // //       },
-  // //     });
-
-  //     setDbCharges(response.data.debts);
-  //   } catch (error) {}
-  // }
 
   function handleClick(client) {
     setOpenDetailCharModal({

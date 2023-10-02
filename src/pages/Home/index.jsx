@@ -30,8 +30,8 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <HeaderDash />
-      <MenuSidebar />
+      <HeaderDash selec="1" />
+      <MenuSidebar selec="1" />
 
       <div className={styles.containerChild}>
         <ListTabs />

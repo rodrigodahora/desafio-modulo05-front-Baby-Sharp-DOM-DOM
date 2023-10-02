@@ -5,8 +5,12 @@ import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import api from '../../services/api';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function ClientTabel() {
+  const navigate = useNavigate();
+
   const { setOpenModalCharges,
     addClient,
     selectedClient, setSelectedClient,
@@ -53,6 +57,7 @@ export default function ClientTabel() {
                 onClick={() => {
                   setSelectedClient(client.id);
                   setSelected(4);
+                  navigate("/DetailClient")
                 }}
               >
                 {client.name}

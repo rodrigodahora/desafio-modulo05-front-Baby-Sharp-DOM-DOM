@@ -67,6 +67,23 @@ const ClientDetails = () => {
     }
   }
 
+  const [dbFilId, setDbFilId] = useState();
+  const [filId, setFilId] = useState(false);
+
+
+  useEffect(() => {
+    if (filId) {
+      let filCharges = dbDebts.sort((a, b) => (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0)
+      );
+      setDbFilId(filCharges);
+    }
+    if (!filId) {
+      let filCharges = dbDebts.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)
+      );
+      setDbFilId(filCharges);
+    }
+  }, [filId]);
+
   return (
     <div className="container-client-detail">
 
@@ -151,7 +168,9 @@ const ClientDetails = () => {
           <table className="client-changes-table">
             <thead className="client-changes-table-header">
               <tr >
-                <th className="collum-idcob"><img src={setaOrdem} alt="" />ID Cob.</th>
+                <th className="collum-idcob"><img src={setaOrdem} alt="" onClick={() => {
+                  setFilId(!filId);
+                }} />ID Cob.</th>
                 <th className="collum-date"><img src={setaOrdem} alt="" />Data de venc.</th>
                 <th className="collum-value">Valor</th>
                 <th className="collum-status">Status</th>
@@ -160,7 +179,7 @@ const ClientDetails = () => {
               </tr>
             </thead>
             <tbody className="table-charges-row">
-              {dbDebts.map((e) => {
+              {(filId ? dbFilId : dbDebts).map((e) => {
                 const date = new Date(e.expiration);
                 return (
                   <tr >

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SingUp from './pages/SingUp';
 import Client from './pages/Client';
+import DetailClient from './pages/DetailClient';
 import Charges from './pages/Charges';
 
 function ProtectedRoutes({ redirectTo }) {
@@ -31,6 +32,7 @@ export default function MyRoutes() {
         <Route element={<ProtectedRoutes redirectTo={'/'} />}>
           <Route path="/Home" element={<Home />} />
           <Route path="/Client" element={<Client />} />
+          <Route path="/DetailClient" element={<DetailClient />} />
           <Route path="/Charges" element={<Charges />} />
         </Route>
       </Routes>

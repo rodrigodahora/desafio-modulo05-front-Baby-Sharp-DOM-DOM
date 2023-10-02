@@ -21,12 +21,10 @@ const Charges = () => {
     openModalEdit,
   } = useContext(MyContext);
 
-  setSelected(3);
-
   return (
     <div className={styles.container}>
-      <HeaderDash />
-      <MenuSidebar />
+      <HeaderDash selec="3" />
+      <MenuSidebar selec="3" />
       <div className={styles.charges_body}>
         <div className={styles.charges_body_header}>
           <div>

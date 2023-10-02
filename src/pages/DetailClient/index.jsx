@@ -23,38 +23,18 @@ const Client = () => {
     feedback,
     openModalCharges,
     updateClient,
-    openModalDeleteCharges, } =
+    openModalDeleteCharges,
+    setSelected } =
     useContext(MyContext);
+
+  setSelected(4);
 
   return (
     <div className="Client">
-      <HeaderDash selec="2" />
-      <MenuSidebar selec="2" />
-      <div className="Client-body">
-        <div className="Client-body-header">
-          <div>
-            <img src={headerCliente} alt="" /> Clientes
-          </div>
-          <div>
-            <button
-              className="Client-add-button"
-              onClick={() => {
-                setAddClient(!addClient);
-              }}
-            >
-              + Adicionar cliente
-            </button>
-            <img src={filter} alt="" />
-            <div className="Client-box-input">
-              <input type="text" placeholder="Pesquisar" />
-              <img src={pesquisar} alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="Client-body-tabel">
-          <ClientTabel />
-        </div>
-      </div>
+      <HeaderDash selec="4" />
+      <MenuSidebar selec="4" />
+      <ClientDetails />
+
       {openModalCharges && <ChargesModal />}
       {addClient && <ClientModal />}
       {updateClient && <ClientModalUpdate />}
