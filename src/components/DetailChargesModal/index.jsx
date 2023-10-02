@@ -34,9 +34,7 @@ const DetailChargesModal = () => {
           <div className={styles.detail_from_colum_1}>
             <span>Vencimento</span>
             <p>
-              {new Intl.DateTimeFormat('pt-BR').format(
-                new Date(openDetailCharModal.expiration),
-              )}
+              {openDetailCharModal.expiration}
             </p>
           </div>
           <div className={styles.detail_from_colum_1}>
@@ -58,8 +56,8 @@ const DetailChargesModal = () => {
                 openDetailCharModal.status === 'Paga'
                   ? styles.charges_paid
                   : openDetailCharModal.status === 'Pendente'
-                  ? styles.charges_expected
-                  : styles.charges_won
+                    ? styles.charges_expected
+                    : styles.charges_won
               }
             >
               {openDetailCharModal.status}

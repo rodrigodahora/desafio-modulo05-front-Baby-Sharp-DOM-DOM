@@ -14,7 +14,7 @@ const ChargesTable = () => {
     setOpenModalDeleteChanges,
     setOpenDetailCharModal,
     setOpenModalDetail,
-    setOpenModalEdit,
+    setCharge,
     dbCharges,
   } = useContext(MyContext);
 
@@ -84,9 +84,7 @@ const ChargesTable = () => {
                 .toFixed(2)
                 .replace('.', ',')}`}</td>
               <td onClick={() => handleClick(e)}>
-                {new Intl.DateTimeFormat('pt-BR').format(
-                  new Date(e.expiration),
-                )}
+                {e.expiration}
               </td>
               {e.status === 'Vencida' && (
                 <td onClick={() => handleClick(e)}>
@@ -113,19 +111,31 @@ const ChargesTable = () => {
                 <div>
                   <img
                     src={edit}
+                    className="pointer"
                     alt=""
-                    onClick={() => setOpenModalEdit(true)}
+                    onClick={() => {
+                      if (e.status === "Paga") {
+                        setTimeout(() => {
+                          setFeedback("Não é possível atualizar cobranças com status Paga!");
+                          setTimeout(() => {
+                            setFeedback("");
+                          }, 5000);
+                        }, 1000);
+                      } else {
+                        setCharge(e);
+                      }
+                    }}
                   />
                   <img
                     src={deleteRed}
                     className="pointer"
                     alt=""
                     onClick={() => {
-                      if (e.status === 'Paga' || e.status === 'Vencida') {
+                      if (e.status === "Paga" || e.status === "Vencida") {
                         setTimeout(() => {
-                          setFeedback('Esta cobrança não pode ser excluída!');
+                          setFeedback("Esta cobrança não pode ser excluída!");
                           setTimeout(() => {
-                            setFeedback('');
+                            setFeedback("");
                           }, 5000);
                         }, 1000);
                       } else {

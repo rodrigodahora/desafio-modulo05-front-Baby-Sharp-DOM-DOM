@@ -180,7 +180,7 @@
   background-color: #F0F0F5;
 }
 
-.charges_won  span {
+.charges_won span {
   color: #3F3F55;
   font-family: Nunito, sans-serif;
   font-size: 16px;
@@ -241,6 +241,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  cursor: pointer;
 }
 
 .button_apply {
@@ -258,5 +260,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
 
+  cursor: pointer;
+}

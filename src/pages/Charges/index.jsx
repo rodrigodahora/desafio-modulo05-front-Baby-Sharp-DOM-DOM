@@ -18,7 +18,7 @@ const Charges = () => {
     openModalDeleteCharges,
     feedback,
     openModalDetail,
-    openModalEdit,
+    charge,
   } = useContext(MyContext);
 
   return (
@@ -45,7 +45,7 @@ const Charges = () => {
       {openModalDeleteCharges && <ModalDeleteCharges />}
       {feedback && <ModalFeedback />}
       {openModalDetail && <DetailChargesModal />}
-      {openModalEdit && <EditChargesModal />}
+      {charge && <EditChargesModal />}
     </div>
   );
 };
