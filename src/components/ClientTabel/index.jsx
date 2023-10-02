@@ -55,6 +55,7 @@ export default function ClientTabel() {
               <td
                 className="pointer"
                 onClick={() => {
+                  localStorage.setItem("id", client.id);
                   setSelectedClient(client.id);
                   setSelected(4);
                   navigate("/DetailClient")

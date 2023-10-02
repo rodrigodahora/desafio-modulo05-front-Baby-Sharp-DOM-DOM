@@ -33,7 +33,7 @@ const ClientDetails = () => {
 
     try {
       const response = await api.get(
-        `/detailClient/${selectedClient}`,
+        `/detailClient/${localStorage.getItem('id')}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const ClientDetails = () => {
 
     try {
       const response = await api.get(
-        `/debtsClient/${selectedClient}`,
+        `/debtsClient/${localStorage.getItem('id')}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
