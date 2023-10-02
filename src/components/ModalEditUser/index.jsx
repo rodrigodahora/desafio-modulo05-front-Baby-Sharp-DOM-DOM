@@ -12,7 +12,13 @@ const ModalEditUser = ({ setName }) => {
   const [viewPass, setViewPass] = useState(false);
   const [viewConfirPass, setConfirPass] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const { setOpenModalUser, isValidEmail, isValidCpf, isValidPhone } =
+  const { setOpenModalUser,
+    isValidEmail,
+    isValidCpf,
+    isValidPhone,
+    maskCPF,
+    maskPhone,
+    maskZipCode, } =
     useContext(MyContext);
 
   const [errorName, setErrorName] = useState('');
@@ -22,14 +28,18 @@ const ModalEditUser = ({ setName }) => {
   const [errorCpf, setErrorCpf] = useState('');
   const [errorPhone, setErrorPhone] = useState('');
 
+  const [cpf, setCpf] = useState("");
+  const [phone, setPhone] = useState("");
+
   const [data, setData] = useState({
     name: localStorage.getItem('name'),
     email: localStorage.getItem('email'),
-    cpf: '',
-    phone: '',
+    cpf: cpf,
+    phone: phone,
     password: '',
     confPassword: '',
   });
+
 
   function handleChange(e) {
     const key = e.target.name;
@@ -53,14 +63,14 @@ const ModalEditUser = ({ setName }) => {
         } else { setErrorEmail(''); }
       }
 
-      if (data.cpf) {
-        if (!isValidCpf(data.cpf)) {
+      if (cpf) {
+        if (!isValidCpf(cpf)) {
           return setErrorCpf('CPF inválido!');
         } else { setErrorCpf(''); }
       }
 
-      if (data.phone) {
-        if (!isValidPhone(data.phone)) {
+      if (phone) {
+        if (!isValidPhone(phone)) {
           return setErrorPhone('Telefone inválido!');
         } else { setErrorPhone(''); }
       }
@@ -78,8 +88,8 @@ const ModalEditUser = ({ setName }) => {
         {
           name: data.name,
           email: data.email,
-          cpf: data.cpf,
-          phone: data.phone,
+          cpf: cpf,
+          phone: phone,
           password: data.password,
           confPassword: data.confPassword,
         },
@@ -169,8 +179,9 @@ const ModalEditUser = ({ setName }) => {
               name="cpf"
               id="cpf"
               type="text"
+              value={cpf}
               placeholder="Digite seu CPF"
-              onChange={handleChange}
+              onChange={((e) => { setCpf(maskCPF(e.target.value)) })}
             />
             <span className={styles.validation}>{errorCpf}</span>
           </div>
@@ -182,8 +193,9 @@ const ModalEditUser = ({ setName }) => {
               name="phone"
               id="phone"
               type="text"
+              value={phone}
               placeholder="Digite seu telefone"
-              onChange={handleChange}
+              onChange={((e) => { setPhone(maskPhone(e.target.value)) })}
             />
             <span className={styles.validation}>{errorPhone}</span>
           </div>

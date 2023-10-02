@@ -12,6 +12,9 @@ const ClientModalUpdate = () => {
     isValidEmail,
     isValidCpf,
     isValidPhone,
+    maskCPF,
+    maskPhone,
+    maskZipCode,
     updateClient, setUpdateClient,
     selectedClient,
     dbClient, setDbClient } = useContext(MyContext);
@@ -29,11 +32,18 @@ const ClientModalUpdate = () => {
     state: dbClient.state
   });
 
+  const [cpf, setCpf] = useState(dbClient.cpf);
+  const [phone, setPhone] = useState(dbClient.phone);
+  const [zipCode, setZipCode] = useState(dbClient.zip_code);
+
+
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorCpf, setErrorCpf] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
   const [errorState, setErrorState] = useState("");
+
+
 
   function handleChange(e) {
     const key = e.target.name;
@@ -59,19 +69,19 @@ const ClientModalUpdate = () => {
         return setErrorEmail("Email inválido!");
       } else { setErrorEmail(""); }
 
-      if (!data.cpf) {
+      if (!cpf) {
         return setErrorCpf("Informe seu CPF!");
       } else { setErrorCpf(""); }
 
-      if (!isValidCpf(data.cpf)) {
+      if (!isValidCpf(cpf)) {
         return setErrorCpf("CPF inválido!");
       } else { setErrorCpf("") }
 
-      if (!data.phone) {
+      if (!phone) {
         return setErrorPhone("Informe seu Telefone!");
       } else { setErrorPhone(""); }
 
-      if (!isValidPhone(data.phone)) {
+      if (!isValidPhone(phone)) {
         return setErrorPhone("Telefone inválido!");
       } else { setErrorPhone("") }
 
@@ -79,15 +89,15 @@ const ClientModalUpdate = () => {
         return setErrorState("UF inválido!");
       } else { setErrorState("") }
 
-      const response = await api.put(`/editClients/${selectedClient}`,
+      const response = await api.put(`/editClients/${localStorage.getItem('id')}`,
         {
           name: data.name,
           email: data.email,
-          cpf: data.cpf,
-          phone: data.phone,
+          cpf: cpf,
+          phone: phone,
           address: data.address,
           complement: data.complement,
-          zip_code: data.zip_code,
+          zip_code: zipCode,
           district: data.district,
           city: data.city,
           state: data.state
@@ -102,11 +112,11 @@ const ClientModalUpdate = () => {
         ...dbClient,
         name: data.name,
         email: data.email,
-        cpf: data.cpf,
-        phone: data.phone,
+        cpf: cpf,
+        phone: phone,
         address: data.address,
         complement: data.complement,
-        zip_code: data.zip_code,
+        zip_code: zipCode,
         district: data.district,
         city: data.city,
         state: data.state
@@ -199,10 +209,9 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="cpf"
                 id="cpf"
-                value={data.cpf}
+                value={cpf}
                 placeholder="Digite seu CPF"
-                onChange={handleChange}
-              />
+                onChange={((e) => { setCpf(maskCPF(e.target.value)) })} />
               <span className="modal-error-msg">{errorCpf}</span>
             </div>
 
@@ -212,9 +221,9 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="phone"
                 id="phone"
-                value={data.phone}
+                value={phone}
                 placeholder="Digite seu telefone"
-                onChange={handleChange}
+                onChange={((e) => { setPhone(maskPhone(e.target.value)) })}
               />
               <span className="modal-error-msg">{errorPhone}</span>
             </div>
@@ -251,9 +260,9 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="zip_code"
                 id="zip_code"
-                value={data.zip_code}
+                value={zipCode}
                 placeholder="Digite seu CEP"
-                onChange={handleChange}
+                onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
               />
             </div>
 
