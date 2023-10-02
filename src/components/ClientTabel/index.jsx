@@ -7,7 +7,6 @@ import api from '../../services/api';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function ClientTabel() {
   const navigate = useNavigate();
 
@@ -48,7 +47,7 @@ export default function ClientTabel() {
           <th className="client-new-charge">Criar Cobrança</th>
         </tr>
       </thead>
-      <tbody>
+      {/* <tbody>
         {(dbFilClient ? dbFilClient : dbAllClient).map((client) => {
           return (
             <tr>
@@ -91,7 +90,7 @@ export default function ClientTabel() {
             </tr>
           );
         })}
-      </tbody>
+      </tbody> */}
     </table>
   );
 }

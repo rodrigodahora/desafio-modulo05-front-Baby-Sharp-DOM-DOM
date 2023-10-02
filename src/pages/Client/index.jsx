@@ -15,6 +15,7 @@ import '../../index.css';
 import './style.css';
 import ModalDeleteCharges from '../../components/ModalDeleteCharges';
 import EditChargesModal from '../../components/EditChargesModal';
+import ErrorSearch from "../../components/ErrorSearch";
 
 const Client = () => {
   const {
@@ -54,7 +55,8 @@ const Client = () => {
           </div>
         </div>
         <div className="Client-body-tabel">
-          <ClientTabel />
+          {/* <ClientTabel /> */}
+          <ErrorSearch page="Client" />
         </div>
       </div>
       {openModalCharges && <ChargesModal />}

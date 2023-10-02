@@ -1,0 +1,68 @@
+.error_search_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.error_search_box img {
+  height: 430px;
+}
+
+.error_search_text_result {
+  color: #F08889;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.error_search_text_correct {
+  margin-top: 16px;
+  margin-bottom: 29px;
+
+  color: #9B9BB2;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.header-table-client {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+
+  width: 100%;
+
+  border-bottom: 1px solid #EFF0F6;
+}
+
+.client-client,
+.client-cpf,
+.client-email,
+.client-phone,
+.client-status,
+.client-new-charge {
+  display: flex;
+  align-items: center;
+
+  color: #3F3F55;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 0.08px;
+}
+
+.client-client img {
+  height: 24px;
+  margin-top: 0;
+}

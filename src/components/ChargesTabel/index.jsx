@@ -3,6 +3,7 @@ import filter from '../../assets/Frame.svg';
 import edit from '../../assets/editar.svg';
 import deleteRed from '../../assets/delete_red.svg';
 import '../../index.css';
+import ErrorSearch from "../../components/ErrorSearch";
 
 import { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
@@ -51,7 +52,8 @@ const ChargesTable = () => {
 
   return (
     <table className={styles.container}>
-      <thead className={styles.charges_table_header}>
+      <ErrorSearch />
+      {/* <thead className={styles.charges_table_header}>
         <tr>
           <th className={styles.charges_client}>
             <img src={filter} alt="" onClick={() => {
@@ -148,7 +150,7 @@ const ChargesTable = () => {
             </tr>
           );
         })}
-      </tbody>
+      </tbody> */}
     </table>
   );
 };
