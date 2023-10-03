@@ -13,8 +13,16 @@ const ClientModal = () => {
     isValidEmail,
     isValidCpf,
     isValidPhone,
+    maskCPF,
+    maskPhone,
+    maskZipCode,
     attClDb, setAttClDb,
   } = useContext(MyContext);
+
+  const [cpf, setCpf] = useState("");
+  const [phone, setPhone] = useState("");
+  const [zipCode, setZipCode] = useState("");
+
 
   const [data, setData] = useState({
     name: "",
@@ -55,6 +63,9 @@ const ClientModal = () => {
       city: "",
       state: ""
     });
+    setCpf("");
+    setPhone("");
+    setZipCode("");
     setAddClient(!addClient);
   }
 
@@ -76,19 +87,19 @@ const ClientModal = () => {
         return setErrorEmail("Email inválido!");
       } else { setErrorEmail(""); }
 
-      if (!data.cpf) {
+      if (!cpf) {
         return setErrorCpf("Informe seu CPF!");
       } else { setErrorCpf(""); }
 
-      if (!isValidCpf(data.cpf)) {
+      if (!isValidCpf(cpf)) {
         return setErrorCpf("CPF inválido!");
       } else { setErrorCpf("") }
 
-      if (!data.phone) {
+      if (!phone) {
         return setErrorPhone("Informe seu Telefone!");
       } else { setErrorPhone(""); }
 
-      if (!isValidPhone(data.phone)) {
+      if (!isValidPhone(phone)) {
         return setErrorPhone("Telefone inválido!");
       } else { setErrorPhone("") }
 
@@ -100,11 +111,11 @@ const ClientModal = () => {
         {
           name: data.name,
           email: data.email,
-          cpf: data.cpf,
-          phone: data.phone,
+          cpf: cpf,
+          phone: phone,
           address: data.address,
           complement: data.complement,
-          zip_code: data.zip_code,
+          zip_code: zipCode,
           district: data.district,
           city: data.city,
           state: data.state
@@ -187,8 +198,9 @@ const ClientModal = () => {
               <input
                 type="text"
                 name="cpf"
+                value={cpf}
                 placeholder="Digite o CPF"
-                onChange={handleChange}
+                onChange={((e) => { setCpf(maskCPF(e.target.value)) })}
               />
               <span className="modal-error-msg">{errorCpf}</span>
             </div>
@@ -198,8 +210,9 @@ const ClientModal = () => {
               <input
                 type="text"
                 name="phone"
+                value={phone}
                 placeholder="Digite o telefone"
-                onChange={handleChange}
+                onChange={((e) => { setPhone(maskPhone(e.target.value)) })}
               />
               <span className="modal-error-msg">{errorPhone}</span>
             </div>
@@ -231,8 +244,9 @@ const ClientModal = () => {
               <input
                 type="text"
                 name="zip_code"
+                value={zipCode}
                 placeholder="Digite o CEP"
-                onChange={handleChange}
+                onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
               />
             </div>
 

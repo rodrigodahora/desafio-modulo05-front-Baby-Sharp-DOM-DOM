@@ -20,7 +20,7 @@ const ChargesTabs = () => {
       <div className={styles.container_paid}>
         <header className={styles.header}>
           <h3>Cobranças Pagas</h3>
-          <div className={styles.paid_charges}>10</div>
+          <div className={styles.paid_charges}>{dbPaid.length}</div>
         </header>
 
         <table className={styles.table}>

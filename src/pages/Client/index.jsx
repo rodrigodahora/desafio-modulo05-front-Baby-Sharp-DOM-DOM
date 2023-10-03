@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import filter from '../../assets/filter.svg';
 import headerCliente from '../../assets/headerCliente.svg';
 import pesquisar from '../../assets/pesquisar.svg';
@@ -16,6 +16,8 @@ import './style.css';
 import ModalDeleteCharges from '../../components/ModalDeleteCharges';
 import EditChargesModal from '../../components/EditChargesModal';
 import ErrorSearch from "../../components/ErrorSearch";
+import api from '../../services/api';
+
 
 const Client = () => {
   const {
@@ -28,6 +30,33 @@ const Client = () => {
     updateClient,
     charge, } =
     useContext(MyContext);
+
+  const [search, setSearch] = useState("");
+  const [dbSearch, setDbSearsh] = useState("")
+
+  async function searchSubmit() {
+    console.log(search);
+    if (!search) { return setDbSearsh("") }
+    try {
+      const response = await api.post(
+        "/searchClient",
+        { data: search },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+
+      );
+
+      setDbSearsh(response.data.search)
+
+      console.log(response.data.search);
+    } catch (error) {
+
+    }
+
+  }
 
   return (
     <div className="Client">
@@ -49,7 +78,12 @@ const Client = () => {
             </button>
             <img src={filter} alt="" />
             <div className="Client-box-input">
-              <input type="text" placeholder="Pesquisar" />
+              <input
+                type="text"
+                placeholder="Pesquisar"
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyUp={searchSubmit}
+              />
               <img src={pesquisar} alt="" />
             </div>
           </div>

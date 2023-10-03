@@ -23,9 +23,20 @@ const Home = () => {
     wonsCharges, setWonsCharges,
     expectedCharges, setExpectedCharges,
     feedback, setFeedback,
+    getCharges,
+    getAllClients
   } = useContext(MyContext);
 
   setSelected(1);
+
+  useEffect(() => {
+    getCharges();
+  }, []);
+
+  useEffect(() => {
+    getAllClients();
+  }, []);
+
 
 
   return (

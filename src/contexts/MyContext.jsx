@@ -55,7 +55,7 @@ export function ContextProvider(props) {
   }
 
   function isValidCpf(cpf) {
-    const cpfRegex = /^(?:(?:\d{3}.){2}\d{3}-\d{2}|(\d{11}))$/;
+    const cpfRegex = /^(?:(?:\d{3}.){2}\d{3}-\d{2}|(\d{14}))$/;
     return cpfRegex.test(cpf);
   }
 
@@ -63,6 +63,29 @@ export function ContextProvider(props) {
     const phoneRegex = /^[(]?(?:\d{2}[)]?[-. ]?)?\d{5}[-. ]?\d{4}$/;
     return phoneRegex.test(phone);
   }
+
+  const maskCPF = (value) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+      .replace(/(-\d{2})\d+?$/, "$1");
+  };
+  const maskPhone = (value) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{5})(\d)/, "$1-$2")
+      .replace(/(-\d{4})(\d+?)$/, "$1");
+  };
+  const maskZipCode = (value) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/^(\d{5})(\d)/, "$1-$2")
+      .replace(/(-\d{3})(\d+?)$/, "$1");
+  };
+
 
   async function getCharges() {
     const token = localStorage.getItem('token');
@@ -134,11 +157,11 @@ export function ContextProvider(props) {
 
   useEffect(() => {
     getCharges();
-  }, [attChDb]);
+  }, [selected, attChDb]);
 
   useEffect(() => {
     getAllClients();
-  }, [attClDb]);
+  }, [selected, attClDb]);
 
 
 
@@ -176,6 +199,11 @@ export function ContextProvider(props) {
         isValidEmail,
         isValidCpf,
         isValidPhone,
+        maskCPF,
+        maskPhone,
+        maskZipCode,
+        getCharges,
+        getAllClients
       }}
     >
       {props.children}

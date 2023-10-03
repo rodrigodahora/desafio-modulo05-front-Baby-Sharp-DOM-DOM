@@ -41,6 +41,8 @@ function Login() {
 
       navigate("/Home");
 
+      setData({ ...data, password: "" })
+
     } catch (error) {
       if (error.response.data.message === "Email ou senha inválido!") {
         setMainError(error.response.data.message);
