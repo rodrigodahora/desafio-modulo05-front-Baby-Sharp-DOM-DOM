@@ -157,11 +157,11 @@ export function ContextProvider(props) {
 
   useEffect(() => {
     getCharges();
-  }, [attChDb]);
+  }, [selected, attChDb]);
 
   useEffect(() => {
     getAllClients();
-  }, [attClDb]);
+  }, [selected, attClDb]);
 
 
 
@@ -201,7 +201,9 @@ export function ContextProvider(props) {
         isValidPhone,
         maskCPF,
         maskPhone,
-        maskZipCode
+        maskZipCode,
+        getCharges,
+        getAllClients
       }}
     >
       {props.children}
