@@ -37,7 +37,7 @@ const Client = () => {
     console.log(search);
     if (!search) { return setDbSearsh("") }
     try {
-      const response = await api.post(
+      const response = await api.get(
         "/searchClient",
         { data: search },
         {
