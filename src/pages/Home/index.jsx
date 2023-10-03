@@ -24,10 +24,10 @@ const Home = () => {
     expectedCharges, setExpectedCharges,
     feedback, setFeedback,
     getCharges,
-    getAllClients
+    getAllClients, start, setStart
   } = useContext(MyContext);
 
-  setSelected(1);
+  setStart(1);
 
   useEffect(() => {
     getCharges();

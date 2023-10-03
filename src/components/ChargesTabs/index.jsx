@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const ChargesTabs = () => {
   const navigate = useNavigate();
 
-  const { setSelected, dbWon, dbPaid, dbExpected, filterCharges } =
+  const { dbWon, dbPaid, dbExpected, filterCharges } =
     useContext(MyContext);
 
   const transformValue = (data) => `${data}`.padStart(2, '0');
@@ -84,9 +84,7 @@ const ChargesTabs = () => {
           <button
             type="button"
             onClick={() => {
-              setSelected(3);
               filterCharges('Paga');
-              // setVariavel("Paga");
               navigate('/Charges');
             }}
           >
@@ -155,7 +153,6 @@ const ChargesTabs = () => {
           <button
             type="button"
             onClick={() => {
-              setSelected(3);
               filterCharges('Vencida');
               navigate('/Charges');
             }}
@@ -233,7 +230,6 @@ const ChargesTabs = () => {
           <button
             type="button"
             onClick={() => {
-              setSelected(3);
               filterCharges('Pendente');
               navigate('/Charges');
             }}

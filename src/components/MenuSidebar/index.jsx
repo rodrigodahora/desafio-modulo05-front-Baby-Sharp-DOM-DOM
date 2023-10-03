@@ -17,7 +17,7 @@ const MenuSidebar = (selec) => {
   const { setSelectedClient, setAttChDb, attChDb, attClDb, setAttClDb } =
     useContext(MyContext);
 
-  const [selected, setselected] = useState(selec.selec);
+  let selected = selec.selec;
 
   return (
     <ul className={styles.container}>

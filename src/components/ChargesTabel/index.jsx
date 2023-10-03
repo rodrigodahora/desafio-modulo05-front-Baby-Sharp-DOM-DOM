@@ -10,7 +10,6 @@ import { MyContext } from '../../contexts/MyContext';
 
 const ChargesTable = () => {
   const {
-    setSelected,
     setFeedback,
     setOpenModalDeleteChanges,
     setOpenDetailCharModal,
@@ -46,7 +45,6 @@ const ChargesTable = () => {
     }
   }, [filC, filId]);
 
-  setSelected(3);
 
   function handleClick(client) {
     setOpenDetailCharModal({

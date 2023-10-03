@@ -13,7 +13,6 @@ export default function ClientTabel() {
   const { setOpenModalCharges,
     addClient,
     selectedClient, setSelectedClient,
-    setSelected,
     dbClient, setDbClient,
     dbAllClient, setDbAllClient, } =
     useContext(MyContext);
@@ -56,7 +55,6 @@ export default function ClientTabel() {
                 onClick={() => {
                   localStorage.setItem("id", client.id);
                   setSelectedClient(client.id);
-                  setSelected(4);
                   navigate("/DetailClient")
                 }}
               >

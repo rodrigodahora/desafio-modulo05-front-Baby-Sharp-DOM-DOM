@@ -23,7 +23,6 @@ const Client = () => {
   const {
     addClient,
     setAddClient,
-    selected,
     feedback,
     openModalCharges,
     openModalDeleteCharges,

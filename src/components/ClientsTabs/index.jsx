@@ -14,7 +14,6 @@ const ClientsTabs = () => {
   const transformValue = (data) => `${data}`.padStart(2, '0');
 
   const {
-    setSelected,
     dbAllClient,
     setDbAllClient,
     defaulters,
@@ -73,7 +72,6 @@ const ClientsTabs = () => {
           <footer className={styles.footer}>
             <button
               onClick={() => {
-                setSelected(2);
                 filterClients(true);
                 navigate('/Client');
               }}
@@ -131,7 +129,6 @@ const ClientsTabs = () => {
           <footer className={styles.footer}>
             <button
               onClick={() => {
-                setSelected(2);
                 filterClients(false);
                 navigate('/Client');
               }}

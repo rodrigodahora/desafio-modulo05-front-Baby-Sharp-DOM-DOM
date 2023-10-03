@@ -35,7 +35,7 @@ export function ContextProvider(props) {
   const [dbClient, setDbClient] = useState([]);
   const [selectedClient, setSelectedClient] = useState('');
 
-  const [selected, setSelected] = useState(1);
+  const [start, setStart] = useState();
 
   const [feedback, setFeedback] = useState('');
   const [updateClient, setUpdateClient] = useState(false);
@@ -164,11 +164,11 @@ export function ContextProvider(props) {
 
   useEffect(() => {
     getCharges();
-  }, [selected, attChDb]);
+  }, [start, attChDb]);
 
   useEffect(() => {
     getAllClients();
-  }, [selected, attClDb]);
+  }, [start, attClDb]);
 
   return (
     <MyContext.Provider
@@ -207,8 +207,7 @@ export function ContextProvider(props) {
         setDbClient,
         selectedClient,
         setSelectedClient,
-        selected,
-        setSelected,
+        start, setStart,
         feedback,
         setFeedback,
         updateClient,
