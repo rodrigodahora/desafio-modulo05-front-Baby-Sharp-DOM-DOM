@@ -1,34 +1,41 @@
 import { useContext, useEffect, useState } from 'react';
-import setaOrdem from "../../assets/Frame.svg";
-import plus from "../../assets/add.svg";
-import clientIcon from "../../assets/cliente_menu.svg";
-import edit from "../../assets/editar.svg";
-import deleteIcon from "../../assets/icon_delete.svg";
-import editIcon from "../../assets/icone_edit.svg";
+import setaOrdem from '../../assets/Frame.svg';
+import plus from '../../assets/add.svg';
+import clientIcon from '../../assets/cliente_menu.svg';
+import edit from '../../assets/editar.svg';
+import deleteIcon from '../../assets/icon_delete.svg';
+import editIcon from '../../assets/icone_edit.svg';
 import { MyContext } from '../../contexts/MyContext';
-import "../../index.css";
+import '../../index.css';
 import api from '../../services/api';
-import "./style.css";
-
+import './style.css';
 
 const ClientDetails = () => {
   const {
     selectedClient,
-    updateClient, setUpdateClient,
-    dbClient, setDbClient,
-    feedback, setFeedback,
+    updateClient,
+    setUpdateClient,
+    dbClient,
+    setDbClient,
+    feedback,
+    setFeedback,
     setOpenModalCharges,
     setOpenModalDeleteChanges,
+    setOpenDetailCharModal,
+    setOpenModalDetail,
     setCharge,
   } = useContext(MyContext);
 
   const [dbDebts, setDbDebts] = useState([]);
 
-  useEffect(() => { getClient() }, [])
-  useEffect(() => { getCharges() }, [feedback])
+  useEffect(() => {
+    getClient();
+  }, []);
+  useEffect(() => {
+    getCharges();
+  }, [feedback]);
 
   async function getClient() {
-
     const token = localStorage.getItem('token');
 
     try {
@@ -41,15 +48,13 @@ const ClientDetails = () => {
         },
       );
 
-      setDbClient(response.data.client[0])
-
+      setDbClient(response.data.client[0]);
     } catch (error) {
       console.log(error);
     }
   }
 
   async function getCharges() {
-
     const token = localStorage.getItem('token');
 
     try {
@@ -62,8 +67,7 @@ const ClientDetails = () => {
         },
       );
 
-      setDbDebts(response.data.debts)
-
+      setDbDebts(response.data.debts);
     } catch (error) {
       console.log(error);
     }
@@ -72,40 +76,47 @@ const ClientDetails = () => {
   const [dbFilId, setDbFilId] = useState();
   const [filId, setFilId] = useState(false);
 
-
   useEffect(() => {
     if (filId) {
-      let filCharges = dbDebts.sort((a, b) => (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0)
+      let filCharges = dbDebts.sort((a, b) =>
+        a.id < b.id ? 1 : b.id < a.id ? -1 : 0,
       );
       setDbFilId(filCharges);
     }
     if (!filId) {
-      let filCharges = dbDebts.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)
+      let filCharges = dbDebts.sort((a, b) =>
+        a.id > b.id ? 1 : b.id > a.id ? -1 : 0,
       );
       setDbFilId(filCharges);
     }
   }, [filId]);
 
+  function handleClick(client) {
+    setOpenDetailCharModal({
+      ...client,
+    });
+
+    setOpenModalDetail(true);
+  }
+
   return (
     <div className="container-client-detail">
-
       <div className="title-client-detail">
         <img src={clientIcon} alt="Client Icon" />
-        <h1>
-          {dbClient.name}
-        </h1>
+        <h1>{dbClient.name}</h1>
       </div>
 
       <div className="client-detail-body">
-
         <div className="container-data-client">
           <div className="title-data-client-box">
             <h2>Dados do cliente</h2>
-            <button className="pointer" onClick={() => { setUpdateClient(!updateClient) }}>
-              <img
-                src={editIcon}
-                alt=""
-              />
+            <button
+              className="pointer"
+              onClick={() => {
+                setUpdateClient(!updateClient);
+              }}
+            >
+              <img src={editIcon} alt="" />
               Editar Cliente
             </button>
           </div>
@@ -153,15 +164,17 @@ const ClientDetails = () => {
               </div>
             </div>
           </div>
-
         </div>
 
-
         <div className="container-changes-client">
-
           <div className="title-data-change-box">
             <h2>Cobrança do Cliente</h2>
-            <button onClick={() => { setOpenModalCharges(selectedClient) }} className="change-box-btn">
+            <button
+              onClick={() => {
+                setOpenModalCharges(selectedClient);
+              }}
+              className="change-box-btn"
+            >
               <img src={plus} alt="" />
               Nova cobrança
             </button>
@@ -169,28 +182,52 @@ const ClientDetails = () => {
 
           <table className="client-changes-table">
             <thead className="client-changes-table-header">
-              <tr >
-                <th className="collum-idcob"><img src={setaOrdem} alt="" onClick={() => {
-                  setFilId(!filId);
-                }} />ID Cob.</th>
-                <th className="collum-date"><img src={setaOrdem} alt="" />Data de venc.</th>
+              <tr>
+                <th className="collum-idcob">
+                  <img
+                    src={setaOrdem}
+                    alt=""
+                    onClick={() => {
+                      setFilId(!filId);
+                    }}
+                  />
+                  ID Cob.
+                </th>
+                <th className="collum-date">
+                  <img src={setaOrdem} alt="" />
+                  Data de venc.
+                </th>
                 <th className="collum-value">Valor</th>
                 <th className="collum-status">Status</th>
                 <th className="collum-description">Descrição</th>
-                <th className="collum-void">{" "}</th>
+                <th className="collum-void"> </th>
               </tr>
             </thead>
             <tbody className="table-charges-row">
               {(filId ? dbFilId : dbDebts).map((e) => {
                 const date = new Date(e.expiration);
                 return (
-                  <tr >
-                    <td >{e.id}</td>
-                    <td >{e.expiration}</td>
-                    <td >{`R$ ${Number(e.values).toFixed(2).replace(".", ",")}`}</td>
-                    {e.status === "Vencida" && <td className="row-collum-status"><div className="status-won" >Vencida</div></td>}
-                    {e.status === "Pendente" && <td className="row-collum-status"><div className="status-expected" >Pendente</div></td>}
-                    {e.status === "Paga" && <td className="row-collum-status"><div className="status-paid" >Paga</div></td>}
+                  <tr className="pointer">
+                    <td onClick={() => handleClick(e)}>{e.id}</td>
+                    <td onClick={() => handleClick(e)}>{e.expiration}</td>
+                    <td onClick={() => handleClick(e)}>{`R$ ${Number(e.values)
+                      .toFixed(2)
+                      .replace('.', ',')}`}</td>
+                    {e.status === 'Vencida' && (
+                      <td className="row-collum-status">
+                        <div className="status-won">Vencida</div>
+                      </td>
+                    )}
+                    {e.status === 'Pendente' && (
+                      <td className="row-collum-status">
+                        <div className="status-expected">Pendente</div>
+                      </td>
+                    )}
+                    {e.status === 'Paga' && (
+                      <td className="row-collum-status">
+                        <div className="status-paid">Paga</div>
+                      </td>
+                    )}
                     <td className="row-collum-description">{e.description}</td>
                     <td className="row-icons">
                       <div>
@@ -199,11 +236,13 @@ const ClientDetails = () => {
                           className="pointer"
                           alt=""
                           onClick={() => {
-                            if (e.status === "Paga") {
+                            if (e.status === 'Paga') {
                               setTimeout(() => {
-                                setFeedback("Não é possível atualizar cobranças com status Paga!");
+                                setFeedback(
+                                  'Não é possível atualizar cobranças com status Paga!',
+                                );
                                 setTimeout(() => {
-                                  setFeedback("");
+                                  setFeedback('');
                                 }, 5000);
                               }, 1000);
                             } else {
@@ -214,13 +253,15 @@ const ClientDetails = () => {
                         <img
                           src={deleteIcon}
                           alt=""
-                          className='pointer'
+                          className="pointer"
                           onClick={() => {
-                            if (e.status === "Paga" || e.status === "Vencida") {
+                            if (e.status === 'Paga' || e.status === 'Vencida') {
                               setTimeout(() => {
-                                setFeedback("Esta cobrança não pode ser excluída!");
+                                setFeedback(
+                                  'Esta cobrança não pode ser excluída!',
+                                );
                                 setTimeout(() => {
-                                  setFeedback("");
+                                  setFeedback('');
                                 }, 5000);
                               }, 1000);
                             } else {
@@ -231,19 +272,14 @@ const ClientDetails = () => {
                       </div>
                     </td>
                   </tr>
-                )
+                );
               })}
-
             </tbody>
-
           </table>
-
         </div>
-
       </div>
-
     </div>
   );
-}
+};
 
 export default ClientDetails;
