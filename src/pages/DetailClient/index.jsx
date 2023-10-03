@@ -14,6 +14,7 @@ import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import './style.css';
 import ModalDeleteCharges from '../../components/ModalDeleteCharges';
+import EditChargesModal from '../../components/EditChargesModal';
 
 const Client = () => {
   const {
@@ -24,7 +25,9 @@ const Client = () => {
     openModalCharges,
     updateClient,
     openModalDeleteCharges,
-    setSelected } =
+    setSelected,
+    charge,
+  } =
     useContext(MyContext);
 
   setSelected(4);
@@ -40,6 +43,7 @@ const Client = () => {
       {updateClient && <ClientModalUpdate />}
       {feedback && <ModalFeedback />}
       {openModalDeleteCharges && <ModalDeleteCharges />}
+      {charge && <EditChargesModal />}
     </div>
   );
 };

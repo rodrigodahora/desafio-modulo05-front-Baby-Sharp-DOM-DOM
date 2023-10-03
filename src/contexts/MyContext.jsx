@@ -155,7 +155,7 @@ export function ContextProvider(props) {
       setCompliant(compliant);
       setDbAllClient(response.data.clients);
     } catch (error) {
-      if (error.response.data.message === 'Não autorizado!') {
+      if (error.response.data.message && error.response.data.message === 'Não autorizado!') {
         localStorage.clear();
         navigate('/');
       }

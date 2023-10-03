@@ -30,8 +30,8 @@ const ChargesTable = () => {
         a.client.toLowerCase() > b.client.toLowerCase()
           ? 1
           : b.client.toLowerCase() > a.client.toLowerCase()
-          ? -1
-          : 0,
+            ? -1
+            : 0,
       );
       setDbFilId('');
       setDbFilCharges(filCharges);
@@ -58,8 +58,8 @@ const ChargesTable = () => {
 
   return (
     <table className={styles.container}>
-      <ErrorSearch />
-      {/* <thead className={styles.charges_table_header}>
+      {/* <ErrorSearch /> */}
+      <thead className={styles.charges_table_header}>
         <tr>
           <th className={styles.charges_client}>
             <img
@@ -94,7 +94,7 @@ const ChargesTable = () => {
         {(dbFilCharges ? dbFilCharges : dbFilId ? dbFilId : dbCharges).map(
           (e) => {
             return (
-              <tr>
+              <tr className={styles.pointer}>
                 <td onClick={() => handleClick(e)}>{e.client}</td>
                 <td onClick={() => handleClick(e)}>{e.id}</td>
                 <td onClick={() => handleClick(e)}>{`R$ ${Number(e.values)
@@ -150,22 +150,6 @@ const ChargesTable = () => {
                       onClick={() => {
                         if (e.status === 'Paga' || e.status === 'Vencida') {
                           setTimeout(() => {
-<<<<<<< HEAD
-                            setFeedback("");
-                          }, 5000);
-                        }, 1000);
-                      } else {
-                        setOpenModalDeleteChanges(e.id);
-                      }
-                    }}
-                  />
-                </div>
-              </td>
-            </tr>
-          );
-        })}
-      </tbody> */}
-=======
                             setFeedback('Esta cobrança não pode ser excluída!');
                             setTimeout(() => {
                               setFeedback('');
@@ -183,7 +167,6 @@ const ChargesTable = () => {
           },
         )}
       </tbody>
->>>>>>> b0add02a1efd67a7b9da21cf74bd175584973928
     </table>
   );
 };

@@ -19,13 +19,9 @@ const ChargesTabs = () => {
       <div className={styles.container_paid}>
         <header className={styles.header}>
           <h3>Cobranças Pagas</h3>
-<<<<<<< HEAD
-          <div className={styles.paid_charges}>{dbPaid.length}</div>
-=======
           <div className={styles.paid_charges}>
             {transformValue(dbPaid.length)}
           </div>
->>>>>>> b0add02a1efd67a7b9da21cf74bd175584973928
         </header>
 
         <table className={styles.table}>
@@ -43,8 +39,8 @@ const ChargesTabs = () => {
               <td>
                 {dbPaid[0]
                   ? `R$ ${Number(dbPaid[0].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -54,8 +50,8 @@ const ChargesTabs = () => {
               <td>
                 {dbPaid[0]
                   ? `R$ ${Number(dbPaid[1].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -65,8 +61,8 @@ const ChargesTabs = () => {
               <td>
                 {dbPaid[0]
                   ? `R$ ${Number(dbPaid[2].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -76,8 +72,8 @@ const ChargesTabs = () => {
               <td>
                 {dbPaid[0]
                   ? `R$ ${Number(dbPaid[3].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -192,8 +188,8 @@ const ChargesTabs = () => {
               <td>
                 {dbExpected[0]
                   ? `R$ ${Number(dbExpected[0].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -203,8 +199,8 @@ const ChargesTabs = () => {
               <td>
                 {dbExpected[1]
                   ? `R$ ${Number(dbExpected[1].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -214,8 +210,8 @@ const ChargesTabs = () => {
               <td>
                 {dbExpected[2]
                   ? `R$ ${Number(dbExpected[2].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>
@@ -225,8 +221,8 @@ const ChargesTabs = () => {
               <td>
                 {dbExpected[3]
                   ? `R$ ${Number(dbExpected[3].values)
-                      .toFixed(2)
-                      .replace('.', ',')}`
+                    .toFixed(2)
+                    .replace('.', ',')}`
                   : ' '}
               </td>
             </tr>

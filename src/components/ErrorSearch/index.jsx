@@ -11,16 +11,16 @@ function ErrorSearch(page) {
     <div className="error_search_box">
 
       {page.page === "Client" &&
-        <div className="header-table-client">
-          <div className="client-client">
+        <div className="header-table-error-search">
+          <div className="error-search-client">
             <img src={agrupamento} alt="" />
             Cliente
           </div>
-          <div className="client-cpf">CPF</div>
-          <div className="client-email">E-mail</div>
-          <div className="client-phone">Telefone</div>
-          <div className="client-status">Status</div>
-          <div className="client-new-charge">Criar Cobrança</div>
+          <div className="error-search-cpf">CPF</div>
+          <div className="error-search-email">E-mail</div>
+          <div className="error-search-phone">Telefone</div>
+          <div className="error-search-status">Status</div>
+          <div className="error-search-new-charge">Criar Cobrança</div>
         </div>
       }
 

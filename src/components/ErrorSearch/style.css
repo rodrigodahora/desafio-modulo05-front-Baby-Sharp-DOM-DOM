@@ -34,7 +34,7 @@
   line-height: normal;
 }
 
-.header-table-client {
+.header-table-error-search {
   display: flex;
   align-self: center;
   justify-content: center;
@@ -44,12 +44,12 @@
   border-bottom: 1px solid #EFF0F6;
 }
 
-.client-client,
-.client-cpf,
-.client-email,
-.client-phone,
-.client-status,
-.client-new-charge {
+.error-search-client,
+.error-search-cpf,
+.error-search-email,
+.error-search-phone,
+.error-search-status,
+.error-search-new-charge {
   display: flex;
   align-items: center;
 
@@ -62,7 +62,7 @@
   letter-spacing: 0.08px;
 }
 
-.client-client img {
+.error-search-client img {
   height: 24px;
   margin-top: 0;
 }

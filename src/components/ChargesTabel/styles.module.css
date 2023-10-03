@@ -167,3 +167,7 @@ td {
   width: 25px;
   height: 31px;
 }
+
+.pointer {
+  cursor: pointer;
+}

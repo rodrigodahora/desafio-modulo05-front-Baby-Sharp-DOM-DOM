@@ -89,8 +89,8 @@ const Client = () => {
           </div>
         </div>
         <div className="Client-body-tabel">
-          {/* <ClientTabel /> */}
-          <ErrorSearch page="Client" />
+          <ClientTabel />
+          {/* <ErrorSearch page="Client" /> */}
         </div>
       </div>
       {openModalCharges && <ChargesModal />}
