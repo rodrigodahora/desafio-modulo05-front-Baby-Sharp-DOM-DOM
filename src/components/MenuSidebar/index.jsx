@@ -14,7 +14,8 @@ import { useState } from 'react';
 const MenuSidebar = (selec) => {
   const navigate = useNavigate();
 
-  const { setSelectedClient } = useContext(MyContext);
+  const { setSelectedClient, setAttChDb, attChDb, attClDb, setAttClDb } =
+    useContext(MyContext);
 
   const [selected, setselected] = useState(selec.selec);
 
@@ -22,37 +23,40 @@ const MenuSidebar = (selec) => {
     <ul className={styles.container}>
       <li
         className={
-          selected === "1" ? `${styles.home}  ${styles.selected}` : styles.home
+          selected === '1' ? `${styles.home}  ${styles.selected}` : styles.home
         }
         onClick={() => {
+          setAttChDb(!attChDb);
+          setAttClDb(!attClDb);
           navigate('/Home');
         }}
       >
         <div>
-          <img src={selected === "1" ? homeSelect : home} alt="Button-home" />
+          <img src={selected === '1' ? homeSelect : home} alt="Button-home" />
         </div>
-        <a className={selected === "1" ? styles.link : styles.no_link}>Home</a>
+        <a className={selected === '1' ? styles.link : styles.no_link}>Home</a>
       </li>
       <li
         className={
-          selected === "2" || selected === "4"
+          selected === '2' || selected === '4'
             ? `${styles.clients}  ${styles.selected}`
             : styles.clients
         }
         onClick={() => {
           setSelectedClient('');
+          setAttChDb(!attChDb);
           navigate('/Client');
         }}
       >
         <div>
           <img
-            src={selected === "2" || selected === "4" ? clientSelect : client}
+            src={selected === '2' || selected === '4' ? clientSelect : client}
             alt="Button-client"
           />
         </div>
         <a
           className={
-            selected === "2" || selected === "4" ? styles.link : styles.no_link
+            selected === '2' || selected === '4' ? styles.link : styles.no_link
           }
         >
           Clientes
@@ -60,21 +64,22 @@ const MenuSidebar = (selec) => {
       </li>
       <li
         className={
-          selected === "3"
+          selected === '3'
             ? `${styles.charges}  ${styles.selected}`
             : styles.charges
         }
         onClick={() => {
+          setAttClDb(!attClDb);
           navigate('/Charges');
         }}
       >
         <div>
           <img
-            src={selected === "3" ? chargeSelect : charge}
+            src={selected === '3' ? chargeSelect : charge}
             alt="Button-charge"
           />
         </div>
-        <a className={selected === "3" ? styles.link : styles.no_link}>
+        <a className={selected === '3' ? styles.link : styles.no_link}>
           Cobranças
         </a>
       </li>

@@ -13,13 +13,8 @@ import DetailChargesModal from '../../components/DetailChargesModal';
 import EditChargesModal from '../../components/EditChargesModal';
 
 const Charges = () => {
-  const {
-    setSelected,
-    openModalDeleteCharges,
-    feedback,
-    openModalDetail,
-    charge,
-  } = useContext(MyContext);
+  const { openModalDeleteCharges, feedback, openModalDetail, charge } =
+    useContext(MyContext);
 
   return (
     <div className={styles.container}>
