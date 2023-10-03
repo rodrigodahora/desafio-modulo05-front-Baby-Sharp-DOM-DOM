@@ -26,8 +26,6 @@ const MenuSidebar = (selec) => {
           selected === '1' ? `${styles.home}  ${styles.selected}` : styles.home
         }
         onClick={() => {
-          setAttChDb(!attChDb);
-          setAttClDb(!attClDb);
           navigate('/Home');
         }}
       >
@@ -44,7 +42,6 @@ const MenuSidebar = (selec) => {
         }
         onClick={() => {
           setSelectedClient('');
-          setAttChDb(!attChDb);
           setAttClDb(!attClDb);
           navigate('/Client');
         }}
@@ -71,7 +68,6 @@ const MenuSidebar = (selec) => {
         }
         onClick={() => {
           setAttChDb(!attChDb);
-          setAttClDb(!attClDb);
           navigate('/Charges');
         }}
       >
