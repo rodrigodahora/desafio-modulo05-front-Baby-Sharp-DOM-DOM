@@ -2,7 +2,6 @@ import { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
-
 export const MyContext = createContext();
 
 export function ContextProvider(props) {
@@ -21,19 +20,18 @@ export function ContextProvider(props) {
   const [dbExpected, setDbExpected] = useState([]);
 
   const [dbAllClient, setDbAllClient] = useState([]);
-  const [defaulters, setdefaulters] = useState([])
-  const [compliant, setCompliant] = useState([])
-
+  const [defaulters, setdefaulters] = useState([]);
+  const [compliant, setCompliant] = useState([]);
 
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
   const [expectedCharges, setExpectedCharges] = useState(0);
 
-  const [attClDb, setAttClDb] = useState(false)
-  const [attChDb, setAttChDb] = useState(false)
+  const [attClDb, setAttClDb] = useState(false);
+  const [attChDb, setAttChDb] = useState(false);
   const [addClient, setAddClient] = useState(false);
 
-  const [charge, setCharge] = useState("");
+  const [charge, setCharge] = useState('');
   const [dbClient, setDbClient] = useState([]);
   const [selectedClient, setSelectedClient] = useState('');
 
@@ -122,35 +120,44 @@ export function ContextProvider(props) {
         .map((e) => Number(e.values))
         .reduce((a, b) => a + b);
       setExpectedCharges(expectedN);
-    } catch (error) {
-
-    }
+    } catch (error) { }
   }
 
-  async function getAllClients() {
+  const filterCharges = (status) => {
+    const charges = dbCharges.filter((item) => item.status === status);
 
+    return setDbCharges(charges);
+  };
+
+  const filterClients = (status) => {
+    const clients = dbAllClient.filter((item) => item.defaulter === status);
+
+    return setDbAllClient(clients);
+  };
+
+  async function getAllClients() {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await api.get(
-        "/listClients",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await api.get('/listClients', {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
+      });
+
+      const defaulters = response.data.clients.filter(
+        (client) => client.defaulter,
       );
-
-      const defaulters = response.data.clients.filter((client) => client.defaulter);
       setdefaulters(defaulters);
-      const compliant = response.data.clients.filter((client) => !client.defaulter);
+      const compliant = response.data.clients.filter(
+        (client) => !client.defaulter,
+      );
       setCompliant(compliant);
-      setDbAllClient(response.data.clients)
-
+      setDbAllClient(response.data.clients);
     } catch (error) {
-      if (error.response.data.message === "Não autorizado!") {
+      if (error.response.data.message === 'Não autorizado!') {
         localStorage.clear();
-        navigate("/");
+        navigate('/');
       }
     }
   }
@@ -163,39 +170,63 @@ export function ContextProvider(props) {
     getAllClients();
   }, [selected, attClDb]);
 
-
-
-
   return (
     <MyContext.Provider
       value={{
-        data, setData,
-        dbCharges, setDbCharges,
-        dbWon, setDbWon,
-        dbPaid, setDbPaid,
-        dbExpected, setDbExpected,
-        dbAllClient, setDbAllClient,
-        defaulters, setdefaulters,
-        compliant, setCompliant,
-        paidCharges, setPaidCharges,
-        wonsCharges, setWonsCharges,
-        expectedCharges, setExpectedCharges,
-        attClDb, setAttClDb,
-        attChDb, setAttChDb,
-        addClient, setAddClient,
-        charge, setCharge,
-        dbClient, setDbClient,
-        selectedClient, setSelectedClient,
-        selected, setSelected,
-        feedback, setFeedback,
-        updateClient, setUpdateClient,
-        openModalUser, setOpenModalUser,
-        openModalDeleteCharges, setOpenModalDeleteChanges,
-        openModalCharges, setOpenModalCharges,
-        openModalDetail, setOpenModalDetail,
-        openModalEdit, setOpenModalEdit,
-        openEditCharges, setOpenEditCharges,
-        openDetailCharModal, setOpenDetailCharModal,
+        data,
+        setData,
+        dbCharges,
+        setDbCharges,
+        dbWon,
+        setDbWon,
+        dbPaid,
+        setDbPaid,
+        dbExpected,
+        setDbExpected,
+        dbAllClient,
+        setDbAllClient,
+        defaulters,
+        setdefaulters,
+        compliant,
+        setCompliant,
+        paidCharges,
+        setPaidCharges,
+        wonsCharges,
+        setWonsCharges,
+        expectedCharges,
+        setExpectedCharges,
+        attClDb,
+        setAttClDb,
+        attChDb,
+        setAttChDb,
+        addClient,
+        setAddClient,
+        charge,
+        setCharge,
+        dbClient,
+        setDbClient,
+        selectedClient,
+        setSelectedClient,
+        selected,
+        setSelected,
+        feedback,
+        setFeedback,
+        updateClient,
+        setUpdateClient,
+        openModalUser,
+        setOpenModalUser,
+        openModalDeleteCharges,
+        setOpenModalDeleteChanges,
+        openModalCharges,
+        setOpenModalCharges,
+        openModalDetail,
+        setOpenModalDetail,
+        openModalEdit,
+        setOpenModalEdit,
+        openEditCharges,
+        setOpenEditCharges,
+        openDetailCharModal,
+        setOpenDetailCharModal,
         isValidEmail,
         isValidCpf,
         isValidPhone,
@@ -203,11 +234,12 @@ export function ContextProvider(props) {
         maskPhone,
         maskZipCode,
         getCharges,
-        getAllClients
+        getAllClients,
+        filterCharges,
+        filterClients,
       }}
     >
       {props.children}
     </MyContext.Provider>
   );
 }
-

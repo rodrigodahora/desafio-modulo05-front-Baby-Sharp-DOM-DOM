@@ -87,7 +87,7 @@
 .header h3 {
   flex: 1;
 
-  text-align: left;
+  text-align: center;
   color: #3F3F55;
   font-family: Montserrat, sans-serif;
   font-size: 18px;
@@ -103,7 +103,9 @@
 
 .table th,
 .table td {
-  padding: 0 20px;
+  
+  padding-left: 20px;
+
 }
 
 .table th {
@@ -138,33 +140,14 @@
   background-color: #FFF;
 }
 
-.footer a {
+.footer button {
   color: #DA0175;
   font-family: Nunito, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   text-decoration-line: underline;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 60px;
-  padding: 15px 20px;
-
-  border-top: 1px solid #EFF0F6;
-
-  background-color: #FFF;
-}
-
-.footer a {
-  color: #DA0175;
-  font-family: Nunito, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  text-decoration-line: underline;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
