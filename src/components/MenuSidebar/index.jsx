@@ -45,6 +45,7 @@ const MenuSidebar = (selec) => {
         onClick={() => {
           setSelectedClient('');
           setAttChDb(!attChDb);
+          setAttClDb(!attClDb);
           navigate('/Client');
         }}
       >
@@ -69,6 +70,7 @@ const MenuSidebar = (selec) => {
             : styles.charges
         }
         onClick={() => {
+          setAttChDb(!attChDb);
           setAttClDb(!attClDb);
           navigate('/Charges');
         }}

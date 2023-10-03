@@ -37,40 +37,44 @@ const ChargesTabs = () => {
               <td>{dbPaid[0] ? dbPaid[0].client : ' '}</td>
               <td>{dbPaid[0] ? dbPaid[0].id : ' '}</td>
               <td>
-                {new Intl.NumberFormat('pt-br', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(dbPaid[0].values)}
+                {dbPaid[0]
+                  ? `R$ ${Number(dbPaid[0].values)
+                      .toFixed(2)
+                      .replace('.', ',')}`
+                  : ' '}
               </td>
             </tr>
             <tr>
               <td>{dbPaid[1] ? dbPaid[1].client : ' '}</td>
               <td>{dbPaid[1] ? dbPaid[1].id : ' '}</td>
               <td>
-                {new Intl.NumberFormat('pt-br', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(dbPaid[1].values)}
+                {dbPaid[0]
+                  ? `R$ ${Number(dbPaid[1].values)
+                      .toFixed(2)
+                      .replace('.', ',')}`
+                  : ' '}
               </td>
             </tr>
             <tr>
               <td>{dbPaid[2] ? dbPaid[2].client : ' '}</td>
               <td>{dbPaid[2] ? dbPaid[2].id : ' '}</td>
               <td>
-                {new Intl.NumberFormat('pt-br', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(dbPaid[2].values)}
+                {dbPaid[0]
+                  ? `R$ ${Number(dbPaid[2].values)
+                      .toFixed(2)
+                      .replace('.', ',')}`
+                  : ' '}
               </td>
             </tr>
             <tr>
               <td>{dbPaid[3] ? dbPaid[3].client : ' '}</td>
               <td>{dbPaid[3] ? dbPaid[3].id : ' '}</td>
               <td>
-                {new Intl.NumberFormat('pt-br', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(dbPaid[3].values)}
+                {dbPaid[0]
+                  ? `R$ ${Number(dbPaid[3].values)
+                      .toFixed(2)
+                      .replace('.', ',')}`
+                  : ' '}
               </td>
             </tr>
           </tbody>
