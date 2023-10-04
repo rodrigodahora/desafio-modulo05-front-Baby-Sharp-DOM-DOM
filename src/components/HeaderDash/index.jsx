@@ -32,8 +32,9 @@ const HeaderDash = (selec) => {
             <div className={styles.container_colun}>
               <h2
                 onClick={() => {
-                  setSearch("")
-                  navigate("/Client")
+                  setSearch("");
+                  setAttClDb(!attClDb);
+                  navigate("/Client");
                 }}
               >
                 Clientes
