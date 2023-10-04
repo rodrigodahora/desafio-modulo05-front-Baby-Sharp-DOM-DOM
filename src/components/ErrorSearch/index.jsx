@@ -13,7 +13,7 @@ function ErrorSearch(page) {
       {page.page === "Client" &&
         <div className="header-table-error-search">
           <div className="error-search-client">
-            <img src={agrupamento} alt="" />
+            <img className="error-search-client-img" src={agrupamento} alt="" />
             Cliente
           </div>
           <div className="error-search-cpf">CPF</div>

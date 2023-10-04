@@ -99,12 +99,12 @@ const ClientModalUpdate = () => {
           email: data.email,
           cpf: cpf,
           phone: phone,
-          address: data.address,
+          address: viaCep.logradouro ? viaCep.logradouro : data.address,
           complement: data.complement,
           zip_code: zipCode,
-          district: data.district,
-          city: data.city,
-          state: data.state
+          district: viaCep.bairro ? viaCep.bairro : data.district,
+          city: viaCep.localidade ? viaCep.localidade : data.city,
+          state: viaCep.uf ? viaCep.uf : data.state
         },
         {
           headers: {
@@ -118,12 +118,12 @@ const ClientModalUpdate = () => {
         email: data.email,
         cpf: cpf,
         phone: phone,
-        address: data.address,
+        address: viaCep.logradouro ? viaCep.logradouro : data.address,
         complement: data.complement,
         zip_code: zipCode,
-        district: data.district,
-        city: data.city,
-        state: data.state
+        district: viaCep.bairro ? viaCep.bairro : data.district,
+        city: viaCep.localidade ? viaCep.localidade : data.city,
+        state: viaCep.uf ? viaCep.uf : data.state
       })
       setUpdateClient(!updateClient);
 
@@ -239,7 +239,7 @@ const ClientModalUpdate = () => {
               type="text"
               name="address"
               id="address"
-              value={data.address ? data.address : viaCep.logradouro}
+              value={viaCep.logradouro ? viaCep.logradouro : data.address}
               placeholder="Digite seu endereço"
               onChange={(e) => {
                 setViaCep({ ...viaCep, logradouro: (e.target.value) });
@@ -280,7 +280,7 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="district"
                 id="district"
-                value={data.district ? data.district : viaCep.bairro}
+                value={viaCep.bairro ? viaCep.bairro : data.district}
                 placeholder="Digite seu bairro"
                 onChange={(e) => {
                   setViaCep({ ...viaCep, bairro: (e.target.value) });
@@ -297,7 +297,7 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="city"
                 id="city"
-                value={data.city ? data.city : viaCep.localidade}
+                value={viaCep.localidade ? viaCep.localidade : data.city}
                 placeholder="Digite sua cidade"
                 onChange={(e) => {
                   setViaCep({ ...viaCep, localidade: (e.target.value) });
@@ -313,7 +313,7 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="state"
                 id="state"
-                value={data.state ? data.state : viaCep.uf}
+                value={viaCep.uf ? viaCep.uf : data.state}
                 placeholder="Digite seu UF"
                 onChange={(e) => {
                   setViaCep({ ...viaCep, uf: (e.target.value) });

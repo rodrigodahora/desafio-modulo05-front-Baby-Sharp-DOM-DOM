@@ -105,7 +105,7 @@ const ChargesTable = () => {
                 )}
                 {e.status === 'Pendente' && (
                   <td onClick={() => handleClick(e)}>
-                    <div className={styles.charges_expected}>Pendentes</div>
+                    <div className={styles.charges_expected}>Pendente</div>
                   </td>
                 )}
                 {e.status === 'Paga' && (

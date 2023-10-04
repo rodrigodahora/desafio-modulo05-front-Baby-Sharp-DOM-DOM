@@ -37,21 +37,11 @@
 .header-table-error-search {
   display: flex;
   align-self: center;
-  justify-content: center;
+  justify-content: space-between;
 
   width: 100%;
 
   border-bottom: 1px solid #EFF0F6;
-}
-
-.error-search-client,
-.error-search-cpf,
-.error-search-email,
-.error-search-phone,
-.error-search-status,
-.error-search-new-charge {
-  display: flex;
-  align-items: center;
 
   color: #3F3F55;
   font-family: Nunito;
@@ -60,9 +50,61 @@
   font-weight: 700;
   line-height: 50px;
   letter-spacing: 0.08px;
+
+}
+
+.error-search-client {
+  display: flex;
+  align-items: center;
+
+  width: 186px;
+  height: 58px;
+}
+
+.header-table-error-search .error-search-client-img {
+  width: 24px;
+  height: 24px;
+
+}
+
+.error-search-cpf {
+  display: flex;
+  align-items: center;
+
+  width: 202px;
+}
+
+.error-search-email {
+  display: flex;
+  align-items: center;
+
+  width: 199px;
+}
+
+.error-search-phone {
+  display: flex;
+  align-items: center;
+
+  width: 193px;
+}
+
+.error-search-status {
+  display: flex;
+  align-items: center;
+
+  width: 161px;
+}
+
+.error-search-new-charge {
+  display: flex;
+  align-items: center;
+
+  width: 127px;
 }
 
 .error-search-client img {
+  display: flex;
+  align-items: center;
+
   height: 24px;
-  margin-top: 0;
 }

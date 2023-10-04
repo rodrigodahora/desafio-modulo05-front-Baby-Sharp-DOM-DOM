@@ -79,9 +79,9 @@
   padding: 4px 60px;
 
   border-radius: 10px;
-  border: 1px solid var(--cinzas-cinza-6, #DEDEE9);
+  border: 1px solid #DEDEE9;
 
-  background: var(--cinzas-cinza-8, #F8F8F9);
+  background: #F8F8F9;
 
   color: #0E8750;
   font-family: Nunito;
@@ -293,7 +293,7 @@
   justify-content: center;
   justify-self: center;
 
-  width: 68px;
+  width: 85px;
   height: 19px;
 
   border-radius: 8px;
@@ -313,7 +313,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 77px;
+  width: 85px;
   height: 19px;
 
   border-radius: 8px;
@@ -334,7 +334,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 48px;
+  width: 85px;
   height: 19px;
 
   border-radius: 8px;
