@@ -42,7 +42,6 @@ const ClientModal = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorCpf, setErrorCpf] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
-  const [errorState, setErrorState] = useState("");
   const [viaCep, setViaCep] = useState("");
 
   function handleChange(e) {
@@ -73,7 +72,6 @@ const ClientModal = () => {
 
   async function getZipCode() {
     try {
-      console.log("Estou Aqui");
       const response = await api_zipcode.get(`${zipCode}/json/`);
       setViaCep(response.data);
     } catch (error) {
@@ -114,10 +112,6 @@ const ClientModal = () => {
       if (!isValidPhone(phone)) {
         return setErrorPhone("Telefone inválido!");
       } else { setErrorPhone("") }
-
-      if (data.state && data.state.length !== 2) {
-        return setErrorState("UF inválido!");
-      } else { setErrorState("") }
 
       const response = await api.post("/registerClient",
         {
@@ -237,7 +231,7 @@ const ClientModal = () => {
               name="address"
               value={viaCep.logradouro}
               placeholder="Digite o endereço"
-              onChange={handleChange}
+              onChange={(e) => { setViaCep({ ...viaCep, logradouro: (e.target.value) }) }}
             />
           </div>
 
@@ -259,8 +253,8 @@ const ClientModal = () => {
                 name="zip_code"
                 value={zipCode}
                 placeholder="Digite o CEP"
-                onChange={((e) => { setZipCode(e.target.value) })}
-                onBlur={(e) => { getZipCode(e.target.value) }}
+                onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
+                onKeyUp={(e) => { if (zipCode.length > 8) { getZipCode(e.target.value) } }}
               />
             </div>
 
@@ -271,7 +265,7 @@ const ClientModal = () => {
                 name="district"
                 value={viaCep.bairro}
                 placeholder="Digite o bairro"
-                onChange={handleChange}
+                onChange={(e) => { setViaCep({ ...viaCep, bairro: (e.target.value) }) }}
               />
             </div>
           </div>
@@ -284,7 +278,7 @@ const ClientModal = () => {
                 name="city"
                 value={viaCep.localidade}
                 placeholder="Digite a cidade"
-                onChange={handleChange}
+                onChange={(e) => { setViaCep({ ...viaCep, localidade: (e.target.value) }) }}
               />
               <span className="modal-error-msg"></span>
             </div>
@@ -294,10 +288,10 @@ const ClientModal = () => {
               <input
                 type="text"
                 name="state"
+                value={viaCep.uf}
                 placeholder="Digite o UF"
-                onChange={handleChange}
+                onChange={(e) => { setViaCep({ ...viaCep, uf: (e.target.value) }) }}
               />
-              <span className="modal-error-msg">{errorState}</span>
             </div>
           </div>
 

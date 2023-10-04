@@ -42,7 +42,6 @@ const ClientModalUpdate = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorCpf, setErrorCpf] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
-  const [errorState, setErrorState] = useState("");
   const [viaCep, setViaCep] = useState("");
 
   function handleChange(e) {
@@ -53,7 +52,6 @@ const ClientModalUpdate = () => {
 
   async function getZipCode() {
     try {
-      console.log("Estou Aqui");
       const response = await api_zipcode.get(`${zipCode}/json/`);
       setViaCep(response.data);
     } catch (error) {
@@ -94,10 +92,6 @@ const ClientModalUpdate = () => {
       if (!isValidPhone(phone)) {
         return setErrorPhone("Telefone inválido!");
       } else { setErrorPhone("") }
-
-      if (data.state && data.state.length !== 2) {
-        return setErrorState("UF inválido!");
-      } else { setErrorState("") }
 
       const response = await api.put(`/editClients/${localStorage.getItem('id')}`,
         {
@@ -245,9 +239,12 @@ const ClientModalUpdate = () => {
               type="text"
               name="address"
               id="address"
-              value={data.address}
+              value={data.address ? data.address : viaCep.logradouro}
               placeholder="Digite seu endereço"
-              onChange={handleChange}
+              onChange={(e) => {
+                setViaCep({ ...viaCep, logradouro: (e.target.value) });
+                setData({ ...data, address: (e.target.value) });
+              }}
             />
           </div>
 
@@ -273,7 +270,7 @@ const ClientModalUpdate = () => {
                 value={zipCode}
                 placeholder="Digite seu CEP"
                 onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
-                onBlur={(e) => { getZipCode(e.target.value) }}
+                onKeyUp={(e) => { if (zipCode.length > 8) { getZipCode(e.target.value) } }}
               />
             </div>
 
@@ -283,9 +280,12 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="district"
                 id="district"
-                value={data.district}
+                value={data.district ? data.district : viaCep.bairro}
                 placeholder="Digite seu bairro"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setViaCep({ ...viaCep, bairro: (e.target.value) });
+                  setData({ ...data, district: (e.target.value) });
+                }}
               />
             </div>
           </div>
@@ -297,9 +297,12 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="city"
                 id="city"
-                value={data.city}
+                value={data.city ? data.city : viaCep.localidade}
                 placeholder="Digite sua cidade"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setViaCep({ ...viaCep, localidade: (e.target.value) });
+                  setData({ ...data, city: (e.target.value) });
+                }}
               />
               <span className="modal-error-msg"></span>
             </div>
@@ -310,11 +313,13 @@ const ClientModalUpdate = () => {
                 type="text"
                 name="state"
                 id="state"
-                value={data.state}
+                value={data.state ? data.state : viaCep.uf}
                 placeholder="Digite seu UF"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setViaCep({ ...viaCep, uf: (e.target.value) });
+                  setData({ ...data, state: (e.target.value) });
+                }}
               />
-              <span className="modal-error-msg">{errorState}</span>
             </div>
           </div>
 
