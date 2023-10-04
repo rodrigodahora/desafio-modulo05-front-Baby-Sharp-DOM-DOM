@@ -262,7 +262,13 @@ const ClientModalUpdate = () => {
                 id="zip_code"
                 value={zipCode}
                 placeholder="Digite seu CEP"
-                onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
+                onChange={((e) => {
+                  setZipCode(maskZipCode(e.target.value));
+                  if (e.target.value.length === 9) {
+                    //getzipCode()
+                  }
+                })}
+
               />
             </div>
 
