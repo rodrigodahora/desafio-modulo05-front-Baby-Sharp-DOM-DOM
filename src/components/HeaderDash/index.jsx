@@ -14,7 +14,7 @@ const HeaderDash = (selec) => {
   const navigate = useNavigate();
 
   const [modalUser, setModalUser] = useState(false);
-  const { setOpenModalUser, openModalUser, search, setSearch, } = useContext(MyContext);
+  const { setOpenModalUser, openModalUser, search, setSearch, setAttClDb } = useContext(MyContext);
 
   const [selected, setSelected] = useState(selec.selec)
 
