@@ -4,6 +4,7 @@ import closeIcon from "../../assets/close.svg";
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import api from "../../services/api";
+import api_zipcode from "../../services/api_zipcode";
 import "./style.css";
 
 
@@ -42,6 +43,7 @@ const ClientModal = () => {
   const [errorCpf, setErrorCpf] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
   const [errorState, setErrorState] = useState("");
+  const [viaCep, setViaCep] = useState("");
 
   function handleChange(e) {
     const key = e.target.name;
@@ -67,6 +69,16 @@ const ClientModal = () => {
     setPhone("");
     setZipCode("");
     setAddClient(!addClient);
+  }
+
+  async function getZipCode() {
+    try {
+      console.log("Estou Aqui");
+      const response = await api_zipcode.get(`${zipCode}/json/`);
+      setViaCep(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async function handleSubmit(e) {
@@ -113,12 +125,12 @@ const ClientModal = () => {
           email: data.email,
           cpf: cpf,
           phone: phone,
-          address: data.address,
+          address: viaCep.logradouro,
           complement: data.complement,
           zip_code: zipCode,
-          district: data.district,
-          city: data.city,
-          state: data.state
+          district: viaCep.bairro,
+          city: viaCep.localidade,
+          state: viaCep.uf
         },
         {
           headers: {
@@ -223,6 +235,7 @@ const ClientModal = () => {
             <input
               type="text"
               name="address"
+              value={viaCep.logradouro}
               placeholder="Digite o endereço"
               onChange={handleChange}
             />
@@ -246,7 +259,8 @@ const ClientModal = () => {
                 name="zip_code"
                 value={zipCode}
                 placeholder="Digite o CEP"
-                onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
+                onChange={((e) => { setZipCode(e.target.value) })}
+                onBlur={(e) => { getZipCode(e.target.value) }}
               />
             </div>
 
@@ -255,6 +269,7 @@ const ClientModal = () => {
               <input
                 type="text"
                 name="district"
+                value={viaCep.bairro}
                 placeholder="Digite o bairro"
                 onChange={handleChange}
               />
@@ -267,6 +282,7 @@ const ClientModal = () => {
               <input
                 type="text"
                 name="city"
+                value={viaCep.localidade}
                 placeholder="Digite a cidade"
                 onChange={handleChange}
               />

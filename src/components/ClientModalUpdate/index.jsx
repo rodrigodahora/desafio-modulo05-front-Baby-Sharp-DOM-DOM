@@ -4,6 +4,7 @@ import closeIcon from "../../assets/close.svg";
 import { MyContext } from '../../contexts/MyContext';
 import '../../index.css';
 import api from "../../services/api";
+import api_zipcode from "../../services/api_zipcode";
 import "./style.css";
 
 
@@ -42,14 +43,23 @@ const ClientModalUpdate = () => {
   const [errorCpf, setErrorCpf] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
   const [errorState, setErrorState] = useState("");
-
-
+  const [viaCep, setViaCep] = useState("");
 
   function handleChange(e) {
     const key = e.target.name;
     const value = e.target.value;
     setData({ ...data, [key]: value });
   };
+
+  async function getZipCode() {
+    try {
+      console.log("Estou Aqui");
+      const response = await api_zipcode.get(`${zipCode}/json/`);
+      setViaCep(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -262,13 +272,8 @@ const ClientModalUpdate = () => {
                 id="zip_code"
                 value={zipCode}
                 placeholder="Digite seu CEP"
-                onChange={((e) => {
-                  setZipCode(maskZipCode(e.target.value));
-                  if (e.target.value.length === 9) {
-                    //getzipCode()
-                  }
-                })}
-
+                onChange={((e) => { setZipCode(maskZipCode(e.target.value)) })}
+                onBlur={(e) => { getZipCode(e.target.value) }}
               />
             </div>
 
