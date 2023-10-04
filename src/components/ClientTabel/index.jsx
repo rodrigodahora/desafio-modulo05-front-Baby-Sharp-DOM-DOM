@@ -14,7 +14,7 @@ export default function ClientTabel() {
     addClient,
     selectedClient, setSelectedClient,
     dbClient, setDbClient,
-    dbAllClient, setDbAllClient, } =
+    dbAllClient, setDbAllClient, dbSearch, setDbSearsh, } =
     useContext(MyContext);
 
   const [dbFilClient, setDbFilClients] = useState();
@@ -47,7 +47,7 @@ export default function ClientTabel() {
         </tr>
       </thead>
       <tbody>
-        {(dbFilClient ? dbFilClient : dbAllClient).map((client) => {
+        {(dbFilClient ? dbFilClient : dbSearch ? dbSearch : dbAllClient).map((client) => {
           return (
             <tr>
               <td

@@ -14,7 +14,7 @@ const HeaderDash = (selec) => {
   const navigate = useNavigate();
 
   const [modalUser, setModalUser] = useState(false);
-  const { setOpenModalUser, openModalUser, } = useContext(MyContext);
+  const { setOpenModalUser, openModalUser, search, setSearch, } = useContext(MyContext);
 
   const [selected, setSelected] = useState(selec.selec)
 
@@ -32,6 +32,7 @@ const HeaderDash = (selec) => {
             <div className={styles.container_colun}>
               <h2
                 onClick={() => {
+                  setSearch("")
                   navigate("/Client")
                 }}
               >

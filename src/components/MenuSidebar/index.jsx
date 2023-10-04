@@ -14,7 +14,7 @@ import { useState } from 'react';
 const MenuSidebar = (selec) => {
   const navigate = useNavigate();
 
-  const { setSelectedClient, setAttChDb, attChDb, attClDb, setAttClDb } =
+  const { setSelectedClient, setAttChDb, attChDb, attClDb, setAttClDb, setSearch } =
     useContext(MyContext);
 
   let selected = selec.selec;
@@ -26,6 +26,7 @@ const MenuSidebar = (selec) => {
           selected === '1' ? `${styles.home}  ${styles.selected}` : styles.home
         }
         onClick={() => {
+          setSearch("");
           navigate('/Home');
         }}
       >
@@ -42,6 +43,7 @@ const MenuSidebar = (selec) => {
         }
         onClick={() => {
           setSelectedClient('');
+          setSearch("");
           setAttClDb(!attClDb);
           navigate('/Client');
         }}
@@ -67,6 +69,7 @@ const MenuSidebar = (selec) => {
             : styles.charges
         }
         onClick={() => {
+          setSearch("");
           setAttChDb(!attChDb);
           navigate('/Charges');
         }}

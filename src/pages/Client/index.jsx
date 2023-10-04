@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import filter from '../../assets/filter.svg';
 import headerCliente from '../../assets/headerCliente.svg';
 import pesquisar from '../../assets/pesquisar.svg';
@@ -27,17 +27,19 @@ const Client = () => {
     openModalCharges,
     openModalDeleteCharges,
     updateClient,
-    charge, } =
+    charge, dbSearch, setDbSearsh, search, setSearch } =
     useContext(MyContext);
 
-  const [search, setSearch] = useState("");
-  const [dbSearch, setDbSearsh] = useState("")
+  useEffect(() => {
+    searchSubmit();
+  }, [search]);
 
   async function searchSubmit() {
     console.log(search);
     if (!search) { return setDbSearsh("") }
+    console.log(search);
     try {
-      const response = await api.get(
+      const response = await api.post(
         "/searchClient",
         { data: search },
         {
@@ -48,11 +50,11 @@ const Client = () => {
 
       );
 
-      setDbSearsh(response.data.search)
+      setDbSearsh(response.data.search);
+      if (response.data.search.length === 0) { setDbSearsh("") }
 
-      console.log(response.data.search);
     } catch (error) {
-
+      setDbSearsh("")
     }
 
   }
@@ -80,16 +82,16 @@ const Client = () => {
               <input
                 type="text"
                 placeholder="Pesquisar"
-                onChange={(e) => setSearch(e.target.value)}
-                onKeyUp={searchSubmit}
+                value={search}
+                onChange={((e) => { setSearch(e.target.value) })}
               />
               <img src={pesquisar} alt="" />
             </div>
           </div>
         </div>
         <div className="Client-body-tabel">
-          <ClientTabel />
-          {/* <ErrorSearch page="Client" /> */}
+          {(search && !dbSearch ? <ErrorSearch page="Client" /> : <ClientTabel />)}
+
         </div>
       </div>
       {openModalCharges && <ChargesModal />}

@@ -15,7 +15,7 @@ const ChargesTable = () => {
     setOpenDetailCharModal,
     setOpenModalDetail,
     setCharge,
-    dbCharges,
+    dbCharges, dbSearch, setDbSearsh
   } = useContext(MyContext);
 
   const [dbFilCharges, setDbFilCharges] = useState();
@@ -56,7 +56,6 @@ const ChargesTable = () => {
 
   return (
     <table className={styles.container}>
-      {/* <ErrorSearch /> */}
       <thead className={styles.charges_table_header}>
         <tr>
           <th className={styles.charges_client}>
@@ -89,7 +88,7 @@ const ChargesTable = () => {
         </tr>
       </thead>
       <tbody>
-        {(dbFilCharges ? dbFilCharges : dbFilId ? dbFilId : dbCharges).map(
+        {(dbFilCharges ? dbFilCharges : dbFilId ? dbFilId : dbSearch ? dbSearch : dbCharges).map(
           (e) => {
             return (
               <tr className={styles.pointer}>

@@ -23,6 +23,10 @@ export function ContextProvider(props) {
   const [defaulters, setdefaulters] = useState([]);
   const [compliant, setCompliant] = useState([]);
 
+  const [dbSearch, setDbSearsh] = useState("");
+  const [search, setSearch] = useState("");
+
+
   const [paidCharges, setPaidCharges] = useState(0);
   const [wonsCharges, setWonsCharges] = useState(0);
   const [expectedCharges, setExpectedCharges] = useState(0);
@@ -155,10 +159,8 @@ export function ContextProvider(props) {
       setCompliant(compliant);
       setDbAllClient(response.data.clients);
     } catch (error) {
-      if (error.response.data.message && error.response.data.message === 'Não autorizado!') {
-        localStorage.clear();
-        navigate('/');
-      }
+      localStorage.clear();
+      navigate('/');
     }
   }
 
@@ -189,6 +191,8 @@ export function ContextProvider(props) {
         setdefaulters,
         compliant,
         setCompliant,
+        dbSearch, setDbSearsh,
+        search, setSearch,
         paidCharges,
         setPaidCharges,
         wonsCharges,
