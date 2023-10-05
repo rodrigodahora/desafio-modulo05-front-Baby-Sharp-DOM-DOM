@@ -9,7 +9,7 @@ import { useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 const EditChargesModal = () => {
-  const { charge, setCharge, setFeedback, setAttChDb, attChDb } = useContext(MyContext);
+  const { charge, setCharge, setFeedback, setAttChDb, attChDb, maskData } = useContext(MyContext);
 
   const [data, setData] = useState({
     name: charge.client,
@@ -137,7 +137,7 @@ const EditChargesModal = () => {
                 value={data.expiration}
                 type="text"
                 placeholder="Digite o vencimento"
-                onChange={handleChange}
+                onChange={(e) => { setData({ ...data, expiration: maskData(e.target.value) }) }}
               />
               <span className={styles.input_modal_box_validation}>{errorValidity}</span>
             </div>

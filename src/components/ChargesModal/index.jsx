@@ -10,7 +10,7 @@ import api from "../../services/api";
 import "./style.css";
 
 const ChargesModal = () => {
-  const { setOpenModalCharges, selectedClient, dbClient, setFeedback, attChDb, setAttChDb } =
+  const { setOpenModalCharges, selectedClient, dbClient, setFeedback, attChDb, setAttChDb, maskData } =
     useContext(MyContext);
 
   const [errorName, setErrorName] = useState("");
@@ -24,6 +24,7 @@ const ChargesModal = () => {
     values: "",
     status: "Paga"
   });
+
 
   function handleChange(e) {
     const key = e.target.name;
@@ -141,7 +142,7 @@ const ChargesModal = () => {
                 value={data.expiration}
                 type="text"
                 placeholder="Digite o vencimento"
-                onChange={handleChange}
+                onChange={(e) => { setData({ ...data, expiration: maskData(e.target.value) }) }}
               />
               <span className="input-modal-box-validation">
                 {errorValidity}
